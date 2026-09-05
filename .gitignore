@@ -6,3 +6,5 @@ __pycache__/
 build/
 dist/
 artifacts/
+results/**/search/**/*.lock
+results/**/assembly.lock

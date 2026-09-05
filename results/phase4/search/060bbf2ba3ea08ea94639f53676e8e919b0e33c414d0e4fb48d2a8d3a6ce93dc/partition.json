@@ -1,0 +1,11 @@
+{
+  "job": {
+    "schema": 1,
+    "workspace_id": "7ca7211c0af18aa0a51d7e25652ec5ffbbe45336dc184651c0d77127d434ae50",
+    "stage": "pin",
+    "pinning_proof": null,
+    "enumeration": "two-disabled-sequences-v1"
+  },
+  "workers": 1,
+  "total": 4611686018427387904
+}

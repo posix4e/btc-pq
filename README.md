@@ -32,6 +32,7 @@ the documented design and the deployed bytes. Full write-up:
 | 1 | `baseline`, `run`, `replay`, `measure` | Native Core verification of the pinned mainnet spend; a 62-case regtest matrix with fresh-node replay; CPU hash-rate measurements. |
 | 2 | `phase2`, `phase2-toy` | A reduced signature-size **surrogate** lifecycle on stock regtest, and a separate **modified-consensus toy** (clearly labeled `consensus_modified: true`). Neither is the exact QSB predicate. |
 | 3 | `phase3` | The **exact** published construction: re-executes the full spend, funds the real 9,923-byte script on regtest, and runs a bounded CPU search for the SHA-256 hash-to-DER puzzle. |
+| 4 | `phase4 prepare/search/assemble/replay` | Fresh HORS commitments in the deployed construction, durable funding fixtures, resumable pinning and both digest searches, and proof-checked assembly. A fresh full-predicate spend has not yet been found. |
 
 Machine-readable results land in `results/`; `REPORT.md` narrates them with every
 number cited to its JSON artifact.
@@ -84,6 +85,73 @@ opcode, the DER probabilities recomputed from first principles, the re-executed
 spend (four `CHECKSIGVERIFY`, two 10-of-10 `CHECKMULTISIG`, fifteen HORS checks),
 the measured search rate, and the implied cost. On a single CPU core the bounded
 search finds no hit — expected for a 2<sup>45</sup>-scale puzzle.
+
+## Generate and search a fresh instance
+
+Phase 4 keeps the deployed SHA-256 puzzle, both 150-entry tables, and the 8+1 / 7+2
+selection counts. It generates all 300 HORS preimages and replaces their
+commitments while preserving the 9,923-byte script and 201 counted opcodes.
+The public fixed signatures and dummy tables stay the same. Work is tracked in
+[issue #1](https://github.com/posix4e/btc-pq/issues/1).
+
+```sh
+# Use an empty directory. A random seed is saved for reproducibility;
+# --seed accepts an explicit 32-byte hexadecimal seed for regtest fixtures.
+btc-pq phase4 prepare --outdir results/phase4-new
+
+# Repeat this command to resume the same search.
+btc-pq phase4 search --outdir results/phase4-new --max-candidates 100000 --max-seconds 10
+
+# Funding can be replayed after the original process and node have exited.
+btc-pq phase4 replay --outdir results/phase4-new
+```
+
+Preparation saves `instance.json`, the funded script, linked parent transactions,
+102 setup blocks, and an unsigned spend template. Both inputs spend outputs of
+the saved funding transaction; the fee input uses `OP_TRUE`, so resuming or
+assembling does not require the temporary wallet. A manifest binds these files
+to the workspace identity.
+
+The pinning counter maps to **62 bits across both input sequences**. Both
+relative-locktime disable bits remain set and absolute locktime stays zero.
+Digest search uses lexicographically ranked, distinct nine-element subsets.
+`--backend python` selects the reference implementation; the default native
+backend uses libsecp256k1 for recovery. Digest sighashes are currently generated
+in Python and screened in native batches. GPU integration is a later milestone.
+
+Each search prints its checkpoint path and, on success, an immutable hit JSON
+path. Once a pinning hit exists, use that printed path for `--pin`:
+
+```sh
+btc-pq phase4 search --outdir results/phase4-new --stage round1 --pin /path/to/pinning-hit.json
+btc-pq phase4 search --outdir results/phase4-new --stage round2 --pin /path/to/pinning-hit.json
+
+# Run only after all three searches have produced validated hits.
+btc-pq phase4 assemble --outdir results/phase4-new \
+  --pin /path/to/pinning-hit.json \
+  --round1 /path/to/round1-hit.json --round2 /path/to/round2-hit.json
+btc-pq phase4 replay --outdir results/phase4-new
+```
+
+Assembly recomputes every proof, checks the HORS preimages and witness layout,
+verifies with unchanged Core, and mines the spend on the restored regtest chain.
+Published-fixture tests reproduce the original transaction byte for byte and
+pass native Core verification. This establishes assembly support; the saved
+fresh-instance run is still a bounded search with no hit.
+
+To partition a stage, choose `--workers N --worker-id I` on its first invocation
+and keep the same `N` on subsequent runs. Each worker receives a disjoint
+contiguous range and its own locked checkpoint. One worker count is fixed per
+stage and pinning proof. Checkpoints are written atomically after each batch;
+an interrupted uncommitted batch may be repeated, while saved progress resumes
+at the recorded next counter. Search budgets apply to each invocation and
+exclude native build/startup checks; a final in-flight batch can exceed the
+wall deadline slightly.
+
+If every worker exhausts either digest round without a hit, run pinning again
+with `--next-hit` using the worker that found the selected pinning hit. Restart
+both digest stages with the new immutable pinning-hit path. Their checkpoints
+are kept separate for each proof. Retain the whole workspace to resume it.
 
 ## Layout
 

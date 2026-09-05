@@ -206,7 +206,7 @@ class ScriptError(Exception):
     pass
 
 
-def execute(spend, index, c):
+def execute(spend, index, c, detailed=False):
     """Re-execute the published spend under legacy semantics for the opcodes the
     construction uses. Raises on any failure; returns a tagged trace. Validity
     itself is decided only by Core (baseline native verify); this cross-checks
@@ -230,7 +230,7 @@ def execute(spend, index, c):
         z = legacy_sighash(spend, index, code, hash_type=hash_type)
         if not ec.ecdsa_verify(ec.decompress_pubkey(key), int.from_bytes(z, 'big'), r, s):
             raise ScriptError(f'ECDSA verification failed @{at}')
-        return z, len(code)
+        return z, code
 
     for a, op, data, _ in c.ins:
         if data is not None:
@@ -256,7 +256,11 @@ def execute(spend, index, c):
         elif op == OP_HASH160:
             stack.append((hash160(stack.pop()[0]), ('hash160',)))
         elif op == OP_SHA256:
-            stack.append((sha256(stack.pop()[0]).digest(), ('sha256',)))
+            source = stack.pop()[0]
+            hashed = sha256(source).digest()
+            stack.append((hashed, ('sha256',)))
+            if detailed:
+                events.append(dict(event='sha256', offset=a, input_hex=source.hex(), output_hex=hashed.hex()))
         elif op == OP_EQUALVERIFY:
             x, y = stack.pop(), stack.pop()
             if x[0] != y[0]:
@@ -272,10 +276,11 @@ def execute(spend, index, c):
         elif op == OP_CHECKSIGVERIFY:
             key, ptag = stack.pop()
             sig, stag = stack.pop()
-            z, code_bytes = check_sig(sig, stag, key, ptag, a, [sig])
+            z, code = check_sig(sig, stag, key, ptag, a, [sig])
             events.append(dict(event='checksigverify', offset=a, signature=sig.hex(),
                                public_key=key.hex(), sighash_byte=sig[-1], z_hex=z.hex(),
-                               script_code_bytes=code_bytes, sig_tag=stag, key_tag=ptag))
+                               script_code_bytes=len(code), sig_tag=stag, key_tag=ptag,
+                               **(dict(script_code_hex=code.hex()) if detailed else {})))
         elif op == OP_CHECKMULTISIG:
             n = scriptnum(stack.pop()[0])
             pubs = [stack.pop() for _ in range(n)][::-1]
@@ -305,7 +310,8 @@ def execute(spend, index, c):
                     raise ScriptError(f'CHECKMULTISIG unmatched signature @{a}')
             stack.append((b'\x01', ('checkmultisig',)))
             events.append(dict(event='checkmultisig', offset=a, m=m, n=n,
-                               script_code_bytes=len(code), pairs=pairs))
+                               script_code_bytes=len(code), pairs=pairs,
+                               **(dict(script_code_hex=code.hex()) if detailed else {})))
         else:
             raise ScriptError(f'unsupported opcode {op:#x} at @{a}')
     if not stack or stack[-1][0] != b'\x01':
@@ -425,8 +431,6 @@ class Pinning:
     def keys(self, digest):
         """Candidate key_nonce per valid recovery branch: Q = u1*G + C_b."""
         z = int.from_bytes(digest, 'big') % ec.N
-        if z == 0:
-            return
         point = ec.point_mul(-z * self.inverse_r % ec.N, ec.G)
         for branch, constant in self.branches:
             q = ec.point_add(point, constant)
@@ -544,7 +548,8 @@ def native_request(pinning, mode, **extra):
     return dict(mode=mode, inverse_r_hex=pinning.inverse_r.to_bytes(32, 'big').hex(),
                 r_hex=pinning.r.to_bytes(32, 'big').hex(),
                 s_hex=pinning.s.to_bytes(32, 'big').hex(),
-                branch_constants=[ec.compress_pubkey(c).hex() for _, c in pinning.branches], **extra)
+                branch_constants=[ec.compress_pubkey(c).hex() for _, c in pinning.branches],
+                recovery_ids=[b for b, _ in pinning.branches], **extra)
 
 
 def native_call(binary, request, timeout):
