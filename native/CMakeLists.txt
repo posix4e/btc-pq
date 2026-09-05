@@ -11,3 +11,6 @@ target_link_libraries(btc-pq-verify PRIVATE core_interface bitcoin_consensus bit
 add_executable(btc-pq-phase3-search phase3_search.cpp)
 target_include_directories(btc-pq-phase3-search PRIVATE "${CORE_SOURCE}/src" "${CMAKE_BINARY_DIR}/core/src" "${CORE_SOURCE}/src/secp256k1/include")
 target_link_libraries(btc-pq-phase3-search PRIVATE core_interface bitcoin_consensus bitcoin_util univalue secp256k1)
+add_executable(btc-pq-trace trace.cpp)
+target_include_directories(btc-pq-trace PRIVATE "${CORE_SOURCE}/src" "${CMAKE_BINARY_DIR}/core/src")
+target_link_libraries(btc-pq-trace PRIVATE core_interface bitcoin_consensus bitcoin_util univalue)
