@@ -13,9 +13,10 @@ SHRINCS domain and BIP341/BIP342 rules, checks each parent and committed script,
 verifies the receipt against the compiled program's image ID, and compares the
 journal with its own expected statement.
 
-The receipt is stored separately from the transaction. This tests proof-based
-authorization; transaction witness framing and a Bitcoin node's consensus
-integration remain separate work.
+This harness stores the receipt separately from the transaction. The companion
+[native transaction proof demo](receipt-transaction.md) places it in a witness
+and enforces the same claims using Core's Script and transaction code. Bitcoin
+network-node integration remains separate work.
 
 ## Implementation and validation
 
@@ -59,6 +60,33 @@ The host permits only composite or succinct STARK receipts and compiles with
 512 authorizations. These choices avoid silently measuring a mock proof or a
 pairing-based compression wrapper; they do not establish a reviewed level of
 post-quantum soundness for this application.
+
+## Completed receipts and compression
+
+The first [compact-signature proof](../results/shrincs-proof/compact-q1-valid.proof.json)
+is a real composite STARK receipt of **1,381,282 bytes**. Generation took
+492,456 ms (8.2 minutes); verification took 67 ms. Its 12 checks cover the valid
+payment, changed transaction fields, funding, annex, key, and malformed proof
+lengths. The recovery and two-input receipts are still being generated.
+
+Recursive STARK compression reduces that receipt to **223,290 bytes**, without
+changing the guest image or authorization claims. Compression took 212,456 ms
+(3.5 minutes), with a 20 ms verification measurement. The
+[compression report](../results/shrincs-proof-compressed/compact-q1-valid.compression.json)
+records both receipt hashes and replays both against the original guest verifier.
+These are single local timings under other system load, not controlled benchmarks.
+
+The compressed proof remains much larger than a 324-byte direct signature.
+Batch crossover must be measured using larger proofs; extrapolating this one
+receipt does not establish an aggregation benefit.
+
+```sh
+# Build the receipt utility and native transaction checker.
+python -m btc_pq.receipt_demo --build
+# Compress an existing receipt into a new directory, or replay the saved result.
+python -m btc_pq.receipt_compress --outdir results/new-compression
+python -m btc_pq.receipt_compress --replay
+```
 
 ## Reproduction on Apple Silicon
 

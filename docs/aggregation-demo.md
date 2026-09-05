@@ -119,5 +119,8 @@ Proof aggregation is a batch optimization with significant fixed overhead.
 Supporting SHRINCS itself requires a SHA256 SHRINCS verifier inside the proof
 system; that is not provided by leanVM's existing BLAKE2s XMSS circuit. The
 [exact SHRINCS proof program](shrincs-proof.md) now provides that verifier and
-passes six zkVM execution checks. Receipt generation and batch crossover are
-tracked separately from those execution results.
+passes six zkVM execution checks. Its first real compact-signature receipt is
+1,381,282 bytes, or 223,290 bytes after recursive STARK compression. The
+[native witness experiment](receipt-transaction.md) also enforces those receipts
+inside serialized transactions. Additional receipts, exact-SHRINCS batch
+crossover, and Bitcoin network-node integration remain open.

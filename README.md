@@ -34,8 +34,10 @@ limits before each native check. Results and remaining work are tracked in [issu
 
 The [exact SHRINCS proof experiment](docs/shrincs-proof.md) runs the same SHA256
 verification logic in a RISC Zero guest. Its native Rust replay covers all 375
-upstream vectors; execution, proof generation, and saved-proof replay are
-separate commands and reports.
+upstream vectors. The first real receipt compresses from 1,381,282 to 223,290
+bytes. The [native transaction proof demo](docs/receipt-transaction.md) places
+both receipt formats in actual transaction witnesses and checks 32 payment and
+proof cases. Full node integration and larger exact-SHRINCS batches remain open.
 
 ## The finding
 

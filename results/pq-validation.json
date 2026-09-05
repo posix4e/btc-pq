@@ -1,7 +1,7 @@
 {
   "date": "2026-09-05",
-  "unit_tests": 61,
-  "passed": 60,
+  "unit_tests": 63,
+  "passed": 62,
   "skipped": 1,
   "command": "python -m unittest discover -s tests -v",
   "native_script_cases": 64,
@@ -63,6 +63,26 @@
       "path": "results/shrincs-proof/program.json",
       "cases": 1,
       "sha256": "8968828a12874a22675ff4eff001710c9ed972bf5e9e16de78af33b77db12009"
+    },
+    {
+      "path": "results/shrincs-proof/compact-q1-valid.proof.json",
+      "cases": 12,
+      "sha256": "0b1ddc5234364aef96094709143db58d8f095fdd07015dcf2647d9b88eef9e66"
+    },
+    {
+      "path": "results/shrincs-proof-compressed/compact-q1-valid.compression.json",
+      "cases": 1,
+      "sha256": "c01128e795156057f01d24a3f307c564cbc5be9862ddd8c2c250c9dd3aa2c64c"
+    },
+    {
+      "path": "results/shrincs-receipt/compact-q1-valid.json",
+      "cases": 16,
+      "sha256": "1522adad54443d0fb4db90bbfde4691bba3cc2493437a19ff3d36d3d7bb31334"
+    },
+    {
+      "path": "results/shrincs-receipt-compressed/compact-q1-valid.json",
+      "cases": 16,
+      "sha256": "b7dde5864d4aa69b9905962724a8bf04d714f6c120fd87dc21b2892a7e9c1511"
     }
   ],
   "git_staged_diff_check_passed": true,
@@ -72,5 +92,8 @@
   "exact_shrincs_rust_vectors": 375,
   "exact_shrincs_rust_negative_controls": 1875,
   "exact_shrincs_guest_execution_cases": 6,
-  "exact_shrincs_receipts_complete": false
+  "exact_shrincs_receipts_complete": false,
+  "exact_shrincs_compact_proof_cases": 12,
+  "native_receipt_transaction_cases": 32,
+  "exact_shrincs_compressed_receipts": 1
 }

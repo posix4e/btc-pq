@@ -211,5 +211,8 @@ select different valid counters; replay checks the exact saved bytes.
 The experiment establishes a compact, transaction-bound PQ spending path under
 the modeled rules. Production work still includes a consensus specification
 and review of the cost model, independent cryptographic validation, and wallet/device
-integration. The executed aggregation experiment uses XMSS; a SHRINCS circuit
-would be needed to prove this exact scheme.
+integration. The separate [exact SHRINCS proof program](shrincs-proof.md) now
+proves this verifier, with a completed compact-signature receipt and recursive
+STARK compression. The [native witness experiment](receipt-transaction.md)
+enforces its transaction claims; larger batches and network-node integration
+remain open.

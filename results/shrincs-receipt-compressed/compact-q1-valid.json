@@ -1,0 +1,417 @@
+{
+  "fixture": "compact-q1-valid",
+  "proof_sha256": "bb01cac5a91de8a69df7cfef170ad9bfb7ea738d1aa198740368c6368669560f",
+  "source_sha256": {
+    "btc_pq/receipt_demo.py": "2e8222c903e8afb5f4d2a3d60154e4f4a813c21814d4c03007940ffe145126c2",
+    "native/covenant-core.patch": "e69e500aecb7920e16edc1275afe7aae8a150a0c46da47d7296d14ace65a2f83",
+    "native/receipt-tool/Cargo.lock": "c9c7401266cc0dc4935737e3ca071e6af0626184a6ea734185b2890506b1cc9d",
+    "native/receipt-tool/Cargo.toml": "2f6b8a31aade8a6f2eeb505a333147046af6e6add0dba08ab59a820b914ca2b5",
+    "native/receipt-tool/src/lib.rs": "dca1fa18242d85c294ba74123fd53c82af6274d4bbd25e121975139cc98a6d74",
+    "native/receipt-tool/src/main.rs": "01ed0f941acbf8072999fa9189abb590efcada8a5cdf6be16abf31eaa7c20329",
+    "native/shrincs-core.patch": "f5bbc5c4d50bf0f4da3b672f4de11758e431a8c4efa027197175405b8b933620",
+    "native/shrincs-proof-core.patch": "7123d727df0b317775724d04a86d1b85b6feefd154075f469f05e432a1da64ef",
+    "native/shrincs-receipt/CMakeLists.txt": "f5085a809fb67d7637fcda19da51f544e2d03653a280ae2bbb592fefd53c5830",
+    "native/shrincs_cost.h": "cfad93eabc4fbf81a0b37358f649ebc3caad02a2401036c84908556fac04adfa",
+    "native/shrincs_receipt_verify.cpp": "b8c04a556b9a14fffb4c3302842ced99405daddee3d55da81550e6ac6c78090d"
+  },
+  "build_manifest": {
+    "core_commit": "9be056a8a72b624dae9623b2f7bded92c2a21c91",
+    "source_sha256": {
+      "btc_pq/receipt_demo.py": "2e8222c903e8afb5f4d2a3d60154e4f4a813c21814d4c03007940ffe145126c2",
+      "native/covenant-core.patch": "e69e500aecb7920e16edc1275afe7aae8a150a0c46da47d7296d14ace65a2f83",
+      "native/receipt-tool/Cargo.lock": "c9c7401266cc0dc4935737e3ca071e6af0626184a6ea734185b2890506b1cc9d",
+      "native/receipt-tool/Cargo.toml": "2f6b8a31aade8a6f2eeb505a333147046af6e6add0dba08ab59a820b914ca2b5",
+      "native/receipt-tool/src/lib.rs": "dca1fa18242d85c294ba74123fd53c82af6274d4bbd25e121975139cc98a6d74",
+      "native/receipt-tool/src/main.rs": "01ed0f941acbf8072999fa9189abb590efcada8a5cdf6be16abf31eaa7c20329",
+      "native/shrincs-core.patch": "f5bbc5c4d50bf0f4da3b672f4de11758e431a8c4efa027197175405b8b933620",
+      "native/shrincs-proof-core.patch": "7123d727df0b317775724d04a86d1b85b6feefd154075f469f05e432a1da64ef",
+      "native/shrincs-receipt/CMakeLists.txt": "f5085a809fb67d7637fcda19da51f544e2d03653a280ae2bbb592fefd53c5830",
+      "native/shrincs_cost.h": "cfad93eabc4fbf81a0b37358f649ebc3caad02a2401036c84908556fac04adfa",
+      "native/shrincs_receipt_verify.cpp": "b8c04a556b9a14fffb4c3302842ced99405daddee3d55da81550e6ac6c78090d"
+    },
+    "binary_sha256": {
+      ".cache/receipt-build/btc-pq-shrincs-receipt": "537bcb966cb71fb1f211b9c933227461e5b6521bd0c6dcb5ffa15768d5091adf",
+      ".cache/risc0-target/release/libbtc_pq_receipt.dylib": "6b315fa7c630a146925a75cd2fa279c282c860f204d847897f5b55dc312f49b1"
+    }
+  },
+  "cases": [
+    {
+      "mutation": "none",
+      "tx_sha256": "e29f74d1efaf393304a9e94e43db0140bc5a80c41ba06c1dfb0c57f0261b6f40",
+      "result": {
+        "scope": "native_linked_prevout_transaction_proof_model",
+        "consensus_modified": true,
+        "network_node": false,
+        "transaction_bytes": 223475,
+        "weight": 223757,
+        "vbytes": 55940,
+        "inputs": [
+          {
+            "index": 0,
+            "script_valid": true,
+            "error": "No error",
+            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d"
+          }
+        ],
+        "claims_digest": "f67cc88c6c1aa318183c8e896ee9ed6449f0e6ebe8dac463600b3be36a2bf1e2",
+        "image_id": "025c847d7ffd433115e47c59802a40d334db1ec89a272235f4756faebb94b694",
+        "proof_bytes": 223290,
+        "proof_verify_ms": 31.908125,
+        "fee_sats": 1000,
+        "group_authorized": true,
+        "valid": true
+      }
+    },
+    {
+      "mutation": "recipient",
+      "tx_sha256": "31820fbc592411fa9d7aeee7ff79eeb06cdb22fe4aec0eaa100f7cb640f9e443",
+      "result": {
+        "scope": "native_linked_prevout_transaction_proof_model",
+        "consensus_modified": true,
+        "network_node": false,
+        "transaction_bytes": 223442,
+        "weight": 223625,
+        "vbytes": 55907,
+        "inputs": [
+          {
+            "index": 0,
+            "script_valid": true,
+            "error": "No error",
+            "message_digest": "d2a7c1f442ce3f5202b62064a370dcd68501a559d73d68ab46d92a6014dd3f25"
+          }
+        ],
+        "claims_digest": "415ba9a4b6bf60415ecac6cdbf691c6b270c4c5a28bda0f5dad5830edb2d015f",
+        "image_id": "025c847d7ffd433115e47c59802a40d334db1ec89a272235f4756faebb94b694",
+        "proof_bytes": 223290,
+        "proof_verify_ms": 15.237209,
+        "fee_sats": 1000,
+        "group_authorized": false,
+        "valid": false
+      }
+    },
+    {
+      "mutation": "amount",
+      "tx_sha256": "9ee25c6460ecd9774719ba35a8ccbb1ce4d9d5481841d416a97e65e17f3c9bba",
+      "result": {
+        "scope": "native_linked_prevout_transaction_proof_model",
+        "consensus_modified": true,
+        "network_node": false,
+        "transaction_bytes": 223475,
+        "weight": 223757,
+        "vbytes": 55940,
+        "inputs": [
+          {
+            "index": 0,
+            "script_valid": true,
+            "error": "No error",
+            "message_digest": "cc8301eccb9545fd8b9af253747347f4a57fdf70bd131e85086a8f6835074cf2"
+          }
+        ],
+        "claims_digest": "0ca38c83dd8e0a6a6b79a7ff9255be62e3506ddad857bcd56bb5917606f315fd",
+        "image_id": "025c847d7ffd433115e47c59802a40d334db1ec89a272235f4756faebb94b694",
+        "proof_bytes": 223290,
+        "proof_verify_ms": 16.515959,
+        "fee_sats": 1001,
+        "group_authorized": false,
+        "valid": false
+      }
+    },
+    {
+      "mutation": "sequence",
+      "tx_sha256": "59bf804a1f31d3242eed78a7b2348554f67c0d513aeb6e3ac7f0f9ba2202ca10",
+      "result": {
+        "scope": "native_linked_prevout_transaction_proof_model",
+        "consensus_modified": true,
+        "network_node": false,
+        "transaction_bytes": 223475,
+        "weight": 223757,
+        "vbytes": 55940,
+        "inputs": [
+          {
+            "index": 0,
+            "script_valid": true,
+            "error": "No error",
+            "message_digest": "44640b60a8eeaeaeab6c6157c0333d8e40164a292ac58f77e43c20a45367fcaf"
+          }
+        ],
+        "claims_digest": "39749548e419fa79d6d1d00830aba416b90d6e93f205782058bd37b79ea65834",
+        "image_id": "025c847d7ffd433115e47c59802a40d334db1ec89a272235f4756faebb94b694",
+        "proof_bytes": 223290,
+        "proof_verify_ms": 12.955584,
+        "fee_sats": 1000,
+        "group_authorized": false,
+        "valid": false
+      }
+    },
+    {
+      "mutation": "version",
+      "tx_sha256": "1d30ff003b483f07ed454f09f2c6ad92e09509d77139804d820aeccd43bc6e46",
+      "result": {
+        "scope": "native_linked_prevout_transaction_proof_model",
+        "consensus_modified": true,
+        "network_node": false,
+        "transaction_bytes": 223475,
+        "weight": 223757,
+        "vbytes": 55940,
+        "inputs": [
+          {
+            "index": 0,
+            "script_valid": true,
+            "error": "No error",
+            "message_digest": "af1abf72b78524376a891ca1cdcd9ff75150ebdddaf7cd24866acc0887e0b76c"
+          }
+        ],
+        "claims_digest": "52f0e831dac75eec897b0b6875efc37a8a5ae855bae7cc956c7bef6d7f716696",
+        "image_id": "025c847d7ffd433115e47c59802a40d334db1ec89a272235f4756faebb94b694",
+        "proof_bytes": 223290,
+        "proof_verify_ms": 14.969083,
+        "fee_sats": 1000,
+        "group_authorized": false,
+        "valid": false
+      }
+    },
+    {
+      "mutation": "locktime",
+      "tx_sha256": "135cb8adb412ee62c507bfc17670cefe8da5100a69d09f8c113d0d8a03bda932",
+      "result": {
+        "scope": "native_linked_prevout_transaction_proof_model",
+        "consensus_modified": true,
+        "network_node": false,
+        "transaction_bytes": 223475,
+        "weight": 223757,
+        "vbytes": 55940,
+        "inputs": [
+          {
+            "index": 0,
+            "script_valid": true,
+            "error": "No error",
+            "message_digest": "17e125d955f3ded2808a82af66d2ae585cfa0223e69b7ecd01f16e6db47ab13f"
+          }
+        ],
+        "claims_digest": "0f49af2fb22e38ca7ed42757f8e5ef935078dfaa77b5f51d13ffe8c91e90071e",
+        "image_id": "025c847d7ffd433115e47c59802a40d334db1ec89a272235f4756faebb94b694",
+        "proof_bytes": 223290,
+        "proof_verify_ms": 15.802333,
+        "fee_sats": 1000,
+        "group_authorized": false,
+        "valid": false
+      }
+    },
+    {
+      "mutation": "spent_amount",
+      "tx_sha256": "118c9329824b9b1bf893d117d76f2a9606b70183d08d8dd71786dcd70e8285b0",
+      "result": {
+        "scope": "native_linked_prevout_transaction_proof_model",
+        "consensus_modified": true,
+        "network_node": false,
+        "transaction_bytes": 223475,
+        "weight": 223757,
+        "vbytes": 55940,
+        "inputs": [
+          {
+            "index": 0,
+            "script_valid": true,
+            "error": "No error",
+            "message_digest": "fdc7f4823d7dc2921df50b1caa0bff49c74f001e1e8cbada51ef182acd2304c4"
+          }
+        ],
+        "claims_digest": "fabca8bb538aea78c88fcec9475b5f4db082f409e8941697d84a9981e18bf412",
+        "image_id": "025c847d7ffd433115e47c59802a40d334db1ec89a272235f4756faebb94b694",
+        "proof_bytes": 223290,
+        "proof_verify_ms": 14.376334,
+        "fee_sats": 1001,
+        "group_authorized": false,
+        "valid": false
+      }
+    },
+    {
+      "mutation": "outpoint",
+      "tx_sha256": "9f5971e9287cdd60d1fd3f4292476f9084f8398bc5233d1cb537571526bf1f8f",
+      "result": {
+        "scope": "native_linked_prevout_transaction_proof_model",
+        "consensus_modified": true,
+        "network_node": false,
+        "transaction_bytes": 223475,
+        "weight": 223757,
+        "vbytes": 55940,
+        "inputs": [
+          {
+            "index": 0,
+            "script_valid": true,
+            "error": "No error",
+            "message_digest": "ee76f197d8f480794eef683b800975815d82efab1a47e4a66ba357d94e37e0c0"
+          }
+        ],
+        "claims_digest": "10b7f30b8d31ccc3917e8cbc6898b5bb0568679c29ba17e98f178e3c29bbe2c4",
+        "image_id": "025c847d7ffd433115e47c59802a40d334db1ec89a272235f4756faebb94b694",
+        "proof_bytes": 223290,
+        "proof_verify_ms": 14.762708,
+        "fee_sats": 1000,
+        "group_authorized": false,
+        "valid": false
+      }
+    },
+    {
+      "mutation": "missing_proof",
+      "tx_sha256": "49015eed6315045807ac444812e69353d192123411a4254390f61521959ef106",
+      "result": {
+        "scope": "native_linked_prevout_transaction_proof_model",
+        "consensus_modified": true,
+        "network_node": false,
+        "transaction_bytes": 167,
+        "weight": 449,
+        "vbytes": 113,
+        "valid": false,
+        "error": "first input must carry exactly one proof envelope"
+      }
+    },
+    {
+      "mutation": "version_marker",
+      "tx_sha256": "181962e171258b57532716abcf1c7e3b34eeb3e65ef67d6d0158373916c88c7f",
+      "result": {
+        "scope": "native_linked_prevout_transaction_proof_model",
+        "consensus_modified": true,
+        "network_node": false,
+        "transaction_bytes": 223475,
+        "weight": 223757,
+        "vbytes": 55940,
+        "valid": false,
+        "error": "proof envelope version"
+      }
+    },
+    {
+      "mutation": "proof",
+      "tx_sha256": "8f6944dcac444644359a0967aa5eac53a171230d18a1e5cad377ac73b2f0d456",
+      "result": {
+        "scope": "native_linked_prevout_transaction_proof_model",
+        "consensus_modified": true,
+        "network_node": false,
+        "transaction_bytes": 223475,
+        "weight": 223757,
+        "vbytes": 55940,
+        "inputs": [
+          {
+            "index": 0,
+            "script_valid": true,
+            "error": "No error",
+            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d"
+          }
+        ],
+        "claims_digest": "f67cc88c6c1aa318183c8e896ee9ed6449f0e6ebe8dac463600b3be36a2bf1e2",
+        "image_id": "025c847d7ffd433115e47c59802a40d334db1ec89a272235f4756faebb94b694",
+        "proof_bytes": 223290,
+        "proof_verify_ms": 2.350875,
+        "fee_sats": 1000,
+        "group_authorized": false,
+        "valid": false
+      }
+    },
+    {
+      "mutation": "proof_append",
+      "tx_sha256": "989572377c778d292e65d573c1a36fb8b24ca3f196104e7616e17366d8296b0e",
+      "result": {
+        "scope": "native_linked_prevout_transaction_proof_model",
+        "consensus_modified": true,
+        "network_node": false,
+        "transaction_bytes": 223476,
+        "weight": 223758,
+        "vbytes": 55940,
+        "inputs": [
+          {
+            "index": 0,
+            "script_valid": true,
+            "error": "No error",
+            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d"
+          }
+        ],
+        "claims_digest": "f67cc88c6c1aa318183c8e896ee9ed6449f0e6ebe8dac463600b3be36a2bf1e2",
+        "image_id": "025c847d7ffd433115e47c59802a40d334db1ec89a272235f4756faebb94b694",
+        "proof_bytes": 223291,
+        "proof_verify_ms": 0.122208,
+        "fee_sats": 1000,
+        "group_authorized": false,
+        "valid": false
+      }
+    },
+    {
+      "mutation": "proof_truncate",
+      "tx_sha256": "1af2eded605e2e229c68a6987818bb89010dc46428bc68e9e1819bd626048177",
+      "result": {
+        "scope": "native_linked_prevout_transaction_proof_model",
+        "consensus_modified": true,
+        "network_node": false,
+        "transaction_bytes": 223474,
+        "weight": 223756,
+        "vbytes": 55939,
+        "inputs": [
+          {
+            "index": 0,
+            "script_valid": true,
+            "error": "No error",
+            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d"
+          }
+        ],
+        "claims_digest": "f67cc88c6c1aa318183c8e896ee9ed6449f0e6ebe8dac463600b3be36a2bf1e2",
+        "image_id": "025c847d7ffd433115e47c59802a40d334db1ec89a272235f4756faebb94b694",
+        "proof_bytes": 223289,
+        "proof_verify_ms": 0.089166,
+        "fee_sats": 1000,
+        "group_authorized": false,
+        "valid": false
+      }
+    },
+    {
+      "mutation": "sentinel",
+      "tx_sha256": "6b499b4539b15f0241cb49cc9f0dda590515c991fdf1f94c863bb5b1b6e87a49",
+      "result": {
+        "scope": "native_linked_prevout_transaction_proof_model",
+        "consensus_modified": true,
+        "network_node": false,
+        "transaction_bytes": 223476,
+        "weight": 223758,
+        "vbytes": 55940,
+        "valid": false,
+        "error": "all inputs must request the same aggregate group"
+      }
+    },
+    {
+      "mutation": "control",
+      "tx_sha256": "9f6a877c38b868f16291c5efd831807771f4107749274c82d9901469961f9366",
+      "result": {
+        "scope": "native_linked_prevout_transaction_proof_model",
+        "consensus_modified": true,
+        "network_node": false,
+        "transaction_bytes": 223475,
+        "weight": 223757,
+        "vbytes": 55940,
+        "inputs": [
+          {
+            "index": 0,
+            "script_valid": false,
+            "error": "Witness program hash mismatch"
+          }
+        ],
+        "claims_digest": "724a6d67fcab8ce1785964037baee0656c467e377db3d325a87e67008a227121",
+        "image_id": "025c847d7ffd433115e47c59802a40d334db1ec89a272235f4756faebb94b694",
+        "proof_bytes": 223290,
+        "proof_verify_ms": 4.2e-05,
+        "fee_sats": 1000,
+        "group_authorized": false,
+        "valid": false
+      }
+    },
+    {
+      "mutation": "overweight",
+      "tx_sha256": "0219af0af2e9c79c7de3dfec729cc2bf650fee38413842438d9f62f83056bdcb",
+      "result": {
+        "scope": "native_linked_prevout_transaction_proof_model",
+        "consensus_modified": true,
+        "network_node": false,
+        "valid": false,
+        "error": "transaction cannot fit within block weight"
+      }
+    }
+  ],
+  "all_expectations_met": true,
+  "network_node": false
+}
