@@ -1,0 +1,117 @@
+{
+  "shrincs_commit": "7643d9530c568f8671b21b9502e51bd9722b2e8d",
+  "actual_parameters": "SHRINCS_B32",
+  "generator_display_name": "L (upstream has no B32 label branch)",
+  "scope": "first message group from unmodified upstream generator, not full upstream suite",
+  "independent_implementation": false,
+  "vectors_sha256": "e6615c9255f7bb4349c19be1ba93fd0e60aa7afa26e54db02f273813e1bb9edd",
+  "generator_sha256": "1089129e29c83afd3b1f2a749731e5e29f51135cecc86f32ca821a0de2677627",
+  "cases": [
+    {
+      "count": 0,
+      "signature_bytes": 3680,
+      "public_key_matches": true,
+      "valid": true,
+      "changed_message_valid": false
+    },
+    {
+      "count": 1,
+      "signature_bytes": 324,
+      "public_key_matches": true,
+      "valid": true,
+      "changed_message_valid": false
+    },
+    {
+      "count": 2,
+      "signature_bytes": 340,
+      "public_key_matches": true,
+      "valid": true,
+      "changed_message_valid": false
+    },
+    {
+      "count": 3,
+      "signature_bytes": 356,
+      "public_key_matches": true,
+      "valid": true,
+      "changed_message_valid": false
+    },
+    {
+      "count": 4,
+      "signature_bytes": 388,
+      "public_key_matches": true,
+      "valid": true,
+      "changed_message_valid": false
+    },
+    {
+      "count": 5,
+      "signature_bytes": 468,
+      "public_key_matches": true,
+      "valid": true,
+      "changed_message_valid": false
+    },
+    {
+      "count": 6,
+      "signature_bytes": 628,
+      "public_key_matches": true,
+      "valid": true,
+      "changed_message_valid": false
+    },
+    {
+      "count": 7,
+      "signature_bytes": 1108,
+      "public_key_matches": true,
+      "valid": true,
+      "changed_message_valid": false
+    },
+    {
+      "count": 8,
+      "signature_bytes": 1908,
+      "public_key_matches": true,
+      "valid": true,
+      "changed_message_valid": false
+    },
+    {
+      "count": 9,
+      "signature_bytes": 1140,
+      "public_key_matches": true,
+      "valid": true,
+      "changed_message_valid": false
+    },
+    {
+      "count": 10,
+      "signature_bytes": 1988,
+      "public_key_matches": true,
+      "valid": true,
+      "changed_message_valid": false
+    },
+    {
+      "count": 11,
+      "signature_bytes": 3636,
+      "public_key_matches": true,
+      "valid": true,
+      "changed_message_valid": false
+    },
+    {
+      "count": 12,
+      "signature_bytes": 3652,
+      "public_key_matches": true,
+      "valid": true,
+      "changed_message_valid": false
+    },
+    {
+      "count": 13,
+      "signature_bytes": 3668,
+      "public_key_matches": true,
+      "valid": true,
+      "changed_message_valid": false
+    },
+    {
+      "count": 14,
+      "signature_bytes": 3668,
+      "public_key_matches": true,
+      "valid": true,
+      "changed_message_valid": false
+    }
+  ],
+  "all_expectations_met": true
+}

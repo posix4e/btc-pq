@@ -1,0 +1,313 @@
+{
+  "leanvm_commit": "574521665891ad040580833d3cae62c9bd347c9b",
+  "scheme": "leanVM BLAKE2s XMSS",
+  "parameters": {
+    "signature_bytes": 1208,
+    "public_key_bytes": 32
+  },
+  "real_proofs_generated": true,
+  "native_bitcoin_consensus": false,
+  "shrincs_aggregation": false,
+  "scope": "Host-recomputed BIP341/342 payment claims; local transaction-level verification model",
+  "source_sha256": {
+    "native/pq-aggregate/Cargo.toml": "b1d4906b92f0eab66e80290f7afd516f136e16491b5ff5262a797d54194d9dba",
+    "native/pq-aggregate/Cargo.lock": "d92e7804c4a224692a2eb2a0f700563811599a663ced52656d9af500e65ca89f",
+    "native/pq-aggregate/src/main.rs": "796c4a5462542db6cf09a148a34b6e9147fc51d09ea90b275cafa634801544dc",
+    "btc_pq/pq_aggregate.py": "1e0f7ce129d6c18e9b9dcd4bd4b95a7b7e870b9260d3aa572e3cc5f914217ad2"
+  },
+  "binary_sha256": "9a975b13af0b2af5f52a0abb75f4ab5632aa5f19af6903215e9abc7fa66f1088",
+  "measurements": [
+    {
+      "cold_proving_seconds": 0.929025084,
+      "inputs": 2,
+      "proof_bytes": 229952,
+      "proof_with_claims_bytes": 230120,
+      "raw_signature_bytes": 2416,
+      "signing_seconds": 0.003982,
+      "valid": true,
+      "verify_seconds": 0.025710667,
+      "transaction_without_authorization_bytes": 135,
+      "proof_sha256": "1deb5f5b9416b8e4e3f9f66a49fc0488c065a36fb2ecc5681a0cb1c0e2785e46"
+    },
+    {
+      "cold_proving_seconds": 1.342889875,
+      "inputs": 10,
+      "proof_bytes": 230464,
+      "proof_with_claims_bytes": 231240,
+      "raw_signature_bytes": 12080,
+      "signing_seconds": 0.223186667,
+      "valid": true,
+      "verify_seconds": 0.026568,
+      "transaction_without_authorization_bytes": 463,
+      "proof_sha256": "f5b14dc73b4a046fb463332b0051ddb3031d753eca2d578731d187010e303055"
+    },
+    {
+      "cold_proving_seconds": 2.292426167,
+      "inputs": 256,
+      "proof_bytes": 316616,
+      "proof_with_claims_bytes": 336088,
+      "raw_signature_bytes": 309248,
+      "signing_seconds": 2.096322542,
+      "valid": true,
+      "verify_seconds": 0.02619475,
+      "transaction_without_authorization_bytes": 10551,
+      "proof_sha256": "e9edee5434206441c6fd97a192f49324d213c028980a358ef89b05ebf27593c9"
+    }
+  ],
+  "cases": [
+    {
+      "inputs": 2,
+      "mutation": "none",
+      "expected": true,
+      "valid": true,
+      "verify_seconds": 0.764082583
+    },
+    {
+      "inputs": 2,
+      "mutation": "recipient",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.786879833
+    },
+    {
+      "inputs": 2,
+      "mutation": "amount",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.723052291
+    },
+    {
+      "inputs": 2,
+      "mutation": "sequence",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.721422709
+    },
+    {
+      "inputs": 2,
+      "mutation": "version",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.808810167
+    },
+    {
+      "inputs": 2,
+      "mutation": "locktime",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.736092583
+    },
+    {
+      "inputs": 2,
+      "mutation": "spent_amount",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.754353
+    },
+    {
+      "inputs": 2,
+      "mutation": "outpoint",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 1.413636167
+    },
+    {
+      "inputs": 2,
+      "mutation": "input_order",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 1.135868042
+    },
+    {
+      "inputs": 2,
+      "mutation": "annex",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 1.427872834
+    },
+    {
+      "inputs": 2,
+      "mutation": "wrong_key",
+      "expected": false,
+      "valid": false,
+      "reason": "transaction/authorization structure"
+    },
+    {
+      "inputs": 2,
+      "mutation": "proof",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 1.726023292
+    },
+    {
+      "inputs": 10,
+      "mutation": "none",
+      "expected": true,
+      "valid": true,
+      "verify_seconds": 1.4425460829999999
+    },
+    {
+      "inputs": 10,
+      "mutation": "recipient",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 1.3037908329999999
+    },
+    {
+      "inputs": 10,
+      "mutation": "amount",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 1.262127334
+    },
+    {
+      "inputs": 10,
+      "mutation": "sequence",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 1.132601209
+    },
+    {
+      "inputs": 10,
+      "mutation": "version",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.945488208
+    },
+    {
+      "inputs": 10,
+      "mutation": "locktime",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.954525583
+    },
+    {
+      "inputs": 10,
+      "mutation": "spent_amount",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.831873917
+    },
+    {
+      "inputs": 10,
+      "mutation": "outpoint",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.943184667
+    },
+    {
+      "inputs": 10,
+      "mutation": "input_order",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.897511042
+    },
+    {
+      "inputs": 10,
+      "mutation": "annex",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.763368
+    },
+    {
+      "inputs": 10,
+      "mutation": "wrong_key",
+      "expected": false,
+      "valid": false,
+      "reason": "transaction/authorization structure"
+    },
+    {
+      "inputs": 10,
+      "mutation": "proof",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.857690292
+    },
+    {
+      "inputs": 256,
+      "mutation": "none",
+      "expected": true,
+      "valid": true,
+      "verify_seconds": 0.752179333
+    },
+    {
+      "inputs": 256,
+      "mutation": "recipient",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.72381125
+    },
+    {
+      "inputs": 256,
+      "mutation": "amount",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.719576666
+    },
+    {
+      "inputs": 256,
+      "mutation": "sequence",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.72122475
+    },
+    {
+      "inputs": 256,
+      "mutation": "version",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.758144166
+    },
+    {
+      "inputs": 256,
+      "mutation": "locktime",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.726203416
+    },
+    {
+      "inputs": 256,
+      "mutation": "spent_amount",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.749508625
+    },
+    {
+      "inputs": 256,
+      "mutation": "outpoint",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.718679208
+    },
+    {
+      "inputs": 256,
+      "mutation": "input_order",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.727942542
+    },
+    {
+      "inputs": 256,
+      "mutation": "annex",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.701411667
+    },
+    {
+      "inputs": 256,
+      "mutation": "wrong_key",
+      "expected": false,
+      "valid": false,
+      "reason": "transaction/authorization structure"
+    },
+    {
+      "inputs": 256,
+      "mutation": "proof",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.96461525
+    }
+  ],
+  "all_expectations_met": true,
+  "replayed_existing_proofs": false
+}

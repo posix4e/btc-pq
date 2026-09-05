@@ -1,0 +1,1303 @@
+{
+  "scope": "local proposal Script verifier; not Bitcoin mainnet or a full-node deployment",
+  "proposal_versions": {
+    "BIP360": "0.12.1",
+    "BIP347": "retrieved 2026-09-05",
+    "BIP446": "retrieved 2026-09-05"
+  },
+  "build": {
+    "consensus_modified": true,
+    "scope": "linked_prevout_script_verification",
+    "core_commit": "9be056a8a72b624dae9623b2f7bded92c2a21c91",
+    "source_inputs": {
+      "native/covenant-core.patch": "e69e500aecb7920e16edc1275afe7aae8a150a0c46da47d7296d14ace65a2f83",
+      "native/covenant_verify.cpp": "c681c16508753dae6e97887007f0229ad0ae947e3865091e6808c589c84568c8",
+      "native/covenant/CMakeLists.txt": "fd6bac263fe013315585a84a163d6c902362ea67511e397eb145c7a22d3d11b8"
+    },
+    "build_wall_seconds": 1.9850485000060871,
+    "binary_sha256": "7f7c2e87d4f0468a5e0205a7cd3a2f2339c74a68bc9b4b7e4c6121057413141c"
+  },
+  "lamport": {
+    "message_bits": 256,
+    "preimage_bits": 256,
+    "one_time": true,
+    "fixture_keys_public": true
+  },
+  "comparison": {
+    "shrincs": "Literature comparison only; no SHRINCS verifier is substituted or benchmarked.",
+    "cisa": "BIP460 Schnorr aggregation is not implemented and does not aggregate these Lamport witnesses."
+  },
+  "metrics": {
+    "p2mr-unbound": {
+      "script": {
+        "bytes": 21093,
+        "static_non_push_opcodes": 3843,
+        "max_push_bytes": 32,
+        "checksig_count": 0,
+        "checkmultisig_count": 0
+      },
+      "signature_preimage_bytes": 8192,
+      "signature_bit_bytes": 140,
+      "authorization_items": 512,
+      "control_bytes": 33,
+      "keygen_and_compile_ms": 0.605874985922128,
+      "signing_ms": 0.039083999581635,
+      "rare_hash_search_trials": 0,
+      "transaction": {
+        "txid": "01925815c9c5e561d5f4a783816a521c6e1548ee00ae59acba58511f7bae9ba4",
+        "bytes": 30073,
+        "stripped_bytes": 94,
+        "weight": 30355,
+        "vsize": 7589,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    "taproot-bound": {
+      "script": {
+        "bytes": 21093,
+        "static_non_push_opcodes": 3844,
+        "max_push_bytes": 32,
+        "checksig_count": 0,
+        "checkmultisig_count": 0
+      },
+      "signature_preimage_bytes": 8192,
+      "signature_bit_bytes": 140,
+      "authorization_items": 512,
+      "control_bytes": 65,
+      "keygen_and_compile_ms": 1.0571659659035504,
+      "signing_ms": 0.05395803600549698,
+      "rare_hash_search_trials": 0,
+      "transaction": {
+        "txid": "46b4e342fd4c0bfc51d5eed9579a4dbfe4de4b7cde56f80bdb87920c09d7003b",
+        "bytes": 30105,
+        "stripped_bytes": 94,
+        "weight": 30387,
+        "vsize": 7597,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    "p2mr-bound": {
+      "script": {
+        "bytes": 21093,
+        "static_non_push_opcodes": 3844,
+        "max_push_bytes": 32,
+        "checksig_count": 0,
+        "checkmultisig_count": 0
+      },
+      "signature_preimage_bytes": 8192,
+      "signature_bit_bytes": 140,
+      "authorization_items": 512,
+      "control_bytes": 33,
+      "keygen_and_compile_ms": 0.7403339841403067,
+      "signing_ms": 0.04108302528038621,
+      "rare_hash_search_trials": 0,
+      "transaction": {
+        "txid": "edc4bc118c26fd5b077ddcc41deaec375dab9ca147191bf109976bea9aad7aa9",
+        "bytes": 30073,
+        "stripped_bytes": 94,
+        "weight": 30355,
+        "vsize": 7589,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    "two-inputs": {
+      "txid": "599427fdbffab2a807b93f1b20f30ae5dc894e4e7c29b531ea27e653a543c86a",
+      "bytes": 60078,
+      "stripped_bytes": 135,
+      "weight": 60483,
+      "vsize": 15121,
+      "input_script_bytes": [
+        0,
+        0
+      ],
+      "output_script_bytes": [
+        34
+      ]
+    }
+  },
+  "cases": [
+    {
+      "name": "p2mr-unbound-valid",
+      "expected_valid": true,
+      "explanation": "Owner authorizes the original payment.",
+      "verifier": "proposal_model",
+      "spend": "p2mr-unbound-valid.hex",
+      "parents": [
+        "parent-249ba932f7f121739081d25cb4212d21c72c06206ae6da7a1a682c65c4d0cf49.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 636.375,
+            "template_hash": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "01925815c9c5e561d5f4a783816a521c6e1548ee00ae59acba58511f7bae9ba4",
+        "bytes": 30073,
+        "stripped_bytes": 94,
+        "weight": 30355,
+        "vsize": 7589,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "p2mr-unbound-changed-recipient",
+      "expected_valid": true,
+      "explanation": "Same disclosed authorization, changed recipient.",
+      "verifier": "proposal_model",
+      "spend": "p2mr-unbound-changed-recipient.hex",
+      "parents": [
+        "parent-249ba932f7f121739081d25cb4212d21c72c06206ae6da7a1a682c65c4d0cf49.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 552.917,
+            "template_hash": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "5be803bf8374c90c4742b81484c3ec9c3c85e38a882a4450113351b6d137939f",
+        "bytes": 30073,
+        "stripped_bytes": 94,
+        "weight": 30355,
+        "vsize": 7589,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "p2mr-unbound-changed-amount",
+      "expected_valid": true,
+      "explanation": "Same disclosed authorization, changed amount.",
+      "verifier": "proposal_model",
+      "spend": "p2mr-unbound-changed-amount.hex",
+      "parents": [
+        "parent-249ba932f7f121739081d25cb4212d21c72c06206ae6da7a1a682c65c4d0cf49.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 479.375,
+            "template_hash": null
+          }
+        ],
+        "fee_sats": 1001,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "82e9cd12bf15e7369eccb450d4b7f13e334ea0711a1646748f88e1e3af290c1d",
+        "bytes": 30073,
+        "stripped_bytes": 94,
+        "weight": 30355,
+        "vsize": 7589,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "p2mr-unbound-changed-sequence",
+      "expected_valid": true,
+      "explanation": "Same disclosed authorization, changed sequence.",
+      "verifier": "proposal_model",
+      "spend": "p2mr-unbound-changed-sequence.hex",
+      "parents": [
+        "parent-249ba932f7f121739081d25cb4212d21c72c06206ae6da7a1a682c65c4d0cf49.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 509.083,
+            "template_hash": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "a3b636896208b1ac68f2e73c413b21749cdfaad03b51048853ea544db2d04924",
+        "bytes": 30073,
+        "stripped_bytes": 94,
+        "weight": 30355,
+        "vsize": 7589,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "taproot-bound-valid",
+      "expected_valid": true,
+      "explanation": "Owner authorizes the original payment.",
+      "verifier": "proposal_model",
+      "spend": "taproot-bound-valid.hex",
+      "parents": [
+        "parent-1461bca3e75cf0d297a1184f926b81f534a9a60d086148467a854c9030e9e39e.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 449.208,
+            "template_hash": "5dbcec11f47fc23dbe6477d2e5e715fecc718864dcf6ddb236b50121db166671"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "46b4e342fd4c0bfc51d5eed9579a4dbfe4de4b7cde56f80bdb87920c09d7003b",
+        "bytes": 30105,
+        "stripped_bytes": 94,
+        "weight": 30387,
+        "vsize": 7597,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "taproot-bound-changed-recipient",
+      "expected_valid": false,
+      "explanation": "Same disclosed authorization, changed recipient.",
+      "verifier": "proposal_model",
+      "spend": "taproot-bound-changed-recipient.hex",
+      "parents": [
+        "parent-1461bca3e75cf0d297a1184f926b81f534a9a60d086148467a854c9030e9e39e.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 266.417,
+            "template_hash": "251f73372254f1c917d7b58df831a6306def9d22e6d2c135bcfd006adfe4a12d"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "6c66882182499c3df80169ada9d307bb39b8bcd436caa30651c8ace345e9d86f",
+        "bytes": 30105,
+        "stripped_bytes": 94,
+        "weight": 30387,
+        "vsize": 7597,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "taproot-bound-changed-amount",
+      "expected_valid": false,
+      "explanation": "Same disclosed authorization, changed amount.",
+      "verifier": "proposal_model",
+      "spend": "taproot-bound-changed-amount.hex",
+      "parents": [
+        "parent-1461bca3e75cf0d297a1184f926b81f534a9a60d086148467a854c9030e9e39e.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 262,
+            "template_hash": "11d90a76f2b56b00c846ef65e1567c0b492fef38e7d90bc746efed2601a4569f"
+          }
+        ],
+        "fee_sats": 1001,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "9eaaf67ffb8d060af8e6a60a8fd3f9a191dd835be27d8fa0bfb2c87b7385439c",
+        "bytes": 30105,
+        "stripped_bytes": 94,
+        "weight": 30387,
+        "vsize": 7597,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "taproot-bound-changed-sequence",
+      "expected_valid": false,
+      "explanation": "Same disclosed authorization, changed sequence.",
+      "verifier": "proposal_model",
+      "spend": "taproot-bound-changed-sequence.hex",
+      "parents": [
+        "parent-1461bca3e75cf0d297a1184f926b81f534a9a60d086148467a854c9030e9e39e.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 267.166,
+            "template_hash": "0a60980cba1cdac20c991ce33c9dc74aadf077b91580002364a04bf1a8babd16"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "c87eeec405cebec7b7f7dafd0b6b586e84f61d86661a3c6b8229e3fd69cd3fbd",
+        "bytes": 30105,
+        "stripped_bytes": 94,
+        "weight": 30387,
+        "vsize": 7597,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "taproot-known-key-bypass",
+      "expected_valid": true,
+      "explanation": "Known tweaked private key spends without Lamport; demonstrates the bypass, not Shor execution.",
+      "verifier": "proposal_model",
+      "spend": "taproot-known-key-bypass.hex",
+      "parents": [
+        "parent-1461bca3e75cf0d297a1184f926b81f534a9a60d086148467a854c9030e9e39e.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 104.875,
+            "template_hash": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "6c66882182499c3df80169ada9d307bb39b8bcd436caa30651c8ace345e9d86f",
+        "bytes": 162,
+        "stripped_bytes": 94,
+        "weight": 444,
+        "vsize": 111,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "stock-taproot-invalid-secret",
+      "expected_valid": true,
+      "explanation": "Stock consensus returns OP_SUCCESS before enforcing these proposed opcodes.",
+      "verifier": "stock_upgrade_hook",
+      "spend": "stock-taproot-invalid-secret.hex",
+      "parents": [
+        "parent-1461bca3e75cf0d297a1184f926b81f534a9a60d086148467a854c9030e9e39e.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "46b4e342fd4c0bfc51d5eed9579a4dbfe4de4b7cde56f80bdb87920c09d7003b",
+        "bytes": 30105,
+        "stripped_bytes": 94,
+        "weight": 30387,
+        "vsize": 7597,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "p2mr-bound-valid",
+      "expected_valid": true,
+      "explanation": "Owner authorizes the original payment.",
+      "verifier": "proposal_model",
+      "spend": "p2mr-bound-valid.hex",
+      "parents": [
+        "parent-e1bc1fa8a4d19c5ac7e2f826b2d7321b04d13f3b3edfeb7c49c87a9aa787771e.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 209.666,
+            "template_hash": "5dbcec11f47fc23dbe6477d2e5e715fecc718864dcf6ddb236b50121db166671"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "edc4bc118c26fd5b077ddcc41deaec375dab9ca147191bf109976bea9aad7aa9",
+        "bytes": 30073,
+        "stripped_bytes": 94,
+        "weight": 30355,
+        "vsize": 7589,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "p2mr-bound-changed-recipient",
+      "expected_valid": false,
+      "explanation": "Same disclosed authorization, changed recipient.",
+      "verifier": "proposal_model",
+      "spend": "p2mr-bound-changed-recipient.hex",
+      "parents": [
+        "parent-e1bc1fa8a4d19c5ac7e2f826b2d7321b04d13f3b3edfeb7c49c87a9aa787771e.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 210,
+            "template_hash": "251f73372254f1c917d7b58df831a6306def9d22e6d2c135bcfd006adfe4a12d"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "1ab994ace82bdca400b94da689a8862a2c3073ab52833bcfa98a40995a8a5856",
+        "bytes": 30073,
+        "stripped_bytes": 94,
+        "weight": 30355,
+        "vsize": 7589,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "p2mr-bound-changed-amount",
+      "expected_valid": false,
+      "explanation": "Same disclosed authorization, changed amount.",
+      "verifier": "proposal_model",
+      "spend": "p2mr-bound-changed-amount.hex",
+      "parents": [
+        "parent-e1bc1fa8a4d19c5ac7e2f826b2d7321b04d13f3b3edfeb7c49c87a9aa787771e.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 218.208,
+            "template_hash": "11d90a76f2b56b00c846ef65e1567c0b492fef38e7d90bc746efed2601a4569f"
+          }
+        ],
+        "fee_sats": 1001,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "c2c0e4d7b4a12abfdd18a9da0b2189a9029d97335a1f27e400a9e96adcd9ee91",
+        "bytes": 30073,
+        "stripped_bytes": 94,
+        "weight": 30355,
+        "vsize": 7589,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "p2mr-bound-changed-sequence",
+      "expected_valid": false,
+      "explanation": "Same disclosed authorization, changed sequence.",
+      "verifier": "proposal_model",
+      "spend": "p2mr-bound-changed-sequence.hex",
+      "parents": [
+        "parent-e1bc1fa8a4d19c5ac7e2f826b2d7321b04d13f3b3edfeb7c49c87a9aa787771e.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 223.75,
+            "template_hash": "0a60980cba1cdac20c991ce33c9dc74aadf077b91580002364a04bf1a8babd16"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "f1e7af5fdeb8349a673f5969315cb5d401ac3094483ce233e9b5a69ad93d23d3",
+        "bytes": 30073,
+        "stripped_bytes": 94,
+        "weight": 30355,
+        "vsize": 7589,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "p2mr-bound-changed-locktime",
+      "expected_valid": false,
+      "explanation": "Same authorization with invalid locktime.",
+      "verifier": "proposal_model",
+      "spend": "p2mr-bound-changed-locktime.hex",
+      "parents": [
+        "parent-e1bc1fa8a4d19c5ac7e2f826b2d7321b04d13f3b3edfeb7c49c87a9aa787771e.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 229.208,
+            "template_hash": "b16f1ad59c00bf117db8159c455e76693f131395b0974e2dc05833cad4ef5345"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "e83c3b37d0f5c87e91aced6a8ee2c652baed082399d4927d50fe5128aa81f24e",
+        "bytes": 30073,
+        "stripped_bytes": 94,
+        "weight": 30355,
+        "vsize": 7589,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "p2mr-bound-changed-version",
+      "expected_valid": false,
+      "explanation": "Same authorization with invalid version.",
+      "verifier": "proposal_model",
+      "spend": "p2mr-bound-changed-version.hex",
+      "parents": [
+        "parent-e1bc1fa8a4d19c5ac7e2f826b2d7321b04d13f3b3edfeb7c49c87a9aa787771e.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 214.416,
+            "template_hash": "a748e0eab65ea41a6ddc8609a93d366e64b9d91de81e2c98cba7cee30769876b"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "7bba79fdf006d930221b848d15d0473fb1fc4732968e50b9243a557134bbb51e",
+        "bytes": 30073,
+        "stripped_bytes": 94,
+        "weight": 30355,
+        "vsize": 7589,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "p2mr-bound-changed-secret",
+      "expected_valid": false,
+      "explanation": "Same authorization with invalid secret.",
+      "verifier": "proposal_model",
+      "spend": "p2mr-bound-changed-secret.hex",
+      "parents": [
+        "parent-e1bc1fa8a4d19c5ac7e2f826b2d7321b04d13f3b3edfeb7c49c87a9aa787771e.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script failed an OP_EQUALVERIFY operation",
+            "script_microseconds": 194.667,
+            "template_hash": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "edc4bc118c26fd5b077ddcc41deaec375dab9ca147191bf109976bea9aad7aa9",
+        "bytes": 30073,
+        "stripped_bytes": 94,
+        "weight": 30355,
+        "vsize": 7589,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "p2mr-bound-changed-bit",
+      "expected_valid": false,
+      "explanation": "Same authorization with invalid bit.",
+      "verifier": "proposal_model",
+      "spend": "p2mr-bound-changed-bit.hex",
+      "parents": [
+        "parent-e1bc1fa8a4d19c5ac7e2f826b2d7321b04d13f3b3edfeb7c49c87a9aa787771e.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script failed an OP_EQUALVERIFY operation",
+            "script_microseconds": 189,
+            "template_hash": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "edc4bc118c26fd5b077ddcc41deaec375dab9ca147191bf109976bea9aad7aa9",
+        "bytes": 30072,
+        "stripped_bytes": 94,
+        "weight": 30354,
+        "vsize": 7589,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "p2mr-bound-changed-nonminimal_bit",
+      "expected_valid": false,
+      "explanation": "Same authorization with invalid nonminimal_bit.",
+      "verifier": "proposal_model",
+      "spend": "p2mr-bound-changed-nonminimal_bit.hex",
+      "parents": [
+        "parent-e1bc1fa8a4d19c5ac7e2f826b2d7321b04d13f3b3edfeb7c49c87a9aa787771e.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "OP_IF/NOTIF argument must be minimal in tapscript",
+            "script_microseconds": 185.125,
+            "template_hash": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "edc4bc118c26fd5b077ddcc41deaec375dab9ca147191bf109976bea9aad7aa9",
+        "bytes": 30073,
+        "stripped_bytes": 94,
+        "weight": 30355,
+        "vsize": 7589,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "p2mr-bound-changed-merkle_proof",
+      "expected_valid": false,
+      "explanation": "Same authorization with invalid merkle_proof.",
+      "verifier": "proposal_model",
+      "spend": "p2mr-bound-changed-merkle_proof.hex",
+      "parents": [
+        "parent-e1bc1fa8a4d19c5ac7e2f826b2d7321b04d13f3b3edfeb7c49c87a9aa787771e.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Witness program hash mismatch",
+            "script_microseconds": 36.917,
+            "template_hash": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "edc4bc118c26fd5b077ddcc41deaec375dab9ca147191bf109976bea9aad7aa9",
+        "bytes": 30073,
+        "stripped_bytes": 94,
+        "weight": 30355,
+        "vsize": 7589,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "p2mr-no-key-path",
+      "expected_valid": false,
+      "explanation": "A lone signature has no key-path interpretation.",
+      "verifier": "proposal_model",
+      "spend": "p2mr-no-key-path.hex",
+      "parents": [
+        "parent-e1bc1fa8a4d19c5ac7e2f826b2d7321b04d13f3b3edfeb7c49c87a9aa787771e.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Witness program was passed an empty witness",
+            "script_microseconds": 3.291,
+            "template_hash": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "edc4bc118c26fd5b077ddcc41deaec375dab9ca147191bf109976bea9aad7aa9",
+        "bytes": 162,
+        "stripped_bytes": 94,
+        "weight": 444,
+        "vsize": 111,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "template-allows-outpoint-rebinding",
+      "expected_valid": true,
+      "explanation": "BIP446 omits outpoints; the duplicate output deliberately reuses this one-time key.",
+      "verifier": "proposal_model",
+      "spend": "template-allows-outpoint-rebinding.hex",
+      "parents": [
+        "parent-e1bc1fa8a4d19c5ac7e2f826b2d7321b04d13f3b3edfeb7c49c87a9aa787771e.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 209.375,
+            "template_hash": "5dbcec11f47fc23dbe6477d2e5e715fecc718864dcf6ddb236b50121db166671"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "476f6158f08157acf9ee69afb09b510be02a24ae2ea1667e25495844eec9d956",
+        "bytes": 30073,
+        "stripped_bytes": 94,
+        "weight": 30355,
+        "vsize": 7589,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "stock-p2mr-invalid-secret",
+      "expected_valid": true,
+      "explanation": "Stock consensus treats witness version 2 as an unenforced upgrade hook.",
+      "verifier": "stock_upgrade_hook",
+      "spend": "stock-p2mr-invalid-secret.hex",
+      "parents": [
+        "parent-e1bc1fa8a4d19c5ac7e2f826b2d7321b04d13f3b3edfeb7c49c87a9aa787771e.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "edc4bc118c26fd5b077ddcc41deaec375dab9ca147191bf109976bea9aad7aa9",
+        "bytes": 30073,
+        "stripped_bytes": 94,
+        "weight": 30355,
+        "vsize": 7589,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "p2mr-added-annex",
+      "expected_valid": false,
+      "explanation": "Annex is part of TemplateHash; adding one changes authorization.",
+      "verifier": "proposal_model",
+      "spend": "p2mr-added-annex.hex",
+      "parents": [
+        "parent-e1bc1fa8a4d19c5ac7e2f826b2d7321b04d13f3b3edfeb7c49c87a9aa787771e.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 201.125,
+            "template_hash": "d92bb2d0925caa89be0edd06994801f31169699ddeecd8cd1a433454d5a83efc"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "edc4bc118c26fd5b077ddcc41deaec375dab9ca147191bf109976bea9aad7aa9",
+        "bytes": 30088,
+        "stripped_bytes": 94,
+        "weight": 30370,
+        "vsize": 7593,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "two-inputs-two-pq-signatures",
+      "expected_valid": true,
+      "explanation": "Both owners authorize the outputs; distinct input indexes produce distinct digests.",
+      "verifier": "proposal_model",
+      "spend": "two-inputs-two-pq-signatures.hex",
+      "parents": [
+        "parent-b6d21096e8f4a7c26cd55226b55327345800126ed60d3b4c80133341bd4852d2.hex",
+        "parent-ad6b718460fb4ecec790dfbc52ed1f6db633b2a39b92234485f491c3c02a5ed4.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 205.25,
+            "template_hash": "5096e24e38dd623eaeeb37603c53adde138fa6b87430d27e645660ace469ff1d"
+          },
+          {
+            "index": 1,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 181.584,
+            "template_hash": "f4fe153ce8a411577e3c279f51e7ad49df72ca886483c25d347f29c865e5b654"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "599427fdbffab2a807b93f1b20f30ae5dc894e4e7c29b531ea27e653a543c86a",
+        "bytes": 60078,
+        "stripped_bytes": 135,
+        "weight": 60483,
+        "vsize": 15121,
+        "input_script_bytes": [
+          0,
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "two-inputs-missing-second-authorization",
+      "expected_valid": false,
+      "explanation": "Removing the second PQ signature fails. Neither P2MR nor a covenant implements aggregation.",
+      "verifier": "proposal_model",
+      "spend": "two-inputs-missing-second-authorization.hex",
+      "parents": [
+        "parent-b6d21096e8f4a7c26cd55226b55327345800126ed60d3b4c80133341bd4852d2.hex",
+        "parent-ad6b718460fb4ecec790dfbc52ed1f6db633b2a39b92234485f491c3c02a5ed4.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 214.916,
+            "template_hash": "5096e24e38dd623eaeeb37603c53adde138fa6b87430d27e645660ace469ff1d"
+          },
+          {
+            "index": 1,
+            "valid": false,
+            "error": "Operation not valid with the current stack size",
+            "script_microseconds": 52.708,
+            "template_hash": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "599427fdbffab2a807b93f1b20f30ae5dc894e4e7c29b531ea27e653a543c86a",
+        "bytes": 51238,
+        "stripped_bytes": 135,
+        "weight": 51643,
+        "vsize": 12911,
+        "input_script_bytes": [
+          0,
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "two-inputs-copied-first-signature",
+      "expected_valid": false,
+      "explanation": "The first owner cannot authorize the second owner by copying a witness.",
+      "verifier": "proposal_model",
+      "spend": "two-inputs-copied-first-signature.hex",
+      "parents": [
+        "parent-b6d21096e8f4a7c26cd55226b55327345800126ed60d3b4c80133341bd4852d2.hex",
+        "parent-ad6b718460fb4ecec790dfbc52ed1f6db633b2a39b92234485f491c3c02a5ed4.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 190.625,
+            "template_hash": "5096e24e38dd623eaeeb37603c53adde138fa6b87430d27e645660ace469ff1d"
+          },
+          {
+            "index": 1,
+            "valid": false,
+            "error": "Script failed an OP_EQUALVERIFY operation",
+            "script_microseconds": 58.958,
+            "template_hash": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "599427fdbffab2a807b93f1b20f30ae5dc894e4e7c29b531ea27e653a543c86a",
+        "bytes": 60077,
+        "stripped_bytes": 135,
+        "weight": 60482,
+        "vsize": 15121,
+        "input_script_bytes": [
+          0,
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    }
+  ],
+  "all_expectations_met": true,
+  "harness_sha256": {
+    "btc_pq/covenant_demo.py": "bda2702e8e7031d3771903107db28ae96cf09002336c5ee3e97c453b94cb0d98",
+    "btc_pq/covenant_build.py": "d9db152595be34b9bfec83cec8b8075c3735ec1537c14eb70a1f74a87eea5c8d",
+    "btc_pq/bitcoin.py": "f2d05b8201675ba767b9f5b4528237d1417242bed34ee66af107ac220b852808",
+    "tests/test_covenant_demo.py": "9db83e475ba44f7359404ddb3eb64a3aba1669fcb038053749a3210599273f9a"
+  },
+  "stock_verifier_sha256": "2f3a4bf5e413dd439cda4dc13bf1f946b766f012c1f9cd515a967cd0cfc95faa",
+  "fixture_sha256": {
+    "p2mr-added-annex.hex": "ee9bf6135829ce37de396283a00b05a8e1d9957e648efb1bd7b883c15f49fc40",
+    "p2mr-bound-changed-amount.hex": "6e08dd8ac96586db82fb129dfd8eba5b46e6dd589b8b234dc13cd2bffb254bec",
+    "p2mr-bound-changed-bit.hex": "7dd39252255dbfb9bbbb059c4d592eaed90939c3768e381da04ad2602af4c0bb",
+    "p2mr-bound-changed-locktime.hex": "dc0c34e1c6b9bf9eff2a968d3f70b09c49d36af135c54c5c7753ee1e3eae2a92",
+    "p2mr-bound-changed-merkle_proof.hex": "172d3a1b4e1f9f1add75a6fcd85f87b2508c4b624de7592b48fdd1ec152c3e77",
+    "p2mr-bound-changed-nonminimal_bit.hex": "9f4600dd5959c6b63138ce8a4dcc7765dcfedce04153563c8715fd8780de6466",
+    "p2mr-bound-changed-recipient.hex": "17a9696771ab38f7dd40290733c0075ce56cbec686e6b354ac230d96f80b2d5b",
+    "p2mr-bound-changed-secret.hex": "bea7934c9e9a51e09760c996dc797ac4c409865da2ff90a5d9bf23a64a2c6961",
+    "p2mr-bound-changed-sequence.hex": "a05901ab24dfa51ddeadac46473af045c4fac41a294f1a2a79485d6fb40e1e47",
+    "p2mr-bound-changed-version.hex": "621013dca10778eb211e8adc7ae5cbca8e10b27c360923cafde19b49836ec110",
+    "p2mr-bound-valid.hex": "36138106eb6a0b09f8d018fdf9934f07675cf08252ee73bba05be67b6256b2ed",
+    "p2mr-no-key-path.hex": "41081245921a881828e96fa31f675df0abcb78f705a89ea0d77b20e44db59d53",
+    "p2mr-unbound-changed-amount.hex": "c3b2100b753dda2a5de7858a5ace4ec181391a4159fa0973433c6be6ac85e5b9",
+    "p2mr-unbound-changed-recipient.hex": "c857c15d2db8650c3d2ed2cce3610fa7fc2db0ae6ed0c40df02c6629da6d63fb",
+    "p2mr-unbound-changed-sequence.hex": "4900a8496d5ff3a755a8669ed69ec60db5b26b5ad37991ea9e0da01c1b4939a3",
+    "p2mr-unbound-valid.hex": "2cf2af7e3ba4fb3269cc5d5c0bbab9cc26d774fc3154526a168e5a354f3ded5b",
+    "parent-1461bca3e75cf0d297a1184f926b81f534a9a60d086148467a854c9030e9e39e.hex": "688790e56686366867777c1844ab90be49054fad880d7f633091c886b1266a21",
+    "parent-249ba932f7f121739081d25cb4212d21c72c06206ae6da7a1a682c65c4d0cf49.hex": "521aa48eba3572652a844beb52dcb243b8b28587bfc1e64d9307342ce85c394a",
+    "parent-ad6b718460fb4ecec790dfbc52ed1f6db633b2a39b92234485f491c3c02a5ed4.hex": "b779f2b40afdc9b6725a2b3ebe2685227d6f1b6884179c2991602bde82d2858d",
+    "parent-b6d21096e8f4a7c26cd55226b55327345800126ed60d3b4c80133341bd4852d2.hex": "49b79575c2f75da9dd3ef5f931985080a68a0f277987e4157e026fafa2112c03",
+    "parent-e1bc1fa8a4d19c5ac7e2f826b2d7321b04d13f3b3edfeb7c49c87a9aa787771e.hex": "b8465d883da145f5586983fc1c4a26e66cd94e922a8eaef2ca57891173250f63",
+    "stock-p2mr-invalid-secret.hex": "bea7934c9e9a51e09760c996dc797ac4c409865da2ff90a5d9bf23a64a2c6961",
+    "stock-taproot-invalid-secret.hex": "7a962b3c5f1d375da44fbf225d0f04da6b0311c48887128a39e8fbef89462a4f",
+    "taproot-bound-changed-amount.hex": "62f8870bab53e05f53c885a641d7f3d0a08d0332298164ba8b0dce09784558ab",
+    "taproot-bound-changed-recipient.hex": "7a5b56034e1b6d6dec05958a8edf5fa616ad148b438d841496afa8c45847f121",
+    "taproot-bound-changed-sequence.hex": "81edda3da29a737173c3e1b50c88cfdf09229cb1ef95e4b8e938d689faa6415f",
+    "taproot-bound-valid.hex": "df3954259579344cd1753dfe2d5d766770e62246304e4f1ea7166e0779e96385",
+    "taproot-known-key-bypass.hex": "3ddca8ec2a0a69fec414f3b461baa4ebc8720ca13494ae8eb237072b3e96dd4a",
+    "template-allows-outpoint-rebinding.hex": "4e1c8dc9a23626d4263be5b71165e103d2a5db73605141ed5666086101f4526b",
+    "two-inputs-copied-first-signature.hex": "afe06663b0a47b1fce0bf9fb82352c23f1a8bbd8491860462868c9dda117a945",
+    "two-inputs-missing-second-authorization.hex": "2aa4ded6643cc445a2bef036d99740720b929988f0e7563be7f5608ead246770",
+    "two-inputs-two-pq-signatures.hex": "644f429405115d63c57afa026305ec4b61678030dcc432255fb8cb6f18b07846"
+  }
+}

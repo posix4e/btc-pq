@@ -1,0 +1,585 @@
+{
+  "all_expectations_met": true,
+  "cases": [
+    {
+      "name": "p2mr-unbound-valid",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 219.375,
+            "template_hash": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      }
+    },
+    {
+      "name": "p2mr-unbound-changed-recipient",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 186.791,
+            "template_hash": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      }
+    },
+    {
+      "name": "p2mr-unbound-changed-amount",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 194.5,
+            "template_hash": null
+          }
+        ],
+        "fee_sats": 1001,
+        "valid": true
+      }
+    },
+    {
+      "name": "p2mr-unbound-changed-sequence",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 196.375,
+            "template_hash": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      }
+    },
+    {
+      "name": "taproot-bound-valid",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 1520.67,
+            "template_hash": "5dbcec11f47fc23dbe6477d2e5e715fecc718864dcf6ddb236b50121db166671"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      }
+    },
+    {
+      "name": "taproot-bound-changed-recipient",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 219.167,
+            "template_hash": "251f73372254f1c917d7b58df831a6306def9d22e6d2c135bcfd006adfe4a12d"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "taproot-bound-changed-amount",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 219.541,
+            "template_hash": "11d90a76f2b56b00c846ef65e1567c0b492fef38e7d90bc746efed2601a4569f"
+          }
+        ],
+        "fee_sats": 1001,
+        "valid": false
+      }
+    },
+    {
+      "name": "taproot-bound-changed-sequence",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 213.959,
+            "template_hash": "0a60980cba1cdac20c991ce33c9dc74aadf077b91580002364a04bf1a8babd16"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "taproot-known-key-bypass",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 296.625,
+            "template_hash": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      }
+    },
+    {
+      "name": "stock-taproot-invalid-secret",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      }
+    },
+    {
+      "name": "p2mr-bound-valid",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 207.75,
+            "template_hash": "5dbcec11f47fc23dbe6477d2e5e715fecc718864dcf6ddb236b50121db166671"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      }
+    },
+    {
+      "name": "p2mr-bound-changed-recipient",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 212.625,
+            "template_hash": "251f73372254f1c917d7b58df831a6306def9d22e6d2c135bcfd006adfe4a12d"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "p2mr-bound-changed-amount",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 207.625,
+            "template_hash": "11d90a76f2b56b00c846ef65e1567c0b492fef38e7d90bc746efed2601a4569f"
+          }
+        ],
+        "fee_sats": 1001,
+        "valid": false
+      }
+    },
+    {
+      "name": "p2mr-bound-changed-sequence",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 189.166,
+            "template_hash": "0a60980cba1cdac20c991ce33c9dc74aadf077b91580002364a04bf1a8babd16"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "p2mr-bound-changed-locktime",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 219.459,
+            "template_hash": "b16f1ad59c00bf117db8159c455e76693f131395b0974e2dc05833cad4ef5345"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "p2mr-bound-changed-version",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 198.875,
+            "template_hash": "a748e0eab65ea41a6ddc8609a93d366e64b9d91de81e2c98cba7cee30769876b"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "p2mr-bound-changed-secret",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script failed an OP_EQUALVERIFY operation",
+            "script_microseconds": 228.875,
+            "template_hash": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "p2mr-bound-changed-bit",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script failed an OP_EQUALVERIFY operation",
+            "script_microseconds": 236.416,
+            "template_hash": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "p2mr-bound-changed-nonminimal_bit",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "OP_IF/NOTIF argument must be minimal in tapscript",
+            "script_microseconds": 188.709,
+            "template_hash": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "p2mr-bound-changed-merkle_proof",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Witness program hash mismatch",
+            "script_microseconds": 45.291,
+            "template_hash": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "p2mr-no-key-path",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Witness program was passed an empty witness",
+            "script_microseconds": 1.875,
+            "template_hash": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "template-allows-outpoint-rebinding",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 211.458,
+            "template_hash": "5dbcec11f47fc23dbe6477d2e5e715fecc718864dcf6ddb236b50121db166671"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      }
+    },
+    {
+      "name": "stock-p2mr-invalid-secret",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      }
+    },
+    {
+      "name": "p2mr-added-annex",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 219.583,
+            "template_hash": "d92bb2d0925caa89be0edd06994801f31169699ddeecd8cd1a433454d5a83efc"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "two-inputs-two-pq-signatures",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 198.75,
+            "template_hash": "5096e24e38dd623eaeeb37603c53adde138fa6b87430d27e645660ace469ff1d"
+          },
+          {
+            "index": 1,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 171.375,
+            "template_hash": "f4fe153ce8a411577e3c279f51e7ad49df72ca886483c25d347f29c865e5b654"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      }
+    },
+    {
+      "name": "two-inputs-missing-second-authorization",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 211.459,
+            "template_hash": "5096e24e38dd623eaeeb37603c53adde138fa6b87430d27e645660ace469ff1d"
+          },
+          {
+            "index": 1,
+            "valid": false,
+            "error": "Operation not valid with the current stack size",
+            "script_microseconds": 47.292,
+            "template_hash": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "two-inputs-copied-first-signature",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP347+BIP360v0.12.1+BIP446",
+        "flags": 2231829,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 191.25,
+            "template_hash": "5096e24e38dd623eaeeb37603c53adde138fa6b87430d27e645660ace469ff1d"
+          },
+          {
+            "index": 1,
+            "valid": false,
+            "error": "Script failed an OP_EQUALVERIFY operation",
+            "script_microseconds": 56.959,
+            "template_hash": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    }
+  ]
+}

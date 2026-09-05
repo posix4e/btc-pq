@@ -1,0 +1,34 @@
+--- a/src/script/interpreter.h
++++ b/src/script/interpreter.h
+@@ -148,6 +148,7 @@
+     // Local proposal demo; never enabled by network consensus flags.
+     SCRIPT_VERIFY_BTC_PQ_COVENANT_DEMO,
+     SCRIPT_VERIFY_BTC_PQ_SHRINCS_DEMO,
++    SCRIPT_VERIFY_BTC_PQ_SHRINCS_PROOF_DEMO,
+ 
+     // Constants to point to the highest flag in use. Add new flags above this line.
+     //
+--- a/src/script/interpreter.cpp
++++ b/src/script/interpreter.cpp
+@@ -516,10 +516,20 @@
+                 {
+                     if (sigversion != SigVersion::TAPSCRIPT || !(flags & SCRIPT_VERIFY_BTC_PQ_SHRINCS_DEMO))
+                         return set_error(serror, SCRIPT_ERR_BAD_OPCODE);
+-                    if (stack.size() < 3) return set_error(serror, SCRIPT_ERR_INVALID_STACK_OPERATION);
++                    if (stack.size() < 2) return set_error(serror, SCRIPT_ERR_INVALID_STACK_OPERATION);
+                     const valtype pk = stacktop(-1);
+                     if (pk.size() != 32) return set_error(serror, SCRIPT_ERR_PUBKEYTYPE);
+                     const int64_t count = CScriptNum(stacktop(-2), true).getint();
++                    // Local transaction-level receipt model. The outer checker
++                    // permits this sentinel only in an exact single-key leaf,
++                    // and requires one valid shared receipt for every input.
++                    if (count == 0 && (flags & SCRIPT_VERIFY_BTC_PQ_SHRINCS_PROOF_DEMO)) {
++                        if (stack.size() != 2) return set_error(serror, SCRIPT_ERR_INVALID_STACK_OPERATION);
++                        const bool valid = checker.DemoCheckShrincs({}, pk, execdata);
++                        stack.clear();
++                        stack.push_back(valid ? vchTrue : vchFalse);
++                        break;
++                    }
+                     if (count < 1 || count > 8 || stack.size() < static_cast<size_t>(count + 2))
+                         return set_error(serror, SCRIPT_ERR_INVALID_STACK_OPERATION);
+                     const size_t begin = stack.size() - count - 2;

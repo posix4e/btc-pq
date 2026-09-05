@@ -1,0 +1,18 @@
+[package]
+name = "shrincs-proof-common"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = ["native"]
+native = ["dep:sha2", "dep:serde_json"]
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+sha2 = { version = "0.10", optional = true }
+serde_json = { version = "1", optional = true }
+
+[[bin]]
+name = "shrincs-proof-reference"
+path = "src/main.rs"
+required-features = ["native"]

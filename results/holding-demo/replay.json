@@ -1,0 +1,72 @@
+{
+  "all_expectations_met": true,
+  "consensus_changes": [],
+  "network": "regtest",
+  "cases": [
+    {
+      "case": "restored_secret",
+      "expected_valid": true,
+      "native_valid": true,
+      "mempool_allowed": true,
+      "transaction_bytes": 166
+    },
+    {
+      "case": "wrong_secret",
+      "expected_valid": false,
+      "native_valid": false,
+      "mempool_allowed": false,
+      "transaction_bytes": 166
+    },
+    {
+      "case": "missing_secret",
+      "expected_valid": false,
+      "native_valid": false,
+      "mempool_allowed": false,
+      "transaction_bytes": 133
+    },
+    {
+      "case": "schnorr_bytes",
+      "expected_valid": false,
+      "native_valid": false,
+      "mempool_allowed": false,
+      "transaction_bytes": 198
+    },
+    {
+      "case": "wrong_script",
+      "expected_valid": false,
+      "native_valid": false,
+      "mempool_allowed": false,
+      "transaction_bytes": 132
+    },
+    {
+      "case": "extra_item",
+      "expected_valid": false,
+      "native_valid": false,
+      "mempool_allowed": false,
+      "transaction_bytes": 168
+    },
+    {
+      "case": "copied_secret_changed_recipient",
+      "expected_valid": true,
+      "native_valid": true,
+      "mempool_allowed": true,
+      "transaction_bytes": 154
+    },
+    {
+      "case": "copied_secret_changed_amount",
+      "expected_valid": true,
+      "native_valid": true,
+      "mempool_allowed": true,
+      "transaction_bytes": 166
+    }
+  ],
+  "fresh_process_backup_restore": true,
+  "fresh_node_funding_replay": true,
+  "remains_unspent_after_10_more_blocks": true,
+  "secret_bearing_spend_broadcast": false,
+  "future_recovery": "deferred",
+  "transaction_bound_authorization": false,
+  "backup_commitment_matches": true,
+  "harness_sha256": "b72280e23467c9d903770485fa5abf582693dd0d9a9d9a94520bff83edeae524",
+  "native_verifier_sha256": "2f3a4bf5e413dd439cda4dc13bf1f946b766f012c1f9cd515a967cd0cfc95faa"
+}

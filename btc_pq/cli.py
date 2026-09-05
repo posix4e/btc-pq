@@ -24,6 +24,16 @@ def main(argv=None):
     parser = argparse.ArgumentParser(prog='btc-pq', description=__doc__)
     sub = parser.add_subparsers(dest='command', required=True)
 
+    p = sub.add_parser('covenant-demo', help='local proposal model: P2MR + CAT + TEMPLATEHASH + Lamport')
+    p.add_argument('--build', action='store_true', help='build a separate modified Script verifier')
+    p.add_argument('--outdir', default=str(ROOT/'results/covenant-demo'))
+    p.add_argument('--replay', action='store_true', help='verify saved fixtures without signing again')
+
+    p = sub.add_parser('shrincs-demo', help='local P2MR + transaction-bound upstream SHRINCS-B32 experiment')
+    p.add_argument('--build', action='store_true')
+    p.add_argument('--outdir', default=str(ROOT/'results/shrincs-demo'))
+    p.add_argument('--replay', action='store_true')
+
     sub.add_parser('check-vendor', help='verify pinned QSB reference files')
 
     sub.add_parser('fetch', help='fetch mainnet fixtures from the public explorer (network)')
@@ -92,6 +102,30 @@ def main(argv=None):
     p.add_argument('--next-hit', action='store_true', help='continue pinning after the selected hit')
 
     args = parser.parse_args(argv)
+
+    if args.command == 'shrincs-demo':
+        from . import shrincs_demo
+        if args.replay:
+            if args.build:
+                from .shrincs_build import build
+                build()
+            result = shrincs_demo.replay(args.outdir)
+        else:
+            result = shrincs_demo.run(args.outdir, args.build)
+        print(f"shrincs-demo: {len(result['cases'])} cases matched expectations -> {args.outdir}")
+        return
+
+    if args.command == 'covenant-demo':
+        from . import covenant_demo
+        if args.replay:
+            if args.build:
+                from .covenant_build import build
+                build()
+            result = covenant_demo.replay(args.outdir)
+        else:
+            result = covenant_demo.run(args.outdir, args.build)
+        print(f"covenant-demo: {len(result['cases'])} cases matched expectations -> {args.outdir}")
+        return
 
     if args.command == 'phase4':
         from . import phase4

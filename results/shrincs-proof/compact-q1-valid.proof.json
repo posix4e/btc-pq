@@ -1,0 +1,187 @@
+{
+  "scope": "One compact-q1 payment receipt and its eleven negative controls",
+  "fixture": "compact-q1-valid",
+  "cases": [
+    {
+      "name": "compact-q1-valid",
+      "result": {
+        "authorizations": 1,
+        "claims_digest": "f67cc88c6c1aa318183c8e896ee9ed6449f0e6ebe8dac463600b3be36a2bf1e2",
+        "image_id": "025c847d7ffd433115e47c59802a40d334db1ec89a272235f4756faebb94b694",
+        "prove_ms": 492455.587167,
+        "proved": true,
+        "raw_signature_bytes": 324,
+        "receipt_bytes": 1381282,
+        "receipt_kind": "composite-stark",
+        "stats": {
+          "paging_cycles": 204516,
+          "reserved_cycles": 241151,
+          "segments": 5,
+          "total_cycles": 4456448,
+          "user_cycles": 4010781
+        },
+        "verify_ms": 66.97233299999999,
+        "receipt_sha256": "aa61325a1128daa58efbf8408cda824220624035be7a4f0435d0688c7e15ea12"
+      }
+    },
+    {
+      "name": "compact-q1-valid-recipient",
+      "result": {
+        "authorizations": 1,
+        "claims_digest": "415ba9a4b6bf60415ecac6cdbf691c6b270c4c5a28bda0f5dad5830edb2d015f",
+        "error": "receipt is for different authorization claims",
+        "image_id": "025c847d7ffd433115e47c59802a40d334db1ec89a272235f4756faebb94b694",
+        "raw_signature_bytes": 324,
+        "receipt_bytes": 1381282,
+        "valid": false
+      }
+    },
+    {
+      "name": "compact-q1-valid-amount",
+      "result": {
+        "authorizations": 1,
+        "claims_digest": "0ca38c83dd8e0a6a6b79a7ff9255be62e3506ddad857bcd56bb5917606f315fd",
+        "error": "receipt is for different authorization claims",
+        "image_id": "025c847d7ffd433115e47c59802a40d334db1ec89a272235f4756faebb94b694",
+        "raw_signature_bytes": 324,
+        "receipt_bytes": 1381282,
+        "valid": false
+      }
+    },
+    {
+      "name": "compact-q1-valid-sequence",
+      "result": {
+        "authorizations": 1,
+        "claims_digest": "39749548e419fa79d6d1d00830aba416b90d6e93f205782058bd37b79ea65834",
+        "error": "receipt is for different authorization claims",
+        "image_id": "025c847d7ffd433115e47c59802a40d334db1ec89a272235f4756faebb94b694",
+        "raw_signature_bytes": 324,
+        "receipt_bytes": 1381282,
+        "valid": false
+      }
+    },
+    {
+      "name": "compact-q1-valid-version",
+      "result": {
+        "authorizations": 1,
+        "claims_digest": "52f0e831dac75eec897b0b6875efc37a8a5ae855bae7cc956c7bef6d7f716696",
+        "error": "receipt is for different authorization claims",
+        "image_id": "025c847d7ffd433115e47c59802a40d334db1ec89a272235f4756faebb94b694",
+        "raw_signature_bytes": 324,
+        "receipt_bytes": 1381282,
+        "valid": false
+      }
+    },
+    {
+      "name": "compact-q1-valid-locktime",
+      "result": {
+        "authorizations": 1,
+        "claims_digest": "0f49af2fb22e38ca7ed42757f8e5ef935078dfaa77b5f51d13ffe8c91e90071e",
+        "error": "receipt is for different authorization claims",
+        "image_id": "025c847d7ffd433115e47c59802a40d334db1ec89a272235f4756faebb94b694",
+        "raw_signature_bytes": 324,
+        "receipt_bytes": 1381282,
+        "valid": false
+      }
+    },
+    {
+      "name": "compact-q1-valid-spent_amount",
+      "result": {
+        "authorizations": 1,
+        "claims_digest": "fabca8bb538aea78c88fcec9475b5f4db082f409e8941697d84a9981e18bf412",
+        "error": "receipt is for different authorization claims",
+        "image_id": "025c847d7ffd433115e47c59802a40d334db1ec89a272235f4756faebb94b694",
+        "raw_signature_bytes": 324,
+        "receipt_bytes": 1381282,
+        "valid": false
+      }
+    },
+    {
+      "name": "compact-q1-valid-outpoint",
+      "result": {
+        "authorizations": 1,
+        "claims_digest": "10b7f30b8d31ccc3917e8cbc6898b5bb0568679c29ba17e98f178e3c29bbe2c4",
+        "error": "receipt is for different authorization claims",
+        "image_id": "025c847d7ffd433115e47c59802a40d334db1ec89a272235f4756faebb94b694",
+        "raw_signature_bytes": 324,
+        "receipt_bytes": 1381282,
+        "valid": false
+      }
+    },
+    {
+      "name": "compact-q1-valid-annex",
+      "result": {
+        "authorizations": 1,
+        "claims_digest": "7039bcf5c63090d9beb378064ea636e147bff54dcd59290243e733003fcb313e",
+        "error": "receipt is for different authorization claims",
+        "image_id": "025c847d7ffd433115e47c59802a40d334db1ec89a272235f4756faebb94b694",
+        "raw_signature_bytes": 324,
+        "receipt_bytes": 1381282,
+        "valid": false
+      }
+    },
+    {
+      "name": "compact-q1-valid-key",
+      "result": {
+        "authorizations": 1,
+        "claims_digest": "8b7d44a313314d1109109531403d35adb3c46f9ac98e1634686bce2384142a41",
+        "error": "receipt is for different authorization claims",
+        "image_id": "025c847d7ffd433115e47c59802a40d334db1ec89a272235f4756faebb94b694",
+        "raw_signature_bytes": 324,
+        "receipt_bytes": 1381282,
+        "valid": false
+      }
+    },
+    {
+      "name": "compact-q1-valid-proof-truncate",
+      "result": {
+        "authorizations": 1,
+        "claims_digest": "f67cc88c6c1aa318183c8e896ee9ed6449f0e6ebe8dac463600b3be36a2bf1e2",
+        "error": "io error: unexpected end of file",
+        "image_id": "025c847d7ffd433115e47c59802a40d334db1ec89a272235f4756faebb94b694",
+        "raw_signature_bytes": 324,
+        "receipt_bytes": 1381281,
+        "valid": false
+      }
+    },
+    {
+      "name": "compact-q1-valid-proof-append",
+      "result": {
+        "authorizations": 1,
+        "claims_digest": "f67cc88c6c1aa318183c8e896ee9ed6449f0e6ebe8dac463600b3be36a2bf1e2",
+        "error": "Slice had bytes remaining after deserialization",
+        "image_id": "025c847d7ffd433115e47c59802a40d334db1ec89a272235f4756faebb94b694",
+        "raw_signature_bytes": 324,
+        "receipt_bytes": 1381283,
+        "valid": false
+      }
+    }
+  ],
+  "all_expectations_met": true,
+  "source_build_manifest": {
+    "sdk_version": "3.0.6",
+    "local_prover_feature": true,
+    "source_sha256": {
+      "native/shrincs-proof/Cargo.lock": "f4a4877c288dbc1a617ac6f6e886856042111d5547a676f6d2f1bddf5b3256f5",
+      "native/shrincs-proof/Cargo.toml": "d32fc4a6b2e9016195a1e408ee9d3d4410252859edc0975c25db74617602ca19",
+      "native/shrincs-proof/common/Cargo.toml": "ff1f572d4224b7cdc7f78672de62689b5901db00d593c8323fd891207717ec2d",
+      "native/shrincs-proof/common/src/lib.rs": "d2e6da80bcf9c8725410bcb64c0bc17577641acd37cfb5e0e8e90429d9158ae7",
+      "native/shrincs-proof/common/src/main.rs": "521408e0977596ccd53eaf302b7032dd1f23168361aa544f6b15bce70c0e2234",
+      "native/shrincs-proof/host/Cargo.toml": "10929eed79c624914d8c7a124973dfd45c3bd01f08f33288156debe1cf266702",
+      "native/shrincs-proof/host/src/main.rs": "baa95498b9da0317712bcab974b7f158a7c9ee9ba4a9547ebe5f1f8a64a5d4e1",
+      "native/shrincs-proof/methods/Cargo.toml": "53a10a2518f59f988af059035b906af1cf1d8f1bea0899365e6c2fba1302a75a",
+      "native/shrincs-proof/methods/build.rs": "941667c4a0f18d9868159b1f8cca9729627b5351e91539add80edb5900a6b997",
+      "native/shrincs-proof/methods/guest/Cargo.lock": "fd5c12fc4cfc0a0a2bee077e5bb3e864ef00f9a7baf0e8e88aab0b976f3cfe07",
+      "native/shrincs-proof/methods/guest/Cargo.toml": "9c639a7516cbc8a00ab3218f71274d40982e1cb8cdb8defcaf4a7a7b36e01f20",
+      "native/shrincs-proof/methods/guest/src/main.rs": "e0ec978f4ed0f440cd827161714f37d8cbf5eb691554efe7bc48dc96e0eb5fb3",
+      "native/shrincs-proof/methods/src/lib.rs": "902d56d952004dd42e65c148a4b537710f869054556528b25ed3e67d050bb255",
+      "native/shrincs-proof/rustc-wrapper.sh": "f59937b582cd5b65666ddc8138dbe7a03a0f69424d11c2680f9441b07396f8be"
+    },
+    "wrapper_sha256": "f59937b582cd5b65666ddc8138dbe7a03a0f69424d11c2680f9441b07396f8be",
+    "binary_sha256": {
+      ".cache/risc0-target/release/btc-pq-shrincs-proof": "dcd675b560a21a264cc9cba5f9dee0846d2e7063514286f72b188a6045522b1c",
+      ".cache/risc0-target/release/shrincs-proof-reference": "420f419607cdbb2a73e2e8a1ac15bcf9e47e9e1ff0c318d79824d64e63c5571a",
+      ".cache/risc0-tools/r0vm": "dce243fc350c17cb6ca34b9b82fb8c3098aa1e3a8da7ef0b98a837cc437c2cff"
+    }
+  }
+}

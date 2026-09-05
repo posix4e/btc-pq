@@ -1,0 +1,25 @@
+{
+  "date": "2026-09-05",
+  "experiment": "Replay existing legacy OP_CAT primitive fixture; not a STARK proof test",
+  "scope": "linked prevout Script verification only; no new node or block replay",
+  "verifier_source": "native/verify.cpp",
+  "verifier_sha256": "2f3a4bf5e413dd439cda4dc13bf1f946b766f012c1f9cd515a967cd0cfc95faa",
+  "spend": "results/regtest/limits--op_cat_reconstruction.hex",
+  "spend_file_sha256": "a1453bc968148aa28ada5bb9827f7e81579a423010aeb7008933058c5ffbcfdc",
+  "parent": "results/regtest/funding.hex",
+  "parent_file_sha256": "1d9bcd2df853a4ea6744358e77790113363a5e9d18028feeaa18808af0896e71",
+  "result": {
+    "core_version": "31.1",
+    "scope": "linked_prevout_script_verification",
+    "flags": 134677,
+    "inputs": [
+      {
+        "index": 0,
+        "valid": false,
+        "error": "Attempted to use a disabled opcode"
+      }
+    ],
+    "fee_sats": 10000,
+    "valid": false
+  }
+}

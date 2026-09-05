@@ -1,0 +1,42 @@
+[
+  {
+    "epoch": 0,
+    "public_key": "0928ac1df8f08b58461d17a1749d1e15344bb357613c440fabd0bd3b43aa6d5e"
+  },
+  {
+    "epoch": 1,
+    "public_key": "5c27d0f11e4a04b0589adaddb4668d76d76166ab344925337c6fae24b871cfba"
+  },
+  {
+    "epoch": 2,
+    "public_key": "3f066c43554c9418a7afcb3efbdedd3aebd62f606782386140e784430b2a8fd4"
+  },
+  {
+    "epoch": 3,
+    "public_key": "32e13746c9f54c00a3bdecf97aa8ee5dc60b15bf974296cbe82f15d15f49e59e"
+  },
+  {
+    "epoch": 4,
+    "public_key": "31846372bb517675792d4fdce437d0e44ea4a8e518a2104d019d00a705fbe3fa"
+  },
+  {
+    "epoch": 5,
+    "public_key": "cc214a2eae40d32addce640f2713c9399f0593caf82a49f95224eee222d287a6"
+  },
+  {
+    "epoch": 6,
+    "public_key": "82a021fa5fb1a5424e49e72d229e227a8555c2f7f551f4b12e3fbabac2a87dea"
+  },
+  {
+    "epoch": 7,
+    "public_key": "ba4b3d7b1af20a109ec0472494aaefc1af51ce8c7a211b4fd83f83ac8f7703b0"
+  },
+  {
+    "epoch": 8,
+    "public_key": "2eabcdddb82932189f1fda7a35bd536bf253c349fdac562a70dfab5823d59276"
+  },
+  {
+    "epoch": 9,
+    "public_key": "dccbbc8002c66b92171ec1abb34e760125e8b981b7c3c40f3c7ec8a656e613ce"
+  }
+]

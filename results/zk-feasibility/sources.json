@@ -1,0 +1,90 @@
+{
+  "date": "2026-09-05",
+  "scope": "source inspection only; external implementations not executed",
+  "sources": [
+    {
+      "repo": "BitVM/BitVM",
+      "commit": "7d1ca3660cac08aab62e76f3aa4daec0d7403ecc",
+      "path": "README.md",
+      "url": "https://github.com/BitVM/BitVM/blob/7d1ca3660cac08aab62e76f3aa4daec0d7403ecc/README.md",
+      "sha256": "05587087bbdbc78691425b4f514b68973f0add5a451f55dfb3057111a55bd1bd",
+      "matched_lines": [
+        15,
+        49
+      ]
+    },
+    {
+      "repo": "BitVM/BitVM",
+      "commit": "7d1ca3660cac08aab62e76f3aa4daec0d7403ecc",
+      "path": "bitvm/src/groth16/verifier.rs",
+      "url": "https://github.com/BitVM/BitVM/blob/7d1ca3660cac08aab62e76f3aa4daec0d7403ecc/bitvm/src/groth16/verifier.rs",
+      "sha256": "1855aa468734f9b462566dc2c27762973e104c211216c3478debf42b29c5e406",
+      "matched_lines": [
+        6,
+        7,
+        25,
+        39,
+        40,
+        41,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        92,
+        93,
+        97,
+        103,
+        107,
+        111,
+        127
+      ]
+    },
+    {
+      "repo": "Bitcoin-Wildlife-Sanctuary/bitcoin-circle-stark",
+      "commit": "9540164f243b23e4ca995c153f70ec64744df28a",
+      "path": "src/merkle_tree/bitcoin_script.rs",
+      "url": "https://github.com/Bitcoin-Wildlife-Sanctuary/bitcoin-circle-stark/blob/9540164f243b23e4ca995c153f70ec64744df28a/src/merkle_tree/bitcoin_script.rs",
+      "sha256": "1c0312a2fd32a5f1a1b6651e22e80a9375b463d17bed158854bf8f2d99e7bc3c",
+      "matched_lines": [
+        37,
+        55,
+        84,
+        89
+      ]
+    },
+    {
+      "repo": "Bitcoin-Wildlife-Sanctuary/bitcoin-circle-stark",
+      "commit": "9540164f243b23e4ca995c153f70ec64744df28a",
+      "path": "src/channel/bitcoin_script.rs",
+      "url": "https://github.com/Bitcoin-Wildlife-Sanctuary/bitcoin-circle-stark/blob/9540164f243b23e4ca995c153f70ec64744df28a/src/channel/bitcoin_script.rs",
+      "sha256": "e9f2e4942038064666aacdf48141c498a0d069aab4aacb763ae2ba9c74eef48f",
+      "matched_lines": [
+        18,
+        20,
+        32,
+        36,
+        48,
+        54,
+        55,
+        56,
+        57,
+        70,
+        73,
+        83,
+        87,
+        96,
+        129,
+        130,
+        138,
+        147,
+        159,
+        163,
+        303,
+        437,
+        439
+      ]
+    }
+  ]
+}

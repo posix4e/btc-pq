@@ -1,0 +1,22 @@
+{
+  "commit": "345b0a64ce8d00c16c35952375dea6d13ec48c85",
+  "parameters": "SHRINCS_B32",
+  "source_sha256": {
+    "src/address.c": "bd6970d671ee3f1a7c2cb695d8327884ff742677b876de750fae9cac9af438a3",
+    "src/hash.c": "dc2aaa5f47f3e41e8fa0bd2b479c9ef15479c17678ac528011286b19b993005c",
+    "src/pors_fp.c": "1f5baa166e642d04fbd552722ec51ce45a4e5a1f66ecb017c4c86f58b15f5241",
+    "src/shrincs.c": "22e25a14abd6eabb7822da7817191d1189ff92a08a0c3d0273c5570beb2a21f9",
+    "src/uxmss.c": "6c233c8fef980da855caad2a40c4d52d1c7b64bde5e86c2b4931efb06f69253b",
+    "src/wots_c.c": "6d4c9e38300cf8a1046e246e3ac601268f32aebf29adf754ef17fbaba0a97bd8",
+    "src/xmss.c": "30eb8c10712169356745f76fac05d124b3688dfeb47ddc7b83ec167038f85c7d",
+    "include/address.h": "f00c6ea433e4774fb92e79770c1a32c7b9f0f0d50e92d445e2b32c04e90813f7",
+    "include/constants.h": "5c505c297385e38086e6947f36eca27fdb3d40b994ae632e06a93793d71a3184",
+    "include/hash.h": "2c41f77c1069e85ae9b49be38943bcf313e074296ceea8ba741a521d331320c8",
+    "include/pors_fp.h": "3664dd61a4b72f788124f655b822b3465f32c45410ef59cbead8f3316a6a6d79",
+    "include/shrincs.h": "13dc88a231252c5c71b16af52f21d6cb6688ab31f0c60b1137a56a3c806669ef",
+    "include/uxmss.h": "a27fc7fd68b21551deb6337eab712172404f474a2a2f9f59fa11a1a461a923d0",
+    "include/wots_c.h": "8fc98b28f9b942764b7bb1a1f456e572e06056a5c9da13cf267cd63b9856aa5a",
+    "include/xmss.h": "5b2483d0735a14cc53abcc3d407060fe0530bf46cd35a7fffb95ca6a180d9049"
+  },
+  "library_sha256": "df4e5d41bd49e64aac4490d84f724b2dbd55c177a69db420921dc904d33d9913"
+}

@@ -1,0 +1,118 @@
+{
+  "date": "2026-09-05",
+  "unit_tests": 65,
+  "passed": 64,
+  "skipped": 1,
+  "command": "python -m unittest discover -s tests -v",
+  "native_script_cases": 64,
+  "cisa_python_cases": 66,
+  "pq_proof_payment_cases": 48,
+  "shrincs_vectors": 375,
+  "shrincs_differential_implementations": 4,
+  "shrincs_negative_controls": 1875,
+  "mainnet_activation": false,
+  "production_wallet": false,
+  "independent_security_audit": false,
+  "artifacts": [
+    {
+      "path": "results/covenant-demo/report.json",
+      "sha256": "e88d45d96c6bb7245f01c5a7e0f1cd3772f985930189c7b64d4d3ce09a5e3230",
+      "cases": 27
+    },
+    {
+      "path": "results/shrincs-demo/report.json",
+      "sha256": "d34816ea48a3c87b5c0a90bd9132f389c410ca7e7191b16c56963476cc14cfb9",
+      "cases": 37
+    },
+    {
+      "path": "results/cisa-demo/report.json",
+      "sha256": "c2067596c5d472a89d4292da9490e0cf03a0f174d9e5203bed6c61b895bedab4",
+      "cases": 66
+    },
+    {
+      "path": "results/pq-aggregate/report.json",
+      "sha256": "ce2d66e01c8e8ce4119d94f964257009c8a414449e66a58066032d8661049cde",
+      "cases": 36
+    },
+    {
+      "path": "results/pq-aggregate/large/report.json",
+      "sha256": "b8d920021999abc1eb28316c5a59b94d2f5fe3c072c6524c98722c079449a252",
+      "cases": 12
+    },
+    {
+      "path": "results/shrincs-demo/upstream-kat-full-differential.json",
+      "sha256": "020809c7799ae421a85c3988aabb603dcf40565658dcf08f0fa05ed715e3a419",
+      "cases": 375
+    },
+    {
+      "path": "results/shrincs-demo/work-bounds/report.json",
+      "cases": 2,
+      "sha256": "6a39921b2056efee2647a512c580b2969064b7fd1417e44facf1d5d74e320108"
+    },
+    {
+      "path": "results/shrincs-proof/rust-differential.json",
+      "cases": 375,
+      "sha256": "45b620f52cb67b89ea740bf49dcd76976071d01f183bf674341b89c8e5ad36e5"
+    },
+    {
+      "path": "results/shrincs-proof/execution.json",
+      "cases": 6,
+      "sha256": "82f44f7ada7be6e2163072ac6c67543b263afb8d214e3706e38768c16dd5a5c4"
+    },
+    {
+      "path": "results/shrincs-proof/program.json",
+      "cases": 1,
+      "sha256": "8968828a12874a22675ff4eff001710c9ed972bf5e9e16de78af33b77db12009"
+    },
+    {
+      "path": "results/shrincs-proof/compact-q1-valid.proof.json",
+      "cases": 12,
+      "sha256": "0b1ddc5234364aef96094709143db58d8f095fdd07015dcf2647d9b88eef9e66"
+    },
+    {
+      "path": "results/shrincs-proof-compressed/compact-q1-valid.compression.json",
+      "cases": 1,
+      "sha256": "c01128e795156057f01d24a3f307c564cbc5be9862ddd8c2c250c9dd3aa2c64c"
+    },
+    {
+      "path": "results/shrincs-receipt/compact-q1-valid.json",
+      "cases": 16,
+      "sha256": "1b6689ddcd36cfb310d5b81188c440d498b58c411dd42fc952de6c1ac8e723fc"
+    },
+    {
+      "path": "results/shrincs-receipt-compressed/compact-q1-valid.json",
+      "cases": 16,
+      "sha256": "bbcbf39937a8bcd762c56036eaa8a6c99bdf54cfdbae2bca3392993a941aa370"
+    },
+    {
+      "path": "results/holding-demo/replay.json",
+      "cases": 8,
+      "sha256": "4964c15b1fca688a835b8d03be517b8f06335ddce84cc77aa3975eb6beb90b97"
+    },
+    {
+      "path": "results/shrincs-node/funding-replay.json",
+      "cases": 2,
+      "sha256": "a7594072a398e4a4d904919d4a4e9398c04b03bec3eb3251102709564ef7bd91"
+    },
+    {
+      "path": "results/shrincs-node/manifest.json",
+      "cases": 1,
+      "sha256": "77179382fe32c2c422ec1b15497fc495d58098ab54713002014693fa8f6d54d5"
+    }
+  ],
+  "git_staged_diff_check_passed": true,
+  "pq_proof_replay_cases": 48,
+  "shrincs_work_budget_tests": 3,
+  "skip_reason": "Exact SHRINCS receipt regression awaits all three generated proof fixtures",
+  "exact_shrincs_rust_vectors": 375,
+  "exact_shrincs_rust_negative_controls": 1875,
+  "exact_shrincs_guest_execution_cases": 6,
+  "exact_shrincs_receipts_complete": false,
+  "exact_shrincs_compact_proof_cases": 12,
+  "native_receipt_transaction_cases": 32,
+  "exact_shrincs_compressed_receipts": 1,
+  "stock_holding_cases": 8,
+  "patched_node_wrong_claim_cases": 2,
+  "patched_node_valid_receipt_pending": true,
+  "holding_future_recovery": "deferred by user"
+}

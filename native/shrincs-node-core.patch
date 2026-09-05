@@ -1,0 +1,55 @@
+--- a/src/validation.cpp
++++ b/src/validation.cpp
+@@ -6,6 +6,7 @@
+ #include <bitcoin-build-config.h> // IWYU pragma: keep
+ 
+ #include <validation.h>
++#include "shrincs_receipt.h"
+ 
+ #include <arith_uint256.h>
+ #include <chain.h>
+@@ -1143,7 +1144,10 @@
+     const CTransaction& tx = *ws.m_ptx;
+     TxValidationState& state = ws.m_state;
+ 
+-    constexpr script_verify_flags scriptVerifyFlags = STANDARD_SCRIPT_VERIFY_FLAGS;
++    script_verify_flags scriptVerifyFlags = STANDARD_SCRIPT_VERIFY_FLAGS;
++    if (m_active_chainstate.m_chainman.GetParams().GetChainType() == ChainType::REGTEST) {
++        scriptVerifyFlags = ShrincsReceiptFlags(scriptVerifyFlags);
++    }
+ 
+     // Check input scripts and signatures.
+     // This is done last to help prevent CPU exhaustion denial-of-service attacks.
+@@ -2101,6 +2105,21 @@
+     }
+     assert(txdata.m_spent_outputs.size() == tx.vin.size());
+ 
++    // Local research activation only. Check the entire authorization group
++    // using UTXOs from this node, before scheduling individual Script checks.
++    if ((flags & SCRIPT_VERIFY_BTC_PQ_SHRINCS_PROOF_DEMO) && HasShrincsReceiptEnvelope(tx)) {
++        const auto verdict = CheckShrincsReceiptTransaction(tx, txdata.m_spent_outputs, flags);
++        if (!verdict["valid"].get_bool()) {
++            const auto& error = verdict["error"];
++            return state.Invalid(TxValidationResult::TX_CONSENSUS, "bad-shrincs-receipt",
++                                 error.isStr() ? error.get_str() : "proof or group script invalid");
++        }
++        // The preexisting key commits to wtxid and flags, including proof bytes.
++        // Group checks ran inline even when ordinary scripts would be queued.
++        if (cacheFullScriptStore) validation_cache.m_script_execution_cache.insert(hashCacheEntry);
++        return true;
++    }
++
+     for (unsigned int i = 0; i < tx.vin.size(); i++) {
+ 
+         // We very carefully only pass in things to CScriptCheck which
+@@ -2287,6 +2306,10 @@
+     // Enforce BIP147 NULLDUMMY (activated simultaneously with segwit)
+     if (DeploymentActiveAt(block_index, chainman, Consensus::DEPLOYMENT_SEGWIT)) {
+         flags |= SCRIPT_VERIFY_NULLDUMMY;
++    }
++
++    if (chainman.GetParams().GetChainType() == ChainType::REGTEST) {
++        flags = ShrincsReceiptFlags(flags);
+     }
+ 
+     return flags;

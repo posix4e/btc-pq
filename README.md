@@ -9,6 +9,42 @@ transaction against unchanged Bitcoin Core, funds the exact locking script on an
 isolated regtest node, and measures the puzzle. **Regtest only, valueless coins,
 public data, no keys that hold funds.**
 
+For the proof-based alternative, see the [ZK feasibility check](docs/zk-feasibility.md):
+pinned verifier source dependencies, the distinction between checked hints and
+QSB's search, and a replay of the legacy OP_CAT constraint.
+
+For an executable alternative without QSB's rare-hash search, see the
+[covenant/P2MR demo and SHRINCS/CISA comparison](docs/covenant-demo.md).
+`btc-pq covenant-demo --build` runs 27 cases with a separate proposal Script
+verifier; `btc-pq covenant-demo --replay` checks the saved fixtures again.
+This models proposed consensus changes, not Bitcoin mainnet support.
+
+The follow-up [P2MR + native SHRINCS experiment](docs/shrincs-demo.md) uses the
+pinned upstream implementation for compact and seed-recovery signatures, with
+full transaction binding. Run `btc-pq shrincs-demo --build` and
+`btc-pq shrincs-demo --replay`; the first compact spend is 495 bytes.
+
+The [aggregation experiments](docs/aggregation-demo.md) execute both Schnorr
+CISA modes and generate real hash-based proofs of XMSS payment signatures.
+They measure the cost of aggregation and check that changing the payment
+invalidates its authorization. The [persistent signer](docs/shrincs-state.md)
+also exercises concurrent signing, process crashes, and seed restoration.
+The [bounded verifier and cost model](docs/shrincs-work.md) enforce SHA256 work
+limits before each native check. Results and remaining work are tracked in [issue #3](https://github.com/posix4e/btc-pq/issues/3).
+
+The [exact SHRINCS proof experiment](docs/shrincs-proof.md) runs the same SHA256
+verification logic in a RISC Zero guest. Its native Rust replay covers all 375
+upstream vectors. The first real receipt compresses from 1,381,282 to 223,290
+bytes. The [native transaction proof demo](docs/receipt-transaction.md) places
+both receipt formats in actual transaction witnesses and checks 32 payment and
+proof cases. Full node integration and larger exact-SHRINCS batches remain open.
+
+The [holding demo](docs/holding-demo.md) parks a hash-committed output on
+unchanged Core and restores its ownership backup in a fresh process. Its
+34-byte output script has no EC key path or expiry. Eight checks demonstrate
+holding and the lack of destination binding after secret disclosure; future
+migration is deliberately deferred.
+
 ## The finding
 
 The confirmed mainnet spend

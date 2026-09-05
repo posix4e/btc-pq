@@ -1,0 +1,2110 @@
+{
+  "scope": "linked-prevout Script checks under a local opcode model; not mainnet or a full node",
+  "build": {
+    "consensus_modified": true,
+    "scope": "linked_prevout_script_verification",
+    "core_commit": "9be056a8a72b624dae9623b2f7bded92c2a21c91",
+    "shrincs_commit": "7643d9530c568f8671b21b9502e51bd9722b2e8d",
+    "parameters": "SHRINCS_B32",
+    "source_inputs": {
+      "native/covenant-core.patch": "e69e500aecb7920e16edc1275afe7aae8a150a0c46da47d7296d14ace65a2f83",
+      "native/shrincs-core.patch": "f5bbc5c4d50bf0f4da3b672f4de11758e431a8c4efa027197175405b8b933620",
+      "native/shrincs_verify.cpp": "ce76f637c02bfce3d1e694c47a04e07b62a4420baef4fef977983fd36b7fe881",
+      "native/shrincs_tool.cpp": "a1bcddcb29d69ec27fbf082afb2c4db4ee9c3a8760c34e629ea2c1cf3bf3976a",
+      "native/shrincs_bridge.cpp": "42c5aa55d933e83946ed056ed3e8a4edf4cf57454552ffb5d72809d3cb7ba520",
+      "native/shrincs_bridge.h": "cc6c48fa6a13e81df69b611bc695df944d41f2c0471797f55effb1f22c18e4fd",
+      "native/shrincs_bounded.cpp": "c2de9894298ec87fd102049f160f247c543656f4d2965052b2c918a5d5ef2294",
+      "native/shrincs_bounded.h": "d379f2f7265809038aa4b6c854539d1211c8188ac8f60cec0df0e0665f117c3b",
+      "native/shrincs_cost.h": "cfad93eabc4fbf81a0b37358f649ebc3caad02a2401036c84908556fac04adfa",
+      "native/shrincs/CMakeLists.txt": "b2e3ba623a90e659ccc8074df433d004deb9220e055aa17cbc0f6f5c17526e60"
+    },
+    "build_wall_seconds": 1.7774796250159852,
+    "binary_sha256": {
+      "btc-pq-shrincs-verify": "9c29a139469bcd519199d076d9ee88927f25f6333cc044339b760243fc891402",
+      "btc-pq-shrincs-tool": "fca83ac157709bf70ef12c78e54bf72cc4123c98116240c0f8ac1a3c433cf19f",
+      "shrincs-upstream-kat": "c18f3923271b66f266e4922333568615a255077f78d921b379deb73f57c7f8ab"
+    }
+  },
+  "parameters": "upstream SHRINCS_B32 signer; locally bounded native verifier",
+  "digest": "TaggedHash(btc-pq/SHRINCS-B32/v1, BIP341 SIGHASH_DEFAULT with BIP342 extension)",
+  "experimental_opcode": "0xcf; local allocation, not an assigned BIP opcode",
+  "signing": {
+    "parameters": "SHRINCS_B32",
+    "N": 16,
+    "HSF": 210,
+    "HSL": 32,
+    "D": 4,
+    "public_fixture_only": true,
+    "key_derivation_ms": 66.6635,
+    "signer_hardware_threads": 10,
+    "signatures": [
+      {
+        "name": "compact-q1",
+        "q": 1,
+        "bytes": 324,
+        "sign_ms": 29.9036,
+        "verify_ms": 0.069083
+      },
+      {
+        "name": "compact-q2",
+        "q": 2,
+        "bytes": 340,
+        "sign_ms": 29.9888,
+        "verify_ms": 0.073708
+      },
+      {
+        "name": "compact-q17",
+        "q": 17,
+        "bytes": 580,
+        "sign_ms": 30.0014,
+        "verify_ms": 0.075542
+      },
+      {
+        "name": "recovery",
+        "bytes": 3680,
+        "sign_ms": 288.848,
+        "verify_ms": 0.332833
+      }
+    ],
+    "compact_states_consumed": 17,
+    "restored_compact_rejected": true,
+    "restore_ms": 66.5154
+  },
+  "multi_signing": [
+    {
+      "parameters": "SHRINCS_B32",
+      "N": 16,
+      "HSF": 210,
+      "HSL": 32,
+      "D": 4,
+      "public_fixture_only": true,
+      "key_derivation_ms": 72.136,
+      "signer_hardware_threads": 10,
+      "signatures": [
+        {
+          "name": "compact-q1",
+          "q": 1,
+          "bytes": 324,
+          "sign_ms": 32.207,
+          "verify_ms": 0.076167
+        },
+        {
+          "name": "compact-q2",
+          "q": 2,
+          "bytes": 340,
+          "sign_ms": 32.0897,
+          "verify_ms": 0.07675
+        },
+        {
+          "name": "compact-q17",
+          "q": 17,
+          "bytes": 580,
+          "sign_ms": 30.1457,
+          "verify_ms": 0.068875
+        },
+        {
+          "name": "recovery",
+          "bytes": 3680,
+          "sign_ms": 292,
+          "verify_ms": 0.34975
+        }
+      ],
+      "compact_states_consumed": 17,
+      "restored_compact_rejected": true,
+      "restore_ms": 66.9154
+    },
+    {
+      "parameters": "SHRINCS_B32",
+      "N": 16,
+      "HSF": 210,
+      "HSL": 32,
+      "D": 4,
+      "public_fixture_only": true,
+      "key_derivation_ms": 66.9375,
+      "signer_hardware_threads": 10,
+      "signatures": [
+        {
+          "name": "compact-q1",
+          "q": 1,
+          "bytes": 324,
+          "sign_ms": 30.0008,
+          "verify_ms": 0.071958
+        },
+        {
+          "name": "compact-q2",
+          "q": 2,
+          "bytes": 340,
+          "sign_ms": 30.3527,
+          "verify_ms": 0.070625
+        },
+        {
+          "name": "compact-q17",
+          "q": 17,
+          "bytes": 580,
+          "sign_ms": 29.9795,
+          "verify_ms": 0.069125
+        },
+        {
+          "name": "recovery",
+          "bytes": 3680,
+          "sign_ms": 299.145,
+          "verify_ms": 0.381584
+        }
+      ],
+      "compact_states_consumed": 17,
+      "restored_compact_rejected": true,
+      "restore_ms": 67.3311
+    }
+  ],
+  "metrics": {
+    "compact-q1": {
+      "signature_bytes": 324,
+      "signature_chunks": 1,
+      "public_key_bytes": 32,
+      "script_bytes": 34,
+      "control_bytes": 33,
+      "transaction": {
+        "txid": "26153b864ecb828c6d8ae4a850f707196c3bf24b78799573559ef303b4854f1e",
+        "bytes": 495,
+        "stripped_bytes": 94,
+        "weight": 777,
+        "vsize": 195,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      },
+      "signing": {
+        "name": "compact-q1",
+        "q": 1,
+        "bytes": 324,
+        "sign_ms": 29.9036,
+        "verify_ms": 0.069083
+      }
+    },
+    "compact-q2": {
+      "signature_bytes": 340,
+      "signature_chunks": 1,
+      "public_key_bytes": 32,
+      "script_bytes": 34,
+      "control_bytes": 33,
+      "transaction": {
+        "txid": "26153b864ecb828c6d8ae4a850f707196c3bf24b78799573559ef303b4854f1e",
+        "bytes": 511,
+        "stripped_bytes": 94,
+        "weight": 793,
+        "vsize": 199,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      },
+      "signing": {
+        "name": "compact-q2",
+        "q": 2,
+        "bytes": 340,
+        "sign_ms": 29.9888,
+        "verify_ms": 0.073708
+      }
+    },
+    "compact-q17": {
+      "signature_bytes": 580,
+      "signature_chunks": 2,
+      "public_key_bytes": 32,
+      "script_bytes": 34,
+      "control_bytes": 33,
+      "transaction": {
+        "txid": "26153b864ecb828c6d8ae4a850f707196c3bf24b78799573559ef303b4854f1e",
+        "bytes": 752,
+        "stripped_bytes": 94,
+        "weight": 1034,
+        "vsize": 259,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      },
+      "signing": {
+        "name": "compact-q17",
+        "q": 17,
+        "bytes": 580,
+        "sign_ms": 30.0014,
+        "verify_ms": 0.075542
+      }
+    },
+    "recovery": {
+      "signature_bytes": 3680,
+      "signature_chunks": 8,
+      "public_key_bytes": 32,
+      "script_bytes": 34,
+      "control_bytes": 33,
+      "transaction": {
+        "txid": "26153b864ecb828c6d8ae4a850f707196c3bf24b78799573559ef303b4854f1e",
+        "bytes": 3870,
+        "stripped_bytes": 94,
+        "weight": 4152,
+        "vsize": 1038,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      },
+      "signing": {
+        "name": "recovery",
+        "bytes": 3680,
+        "sign_ms": 288.848,
+        "verify_ms": 0.332833
+      }
+    },
+    "two-inputs": {
+      "txid": "442c3b45910cf1a70d8fc9be511fa7ad34ebc463e04cc65a8e474db248a4198a",
+      "bytes": 935,
+      "stripped_bytes": 135,
+      "weight": 1340,
+      "vsize": 335,
+      "input_script_bytes": [
+        0,
+        0
+      ],
+      "output_script_bytes": [
+        34
+      ]
+    }
+  },
+  "cases": [
+    {
+      "name": "compact-q1-valid",
+      "expected_valid": true,
+      "note": "Same funded key accepts this signing mode.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "compact-q1-valid.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 74.625,
+            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d",
+            "sha256_compression_blocks": 2053,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "26153b864ecb828c6d8ae4a850f707196c3bf24b78799573559ef303b4854f1e",
+        "bytes": 495,
+        "stripped_bytes": 94,
+        "weight": 777,
+        "vsize": 195,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "compact-q1-changed-recipient",
+      "expected_valid": false,
+      "note": "Original authorization with changed recipient.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "compact-q1-changed-recipient.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 23.959,
+            "message_digest": "4b6b9a04751db8c56384f7aa9a103dca805eb4a96c0b764d0d835fc8e0e23314",
+            "sha256_compression_blocks": 4,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "1f1fde01dca2a2697555beffba14a016304745da6fb7141d761273aa9bcc6bfc",
+        "bytes": 495,
+        "stripped_bytes": 94,
+        "weight": 777,
+        "vsize": 195,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "compact-q1-changed-amount",
+      "expected_valid": false,
+      "note": "Original authorization with changed amount.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "compact-q1-changed-amount.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 22.458,
+            "message_digest": "cc8301eccb9545fd8b9af253747347f4a57fdf70bd131e85086a8f6835074cf2",
+            "sha256_compression_blocks": 4,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1001,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "6084b5e987ac9f728b37e05980c2cc731bc34ca760ba8d3d1bf7e4de74aff603",
+        "bytes": 495,
+        "stripped_bytes": 94,
+        "weight": 777,
+        "vsize": 195,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "compact-q1-changed-sequence",
+      "expected_valid": false,
+      "note": "Original authorization with changed sequence.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "compact-q1-changed-sequence.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 18.625,
+            "message_digest": "44640b60a8eeaeaeab6c6157c0333d8e40164a292ac58f77e43c20a45367fcaf",
+            "sha256_compression_blocks": 4,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "9ae38de3a89db229c86e780dfc6b9eeeb6af9b702597ed10b84dd17a56c1eb4d",
+        "bytes": 495,
+        "stripped_bytes": 94,
+        "weight": 777,
+        "vsize": 195,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "compact-q1-changed-locktime",
+      "expected_valid": false,
+      "note": "Original authorization with changed locktime.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "compact-q1-changed-locktime.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 18.417,
+            "message_digest": "17e125d955f3ded2808a82af66d2ae585cfa0223e69b7ecd01f16e6db47ab13f",
+            "sha256_compression_blocks": 4,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "f1279e234793bf757ff9ddc92a6a4e62687f829cf07f0d64d2e32f0a7411e564",
+        "bytes": 495,
+        "stripped_bytes": 94,
+        "weight": 777,
+        "vsize": 195,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "compact-q1-changed-version",
+      "expected_valid": false,
+      "note": "Original authorization with changed version.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "compact-q1-changed-version.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 18.125,
+            "message_digest": "af1abf72b78524376a891ca1cdcd9ff75150ebdddaf7cd24866acc0887e0b76c",
+            "sha256_compression_blocks": 4,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "a320a0ccce18ad58a26d5cacf6c0dc14fa7bc159a1607449173f4577101586a4",
+        "bytes": 495,
+        "stripped_bytes": 94,
+        "weight": 777,
+        "vsize": 195,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "compact-q1-changed-outpoint",
+      "expected_valid": false,
+      "note": "Original authorization with changed outpoint.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "compact-q1-changed-outpoint.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 16.416,
+            "message_digest": "6f512cfacaa1bd4fe339ff2452c361f4ed6a20f3249f1c956ee07f643d78524e",
+            "sha256_compression_blocks": 4,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "57bc65b94340c267e49bad4bcc8edf01df6c2884962f706be7ed59711275cfb5",
+        "bytes": 495,
+        "stripped_bytes": 94,
+        "weight": 777,
+        "vsize": 195,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "compact-q1-changed-signature",
+      "expected_valid": false,
+      "note": "Original authorization with changed signature.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "compact-q1-changed-signature.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 75.042,
+            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d",
+            "sha256_compression_blocks": 2053,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "26153b864ecb828c6d8ae4a850f707196c3bf24b78799573559ef303b4854f1e",
+        "bytes": 495,
+        "stripped_bytes": 94,
+        "weight": 777,
+        "vsize": 195,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "compact-q1-changed-truncated",
+      "expected_valid": false,
+      "note": "Original authorization with changed truncated.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "compact-q1-changed-truncated.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Invalid Schnorr signature size",
+            "script_microseconds": 3.083,
+            "message_digest": null,
+            "sha256_compression_blocks": 0,
+            "charged_validation_weight": 0,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "26153b864ecb828c6d8ae4a850f707196c3bf24b78799573559ef303b4854f1e",
+        "bytes": 494,
+        "stripped_bytes": 94,
+        "weight": 776,
+        "vsize": 194,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "compact-q1-changed-appended",
+      "expected_valid": false,
+      "note": "Original authorization with changed appended.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "compact-q1-changed-appended.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Invalid Schnorr signature size",
+            "script_microseconds": 3,
+            "message_digest": null,
+            "sha256_compression_blocks": 0,
+            "charged_validation_weight": 0,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "26153b864ecb828c6d8ae4a850f707196c3bf24b78799573559ef303b4854f1e",
+        "bytes": 496,
+        "stripped_bytes": 94,
+        "weight": 778,
+        "vsize": 195,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "compact-q1-changed-chunk_count",
+      "expected_valid": false,
+      "note": "Original authorization with changed chunk_count.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "compact-q1-changed-chunk_count.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script number overflowed or is non-minimally encoded",
+            "script_microseconds": 32.583,
+            "message_digest": null,
+            "sha256_compression_blocks": 0,
+            "charged_validation_weight": 0,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "26153b864ecb828c6d8ae4a850f707196c3bf24b78799573559ef303b4854f1e",
+        "bytes": 495,
+        "stripped_bytes": 94,
+        "weight": 777,
+        "vsize": 195,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "compact-q1-changed-merkle_proof",
+      "expected_valid": false,
+      "note": "Original authorization with changed merkle_proof.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "compact-q1-changed-merkle_proof.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Witness program hash mismatch",
+            "script_microseconds": 3,
+            "message_digest": null,
+            "sha256_compression_blocks": 0,
+            "charged_validation_weight": 0,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "26153b864ecb828c6d8ae4a850f707196c3bf24b78799573559ef303b4854f1e",
+        "bytes": 495,
+        "stripped_bytes": 94,
+        "weight": 777,
+        "vsize": 195,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "compact-q1-added-annex",
+      "expected_valid": false,
+      "note": "Annex is included in the signed message.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "compact-q1-added-annex.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 20.834,
+            "message_digest": "444d9a8002dc9bc8a75b9efbb62fc586fb581f4cba88145933eba858e01d33bf",
+            "sha256_compression_blocks": 4,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "26153b864ecb828c6d8ae4a850f707196c3bf24b78799573559ef303b4854f1e",
+        "bytes": 506,
+        "stripped_bytes": 94,
+        "weight": 788,
+        "vsize": 197,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "compact-q1-changed-funding",
+      "expected_valid": false,
+      "note": "Full signature message commits to input outpoints and spent values.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "compact-q1-changed-funding.hex",
+      "parents": [
+        "parent-f4775f9e083afe676601ae6736ea30c8d13b42243ca1abad1b07b4f88b0d95c4.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 20.292,
+            "message_digest": "fdc7f4823d7dc2921df50b1caa0bff49c74f001e1e8cbada51ef182acd2304c4",
+            "sha256_compression_blocks": 4,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1001,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "e587c35611620f3062e0537fd2eae5feed73077653098932b626e2e1bec78775",
+        "bytes": 495,
+        "stripped_bytes": 94,
+        "weight": 777,
+        "vsize": 195,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "compact-q2-valid",
+      "expected_valid": true,
+      "note": "Same funded key accepts this signing mode.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "compact-q2-valid.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 75.166,
+            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d",
+            "sha256_compression_blocks": 2055,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "26153b864ecb828c6d8ae4a850f707196c3bf24b78799573559ef303b4854f1e",
+        "bytes": 511,
+        "stripped_bytes": 94,
+        "weight": 793,
+        "vsize": 199,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "compact-q17-valid",
+      "expected_valid": true,
+      "note": "Same funded key accepts this signing mode.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "compact-q17-valid.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 76.708,
+            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d",
+            "sha256_compression_blocks": 2085,
+            "charged_validation_weight": 261,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "26153b864ecb828c6d8ae4a850f707196c3bf24b78799573559ef303b4854f1e",
+        "bytes": 752,
+        "stripped_bytes": 94,
+        "weight": 1034,
+        "vsize": 259,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "recovery-valid",
+      "expected_valid": true,
+      "note": "Same funded key accepts this signing mode.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "recovery-valid.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 289.334,
+            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d",
+            "sha256_compression_blocks": 8511,
+            "charged_validation_weight": 1080,
+            "last_xof_blocks": 3,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "26153b864ecb828c6d8ae4a850f707196c3bf24b78799573559ef303b4854f1e",
+        "bytes": 3870,
+        "stripped_bytes": 94,
+        "weight": 4152,
+        "vsize": 1038,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "recovery-changed-recipient",
+      "expected_valid": false,
+      "note": "Original authorization with changed recipient.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "recovery-changed-recipient.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 39.166,
+            "message_digest": "4b6b9a04751db8c56384f7aa9a103dca805eb4a96c0b764d0d835fc8e0e23314",
+            "sha256_compression_blocks": 248,
+            "charged_validation_weight": 1080,
+            "last_xof_blocks": 3,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "1f1fde01dca2a2697555beffba14a016304745da6fb7141d761273aa9bcc6bfc",
+        "bytes": 3870,
+        "stripped_bytes": 94,
+        "weight": 4152,
+        "vsize": 1038,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "recovery-changed-amount",
+      "expected_valid": false,
+      "note": "Original authorization with changed amount.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "recovery-changed-amount.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 41.5,
+            "message_digest": "cc8301eccb9545fd8b9af253747347f4a57fdf70bd131e85086a8f6835074cf2",
+            "sha256_compression_blocks": 244,
+            "charged_validation_weight": 1080,
+            "last_xof_blocks": 3,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1001,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "6084b5e987ac9f728b37e05980c2cc731bc34ca760ba8d3d1bf7e4de74aff603",
+        "bytes": 3870,
+        "stripped_bytes": 94,
+        "weight": 4152,
+        "vsize": 1038,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "recovery-changed-sequence",
+      "expected_valid": false,
+      "note": "Original authorization with changed sequence.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "recovery-changed-sequence.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 36.041,
+            "message_digest": "44640b60a8eeaeaeab6c6157c0333d8e40164a292ac58f77e43c20a45367fcaf",
+            "sha256_compression_blocks": 242,
+            "charged_validation_weight": 1080,
+            "last_xof_blocks": 3,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "9ae38de3a89db229c86e780dfc6b9eeeb6af9b702597ed10b84dd17a56c1eb4d",
+        "bytes": 3870,
+        "stripped_bytes": 94,
+        "weight": 4152,
+        "vsize": 1038,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "recovery-changed-locktime",
+      "expected_valid": false,
+      "note": "Original authorization with changed locktime.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "recovery-changed-locktime.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 39.5,
+            "message_digest": "17e125d955f3ded2808a82af66d2ae585cfa0223e69b7ecd01f16e6db47ab13f",
+            "sha256_compression_blocks": 242,
+            "charged_validation_weight": 1080,
+            "last_xof_blocks": 3,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "f1279e234793bf757ff9ddc92a6a4e62687f829cf07f0d64d2e32f0a7411e564",
+        "bytes": 3870,
+        "stripped_bytes": 94,
+        "weight": 4152,
+        "vsize": 1038,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "recovery-changed-version",
+      "expected_valid": false,
+      "note": "Original authorization with changed version.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "recovery-changed-version.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 38.292,
+            "message_digest": "af1abf72b78524376a891ca1cdcd9ff75150ebdddaf7cd24866acc0887e0b76c",
+            "sha256_compression_blocks": 242,
+            "charged_validation_weight": 1080,
+            "last_xof_blocks": 3,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "a320a0ccce18ad58a26d5cacf6c0dc14fa7bc159a1607449173f4577101586a4",
+        "bytes": 3870,
+        "stripped_bytes": 94,
+        "weight": 4152,
+        "vsize": 1038,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "recovery-changed-outpoint",
+      "expected_valid": false,
+      "note": "Original authorization with changed outpoint.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "recovery-changed-outpoint.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 30.208,
+            "message_digest": "6f512cfacaa1bd4fe339ff2452c361f4ed6a20f3249f1c956ee07f643d78524e",
+            "sha256_compression_blocks": 244,
+            "charged_validation_weight": 1080,
+            "last_xof_blocks": 3,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "57bc65b94340c267e49bad4bcc8edf01df6c2884962f706be7ed59711275cfb5",
+        "bytes": 3870,
+        "stripped_bytes": 94,
+        "weight": 4152,
+        "vsize": 1038,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "recovery-changed-signature",
+      "expected_valid": false,
+      "note": "Original authorization with changed signature.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "recovery-changed-signature.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 297.292,
+            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d",
+            "sha256_compression_blocks": 8511,
+            "charged_validation_weight": 1080,
+            "last_xof_blocks": 3,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "26153b864ecb828c6d8ae4a850f707196c3bf24b78799573559ef303b4854f1e",
+        "bytes": 3870,
+        "stripped_bytes": 94,
+        "weight": 4152,
+        "vsize": 1038,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "recovery-changed-truncated",
+      "expected_valid": false,
+      "note": "Original authorization with changed truncated.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "recovery-changed-truncated.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Invalid Schnorr signature size",
+            "script_microseconds": 6.584,
+            "message_digest": null,
+            "sha256_compression_blocks": 0,
+            "charged_validation_weight": 0,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "26153b864ecb828c6d8ae4a850f707196c3bf24b78799573559ef303b4854f1e",
+        "bytes": 3869,
+        "stripped_bytes": 94,
+        "weight": 4151,
+        "vsize": 1038,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "recovery-changed-appended",
+      "expected_valid": false,
+      "note": "Original authorization with changed appended.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "recovery-changed-appended.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Invalid Schnorr signature size",
+            "script_microseconds": 6.292,
+            "message_digest": null,
+            "sha256_compression_blocks": 0,
+            "charged_validation_weight": 0,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "26153b864ecb828c6d8ae4a850f707196c3bf24b78799573559ef303b4854f1e",
+        "bytes": 3871,
+        "stripped_bytes": 94,
+        "weight": 4153,
+        "vsize": 1039,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "recovery-changed-chunk_count",
+      "expected_valid": false,
+      "note": "Original authorization with changed chunk_count.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "recovery-changed-chunk_count.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script number overflowed or is non-minimally encoded",
+            "script_microseconds": 77.667,
+            "message_digest": null,
+            "sha256_compression_blocks": 0,
+            "charged_validation_weight": 0,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "26153b864ecb828c6d8ae4a850f707196c3bf24b78799573559ef303b4854f1e",
+        "bytes": 3870,
+        "stripped_bytes": 94,
+        "weight": 4152,
+        "vsize": 1038,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "recovery-changed-merkle_proof",
+      "expected_valid": false,
+      "note": "Original authorization with changed merkle_proof.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "recovery-changed-merkle_proof.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Witness program hash mismatch",
+            "script_microseconds": 3.125,
+            "message_digest": null,
+            "sha256_compression_blocks": 0,
+            "charged_validation_weight": 0,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "26153b864ecb828c6d8ae4a850f707196c3bf24b78799573559ef303b4854f1e",
+        "bytes": 3870,
+        "stripped_bytes": 94,
+        "weight": 4152,
+        "vsize": 1038,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "recovery-added-annex",
+      "expected_valid": false,
+      "note": "Annex is included in the signed message.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "recovery-added-annex.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 44.208,
+            "message_digest": "444d9a8002dc9bc8a75b9efbb62fc586fb581f4cba88145933eba858e01d33bf",
+            "sha256_compression_blocks": 244,
+            "charged_validation_weight": 1080,
+            "last_xof_blocks": 3,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "26153b864ecb828c6d8ae4a850f707196c3bf24b78799573559ef303b4854f1e",
+        "bytes": 3881,
+        "stripped_bytes": 94,
+        "weight": 4163,
+        "vsize": 1041,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "recovery-changed-funding",
+      "expected_valid": false,
+      "note": "Full signature message commits to input outpoints and spent values.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "recovery-changed-funding.hex",
+      "parents": [
+        "parent-f4775f9e083afe676601ae6736ea30c8d13b42243ca1abad1b07b4f88b0d95c4.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 39.5,
+            "message_digest": "fdc7f4823d7dc2921df50b1caa0bff49c74f001e1e8cbada51ef182acd2304c4",
+            "sha256_compression_blocks": 242,
+            "charged_validation_weight": 1080,
+            "last_xof_blocks": 3,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1001,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "e587c35611620f3062e0537fd2eae5feed73077653098932b626e2e1bec78775",
+        "bytes": 3870,
+        "stripped_bytes": 94,
+        "weight": 4152,
+        "vsize": 1038,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "no-key-path",
+      "expected_valid": false,
+      "note": "P2MR cannot be spent through an EC key path.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "no-key-path.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Witness program was passed an empty witness",
+            "script_microseconds": 2.542,
+            "message_digest": null,
+            "sha256_compression_blocks": 0,
+            "charged_validation_weight": 0,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "26153b864ecb828c6d8ae4a850f707196c3bf24b78799573559ef303b4854f1e",
+        "bytes": 162,
+        "stripped_bytes": 94,
+        "weight": 444,
+        "vsize": 111,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "stock-p2mr-unenforced",
+      "expected_valid": true,
+      "note": "Unknown witness v2 succeeds in stock Script rules without checking SHRINCS.",
+      "verifier": "stock_upgrade_hook",
+      "spend": "stock-p2mr-unenforced.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "26153b864ecb828c6d8ae4a850f707196c3bf24b78799573559ef303b4854f1e",
+        "bytes": 495,
+        "stripped_bytes": 94,
+        "weight": 777,
+        "vsize": 195,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "noncanonical-chunk-split",
+      "expected_valid": false,
+      "note": "All nonfinal chunks must have exactly 520 bytes.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "noncanonical-chunk-split.hex",
+      "parents": [
+        "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Push value size limit exceeded",
+            "script_microseconds": 4.791,
+            "message_digest": null,
+            "sha256_compression_blocks": 0,
+            "charged_validation_weight": 0,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "26153b864ecb828c6d8ae4a850f707196c3bf24b78799573559ef303b4854f1e",
+        "bytes": 494,
+        "stripped_bytes": 94,
+        "weight": 776,
+        "vsize": 194,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "two-inputs-valid",
+      "expected_valid": true,
+      "note": "Both owners sign the full payment.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "two-inputs-valid.hex",
+      "parents": [
+        "parent-cfcc534bc654de9bef74a322836b92c32ba90ba138448a380223269cbce9e8fc.hex",
+        "parent-b2bfb409df1fd83f7befe17f30355b22b9bc6f90e60340056ae7779f2205188c.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 106.709,
+            "message_digest": "daaa4fe6a2df014a5f7d8a53683ba160c7751eb1656fb6755312357d4ee6a2a0",
+            "sha256_compression_blocks": 2053,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          },
+          {
+            "index": 1,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 69.833,
+            "message_digest": "d233ec8912ec0032a30f78f80dc71ec6f69cbece47a1410254456f95bee661e6",
+            "sha256_compression_blocks": 2053,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "442c3b45910cf1a70d8fc9be511fa7ad34ebc463e04cc65a8e474db248a4198a",
+        "bytes": 935,
+        "stripped_bytes": 135,
+        "weight": 1340,
+        "vsize": 335,
+        "input_script_bytes": [
+          0,
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "two-inputs-missing-second-signature",
+      "expected_valid": false,
+      "note": "Each input still requires PQ authorization.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "two-inputs-missing-second-signature.hex",
+      "parents": [
+        "parent-cfcc534bc654de9bef74a322836b92c32ba90ba138448a380223269cbce9e8fc.hex",
+        "parent-b2bfb409df1fd83f7befe17f30355b22b9bc6f90e60340056ae7779f2205188c.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 143.166,
+            "message_digest": "daaa4fe6a2df014a5f7d8a53683ba160c7751eb1656fb6755312357d4ee6a2a0",
+            "sha256_compression_blocks": 2053,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          },
+          {
+            "index": 1,
+            "valid": false,
+            "error": "Operation not valid with the current stack size",
+            "script_microseconds": 2.875,
+            "message_digest": null,
+            "sha256_compression_blocks": 0,
+            "charged_validation_weight": 0,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "442c3b45910cf1a70d8fc9be511fa7ad34ebc463e04cc65a8e474db248a4198a",
+        "bytes": 608,
+        "stripped_bytes": 135,
+        "weight": 1013,
+        "vsize": 254,
+        "input_script_bytes": [
+          0,
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "two-inputs-copied-first-signature",
+      "expected_valid": false,
+      "note": "First owner cannot authorize the second owner.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "two-inputs-copied-first-signature.hex",
+      "parents": [
+        "parent-cfcc534bc654de9bef74a322836b92c32ba90ba138448a380223269cbce9e8fc.hex",
+        "parent-b2bfb409df1fd83f7befe17f30355b22b9bc6f90e60340056ae7779f2205188c.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 80.709,
+            "message_digest": "daaa4fe6a2df014a5f7d8a53683ba160c7751eb1656fb6755312357d4ee6a2a0",
+            "sha256_compression_blocks": 2053,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          },
+          {
+            "index": 1,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 18.542,
+            "message_digest": "d233ec8912ec0032a30f78f80dc71ec6f69cbece47a1410254456f95bee661e6",
+            "sha256_compression_blocks": 4,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "442c3b45910cf1a70d8fc9be511fa7ad34ebc463e04cc65a8e474db248a4198a",
+        "bytes": 935,
+        "stripped_bytes": 135,
+        "weight": 1340,
+        "vsize": 335,
+        "input_script_bytes": [
+          0,
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    },
+    {
+      "name": "two-inputs-reordered",
+      "expected_valid": false,
+      "note": "Input order and indexes are committed.",
+      "verifier": "shrincs_proposal_model",
+      "spend": "two-inputs-reordered.hex",
+      "parents": [
+        "parent-b2bfb409df1fd83f7befe17f30355b22b9bc6f90e60340056ae7779f2205188c.hex",
+        "parent-cfcc534bc654de9bef74a322836b92c32ba90ba138448a380223269cbce9e8fc.hex"
+      ],
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 26.375,
+            "message_digest": "7566182efdf253bb1c058c69786cd9a7fc90cc81c9da6824cc27b21ffc822da7",
+            "sha256_compression_blocks": 4,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          },
+          {
+            "index": 1,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 7.209,
+            "message_digest": "a1729df0cb783650585fc1037f76c741d7b6f74aa939ab03f9d882c9c64d7719",
+            "sha256_compression_blocks": 4,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "644fea25cf066e08e6c58ed9e119d3116b0e23821004b5408579e2489ca54de0",
+        "bytes": 935,
+        "stripped_bytes": 135,
+        "weight": 1340,
+        "vsize": 335,
+        "input_script_bytes": [
+          0,
+          0
+        ],
+        "output_script_bytes": [
+          34
+        ]
+      }
+    }
+  ],
+  "all_expectations_met": true,
+  "cisa_implemented": false,
+  "fixture_sha256": {
+    "compact-q1-added-annex.hex": "8e729de9b0baa4eb1d309c109a3eb30a5849343601fbd36b64d8a86883ce5cd1",
+    "compact-q1-changed-amount.hex": "9d831c268b75535bde9df76c5e5c7a0a025b6d587e2c0e78781438f8bd98c715",
+    "compact-q1-changed-appended.hex": "7f1816df272b17f2cd557b05c2059d8aa08062f7978cd83441066fc04f889752",
+    "compact-q1-changed-chunk_count.hex": "62286e57aba3bcd7fd39d0a01c37942dafc59d59212501c1920b6123ce174b4d",
+    "compact-q1-changed-funding.hex": "85e031ee4849375e050eba2c0faa9ee1461d31bb161ca3bbacd4f940b121b0db",
+    "compact-q1-changed-locktime.hex": "b494916a3e156712c50eff855a640deeac81635f799997b9d7571feee4ab824a",
+    "compact-q1-changed-merkle_proof.hex": "87e4e59351804edb442604b476f4350d216f5f09606a2773ba6b53e35148b1de",
+    "compact-q1-changed-outpoint.hex": "2a4c0d1699d65717ef0089a30cd54337841c3f9420d50fe202d5974ef4972292",
+    "compact-q1-changed-recipient.hex": "f88f783f88613055345caf359dff95d0c9f4aae4de5a217494be1b10c1dd6801",
+    "compact-q1-changed-sequence.hex": "1eaed9dbf079d189e6be2d09c4f701f2da99a49aadc8144b8dee9f7af6272989",
+    "compact-q1-changed-signature.hex": "5216c3f2878e3e2dd08a113c3ca7bcfbb522cceb03007a4705125233428646f4",
+    "compact-q1-changed-truncated.hex": "b7fe13a37a7b40da4a4895c452a8fef39a08eb81cfbf3e449d50506eff8837a6",
+    "compact-q1-changed-version.hex": "d8d8a7b61cf7e3e0241f32c368180b2e1cb78648cb24e341d6975bc904400b98",
+    "compact-q1-valid.hex": "d66c3707fdddd8820ef07b529fa9f1394afe23f5d41aeebf5268fff5b127b395",
+    "compact-q17-valid.hex": "323d12f5a6c871d461a68410c137a4da7d2986f4ff1b3b68fec69886f5072564",
+    "compact-q2-valid.hex": "98c5bae71a15fb67c768435b4c80684631352d8e073fe3d8b00f880888d4ea3c",
+    "multi-0-message.hex": "883c79d4050f0d68f3852f7b35dedd86e86f646bdf6813e11a6e7629035b7021",
+    "multi-0-signer/compact-q1.sig.hex": "6c320e11ebbe3e2785ce678f35842cf73d398585c79bed42ad2f01a90638cc77",
+    "multi-0-signer/compact-q17.sig.hex": "347d74115b55214994e5684c1d6346457a3ce0be08e1df5295968e517a3ba905",
+    "multi-0-signer/compact-q2.sig.hex": "0557dc5a69141f5e7da237830cef806785808b0078d92482aff99e3bdbcf0fea",
+    "multi-0-signer/public-key.hex": "32a682d285cf601e09f7d51e6637a99973f4077d6925dfdbd3f23697252d5c14",
+    "multi-0-signer/recovery.sig.hex": "7256b5ee4162ce6db5541f7ae31fedae3d46ef70522a0419e49207df89bc8291",
+    "multi-1-message.hex": "f14bb7da38ba1591ea8c79bc023397247a5c6aa13c71f7df353d4ab652d064b4",
+    "multi-1-signer/compact-q1.sig.hex": "fb9b9e36112011f0347f38e709154f1b37e1ae223d92b2bd9cd327162468233a",
+    "multi-1-signer/compact-q17.sig.hex": "57a6454cb7e047e65e31df2245453e8e1bc9a37dd09e109593ec66318708f6d1",
+    "multi-1-signer/compact-q2.sig.hex": "6f39d5c2b2199e41ee2d7caa08e9f43548206f536f4342322df76343a705b81c",
+    "multi-1-signer/public-key.hex": "79b83888a1dfb38ea215679398f35187c0df79792896c8898ec42bd6410e991d",
+    "multi-1-signer/recovery.sig.hex": "80a7078df2f6d995e5fa4b0bd2fa1f7d265670499361f5facea67512f53c0681",
+    "multi-first-PUBLIC-seed.hex": "b0bdd71f5f03ab2501649a942faa4e17a1b8287551ce0bebb71ae10a8623ec33",
+    "multi-second-PUBLIC-seed.hex": "abf87d3565b2faa7851c800349d325772767b96c6d3a4edc7ca9a55421c96e22",
+    "no-key-path.hex": "fd254ec9920597166be375c8addd61cc2c1d9bd55c7f79be7bf49268b2aac586",
+    "noncanonical-chunk-split.hex": "d85adad741915a3cce3994663d230de868e5a818d81eab4df6dba91018d82e75",
+    "parent-10f6e2e6d33ada372454118fa50e618df7ffa591fdaac5459d14807b38d67063.hex": "d618d3b4cb5f4dc298d7499e0b44c5656c28d54737363aaa8ccdb44a77dcbc66",
+    "parent-b2bfb409df1fd83f7befe17f30355b22b9bc6f90e60340056ae7779f2205188c.hex": "d597478cafba4ccdffeb09945fdc837c325fee75b7ae41185043410e0856a39f",
+    "parent-cfcc534bc654de9bef74a322836b92c32ba90ba138448a380223269cbce9e8fc.hex": "4abc4e9f6d26d7da9e5c8dc1090658323a9bb2b0f49aac19ce00e91ac7e3f9f6",
+    "parent-f4775f9e083afe676601ae6736ea30c8d13b42243ca1abad1b07b4f88b0d95c4.hex": "d5ba4a938870de64930d6c578d95191aad5325e043e8c4128d346cfd38cf7649",
+    "recovery-added-annex.hex": "0a92fb8fb0e57141cee35b576ce5bb7137d86cbd6cb87c5819c0cf08e35f1025",
+    "recovery-changed-amount.hex": "e05d645b72f117d4004931d99657890b842d76f120a5919acc3f9f373cab55eb",
+    "recovery-changed-appended.hex": "0b70812765fcdc81205db038dc25c023380c327f94ba73b03d834540eb33efc6",
+    "recovery-changed-chunk_count.hex": "fc60fcf0f8e9cee8ed9efa783ca731f611f520ef49b6ee6c5e7f34bd1d6a3d08",
+    "recovery-changed-funding.hex": "abeed6e05a419bbb7bbf3d4f4c7cb2d449a6e57cffe27b156e2deb6ac20c80b7",
+    "recovery-changed-locktime.hex": "f69879020caaed6bb6a4c4753dd25945d70c731fe757152e99dff868970b874e",
+    "recovery-changed-merkle_proof.hex": "29c0b7d741bb581454ca967cbf4ece04dbd19aaddcf3987cc06cdab23ceccff8",
+    "recovery-changed-outpoint.hex": "3d1859725f773e5bcc0167a50152a66a7b80f4989b289300dba9ab0644ebfc4d",
+    "recovery-changed-recipient.hex": "47c121709c4055c1621c225029ef04c733066ab7329cf3e5e5aa89d3c07003cb",
+    "recovery-changed-sequence.hex": "6d0d153cfb49e15986b91e2cfe84105c77d17ce80d5e88ccfbf036390c309b60",
+    "recovery-changed-signature.hex": "a137fda52fb40982e1eb6322e9d00741459a90e8ee0dee36a3cff2808e592478",
+    "recovery-changed-truncated.hex": "966912e744adbbc9a191659fa4ca00d84f718b1a26d3563a101516e421a8b794",
+    "recovery-changed-version.hex": "26019771fafe13e35b75f6e0e73d11f746f772f326b796651f4ff1f63075e6d7",
+    "recovery-valid.hex": "c641d7b9d139a8ff0780873e448a03066fd944df724c48b60692b36f517d76ac",
+    "single-owner-PUBLIC-seed.hex": "df8535ab92feb4a5d69ca80dc88e814142c48e0bb71e616be887e5fbcfe503d4",
+    "single-owner-message.hex": "b51b0701b78c6f37a15ee57b05b052f5e753df120b68d74a82deba4d44d1af7e",
+    "single-owner-signer/compact-q1.sig.hex": "7666ae82aec6c1ce3dcb351e8f013c74174611d8578ea57136ad0f832f58f3dc",
+    "single-owner-signer/compact-q17.sig.hex": "5d792c60ef16614e3480e5d047298000acfdbe3f14569456a382eee3bc568e3d",
+    "single-owner-signer/compact-q2.sig.hex": "b3d3bc8c9b99cc515883cd40facf3759370f5483515f093b04f0356ac53f9c8a",
+    "single-owner-signer/public-key.hex": "e0e21a6e95d17d05ba68485f5595b742e93e66fcbd60232511c6d92beff2af7d",
+    "single-owner-signer/recovery.sig.hex": "99f2e8ea98f4e613b36520dbfe1945d8a575393c9c620792cd13af74ccc86847",
+    "stock-p2mr-unenforced.hex": "e7d8b9ab9b461dfdd4ce59a37652c24c6abafe4dabdbdcb9bf8617fc78352f69",
+    "two-inputs-copied-first-signature.hex": "a2341ec0dfedcfa48ef6bf8d37a87091c8cd37e96831e94987a031e4228ad939",
+    "two-inputs-missing-second-signature.hex": "cca3ad5110b7347eb7901bc1cdf620fb7ae1dd60007c75c076488cf1d8c2c7bf",
+    "two-inputs-reordered.hex": "bbb5bc665b2b80e7f792642c0368c81b73d29b7488fbb2701e6edf23ac6f628c",
+    "two-inputs-valid.hex": "cff46abe252326f83ba5fb836214234a04889c0bec8054905fcb992132c9551d",
+    "work-bounds/msg.hex": "71bb684db789332556e0d1706a5389a2d0eb81b990896bac8a90dc8105108a63",
+    "work-bounds/pk.hex": "355497e910b4636a62d8cf157c1a2ccaae8a4875b052688d2fb9c207d17b317f",
+    "work-bounds/sig.hex": "cd36d74fc5ee6ea527f127761d7be0b1e33fd3f095f65301e96fc5ec2635e62f"
+  },
+  "harness_sha256": {
+    "btc_pq/shrincs_demo.py": "43c92970f15f1ac137ca36d78d34ff0d1ae5c2eb0c372e4a42be27d12ddfa4ff",
+    "btc_pq/shrincs_build.py": "2bbf02a603004ad18f52471dc3fc98db1d676606f7936a4700d50ceb6fd9e4c7",
+    "btc_pq/shrincs_kat.py": "82cea4e153858d3956ba1543f3e1b36b54c101c6387c6d4f4a31a10d68ffd16f",
+    "tests/test_shrincs_demo.py": "37dbb011ba6ed1e4411a5c3f51dcfb2bb97767b0480f5313d7ff76692626d517",
+    "btc_pq/bitcoin.py": "f2d05b8201675ba767b9f5b4528237d1417242bed34ee66af107ac220b852808",
+    "btc_pq/covenant_demo.py": "bda2702e8e7031d3771903107db28ae96cf09002336c5ee3e97c453b94cb0d98"
+  }
+}

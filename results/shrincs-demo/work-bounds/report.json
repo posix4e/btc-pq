@@ -1,0 +1,14 @@
+{
+  "valid": false,
+  "verify_ms": 0.152625,
+  "compression_blocks": 4941,
+  "hash_calls": 4508,
+  "wots_attempts": 2,
+  "xof_blocks": 0,
+  "pors_auth_nodes": 0,
+  "pors_root_height": 0,
+  "work_bound": 4941,
+  "validation_weight": 618,
+  "work_exhausted": false,
+  "sampling_exhausted": false
+}

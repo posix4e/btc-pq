@@ -1,0 +1,32 @@
+{
+  "retrieved": "2026-09-05",
+  "bips_commit": "09e21036a4001fe6c9ba65c1d3a39b737768132f",
+  "cisa_pr": 2212,
+  "cisa_commit": "855b4ccfbebd07554c1e400415467b62d2b40713",
+  "sources": [
+    {
+      "name": "bip-0347.mediawiki",
+      "url": "https://raw.githubusercontent.com/bitcoin/bips/09e21036a4001fe6c9ba65c1d3a39b737768132f/bip-0347.mediawiki",
+      "sha256": "a95f3d3c305fb0983f78caaac139e42149bcd19e312876c42cfcadc9fd65149a",
+      "bytes": 13151
+    },
+    {
+      "name": "bip-0360.mediawiki",
+      "url": "https://raw.githubusercontent.com/bitcoin/bips/09e21036a4001fe6c9ba65c1d3a39b737768132f/bip-0360.mediawiki",
+      "sha256": "988957d7373b3779c05877aaf7aa671ce74f0db66d014c98d69132d12f3b6770",
+      "bytes": 36968
+    },
+    {
+      "name": "bip-0446.md",
+      "url": "https://raw.githubusercontent.com/bitcoin/bips/09e21036a4001fe6c9ba65c1d3a39b737768132f/bip-0446.md",
+      "sha256": "24dda2500618cfcc7449f142eaea0e22da1f6e8095db1af8f76700f3e2ac6ea6",
+      "bytes": 11867
+    },
+    {
+      "name": "bip-0460.mediawiki",
+      "url": "https://raw.githubusercontent.com/fjahr/bips/855b4ccfbebd07554c1e400415467b62d2b40713/bip-0460.mediawiki",
+      "sha256": "0c3fa8e228cbd28e46466c7e28d4142f0b20c8ef9be070ddcdab896c5c69c0f8",
+      "bytes": 43329
+    }
+  ]
+}

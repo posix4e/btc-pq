@@ -1,0 +1,497 @@
+{
+  "bip460_commit": "855b4ccfbebd07554c1e400415467b62d2b40713",
+  "scope": "Python model of default-sighash, all-input key-path groups",
+  "native_consensus_validation": false,
+  "post_quantum": false,
+  "shrincs_aggregation": false,
+  "published_wallet_vectors_reproduced": true,
+  "measurements": [
+    {
+      "name": "plain-2-inputs",
+      "mode": "plain",
+      "inputs": 2,
+      "txid": "e1d4d0b861f64f82316563e6df9a568446c1f49268683704fb476a4c3ce4fbfe",
+      "bytes": 269,
+      "stripped_bytes": 135,
+      "weight": 674,
+      "vsize": 169,
+      "input_script_bytes": [
+        0,
+        0
+      ],
+      "output_script_bytes": [
+        34
+      ],
+      "signature_data_bytes": 128,
+      "marker_bytes": 0
+    },
+    {
+      "name": "half-2-inputs",
+      "mode": "half",
+      "inputs": 2,
+      "txid": "e1d4d0b861f64f82316563e6df9a568446c1f49268683704fb476a4c3ce4fbfe",
+      "bytes": 238,
+      "stripped_bytes": 135,
+      "weight": 643,
+      "vsize": 161,
+      "input_script_bytes": [
+        0,
+        0
+      ],
+      "output_script_bytes": [
+        34
+      ],
+      "signature_data_bytes": 97,
+      "marker_bytes": 1
+    },
+    {
+      "name": "full-2-inputs",
+      "mode": "full",
+      "inputs": 2,
+      "txid": "e1d4d0b861f64f82316563e6df9a568446c1f49268683704fb476a4c3ce4fbfe",
+      "bytes": 206,
+      "stripped_bytes": 135,
+      "weight": 611,
+      "vsize": 153,
+      "input_script_bytes": [
+        0,
+        0
+      ],
+      "output_script_bytes": [
+        34
+      ],
+      "signature_data_bytes": 65,
+      "marker_bytes": 1
+    },
+    {
+      "name": "plain-10-inputs",
+      "mode": "plain",
+      "inputs": 10,
+      "txid": "9f3106eb4340ed0e80048977d91195e1166f72c51908efe52573227c25ae562c",
+      "bytes": 1125,
+      "stripped_bytes": 463,
+      "weight": 2514,
+      "vsize": 629,
+      "input_script_bytes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "output_script_bytes": [
+        34
+      ],
+      "signature_data_bytes": 640,
+      "marker_bytes": 0
+    },
+    {
+      "name": "half-10-inputs",
+      "mode": "half",
+      "inputs": 10,
+      "txid": "9f3106eb4340ed0e80048977d91195e1166f72c51908efe52573227c25ae562c",
+      "bytes": 838,
+      "stripped_bytes": 463,
+      "weight": 2227,
+      "vsize": 557,
+      "input_script_bytes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "output_script_bytes": [
+        34
+      ],
+      "signature_data_bytes": 353,
+      "marker_bytes": 1
+    },
+    {
+      "name": "full-10-inputs",
+      "mode": "full",
+      "inputs": 10,
+      "txid": "9f3106eb4340ed0e80048977d91195e1166f72c51908efe52573227c25ae562c",
+      "bytes": 550,
+      "stripped_bytes": 463,
+      "weight": 1939,
+      "vsize": 485,
+      "input_script_bytes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "output_script_bytes": [
+        34
+      ],
+      "signature_data_bytes": 65,
+      "marker_bytes": 1
+    }
+  ],
+  "sources": {
+    "commit": "855b4ccfbebd07554c1e400415467b62d2b40713",
+    "source_sha256": {
+      "test-vectors.py": "681a18f64d1cb3fcc6a877a97053beb1e24b61ff5edfd4ce3473e381842212f2",
+      "halfagg.py": "fb1e74af6794baa7259babf7b3c57918250e92624c1d92fd3dae53607a64770d",
+      "fullagg.py": "2e0a7c1d69c1c4d8f10bf4b124b384d2fa11daf58eafb5dd5888f9aace18da8a",
+      "consensus-test-vectors.json": "a401b1e9d65b683ec5cf55b30a742fcdac75e6b00c622dcd733c4de98cd1f9e8",
+      "wallet-test-vectors.json": "7f125e15830a715361cee6b8baf96c3fe0093a07ad86f95f99668b924d8e8fa5",
+      "secp256k1lab/COPYING": "8f13f6dc042fbc546d7217ed87f1639a9f95ba8ba0248364899564c5d4f32576",
+      "secp256k1lab/src/secp256k1lab/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "secp256k1lab/src/secp256k1lab/bip340.py": "428ee8110175b32b67d22a88efe07a44cede2419d0f547949164f2a8f9d76b96",
+      "secp256k1lab/src/secp256k1lab/keys.py": "25a7c9d4d70dec7acea57245a529ef5f8454616d075a31fe27964d3e237c2860",
+      "secp256k1lab/src/secp256k1lab/secp256k1.py": "e68560295918b5aee07f38a2dbe5d8fce355ed46b50cfe3240c7d91508dc0b04",
+      "secp256k1lab/src/secp256k1lab/util.py": "3aeccf814f0bd67cdfb0791a6bf054b367c580942acd44942fdf505e5a1af707"
+    }
+  },
+  "cases": [
+    {
+      "name": "plain-2-inputs-none",
+      "valid": true,
+      "expected": true
+    },
+    {
+      "name": "plain-2-inputs-recipient",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "plain-2-inputs-amount",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "plain-2-inputs-outpoint",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "plain-2-inputs-spent_amount",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "plain-2-inputs-sequence",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "plain-2-inputs-version",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "plain-2-inputs-locktime",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "plain-2-inputs-signature",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "plain-2-inputs-missing_authorization",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "plain-2-inputs-input_order",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "half-2-inputs-none",
+      "valid": true,
+      "expected": true
+    },
+    {
+      "name": "half-2-inputs-recipient",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "half-2-inputs-amount",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "half-2-inputs-outpoint",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "half-2-inputs-spent_amount",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "half-2-inputs-sequence",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "half-2-inputs-version",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "half-2-inputs-locktime",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "half-2-inputs-signature",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "half-2-inputs-missing_authorization",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "half-2-inputs-input_order",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "full-2-inputs-none",
+      "valid": true,
+      "expected": true
+    },
+    {
+      "name": "full-2-inputs-recipient",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "full-2-inputs-amount",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "full-2-inputs-outpoint",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "full-2-inputs-spent_amount",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "full-2-inputs-sequence",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "full-2-inputs-version",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "full-2-inputs-locktime",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "full-2-inputs-signature",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "full-2-inputs-missing_authorization",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "full-2-inputs-input_order",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "plain-10-inputs-none",
+      "valid": true,
+      "expected": true
+    },
+    {
+      "name": "plain-10-inputs-recipient",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "plain-10-inputs-amount",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "plain-10-inputs-outpoint",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "plain-10-inputs-spent_amount",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "plain-10-inputs-sequence",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "plain-10-inputs-version",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "plain-10-inputs-locktime",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "plain-10-inputs-signature",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "plain-10-inputs-missing_authorization",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "plain-10-inputs-input_order",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "half-10-inputs-none",
+      "valid": true,
+      "expected": true
+    },
+    {
+      "name": "half-10-inputs-recipient",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "half-10-inputs-amount",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "half-10-inputs-outpoint",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "half-10-inputs-spent_amount",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "half-10-inputs-sequence",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "half-10-inputs-version",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "half-10-inputs-locktime",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "half-10-inputs-signature",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "half-10-inputs-missing_authorization",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "half-10-inputs-input_order",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "full-10-inputs-none",
+      "valid": true,
+      "expected": true
+    },
+    {
+      "name": "full-10-inputs-recipient",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "full-10-inputs-amount",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "full-10-inputs-outpoint",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "full-10-inputs-spent_amount",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "full-10-inputs-sequence",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "full-10-inputs-version",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "full-10-inputs-locktime",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "full-10-inputs-signature",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "full-10-inputs-missing_authorization",
+      "valid": false,
+      "expected": false
+    },
+    {
+      "name": "full-10-inputs-input_order",
+      "valid": false,
+      "expected": false
+    }
+  ],
+  "all_expectations_met": true
+}
