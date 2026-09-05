@@ -35,9 +35,10 @@ def build(jobs=6):
     inputs = [ROOT/'native/covenant-core.patch', ROOT/'native/shrincs-core.patch',
               ROOT/'native/shrincs_verify.cpp', ROOT/'native/shrincs_tool.cpp',
               ROOT/'native/shrincs_bridge.cpp', ROOT/'native/shrincs_bridge.h',
+              ROOT/'native/shrincs_bounded.cpp', ROOT/'native/shrincs_bounded.h', ROOT/'native/shrincs_cost.h',
               ROOT/'native/shrincs/CMakeLists.txt']
     hashes = {str(p.relative_to(ROOT)): sha256(p.read_bytes()).hexdigest() for p in inputs}
-    source_inputs = {k:v for k,v in hashes.items() if k.endswith('.patch')}
+    source_inputs = {k:v for k,v in hashes.items() if k.endswith(('.patch', 'shrincs_cost.h'))}
     stamp = SOURCE/'.btc-pq-build-inputs.json'
     if SOURCE.exists() and (not stamp.exists() or json.loads(stamp.read_text()).get('source_inputs') != source_inputs):
         if not stamp.exists():
@@ -50,6 +51,7 @@ def build(jobs=6):
             tar.extractall(SOURCE, filter='data')
         for patch in inputs[:2]:
             subprocess.run(['git', 'apply', str(patch)], cwd=SOURCE, check=True)
+        shutil.copyfile(ROOT/'native/shrincs_cost.h', SOURCE/'src/script/shrincs_cost.h')
         stamp.write_text(json.dumps(dict(source_inputs=source_inputs), indent=2)+'\n')
     cmake = str(ROOT/'.venv/bin/cmake') if (ROOT/'.venv/bin/cmake').exists() else shutil.which('cmake')
     ninja = str(ROOT/'.venv/bin/ninja') if (ROOT/'.venv/bin/ninja').exists() else shutil.which('ninja')

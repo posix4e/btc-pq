@@ -47,6 +47,9 @@ test_corrupt_state_does_not_reinitialize (test_shrincs_state.PersistentStateTest
 test_process_exit_after_reservation_consumes_position (test_shrincs_state.PersistentStateTests.test_process_exit_after_reservation_consumes_position) ... ok
 test_restart_idempotence_and_request_binding (test_shrincs_state.PersistentStateTests.test_restart_idempotence_and_request_binding) ... ok
 test_seed_restore_and_exhaustion_use_recovery (test_shrincs_state.PersistentStateTests.test_seed_restore_and_exhaustion_use_recovery) ... ok
+test_exact_hash_budget_and_sampling_boundary (test_shrincs_work.WorkBudgetTests.test_exact_hash_budget_and_sampling_boundary) ... ok
+test_two_final_candidates_reach_the_declared_bound (test_shrincs_work.WorkBudgetTests.test_two_final_candidates_reach_the_declared_bound) ... ok
+test_upfront_script_charge_cannot_be_bypassed_by_reuse (test_shrincs_work.WorkBudgetTests.test_upfront_script_charge_cannot_be_bypassed_by_reuse) ... ok
 test_first_native_pin_and_subset_hits_match_python_enumeration (test_toy.ToyTests.test_first_native_pin_and_subset_hits_match_python_enumeration) ... ok
 test_frozen_authorization_requires_only_original_preimages (test_toy.ToyTests.test_frozen_authorization_requires_only_original_preimages) ... ok
 test_native_candidate_budget_and_subset_exhaustion (test_toy.ToyTests.test_native_candidate_budget_and_subset_exhaustion) ... ok
@@ -55,6 +58,6 @@ test_opcode_produces_real_der_and_ecdsa_signature (test_toy.ToyTests.test_opcode
 test_opcode_rejects_invalid_target_key_and_failed_gate (test_toy.ToyTests.test_opcode_rejects_invalid_target_key_and_failed_gate) ... ok
 
 ----------------------------------------------------------------------
-Ran 55 tests in 16.694s
+Ran 58 tests in 15.472s
 
 OK

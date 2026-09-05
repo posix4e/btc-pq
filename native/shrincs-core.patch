@@ -22,7 +22,15 @@
  
 --- a/src/script/interpreter.cpp
 +++ b/src/script/interpreter.cpp
-@@ -507,6 +507,35 @@
+@@ -4,6 +4,7 @@
+ // file COPYING or http://www.opensource.org/licenses/mit-license.php.
+ 
+ #include <script/interpreter.h>
++#include <script/shrincs_cost.h>
+ 
+ #include <crypto/ripemd160.h>
+ #include <crypto/sha1.h>
+@@ -507,6 +508,37 @@
                      if (!checker.DemoTemplateHash(hash, execdata))
                          return set_error(serror, SCRIPT_ERR_UNKNOWN_ERROR);
                      stack.emplace_back(hash.begin(), hash.end());
@@ -48,8 +56,10 @@
 +                            return set_error(serror, SCRIPT_ERR_PUSH_SIZE);
 +                        signature.insert(signature.end(), chunk.begin(), chunk.end());
 +                    }
-+                    // Placeholder local budget debit; production costing is not specified.
-+                    execdata.m_validation_weight_left -= 50;
++                    const int64_t charge = btc_pq::ShrincsValidationWeight(signature.size());
++                    if (charge == 0) return set_error(serror, SCRIPT_ERR_SCHNORR_SIG_SIZE);
++                    // Reserve the complete compression-work bound before verification.
++                    execdata.m_validation_weight_left -= charge;
 +                    if (execdata.m_validation_weight_left < 0)
 +                        return set_error(serror, SCRIPT_ERR_TAPSCRIPT_VALIDATION_WEIGHT);
 +                    const bool valid = checker.DemoCheckShrincs(signature, pk, execdata);
@@ -58,7 +68,7 @@
                      break;
                  }
                  case OP_1NEGATE:
-@@ -1867,7 +1896,8 @@
+@@ -1867,7 +1899,8 @@
              }
              // New opcodes will be listed here. May use a different sigversion to modify existing opcodes.
              if (IsOpSuccess(opcode) && !((flags & SCRIPT_VERIFY_BTC_PQ_COVENANT_DEMO) &&

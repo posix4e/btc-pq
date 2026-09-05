@@ -29,7 +29,8 @@ CISA modes and generate real hash-based proofs of XMSS payment signatures.
 They measure the cost of aggregation and check that changing the payment
 invalidates its authorization. The [persistent signer](docs/shrincs-state.md)
 also exercises concurrent signing, process crashes, and seed restoration.
-Results and remaining work are tracked in [issue #3](https://github.com/posix4e/btc-pq/issues/3).
+The [bounded verifier and cost model](docs/shrincs-work.md) enforce SHA256 work
+limits before each native check. Results and remaining work are tracked in [issue #3](https://github.com/posix4e/btc-pq/issues/3).
 
 ## The finding
 

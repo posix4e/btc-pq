@@ -1,5 +1,6 @@
 // Research fixture operations and the persistent signer's reserved-counter backend.
 #include "shrincs_bridge.h"
+#include "shrincs_bounded.h"
 #include <shrincs.h>
 #include <chrono>
 #include <filesystem>
@@ -49,6 +50,24 @@ int main(int argc, char** argv) {
     try {
         if (argc < 2) throw std::runtime_error("expected pubkey, fixture, or verify");
         const std::string command = argv[1];
+        if (command == "verify-bounded" && argc >= 5 && argc <= 7) {
+            const auto pk = ReadHex(argv[2]), message = ReadHex(argv[3]), sig = ReadHex(argv[4]);
+            const auto bound = btc_pq::ShrincsWorkBound(sig.size(), message.size());
+            auto limit = bound;
+            uint32_t samples = btc_pq::SHRINCS_XOF_BLOCK_LIMIT;
+            if (argc >= 6) limit = std::stoull(argv[5]);
+            if (argc >= 7) samples = std::stoul(argv[6]);
+            const auto start = Clock::now();
+            const auto work = BoundedShrincsVerify(message, sig, pk, limit, samples);
+            std::cout << "{\"valid\":" << (work.valid ? "true" : "false") << ",\"verify_ms\":" << Millis(start)
+                      << ",\"compression_blocks\":" << work.compression_blocks << ",\"hash_calls\":" << work.hash_calls
+                      << ",\"wots_attempts\":" << work.wots_attempts << ",\"xof_blocks\":" << work.xof_blocks
+                      << ",\"pors_auth_nodes\":" << work.pors_auth_nodes << ",\"pors_root_height\":" << work.pors_root_height
+                      << ",\"work_bound\":" << bound << ",\"validation_weight\":" << (bound+7)/8
+                      << ",\"work_exhausted\":" << (work.work_exhausted ? "true" : "false")
+                      << ",\"sampling_exhausted\":" << (work.sampling_exhausted ? "true" : "false") << "}\n";
+            return work.valid ? 0 : 1;
+        }
         if (command == "verify" && argc == 5) {
             const auto pk = ReadHex(argv[2]), message = ReadHex(argv[3]), sig = ReadHex(argv[4]);
             const auto start = Clock::now();

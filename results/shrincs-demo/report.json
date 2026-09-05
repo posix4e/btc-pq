@@ -8,21 +8,24 @@
     "parameters": "SHRINCS_B32",
     "source_inputs": {
       "native/covenant-core.patch": "e69e500aecb7920e16edc1275afe7aae8a150a0c46da47d7296d14ace65a2f83",
-      "native/shrincs-core.patch": "875e51c095cff487f4c3beefee76bdb900fb06f8fb3fb1c1ed1017e03d5169ab",
-      "native/shrincs_verify.cpp": "3ee6f9d76d52f034316c0e6619148f2a105e8ef268c35e38ef9a1a875eccb5c3",
-      "native/shrincs_tool.cpp": "b852b16729e5bbb76d760d23d710f54d56fd0468b0cfe4e6023145c5c369951d",
+      "native/shrincs-core.patch": "f5bbc5c4d50bf0f4da3b672f4de11758e431a8c4efa027197175405b8b933620",
+      "native/shrincs_verify.cpp": "ce76f637c02bfce3d1e694c47a04e07b62a4420baef4fef977983fd36b7fe881",
+      "native/shrincs_tool.cpp": "a1bcddcb29d69ec27fbf082afb2c4db4ee9c3a8760c34e629ea2c1cf3bf3976a",
       "native/shrincs_bridge.cpp": "42c5aa55d933e83946ed056ed3e8a4edf4cf57454552ffb5d72809d3cb7ba520",
       "native/shrincs_bridge.h": "cc6c48fa6a13e81df69b611bc695df944d41f2c0471797f55effb1f22c18e4fd",
-      "native/shrincs/CMakeLists.txt": "3f96ff988e0d94b35fe2e757893e3cde885b1bc52f75f7df4dd522019f698420"
+      "native/shrincs_bounded.cpp": "c2de9894298ec87fd102049f160f247c543656f4d2965052b2c918a5d5ef2294",
+      "native/shrincs_bounded.h": "d379f2f7265809038aa4b6c854539d1211c8188ac8f60cec0df0e0665f117c3b",
+      "native/shrincs_cost.h": "cfad93eabc4fbf81a0b37358f649ebc3caad02a2401036c84908556fac04adfa",
+      "native/shrincs/CMakeLists.txt": "b2e3ba623a90e659ccc8074df433d004deb9220e055aa17cbc0f6f5c17526e60"
     },
-    "build_wall_seconds": 2.1030752919614315,
+    "build_wall_seconds": 1.7774796250159852,
     "binary_sha256": {
-      "btc-pq-shrincs-verify": "af15c65fd80f261c09914f08646c7b10c9c924252782fff90f531140527b25f8",
-      "btc-pq-shrincs-tool": "86d465c714a1430c2b08ffe42fa1a19a0b7577fe75ad68c7616db0e1bae74f1a",
+      "btc-pq-shrincs-verify": "9c29a139469bcd519199d076d9ee88927f25f6333cc044339b760243fc891402",
+      "btc-pq-shrincs-tool": "fca83ac157709bf70ef12c78e54bf72cc4123c98116240c0f8ac1a3c433cf19f",
       "shrincs-upstream-kat": "c18f3923271b66f266e4922333568615a255077f78d921b379deb73f57c7f8ab"
     }
   },
-  "parameters": "upstream SHRINCS_B32; unmodified cryptographic implementation",
+  "parameters": "upstream SHRINCS_B32 signer; locally bounded native verifier",
   "digest": "TaggedHash(btc-pq/SHRINCS-B32/v1, BIP341 SIGHASH_DEFAULT with BIP342 extension)",
   "experimental_opcode": "0xcf; local allocation, not an assigned BIP opcode",
   "signing": {
@@ -32,40 +35,40 @@
     "HSL": 32,
     "D": 4,
     "public_fixture_only": true,
-    "key_derivation_ms": 115.164,
+    "key_derivation_ms": 66.6635,
     "signer_hardware_threads": 10,
     "signatures": [
       {
         "name": "compact-q1",
         "q": 1,
         "bytes": 324,
-        "sign_ms": 33.8746,
-        "verify_ms": 0.076792
+        "sign_ms": 29.9036,
+        "verify_ms": 0.069083
       },
       {
         "name": "compact-q2",
         "q": 2,
         "bytes": 340,
-        "sign_ms": 32.7576,
-        "verify_ms": 0.077584
+        "sign_ms": 29.9888,
+        "verify_ms": 0.073708
       },
       {
         "name": "compact-q17",
         "q": 17,
         "bytes": 580,
-        "sign_ms": 31.6342,
-        "verify_ms": 0.077625
+        "sign_ms": 30.0014,
+        "verify_ms": 0.075542
       },
       {
         "name": "recovery",
         "bytes": 3680,
-        "sign_ms": 312.026,
-        "verify_ms": 0.335583
+        "sign_ms": 288.848,
+        "verify_ms": 0.332833
       }
     ],
     "compact_states_consumed": 17,
     "restored_compact_rejected": true,
-    "restore_ms": 70.1796
+    "restore_ms": 66.5154
   },
   "multi_signing": [
     {
@@ -75,40 +78,40 @@
       "HSL": 32,
       "D": 4,
       "public_fixture_only": true,
-      "key_derivation_ms": 70.1523,
+      "key_derivation_ms": 72.136,
       "signer_hardware_threads": 10,
       "signatures": [
         {
           "name": "compact-q1",
           "q": 1,
           "bytes": 324,
-          "sign_ms": 31.5479,
-          "verify_ms": 0.075
+          "sign_ms": 32.207,
+          "verify_ms": 0.076167
         },
         {
           "name": "compact-q2",
           "q": 2,
           "bytes": 340,
-          "sign_ms": 31.4478,
-          "verify_ms": 0.075
+          "sign_ms": 32.0897,
+          "verify_ms": 0.07675
         },
         {
           "name": "compact-q17",
           "q": 17,
           "bytes": 580,
-          "sign_ms": 31.4544,
-          "verify_ms": 0.076584
+          "sign_ms": 30.1457,
+          "verify_ms": 0.068875
         },
         {
           "name": "recovery",
           "bytes": 3680,
-          "sign_ms": 309.118,
-          "verify_ms": 0.329917
+          "sign_ms": 292,
+          "verify_ms": 0.34975
         }
       ],
       "compact_states_consumed": 17,
       "restored_compact_rejected": true,
-      "restore_ms": 70.0823
+      "restore_ms": 66.9154
     },
     {
       "parameters": "SHRINCS_B32",
@@ -117,40 +120,40 @@
       "HSL": 32,
       "D": 4,
       "public_fixture_only": true,
-      "key_derivation_ms": 91.7944,
+      "key_derivation_ms": 66.9375,
       "signer_hardware_threads": 10,
       "signatures": [
         {
           "name": "compact-q1",
           "q": 1,
           "bytes": 324,
-          "sign_ms": 31.7292,
-          "verify_ms": 0.075792
+          "sign_ms": 30.0008,
+          "verify_ms": 0.071958
         },
         {
           "name": "compact-q2",
           "q": 2,
           "bytes": 340,
-          "sign_ms": 31.4625,
-          "verify_ms": 0.075875
+          "sign_ms": 30.3527,
+          "verify_ms": 0.070625
         },
         {
           "name": "compact-q17",
           "q": 17,
           "bytes": 580,
-          "sign_ms": 38.2631,
-          "verify_ms": 0.078417
+          "sign_ms": 29.9795,
+          "verify_ms": 0.069125
         },
         {
           "name": "recovery",
           "bytes": 3680,
-          "sign_ms": 312.904,
-          "verify_ms": 0.333875
+          "sign_ms": 299.145,
+          "verify_ms": 0.381584
         }
       ],
       "compact_states_consumed": 17,
       "restored_compact_rejected": true,
-      "restore_ms": 73.4728
+      "restore_ms": 67.3311
     }
   ],
   "metrics": {
@@ -177,8 +180,8 @@
         "name": "compact-q1",
         "q": 1,
         "bytes": 324,
-        "sign_ms": 33.8746,
-        "verify_ms": 0.076792
+        "sign_ms": 29.9036,
+        "verify_ms": 0.069083
       }
     },
     "compact-q2": {
@@ -204,8 +207,8 @@
         "name": "compact-q2",
         "q": 2,
         "bytes": 340,
-        "sign_ms": 32.7576,
-        "verify_ms": 0.077584
+        "sign_ms": 29.9888,
+        "verify_ms": 0.073708
       }
     },
     "compact-q17": {
@@ -231,8 +234,8 @@
         "name": "compact-q17",
         "q": 17,
         "bytes": 580,
-        "sign_ms": 31.6342,
-        "verify_ms": 0.077625
+        "sign_ms": 30.0014,
+        "verify_ms": 0.075542
       }
     },
     "recovery": {
@@ -257,8 +260,8 @@
       "signing": {
         "name": "recovery",
         "bytes": 3680,
-        "sign_ms": 312.026,
-        "verify_ms": 0.335583
+        "sign_ms": 288.848,
+        "verify_ms": 0.332833
       }
     },
     "two-inputs": {
@@ -290,15 +293,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": true,
             "error": "No error",
-            "script_microseconds": 95.958,
-            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d"
+            "script_microseconds": 74.625,
+            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d",
+            "sha256_compression_blocks": 2053,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -331,15 +339,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
             "error": "Script evaluated without error but finished with a false/empty top stack element",
-            "script_microseconds": 59.458,
-            "message_digest": "4b6b9a04751db8c56384f7aa9a103dca805eb4a96c0b764d0d835fc8e0e23314"
+            "script_microseconds": 23.959,
+            "message_digest": "4b6b9a04751db8c56384f7aa9a103dca805eb4a96c0b764d0d835fc8e0e23314",
+            "sha256_compression_blocks": 4,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -372,15 +385,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
             "error": "Script evaluated without error but finished with a false/empty top stack element",
-            "script_microseconds": 85.875,
-            "message_digest": "cc8301eccb9545fd8b9af253747347f4a57fdf70bd131e85086a8f6835074cf2"
+            "script_microseconds": 22.458,
+            "message_digest": "cc8301eccb9545fd8b9af253747347f4a57fdf70bd131e85086a8f6835074cf2",
+            "sha256_compression_blocks": 4,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1001,
@@ -413,15 +431,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
             "error": "Script evaluated without error but finished with a false/empty top stack element",
-            "script_microseconds": 57.833,
-            "message_digest": "44640b60a8eeaeaeab6c6157c0333d8e40164a292ac58f77e43c20a45367fcaf"
+            "script_microseconds": 18.625,
+            "message_digest": "44640b60a8eeaeaeab6c6157c0333d8e40164a292ac58f77e43c20a45367fcaf",
+            "sha256_compression_blocks": 4,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -454,15 +477,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
             "error": "Script evaluated without error but finished with a false/empty top stack element",
-            "script_microseconds": 51.417,
-            "message_digest": "17e125d955f3ded2808a82af66d2ae585cfa0223e69b7ecd01f16e6db47ab13f"
+            "script_microseconds": 18.417,
+            "message_digest": "17e125d955f3ded2808a82af66d2ae585cfa0223e69b7ecd01f16e6db47ab13f",
+            "sha256_compression_blocks": 4,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -495,15 +523,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
             "error": "Script evaluated without error but finished with a false/empty top stack element",
-            "script_microseconds": 38.875,
-            "message_digest": "af1abf72b78524376a891ca1cdcd9ff75150ebdddaf7cd24866acc0887e0b76c"
+            "script_microseconds": 18.125,
+            "message_digest": "af1abf72b78524376a891ca1cdcd9ff75150ebdddaf7cd24866acc0887e0b76c",
+            "sha256_compression_blocks": 4,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -536,15 +569,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
             "error": "Script evaluated without error but finished with a false/empty top stack element",
-            "script_microseconds": 47.708,
-            "message_digest": "6f512cfacaa1bd4fe339ff2452c361f4ed6a20f3249f1c956ee07f643d78524e"
+            "script_microseconds": 16.416,
+            "message_digest": "6f512cfacaa1bd4fe339ff2452c361f4ed6a20f3249f1c956ee07f643d78524e",
+            "sha256_compression_blocks": 4,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -577,15 +615,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
             "error": "Script evaluated without error but finished with a false/empty top stack element",
-            "script_microseconds": 88.167,
-            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d"
+            "script_microseconds": 75.042,
+            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d",
+            "sha256_compression_blocks": 2053,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -618,15 +661,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
-            "error": "Script evaluated without error but finished with a false/empty top stack element",
-            "script_microseconds": 5.042,
-            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d"
+            "error": "Invalid Schnorr signature size",
+            "script_microseconds": 3.083,
+            "message_digest": null,
+            "sha256_compression_blocks": 0,
+            "charged_validation_weight": 0,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -659,15 +707,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
-            "error": "Script evaluated without error but finished with a false/empty top stack element",
-            "script_microseconds": 4.458,
-            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d"
+            "error": "Invalid Schnorr signature size",
+            "script_microseconds": 3,
+            "message_digest": null,
+            "sha256_compression_blocks": 0,
+            "charged_validation_weight": 0,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -700,15 +753,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
             "error": "Script number overflowed or is non-minimally encoded",
-            "script_microseconds": 35.333,
-            "message_digest": null
+            "script_microseconds": 32.583,
+            "message_digest": null,
+            "sha256_compression_blocks": 0,
+            "charged_validation_weight": 0,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -741,15 +799,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
             "error": "Witness program hash mismatch",
-            "script_microseconds": 1.75,
-            "message_digest": null
+            "script_microseconds": 3,
+            "message_digest": null,
+            "sha256_compression_blocks": 0,
+            "charged_validation_weight": 0,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -782,15 +845,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
             "error": "Script evaluated without error but finished with a false/empty top stack element",
-            "script_microseconds": 39.875,
-            "message_digest": "444d9a8002dc9bc8a75b9efbb62fc586fb581f4cba88145933eba858e01d33bf"
+            "script_microseconds": 20.834,
+            "message_digest": "444d9a8002dc9bc8a75b9efbb62fc586fb581f4cba88145933eba858e01d33bf",
+            "sha256_compression_blocks": 4,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -823,15 +891,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
             "error": "Script evaluated without error but finished with a false/empty top stack element",
-            "script_microseconds": 38.541,
-            "message_digest": "fdc7f4823d7dc2921df50b1caa0bff49c74f001e1e8cbada51ef182acd2304c4"
+            "script_microseconds": 20.292,
+            "message_digest": "fdc7f4823d7dc2921df50b1caa0bff49c74f001e1e8cbada51ef182acd2304c4",
+            "sha256_compression_blocks": 4,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1001,
@@ -864,15 +937,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": true,
             "error": "No error",
-            "script_microseconds": 84.166,
-            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d"
+            "script_microseconds": 75.166,
+            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d",
+            "sha256_compression_blocks": 2055,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -905,15 +983,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": true,
             "error": "No error",
-            "script_microseconds": 85.042,
-            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d"
+            "script_microseconds": 76.708,
+            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d",
+            "sha256_compression_blocks": 2085,
+            "charged_validation_weight": 261,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -946,15 +1029,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": true,
             "error": "No error",
-            "script_microseconds": 343.834,
-            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d"
+            "script_microseconds": 289.334,
+            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d",
+            "sha256_compression_blocks": 8511,
+            "charged_validation_weight": 1080,
+            "last_xof_blocks": 3,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -987,15 +1075,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
             "error": "Script evaluated without error but finished with a false/empty top stack element",
-            "script_microseconds": 15.208,
-            "message_digest": "4b6b9a04751db8c56384f7aa9a103dca805eb4a96c0b764d0d835fc8e0e23314"
+            "script_microseconds": 39.166,
+            "message_digest": "4b6b9a04751db8c56384f7aa9a103dca805eb4a96c0b764d0d835fc8e0e23314",
+            "sha256_compression_blocks": 248,
+            "charged_validation_weight": 1080,
+            "last_xof_blocks": 3,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -1028,15 +1121,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
             "error": "Script evaluated without error but finished with a false/empty top stack element",
-            "script_microseconds": 13.834,
-            "message_digest": "cc8301eccb9545fd8b9af253747347f4a57fdf70bd131e85086a8f6835074cf2"
+            "script_microseconds": 41.5,
+            "message_digest": "cc8301eccb9545fd8b9af253747347f4a57fdf70bd131e85086a8f6835074cf2",
+            "sha256_compression_blocks": 244,
+            "charged_validation_weight": 1080,
+            "last_xof_blocks": 3,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1001,
@@ -1069,15 +1167,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
             "error": "Script evaluated without error but finished with a false/empty top stack element",
-            "script_microseconds": 15.292,
-            "message_digest": "44640b60a8eeaeaeab6c6157c0333d8e40164a292ac58f77e43c20a45367fcaf"
+            "script_microseconds": 36.041,
+            "message_digest": "44640b60a8eeaeaeab6c6157c0333d8e40164a292ac58f77e43c20a45367fcaf",
+            "sha256_compression_blocks": 242,
+            "charged_validation_weight": 1080,
+            "last_xof_blocks": 3,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -1110,15 +1213,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
             "error": "Script evaluated without error but finished with a false/empty top stack element",
-            "script_microseconds": 23,
-            "message_digest": "17e125d955f3ded2808a82af66d2ae585cfa0223e69b7ecd01f16e6db47ab13f"
+            "script_microseconds": 39.5,
+            "message_digest": "17e125d955f3ded2808a82af66d2ae585cfa0223e69b7ecd01f16e6db47ab13f",
+            "sha256_compression_blocks": 242,
+            "charged_validation_weight": 1080,
+            "last_xof_blocks": 3,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -1151,15 +1259,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
             "error": "Script evaluated without error but finished with a false/empty top stack element",
-            "script_microseconds": 14,
-            "message_digest": "af1abf72b78524376a891ca1cdcd9ff75150ebdddaf7cd24866acc0887e0b76c"
+            "script_microseconds": 38.292,
+            "message_digest": "af1abf72b78524376a891ca1cdcd9ff75150ebdddaf7cd24866acc0887e0b76c",
+            "sha256_compression_blocks": 242,
+            "charged_validation_weight": 1080,
+            "last_xof_blocks": 3,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -1192,15 +1305,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
             "error": "Script evaluated without error but finished with a false/empty top stack element",
-            "script_microseconds": 16.542,
-            "message_digest": "6f512cfacaa1bd4fe339ff2452c361f4ed6a20f3249f1c956ee07f643d78524e"
+            "script_microseconds": 30.208,
+            "message_digest": "6f512cfacaa1bd4fe339ff2452c361f4ed6a20f3249f1c956ee07f643d78524e",
+            "sha256_compression_blocks": 244,
+            "charged_validation_weight": 1080,
+            "last_xof_blocks": 3,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -1233,15 +1351,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
             "error": "Script evaluated without error but finished with a false/empty top stack element",
-            "script_microseconds": 340.542,
-            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d"
+            "script_microseconds": 297.292,
+            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d",
+            "sha256_compression_blocks": 8511,
+            "charged_validation_weight": 1080,
+            "last_xof_blocks": 3,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -1274,15 +1397,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
-            "error": "Script evaluated without error but finished with a false/empty top stack element",
-            "script_microseconds": 5.167,
-            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d"
+            "error": "Invalid Schnorr signature size",
+            "script_microseconds": 6.584,
+            "message_digest": null,
+            "sha256_compression_blocks": 0,
+            "charged_validation_weight": 0,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -1315,15 +1443,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
-            "error": "Script evaluated without error but finished with a false/empty top stack element",
-            "script_microseconds": 5.5,
-            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d"
+            "error": "Invalid Schnorr signature size",
+            "script_microseconds": 6.292,
+            "message_digest": null,
+            "sha256_compression_blocks": 0,
+            "charged_validation_weight": 0,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -1356,15 +1489,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
             "error": "Script number overflowed or is non-minimally encoded",
-            "script_microseconds": 33.334,
-            "message_digest": null
+            "script_microseconds": 77.667,
+            "message_digest": null,
+            "sha256_compression_blocks": 0,
+            "charged_validation_weight": 0,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -1397,15 +1535,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
             "error": "Witness program hash mismatch",
-            "script_microseconds": 1.75,
-            "message_digest": null
+            "script_microseconds": 3.125,
+            "message_digest": null,
+            "sha256_compression_blocks": 0,
+            "charged_validation_weight": 0,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -1438,15 +1581,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
             "error": "Script evaluated without error but finished with a false/empty top stack element",
-            "script_microseconds": 16.375,
-            "message_digest": "444d9a8002dc9bc8a75b9efbb62fc586fb581f4cba88145933eba858e01d33bf"
+            "script_microseconds": 44.208,
+            "message_digest": "444d9a8002dc9bc8a75b9efbb62fc586fb581f4cba88145933eba858e01d33bf",
+            "sha256_compression_blocks": 244,
+            "charged_validation_weight": 1080,
+            "last_xof_blocks": 3,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -1479,15 +1627,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
             "error": "Script evaluated without error but finished with a false/empty top stack element",
-            "script_microseconds": 16.667,
-            "message_digest": "fdc7f4823d7dc2921df50b1caa0bff49c74f001e1e8cbada51ef182acd2304c4"
+            "script_microseconds": 39.5,
+            "message_digest": "fdc7f4823d7dc2921df50b1caa0bff49c74f001e1e8cbada51ef182acd2304c4",
+            "sha256_compression_blocks": 242,
+            "charged_validation_weight": 1080,
+            "last_xof_blocks": 3,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1001,
@@ -1520,15 +1673,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
             "error": "Witness program was passed an empty witness",
-            "script_microseconds": 1.292,
-            "message_digest": null
+            "script_microseconds": 2.542,
+            "message_digest": null,
+            "sha256_compression_blocks": 0,
+            "charged_validation_weight": 0,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -1598,15 +1756,20 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
             "error": "Push value size limit exceeded",
-            "script_microseconds": 4.208,
-            "message_digest": null
+            "script_microseconds": 4.791,
+            "message_digest": null,
+            "sha256_compression_blocks": 0,
+            "charged_validation_weight": 0,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -1640,22 +1803,32 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": true,
             "error": "No error",
-            "script_microseconds": 88.625,
-            "message_digest": "daaa4fe6a2df014a5f7d8a53683ba160c7751eb1656fb6755312357d4ee6a2a0"
+            "script_microseconds": 106.709,
+            "message_digest": "daaa4fe6a2df014a5f7d8a53683ba160c7751eb1656fb6755312357d4ee6a2a0",
+            "sha256_compression_blocks": 2053,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           },
           {
             "index": 1,
             "valid": true,
             "error": "No error",
-            "script_microseconds": 78.667,
-            "message_digest": "d233ec8912ec0032a30f78f80dc71ec6f69cbece47a1410254456f95bee661e6"
+            "script_microseconds": 69.833,
+            "message_digest": "d233ec8912ec0032a30f78f80dc71ec6f69cbece47a1410254456f95bee661e6",
+            "sha256_compression_blocks": 2053,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -1690,22 +1863,32 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": true,
             "error": "No error",
-            "script_microseconds": 86.166,
-            "message_digest": "daaa4fe6a2df014a5f7d8a53683ba160c7751eb1656fb6755312357d4ee6a2a0"
+            "script_microseconds": 143.166,
+            "message_digest": "daaa4fe6a2df014a5f7d8a53683ba160c7751eb1656fb6755312357d4ee6a2a0",
+            "sha256_compression_blocks": 2053,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           },
           {
             "index": 1,
             "valid": false,
             "error": "Operation not valid with the current stack size",
-            "script_microseconds": 1.458,
-            "message_digest": null
+            "script_microseconds": 2.875,
+            "message_digest": null,
+            "sha256_compression_blocks": 0,
+            "charged_validation_weight": 0,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -1740,22 +1923,32 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": true,
             "error": "No error",
-            "script_microseconds": 85.792,
-            "message_digest": "daaa4fe6a2df014a5f7d8a53683ba160c7751eb1656fb6755312357d4ee6a2a0"
+            "script_microseconds": 80.709,
+            "message_digest": "daaa4fe6a2df014a5f7d8a53683ba160c7751eb1656fb6755312357d4ee6a2a0",
+            "sha256_compression_blocks": 2053,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           },
           {
             "index": 1,
             "valid": false,
             "error": "Script evaluated without error but finished with a false/empty top stack element",
-            "script_microseconds": 47.875,
-            "message_digest": "d233ec8912ec0032a30f78f80dc71ec6f69cbece47a1410254456f95bee661e6"
+            "script_microseconds": 18.542,
+            "message_digest": "d233ec8912ec0032a30f78f80dc71ec6f69cbece47a1410254456f95bee661e6",
+            "sha256_compression_blocks": 4,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -1790,22 +1983,32 @@
         "core_version": "31.1",
         "scope": "linked_prevout_script_verification",
         "consensus_modified": true,
-        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "proposal_model": "BIP360v0.12.1+bounded-SHRINCS-B32-opcode",
         "flags": 6426133,
         "inputs": [
           {
             "index": 0,
             "valid": false,
             "error": "Script evaluated without error but finished with a false/empty top stack element",
-            "script_microseconds": 43.25,
-            "message_digest": "7566182efdf253bb1c058c69786cd9a7fc90cc81c9da6824cc27b21ffc822da7"
+            "script_microseconds": 26.375,
+            "message_digest": "7566182efdf253bb1c058c69786cd9a7fc90cc81c9da6824cc27b21ffc822da7",
+            "sha256_compression_blocks": 4,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           },
           {
             "index": 1,
             "valid": false,
             "error": "Script evaluated without error but finished with a false/empty top stack element",
-            "script_microseconds": 9.292,
-            "message_digest": "a1729df0cb783650585fc1037f76c741d7b6f74aa939ab03f9d882c9c64d7719"
+            "script_microseconds": 7.209,
+            "message_digest": "a1729df0cb783650585fc1037f76c741d7b6f74aa939ab03f9d882c9c64d7719",
+            "sha256_compression_blocks": 4,
+            "charged_validation_weight": 257,
+            "last_xof_blocks": 0,
+            "work_exhausted": false,
+            "sampling_exhausted": false
           }
         ],
         "fee_sats": 1000,
@@ -1891,11 +2094,14 @@
     "two-inputs-copied-first-signature.hex": "a2341ec0dfedcfa48ef6bf8d37a87091c8cd37e96831e94987a031e4228ad939",
     "two-inputs-missing-second-signature.hex": "cca3ad5110b7347eb7901bc1cdf620fb7ae1dd60007c75c076488cf1d8c2c7bf",
     "two-inputs-reordered.hex": "bbb5bc665b2b80e7f792642c0368c81b73d29b7488fbb2701e6edf23ac6f628c",
-    "two-inputs-valid.hex": "cff46abe252326f83ba5fb836214234a04889c0bec8054905fcb992132c9551d"
+    "two-inputs-valid.hex": "cff46abe252326f83ba5fb836214234a04889c0bec8054905fcb992132c9551d",
+    "work-bounds/msg.hex": "71bb684db789332556e0d1706a5389a2d0eb81b990896bac8a90dc8105108a63",
+    "work-bounds/pk.hex": "355497e910b4636a62d8cf157c1a2ccaae8a4875b052688d2fb9c207d17b317f",
+    "work-bounds/sig.hex": "cd36d74fc5ee6ea527f127761d7be0b1e33fd3f095f65301e96fc5ec2635e62f"
   },
   "harness_sha256": {
-    "btc_pq/shrincs_demo.py": "544305ade6cdd3d73c51b6820692029add4d3a1c073c11c9357bae49ee1a4af1",
-    "btc_pq/shrincs_build.py": "93c8bd9a80b9ae01e1ea9a313931c97e84d7e953e8839059d890109051eb294d",
+    "btc_pq/shrincs_demo.py": "43c92970f15f1ac137ca36d78d34ff0d1ae5c2eb0c372e4a42be27d12ddfa4ff",
+    "btc_pq/shrincs_build.py": "2bbf02a603004ad18f52471dc3fc98db1d676606f7936a4700d50ceb6fd9e4c7",
     "btc_pq/shrincs_kat.py": "82cea4e153858d3956ba1543f3e1b36b54c101c6387c6d4f4a31a10d68ffd16f",
     "tests/test_shrincs_demo.py": "37dbb011ba6ed1e4411a5c3f51dcfb2bb97767b0480f5313d7ff76692626d517",
     "btc_pq/bitcoin.py": "f2d05b8201675ba767b9f5b4528237d1417242bed34ee66af107ac220b852808",

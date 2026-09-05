@@ -1,14 +1,14 @@
 {
   "date": "2026-09-05",
-  "unit_tests": 55,
-  "passed": 55,
+  "unit_tests": 58,
+  "passed": 58,
   "skipped": 0,
   "command": "python -m unittest discover -s tests -v",
   "native_script_cases": 64,
   "cisa_python_cases": 66,
   "pq_proof_payment_cases": 48,
   "shrincs_vectors": 375,
-  "shrincs_differential_implementations": 3,
+  "shrincs_differential_implementations": 4,
   "shrincs_negative_controls": 1875,
   "mainnet_activation": false,
   "production_wallet": false,
@@ -21,7 +21,7 @@
     },
     {
       "path": "results/shrincs-demo/report.json",
-      "sha256": "b25437310bdca8b59ece5df54ce928eef759bc731d10cda2d122a68a395cc8a5",
+      "sha256": "d34816ea48a3c87b5c0a90bd9132f389c410ca7e7191b16c56963476cc14cfb9",
       "cases": 37
     },
     {
@@ -41,10 +41,16 @@
     },
     {
       "path": "results/shrincs-demo/upstream-kat-full-differential.json",
-      "sha256": "abec9b907d3c19a7e4acf4ff36992ea116804aaf89a208b04f91ab3ba2835f5c",
+      "sha256": "020809c7799ae421a85c3988aabb603dcf40565658dcf08f0fa05ed715e3a419",
       "cases": 375
+    },
+    {
+      "path": "results/shrincs-demo/work-bounds/report.json",
+      "cases": 2,
+      "sha256": "6a39921b2056efee2647a512c580b2969064b7fd1417e44facf1d5d74e320108"
     }
   ],
   "git_staged_diff_check_passed": true,
-  "pq_proof_replay_cases": 48
+  "pq_proof_replay_cases": 48,
+  "shrincs_work_budget_tests": 3
 }

@@ -61,8 +61,9 @@ Core is pinned to `9be056a8a72b624dae9623b2f7bded92c2a21c91` and built in a sepa
 remain separate. Use `--outdir` to save another fixture set.
 
 The [upstream C++ source](https://github.com/BlockstreamResearch/shrincs-cpp/tree/7643d9530c568f8671b21b9502e51bd9722b2e8d)
-is compiled without changes and with `SHRINCS_B32`. The wrapper validates key and
-signature lengths before calling its raw-pointer verification API. Upstream
+is compiled without changes and with `SHRINCS_B32` for signing and reference
+verification. The opcode now uses a [bounded native verifier](shrincs-work.md),
+checked against those references, with deterministic work limits and charges. Upstream
 identifies this implementation as research software; the local integration adds
 no production-readiness claim.
 
@@ -150,8 +151,8 @@ chunk splits.
 
 The P2MR tree uses the previous demo's depth-one construction with a failing
 `OP_RETURN` sibling. The native build reuses that patch but the SHRINCS spending
-script uses neither CAT nor TemplateHash. Signature cost accounting is a local
-placeholder, and the wrapper is not a consensus-complete deployment of any BIP.
+script uses neither CAT nor TemplateHash. Signature cost accounting follows the [local bounded-work rule](shrincs-work.md);
+the wrapper is not a consensus-complete deployment of any BIP.
 It validates Script against synthetic linked parent transactions, not an actual
 UTXO set, chain, mempool or block. Stock-Core acceptance of the witness-v2
 control means unknown-version rules are not enforcing the new authorization.
@@ -177,9 +178,9 @@ control means unknown-version rules are not enforcing the new authorization.
   message. The unmodified generator exited successfully after all 375 records.
   [Native replay](../results/shrincs-demo/upstream-kat-full-report.json) re-derives
   the public keys and checks every signature and changed-message control.
-- [Three-implementation differential replay](../results/shrincs-demo/upstream-kat-full-differential.json)
-  checks the same 375 signatures in C++, the separate pinned C port, and a
-  locally authored pure Python verifier. All accept the originals and reject
+- [Four-implementation differential replay](../results/shrincs-demo/upstream-kat-full-differential.json)
+  checks the same 375 signatures in upstream C++, the separate pinned C port,
+  a local Python verifier, and bounded native C++. All accept the originals and reject
   1,875 selected message, signature-root, key-root, truncation, and append
   controls. This provides implementation diversity, not an independent
   cryptographic security audit.
@@ -199,9 +200,9 @@ reports identify precisely which fields they tested.
 
 The Python verifier counts SHA256 calls and compression blocks, recorded in
 the differential report. These are execution measurements for those vectors,
-not a worst-case consensus charge. In particular, PORS index sampling has a
-data-dependent loop. The native opcode's fixed charge remains a placeholder;
-a deployable rule needs an explicit work bound and metering model.
+also cross-checked against the bounded native verifier. Its [cost model](shrincs-work.md)
+now caps PORS index sampling and charges a derived upper bound before running
+the opcode. Deployment would still need review of these local rule choices.
 
 Build inputs, binary files, fixtures, the vector sample and harness sources
 have recorded SHA256 hashes. Signing uses parallel grinding, so fresh runs may
@@ -209,6 +210,6 @@ select different valid counters; replay checks the exact saved bytes.
 
 The experiment establishes a compact, transaction-bound PQ spending path under
 the modeled rules. Production work still includes a consensus specification
-and cost model, independent cryptographic validation, and wallet/device
+and review of the cost model, independent cryptographic validation, and wallet/device
 integration. The executed aggregation experiment uses XMSS; a SHRINCS circuit
 would be needed to prove this exact scheme.

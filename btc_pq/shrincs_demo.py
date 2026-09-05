@@ -168,7 +168,7 @@ def run(outdir, build=False):
 
     report = dict(scope='linked-prevout Script checks under a local opcode model; not mainnet or a full node',
                   build=json.loads((BUILD/'build-manifest.json').read_text()),
-                  parameters='upstream SHRINCS_B32; unmodified cryptographic implementation',
+                  parameters='upstream SHRINCS_B32 signer; locally bounded native verifier',
                   digest='TaggedHash(btc-pq/SHRINCS-B32/v1, BIP341 SIGHASH_DEFAULT with BIP342 extension)',
                   experimental_opcode='0xcf; local allocation, not an assigned BIP opcode',
                   signing=signing, multi_signing=multi_metadata, metrics=metrics, cases=cases,

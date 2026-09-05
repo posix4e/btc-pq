@@ -5,7 +5,7 @@
 #include <streams.h>
 #include <util/strencodings.h>
 #include <hash.h>
-#include "shrincs_bridge.h"
+#include "shrincs_bounded.h"
 #include <chrono>
 #include <optional>
 #include <fstream>
@@ -31,6 +31,9 @@ class DemoChecker : public TransactionSignatureChecker {
     const PrecomputedTransactionData& data;
 public:
     mutable std::optional<uint256> last_message;
+    mutable ShrincsWork last_work;
+    mutable uint64_t total_compression_blocks{0};
+    mutable int64_t charged_validation_weight{0};
     DemoChecker(const CTransaction& t, uint32_t i, CAmount amount, const PrecomputedTransactionData& d)
         : TransactionSignatureChecker(&t, i, amount, d, MissingDataBehavior::FAIL), tx(t), index(i), data(d) {}
     bool DemoCheckShrincs(std::span<const unsigned char> signature, std::span<const unsigned char> pk, ScriptExecutionData& execdata) const override {
@@ -39,7 +42,10 @@ public:
                                  SigVersion::TAPSCRIPT, data, MissingDataBehavior::FAIL)) return false;
         const uint256 message = (TaggedHash("btc-pq/SHRINCS-B32/v1") << sighash).GetSHA256();
         last_message = message;
-        return DemoShrincsVerify(message, signature, pk);
+        charged_validation_weight += btc_pq::ShrincsValidationWeight(signature.size());
+        last_work = BoundedShrincsVerify(message, signature, pk);
+        total_compression_blocks += last_work.compression_blocks;
+        return last_work.valid;
     }
 };
 
@@ -66,7 +72,7 @@ int main(int argc, char** argv) {
         flags |= SCRIPT_VERIFY_BTC_PQ_COVENANT_DEMO | SCRIPT_VERIFY_BTC_PQ_SHRINCS_DEMO;
         bool all = true;
         std::cout << "{\"core_version\":\"31.1\",\"scope\":\"linked_prevout_script_verification\","
-                  << "\"consensus_modified\":true,\"proposal_model\":\"BIP360v0.12.1+local-SHRINCS-B32-opcode\","
+                  << "\"consensus_modified\":true,\"proposal_model\":\"BIP360v0.12.1+bounded-SHRINCS-B32-opcode\","
                   << "\"flags\":" << flags.as_int() << ",\"inputs\":[";
         for (size_t i = 0; i < tx.vin.size(); ++i) {
             ScriptError error = SCRIPT_ERR_UNKNOWN_ERROR;
@@ -79,6 +85,11 @@ int main(int argc, char** argv) {
                       << ",\"message_digest\":";
             if (checker.last_message) std::cout << '\"' << HexStr(*checker.last_message) << '\"';
             else std::cout << "null";
+            std::cout << ",\"sha256_compression_blocks\":" << checker.total_compression_blocks
+                      << ",\"charged_validation_weight\":" << checker.charged_validation_weight
+                      << ",\"last_xof_blocks\":" << checker.last_work.xof_blocks
+                      << ",\"work_exhausted\":" << (checker.last_work.work_exhausted ? "true" : "false")
+                      << ",\"sampling_exhausted\":" << (checker.last_work.sampling_exhausted ? "true" : "false");
             std::cout << '}';
             all &= ok;
         }
