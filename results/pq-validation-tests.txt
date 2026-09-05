@@ -38,6 +38,9 @@ test_chunk_boundaries_and_length_dispatch (test_shrincs_demo.ShrincsNativeTests.
 test_full_message_matches_native_with_annex_and_multiple_inputs (test_shrincs_demo.ShrincsNativeTests.test_full_message_matches_native_with_annex_and_multiple_inputs) ... ok
 test_saved_matrix_and_fixture_integrity (test_shrincs_demo.ShrincsNativeTests.test_saved_matrix_and_fixture_integrity) ... ok
 test_upstream_vectors_and_final_state_boundaries (test_shrincs_demo.ShrincsNativeTests.test_upstream_vectors_and_final_state_boundaries) ... ok
+test_full_vectors_and_negative_controls_match (test_shrincs_proof.ShrincsProofReferenceTests.test_full_vectors_and_negative_controls_match) ... ok
+test_payment_claims_and_maximal_work_invalid_signature (test_shrincs_proof.ShrincsProofReferenceTests.test_payment_claims_and_maximal_work_invalid_signature) ... ok
+test_saved_receipts_bind_payment_and_reject_trailing_bytes (test_shrincs_proof.ShrincsReceiptTests.test_saved_receipts_bind_payment_and_reject_trailing_bytes) ... skipped 'generate the three exact SHRINCS proof receipts'
 test_c_implementation_and_ignored_internal_randomness (test_shrincs_reference.ReferenceTests.test_c_implementation_and_ignored_internal_randomness) ... ok
 test_complete_vector_set_and_variable_pors_terminal_height (test_shrincs_reference.ReferenceTests.test_complete_vector_set_and_variable_pors_terminal_height) ... ok
 test_saved_upstream_vectors_and_negative_controls (test_shrincs_reference.ReferenceTests.test_saved_upstream_vectors_and_negative_controls) ... ok
@@ -58,6 +61,6 @@ test_opcode_produces_real_der_and_ecdsa_signature (test_toy.ToyTests.test_opcode
 test_opcode_rejects_invalid_target_key_and_failed_gate (test_toy.ToyTests.test_opcode_rejects_invalid_target_key_and_failed_gate) ... ok
 
 ----------------------------------------------------------------------
-Ran 58 tests in 15.472s
+Ran 61 tests in 35.894s
 
-OK
+OK (skipped=1)

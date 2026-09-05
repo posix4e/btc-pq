@@ -32,6 +32,11 @@ also exercises concurrent signing, process crashes, and seed restoration.
 The [bounded verifier and cost model](docs/shrincs-work.md) enforce SHA256 work
 limits before each native check. Results and remaining work are tracked in [issue #3](https://github.com/posix4e/btc-pq/issues/3).
 
+The [exact SHRINCS proof experiment](docs/shrincs-proof.md) runs the same SHA256
+verification logic in a RISC Zero guest. Its native Rust replay covers all 375
+upstream vectors; execution, proof generation, and saved-proof replay are
+separate commands and reports.
+
 ## The finding
 
 The confirmed mainnet spend

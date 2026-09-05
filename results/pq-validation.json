@@ -1,8 +1,8 @@
 {
   "date": "2026-09-05",
-  "unit_tests": 58,
-  "passed": 58,
-  "skipped": 0,
+  "unit_tests": 61,
+  "passed": 60,
+  "skipped": 1,
   "command": "python -m unittest discover -s tests -v",
   "native_script_cases": 64,
   "cisa_python_cases": 66,
@@ -48,9 +48,29 @@
       "path": "results/shrincs-demo/work-bounds/report.json",
       "cases": 2,
       "sha256": "6a39921b2056efee2647a512c580b2969064b7fd1417e44facf1d5d74e320108"
+    },
+    {
+      "path": "results/shrincs-proof/rust-differential.json",
+      "cases": 375,
+      "sha256": "45b620f52cb67b89ea740bf49dcd76976071d01f183bf674341b89c8e5ad36e5"
+    },
+    {
+      "path": "results/shrincs-proof/execution.json",
+      "cases": 6,
+      "sha256": "82f44f7ada7be6e2163072ac6c67543b263afb8d214e3706e38768c16dd5a5c4"
+    },
+    {
+      "path": "results/shrincs-proof/program.json",
+      "cases": 1,
+      "sha256": "8968828a12874a22675ff4eff001710c9ed972bf5e9e16de78af33b77db12009"
     }
   ],
   "git_staged_diff_check_passed": true,
   "pq_proof_replay_cases": 48,
-  "shrincs_work_budget_tests": 3
+  "shrincs_work_budget_tests": 3,
+  "skip_reason": "Exact SHRINCS receipt regression awaits all three generated proof fixtures",
+  "exact_shrincs_rust_vectors": 375,
+  "exact_shrincs_rust_negative_controls": 1875,
+  "exact_shrincs_guest_execution_cases": 6,
+  "exact_shrincs_receipts_complete": false
 }

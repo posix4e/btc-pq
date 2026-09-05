@@ -1,0 +1,233 @@
+"""Exact SHRINCS-B32 in a RISC Zero guest, with host-recomputed payment claims."""
+import argparse
+from copy import deepcopy
+from hashlib import sha256
+import json
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import tempfile
+
+from .bitcoin import Tx
+from .crypto import ROOT
+from .covenant_demo import p2mr
+from .shrincs_demo import auth_script, signed_message
+from .shrincs_kat import parse_vectors
+
+SOURCE = ROOT/'native/shrincs-proof'
+TARGET = ROOT/'.cache/risc0-target'
+TOOL = TARGET/'release/btc-pq-shrincs-proof'
+REFERENCE = TARGET/'release/shrincs-proof-reference'
+SERVER = ROOT/'.cache/risc0-tools/r0vm'
+SDK_VERSION = '3.0.6'
+
+
+def environment():
+    prover = os.environ.get('BTC_PQ_SHRINCS_PROVER', 'ipc')
+    if prover not in ('ipc', 'local'):
+        raise ValueError('supported local prover modes: ipc or local')
+    env = dict(os.environ, CARGO_TARGET_DIR=str(TARGET),
+               RISC0_HOME=str(ROOT/'.cache/risc0-home'), RISC0_SERVER_PATH=str(SERVER),
+               RISC0_PROVER=prover, RISC0_EXECUTOR=prover, RISC0_BUILD_LOCKED='1',
+               RUSTC_WRAPPER=str(SOURCE/'rustc-wrapper.sh'), BTC_PQ_REMAP_ROOT=str(ROOT),
+               BTC_PQ_WRAPPER_SHA256=sha256((SOURCE/'rustc-wrapper.sh').read_bytes()).hexdigest())
+    env.pop('RISC0_DEV_MODE', None)
+    return env
+
+
+def build(local=False):
+    version = subprocess.check_output([str(SERVER), '--version'], text=True).strip()
+    if version != 'risc0-r0vm '+SDK_VERSION:
+        raise ValueError('requires the pinned r0vm release '+SDK_VERSION)
+    stamp = TARGET/'shrincs-build.json'
+    old = json.loads(stamp.read_text()) if stamp.exists() else {}
+    wrapper_hash = environment()['BTC_PQ_WRAPPER_SHA256']
+    # Cargo assumes a rustc wrapper preserves compiler semantics. A changed
+    # remapping wrapper therefore needs an explicit guest-cache invalidation.
+    guest_cache = TARGET/'riscv-guest/shrincs-proof-methods/shrincs-guest'
+    if old.get('wrapper_sha256') != wrapper_hash and guest_cache.exists():
+        shutil.rmtree(guest_cache)
+    command = ['cargo', 'build', '--release', '--locked', '--manifest-path', str(SOURCE/'Cargo.toml')]
+    if local:
+        command += ['--features', 'btc-pq-shrincs-proof/local']
+    subprocess.run(command, env=environment(), check=True)
+    manifest = dict(sdk_version=SDK_VERSION, local_prover_feature=local, source_sha256=source_hashes(), wrapper_sha256=wrapper_hash,
+                    binary_sha256={str(p.relative_to(ROOT)):sha256(p.read_bytes()).hexdigest()
+                                   for p in (TOOL, REFERENCE, SERVER)})
+    stamp.write_text(json.dumps(manifest, indent=2)+'\n')
+
+
+def source_hashes():
+    return {str(p.relative_to(ROOT)): sha256(p.read_bytes()).hexdigest()
+            for p in sorted(SOURCE.rglob('*')) if p.is_file() and p.suffix in ('.rs', '.toml', '.lock', '.sh')}
+
+
+def reference_replay(directory):
+    vectors_path = ROOT/'results/shrincs-demo/upstream-kat-full.rsp'
+    records = parse_vectors(vectors_path.read_text())
+    expected = json.loads(vectors_path.with_name('upstream-kat-full-differential.json').read_text())['cases']
+    if len(records) != 375:
+        raise ValueError('requires complete 375-vector output')
+    cases, negative_count = [], 0
+    for start in range(0, len(records), 15):
+        inputs = []
+        for r in records[start:start+15]:
+            auth = {name:list(bytes.fromhex(r[field])) for name, field in
+                    (('key','pk'), ('message','msg'), ('signature','sig'))}
+            inputs.append(auth)
+            for field, kind in (('message','flip'), ('signature','flip'), ('key','root'),
+                                ('signature','truncate'), ('signature','append')):
+                changed = deepcopy(auth)
+                if kind in ('flip','root'): changed[field][16 if kind == 'root' else 0] ^= 1
+                elif kind == 'truncate': changed[field].pop()
+                else: changed[field].append(0)
+                inputs.append(changed)
+        process = subprocess.run([str(REFERENCE)], input=json.dumps(inputs), text=True,
+                                 capture_output=True, check=True)
+        results = json.loads(process.stdout)
+        for j, result in enumerate(results):
+            if result['valid'] != (j % 6 == 0):
+                raise AssertionError((start, j, result))
+            if j % 6:
+                negative_count += 1
+                continue
+            index = start + j//6
+            for field in ('compression_blocks', 'hash_calls', 'wots_attempts', 'xof_blocks',
+                          'pors_auth_nodes', 'pors_root_height'):
+                if result[field] != expected[index]['python_work'][field]:
+                    raise AssertionError((index, field))
+            cases.append(dict(count=index, **result))
+    report = dict(scope='Rust proof-program verifier executed natively; no proof generated by this replay',
+                  vectors_sha256=sha256(vectors_path.read_bytes()).hexdigest(),
+                  source_sha256=source_hashes(), cases=cases, negative_controls=negative_count,
+                  all_expectations_met=True)
+    directory.mkdir(parents=True, exist_ok=True)
+    (directory/'rust-differential.json').write_text(json.dumps(report, indent=2)+'\n')
+    return report
+
+
+def authorizations(tx, parents, signatures):
+    if not (len(tx.inputs) == len(parents) == len(signatures)):
+        raise ValueError('input/parent/signature count')
+    result = []
+    for index, (inp, parent, signature) in enumerate(zip(tx.inputs, parents, signatures)):
+        if inp.txid != parent.txid or inp.vout >= len(parent.outputs):
+            raise ValueError('parent does not match transaction input')
+        witness = inp.witness
+        if len(witness) < 2:
+            raise ValueError('missing script and control block')
+        annex = witness[-1] if len(witness) >= 2 and witness[-1][:1] == b'\x50' else None
+        script = witness[-3 if annex else -2]
+        if len(script) != 34 or script != auth_script(script[1:33]):
+            raise ValueError('unsupported authorization script')
+        output, control = p2mr(script)
+        if parent.outputs[inp.vout].script != output:
+            raise ValueError('public key does not match funded script')
+        if witness[-2 if annex else -1] != control:
+            raise ValueError('control block does not match the modeled P2MR tree')
+        result.append(dict(key=list(script[1:33]), message=list(signed_message(tx, parents, index, script, annex)),
+                           signature=list(signature)))
+    return dict(authorizations=result)
+
+
+def fixture(name):
+    directory = ROOT/'results/shrincs-demo'
+    tx = Tx.parse((directory/(name+'.hex')).read_text().strip())
+    parents = [Tx.parse((directory/('parent-'+inp.txid+'.hex')).read_text().strip()) for inp in tx.inputs]
+    signatures = [b''.join(inp.witness[:-3]) for inp in tx.inputs]
+    return tx, parents, signatures
+
+
+def native(mode, batch, proof=None, *, expected=True):
+    with tempfile.TemporaryDirectory() as directory:
+        path = Path(directory)/'batch.json'
+        path.write_text(json.dumps(batch))
+        command = [str(TOOL), mode, str(path)] + ([str(proof)] if proof is not None else [])
+        process = subprocess.run(command, env=environment(), text=True, capture_output=True)
+    if mode == 'verify' and process.returncode == 0:
+        result = json.loads(process.stdout)
+        if result['valid'] != expected:
+            raise AssertionError(dict(expected=expected, result=result))
+        return result
+    if bool(process.returncode == 0) != expected or (mode == 'verify' and process.returncode):
+        raise AssertionError(dict(command=mode, expected=expected, returncode=process.returncode,
+                                 stdout=process.stdout[-1000:], stderr=process.stderr[-4000:]))
+    if process.returncode:
+        if mode == 'execute' and 'invalid SHRINCS authorization' not in process.stderr:
+            raise AssertionError('execution failed for an unexpected reason: '+process.stderr[-2000:])
+        return dict(valid=False, error=process.stderr[-1500:])
+    return json.loads(process.stdout)
+
+
+def run(directory, *, prove=False, replay=False, succinct=False):
+    directory.mkdir(parents=True, exist_ok=True)
+    cases = []
+    for name in ('compact-q1-valid', 'recovery-valid', 'two-inputs-valid'):
+        tx, parents, signatures = fixture(name)
+        batch = authorizations(tx, parents, signatures)
+        path = directory/(name+'.receipt.bin')
+        mode = 'verify' if replay else ('prove-succinct' if succinct else 'prove') if prove else 'execute'
+        result = native(mode, batch, path if mode != 'execute' else None)
+        cases.append(dict(name=name, result=result))
+        (directory/(name+'.batch.json')).write_text(json.dumps(batch)+'\n')
+        if mode == 'execute':
+            bad = deepcopy(batch); bad['authorizations'][0]['signature'][0] ^= 1
+            cases.append(dict(name=name+'-invalid-signature', result=native('execute', bad, expected=False)))
+        else:
+            for mutation in ('recipient', 'amount', 'sequence', 'version', 'locktime', 'spent_amount', 'outpoint', 'annex'):
+                changed_tx, changed_parents = deepcopy(tx), deepcopy(parents)
+                if mutation == 'recipient': changed_tx.outputs[0].script = b'\x6a'
+                if mutation == 'amount': changed_tx.outputs[0].value -= 1
+                if mutation == 'sequence': changed_tx.inputs[0].sequence -= 1
+                if mutation == 'version': changed_tx.version += 1
+                if mutation == 'locktime': changed_tx.locktime += 1
+                if mutation == 'spent_amount':
+                    changed_parents[0].outputs[0].value += 1
+                    changed_tx.inputs[0].txid = changed_parents[0].txid
+                if mutation == 'outpoint':
+                    changed_parents[0].locktime += 1
+                    changed_tx.inputs[0].txid = changed_parents[0].txid
+                if mutation == 'annex': changed_tx.inputs[0].witness.append(b'\x50changed')
+                altered = authorizations(changed_tx, changed_parents, signatures)
+                cases.append(dict(name=name+'-'+mutation, result=native('verify', altered, path, expected=False)))
+            for mutation in ('key', 'order', 'proof-truncate', 'proof-append'):
+                altered = deepcopy(batch)
+                if mutation == 'order' and len(altered['authorizations']) < 2: continue
+                altered_path = path
+                if mutation == 'key': altered['authorizations'][0]['key'][0] ^= 1
+                if mutation == 'order': altered['authorizations'].reverse()
+                if mutation.startswith('proof-'):
+                    data = path.read_bytes()
+                    altered_path = directory/(name+'.'+mutation+'.bin')
+                    altered_path.write_bytes(data[:-1] if mutation == 'proof-truncate' else data+b'\0')
+                cases.append(dict(name=name+'-'+mutation, result=native('verify', altered, altered_path, expected=False)))
+            result['receipt_sha256'] = sha256(path.read_bytes()).hexdigest()
+        (directory/'progress.json').write_text(json.dumps(dict(
+            mode=mode, completed_fixture=name, cases=cases,
+            complete=name == 'two-inputs-valid'), indent=2)+'\n')
+        print('Checked '+mode+': '+name, flush=True)
+    report = dict(mode=mode, sdk_version=SDK_VERSION, source_sha256=source_hashes(),
+                  local_prover_mode=environment()['RISC0_PROVER'],
+                  host_binary_sha256=sha256(TOOL.read_bytes()).hexdigest(),
+                  proof_inside_bitcoin_transaction=False, checked_by_bitcoin_node=False,
+                  cases=cases, all_expectations_met=True)
+    (directory/('replay.json' if replay else 'proofs.json' if prove else 'execution.json')).write_text(json.dumps(report, indent=2)+'\n')
+    return report
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--build', action='store_true')
+    parser.add_argument('--local', action='store_true', help='build and use the in-process prover')
+    parser.add_argument('--succinct', action='store_true', help='recursively compress to a succinct STARK receipt')
+    parser.add_argument('--reference', action='store_true')
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument('--prove', action='store_true')
+    group.add_argument('--replay', action='store_true')
+    parser.add_argument('--outdir', type=Path, default=ROOT/'results/shrincs-proof')
+    args = parser.parse_args()
+    if args.local: os.environ['BTC_PQ_SHRINCS_PROVER'] = 'local'
+    if args.build: build(local=args.local)
+    result = reference_replay(args.outdir) if args.reference else run(args.outdir, prove=args.prove, replay=args.replay, succinct=args.succinct)
+    print(json.dumps(dict(cases=len(result['cases']), all_expectations_met=result['all_expectations_met'])))

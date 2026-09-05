@@ -117,4 +117,7 @@ sizes or fees.
 For a two-input payment, direct SHRINCS remains much smaller in these demos.
 Proof aggregation is a batch optimization with significant fixed overhead.
 Supporting SHRINCS itself requires a SHA256 SHRINCS verifier inside the proof
-system; that is not provided by leanVM's existing BLAKE2s XMSS circuit.
+system; that is not provided by leanVM's existing BLAKE2s XMSS circuit. The
+[exact SHRINCS proof program](shrincs-proof.md) now provides that verifier and
+passes six zkVM execution checks. Receipt generation and batch crossover are
+tracked separately from those execution results.
