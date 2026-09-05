@@ -1,0 +1,43 @@
+{
+  "funding_replayed": true,
+  "network_node": true,
+  "proof_for_other_payment_rejected": true,
+  "mempool": {
+    "txid": "a9b82b782552393aa30875127b1d119f9ca113ed333e7351b1142b0d1d4ef23a",
+    "wtxid": "29c2859564c43ddd15aacd547f25eaea3f9c84bc2e13a1c6e2f61bb8515d5942",
+    "allowed": false,
+    "reject-reason": "bad-shrincs-receipt",
+    "reject-details": "bad-shrincs-receipt, proof or group script invalid"
+  },
+  "block": {
+    "code": -25,
+    "message": "TestBlockValidity failed: bad-shrincs-receipt, proof or group script invalid"
+  },
+  "valid_new_receipt_pending": true,
+  "build_manifest": {
+    "core_commit": "9be056a8a72b624dae9623b2f7bded92c2a21c91",
+    "activation": "regtest only",
+    "source_sha256": {
+      "btc_pq/receipt_demo.py": "0e1d203a5bedb847da4b4e34cc567f75b889e6e4f0da9413a37bf347bbbd7ea1",
+      "native/covenant-core.patch": "e69e500aecb7920e16edc1275afe7aae8a150a0c46da47d7296d14ace65a2f83",
+      "native/receipt-tool/Cargo.lock": "c9c7401266cc0dc4935737e3ca071e6af0626184a6ea734185b2890506b1cc9d",
+      "native/receipt-tool/Cargo.toml": "2f6b8a31aade8a6f2eeb505a333147046af6e6add0dba08ab59a820b914ca2b5",
+      "native/receipt-tool/src/lib.rs": "dca1fa18242d85c294ba74123fd53c82af6274d4bbd25e121975139cc98a6d74",
+      "native/receipt-tool/src/main.rs": "01ed0f941acbf8072999fa9189abb590efcada8a5cdf6be16abf31eaa7c20329",
+      "native/shrincs-core.patch": "f5bbc5c4d50bf0f4da3b672f4de11758e431a8c4efa027197175405b8b933620",
+      "native/shrincs-proof-core.patch": "7123d727df0b317775724d04a86d1b85b6feefd154075f469f05e432a1da64ef",
+      "native/shrincs-receipt/CMakeLists.txt": "b7f39e077f160701cb5d599bfa1e37a4bbce4620993155db75ae814a559e7861",
+      "native/shrincs_cost.h": "cfad93eabc4fbf81a0b37358f649ebc3caad02a2401036c84908556fac04adfa",
+      "native/shrincs_receipt.cpp": "280b80ceb1a95c313dd573195a64806daf734bba02bb031d93fa62afdf7382e6",
+      "native/shrincs_receipt.h": "6663df37a88d898fb4033e462e2d3d9e0a15cf6167f0fd85ea6378a5de0fcb95",
+      "native/shrincs_receipt_verify.cpp": "06a961577aa2b5ba9bcaed28f62b167fe0ad928e3165a1f11f546e06dfe57a90",
+      "btc_pq/receipt_node_build.py": "4c9f36ca83a5e8e7df98e310b39383803ec710f01682551a881edfdbe77b94bf",
+      "native/shrincs-node-core.patch": "b8e2d5a354589340c3cdcc36430269e57013e111bbb051ddbf094cfc01fd5f61",
+      "native/shrincs-node/CMakeLists.txt": "4b7a907425291545ec1dba1cb010c8dc88517d2d77b9d01e84b91ddc202e8d55"
+    },
+    "binary_sha256": {
+      ".cache/receipt-node-build/core/bin/bitcoind": "996932ca5032460beaa1b26da2f3ab7f351423d447c0894f27bd9e743bf950dc",
+      ".cache/risc0-target/release/libbtc_pq_receipt.dylib": "6b315fa7c630a146925a75cd2fa279c282c860f204d847897f5b55dc312f49b1"
+    }
+  }
+}

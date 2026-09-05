@@ -1,7 +1,7 @@
 {
   "date": "2026-09-05",
-  "unit_tests": 63,
-  "passed": 62,
+  "unit_tests": 65,
+  "passed": 64,
   "skipped": 1,
   "command": "python -m unittest discover -s tests -v",
   "native_script_cases": 64,
@@ -77,12 +77,27 @@
     {
       "path": "results/shrincs-receipt/compact-q1-valid.json",
       "cases": 16,
-      "sha256": "1522adad54443d0fb4db90bbfde4691bba3cc2493437a19ff3d36d3d7bb31334"
+      "sha256": "1b6689ddcd36cfb310d5b81188c440d498b58c411dd42fc952de6c1ac8e723fc"
     },
     {
       "path": "results/shrincs-receipt-compressed/compact-q1-valid.json",
       "cases": 16,
-      "sha256": "b7dde5864d4aa69b9905962724a8bf04d714f6c120fd87dc21b2892a7e9c1511"
+      "sha256": "bbcbf39937a8bcd762c56036eaa8a6c99bdf54cfdbae2bca3392993a941aa370"
+    },
+    {
+      "path": "results/holding-demo/replay.json",
+      "cases": 8,
+      "sha256": "4964c15b1fca688a835b8d03be517b8f06335ddce84cc77aa3975eb6beb90b97"
+    },
+    {
+      "path": "results/shrincs-node/funding-replay.json",
+      "cases": 2,
+      "sha256": "a7594072a398e4a4d904919d4a4e9398c04b03bec3eb3251102709564ef7bd91"
+    },
+    {
+      "path": "results/shrincs-node/manifest.json",
+      "cases": 1,
+      "sha256": "77179382fe32c2c422ec1b15497fc495d58098ab54713002014693fa8f6d54d5"
     }
   ],
   "git_staged_diff_check_passed": true,
@@ -95,5 +110,9 @@
   "exact_shrincs_receipts_complete": false,
   "exact_shrincs_compact_proof_cases": 12,
   "native_receipt_transaction_cases": 32,
-  "exact_shrincs_compressed_receipts": 1
+  "exact_shrincs_compressed_receipts": 1,
+  "stock_holding_cases": 8,
+  "patched_node_wrong_claim_cases": 2,
+  "patched_node_valid_receipt_pending": true,
+  "holding_future_recovery": "deferred by user"
 }

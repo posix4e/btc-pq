@@ -7,6 +7,8 @@ test_lamport_digest_reconstruction (test_covenant_demo.NativeCovenantTests.test_
 test_matrix_and_replay (test_covenant_demo.NativeCovenantTests.test_matrix_and_replay) ... ok
 test_p2mr_commitment_and_reserved_branches (test_covenant_demo.NativeCovenantTests.test_p2mr_commitment_and_reserved_branches) ... ok
 test_committed_and_omitted_fields (test_covenant_demo.TemplateCoverageTests.test_committed_and_omitted_fields) ... ok
+test_funding_backup_restore_and_unbound_disclosure (test_holding_demo.HoldingBackupTests.test_funding_backup_restore_and_unbound_disclosure) ... ok
+test_restore_requires_the_funded_commitment (test_holding_demo.HoldingBackupTests.test_restore_requires_the_funded_commitment) ... ok
 test_candidate_budgets_are_exact_even_below_clock_check_interval (test_phase2.Phase2Tests.test_candidate_budgets_are_exact_even_below_clock_check_interval) ... ok
 test_exact_surrogate_size_and_signature_equation (test_phase2.Phase2Tests.test_exact_surrogate_size_and_signature_equation) ... ok
 test_expired_deadline_tests_no_candidates (test_phase2.Phase2Tests.test_expired_deadline_tests_no_candidates) ... ok
@@ -63,6 +65,6 @@ test_opcode_produces_real_der_and_ecdsa_signature (test_toy.ToyTests.test_opcode
 test_opcode_rejects_invalid_target_key_and_failed_gate (test_toy.ToyTests.test_opcode_rejects_invalid_target_key_and_failed_gate) ... ok
 
 ----------------------------------------------------------------------
-Ran 63 tests in 33.647s
+Ran 65 tests in 38.180s
 
 OK (skipped=1)

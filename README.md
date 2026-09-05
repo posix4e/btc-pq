@@ -39,6 +39,12 @@ bytes. The [native transaction proof demo](docs/receipt-transaction.md) places
 both receipt formats in actual transaction witnesses and checks 32 payment and
 proof cases. Full node integration and larger exact-SHRINCS batches remain open.
 
+The [holding demo](docs/holding-demo.md) parks a hash-committed output on
+unchanged Core and restores its ownership backup in a fresh process. Its
+34-byte output script has no EC key path or expiry. Eight checks demonstrate
+holding and the lack of destination binding after secret disclosure; future
+migration is deliberately deferred.
+
 ## The finding
 
 The confirmed mainnet spend

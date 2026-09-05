@@ -30,7 +30,7 @@ class RPCError(RuntimeError):
 
 
 class Core:
-    def __init__(self, bitcoind='bitcoind', create_wallet=True, mining_address=None):
+    def __init__(self, bitcoind='bitcoind', create_wallet=True, mining_address=None, extra_args=()):
         self.bitcoind = bitcoind
         self.create_wallet = create_wallet
         self.address = mining_address
@@ -38,6 +38,7 @@ class Core:
         self.proc = None
         self.wallet = False
         self.events = []
+        self.extra_args = list(extra_args)
 
     def __enter__(self):
         self.tmp = tempfile.TemporaryDirectory(prefix='btc-pq-regtest-')
@@ -47,7 +48,7 @@ class Core:
             self.port = s.getsockname()[1]
         self.args = [self.bitcoind, f'-datadir={self.datadir}', '-regtest', '-server', '-listen=0',
                      '-networkactive=0', '-dnsseed=0', '-discover=0', '-rpcbind=127.0.0.1',
-                     f'-rpcport={self.port}', '-fallbackfee=0.0001', '-printtoconsole=0']
+                     f'-rpcport={self.port}', '-fallbackfee=0.0001', '-printtoconsole=0', *self.extra_args]
         self.log = (self.datadir/'startup.log').open('w')
         self.proc = subprocess.Popen(self.args, stdout=self.log, stderr=self.log)
         try:

@@ -5,6 +5,10 @@ transaction's witness and requires it for transaction authorization. It combines
 Core 31.1's transaction and Script checks with a native Rust receipt verifier.
 It is a separate proposed-rule checker, not a Bitcoin network node.
 
+The follow-up [patched regtest node](receipt-node.md) reuses this validator
+with spent outputs from its UTXO view. Its funding replay and wrong-payment
+proof rejection have executed; the matching receipt is still being generated.
+
 ## Witness contract
 
 Version 1 covers **every input**, in transaction order. The first input carries:

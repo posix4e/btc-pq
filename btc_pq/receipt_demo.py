@@ -24,6 +24,7 @@ MAGIC = b'BTC-PQ-PROOF\x01'
 def source_hashes():
     files = [ROOT/'native/covenant-core.patch', ROOT/'native/shrincs-core.patch',
              ROOT/'native/shrincs-proof-core.patch', ROOT/'native/shrincs_cost.h',
+             ROOT/'native/shrincs_receipt.cpp', ROOT/'native/shrincs_receipt.h',
              ROOT/'native/shrincs_receipt_verify.cpp', ROOT/'native/shrincs-receipt/CMakeLists.txt',
              Path(__file__)]
     files += [p for p in RUST_SOURCE.rglob('*') if p.is_file()]
