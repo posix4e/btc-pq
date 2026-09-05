@@ -1,0 +1,10 @@
+[
+  {
+    "amount": 100000000,
+    "script_pubkey": "52204049ce224d4b6407e9c7864e88d8020996beb04663cd1596bf4ff8ab335bc57b"
+  },
+  {
+    "amount": 100000000,
+    "script_pubkey": "5220cc93415eadd2ed34dc668b345ef49dd492eaaf5c0562482d393917966a6dbfd5"
+  }
+]

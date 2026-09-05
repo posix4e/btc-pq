@@ -1,0 +1,117 @@
+--- a/src/script/interpreter.h
++++ b/src/script/interpreter.h
+@@ -145,6 +145,9 @@
+     // Making unknown public key versions (in BIP 342 scripts) non-standard
+     SCRIPT_VERIFY_DISCOURAGE_UPGRADABLE_PUBKEYTYPE,
+ 
++    // Local proposal demo; never enabled by network consensus flags.
++    SCRIPT_VERIFY_BTC_PQ_COVENANT_DEMO,
++
+     // Constants to point to the highest flag in use. Add new flags above this line.
+     //
+     SCRIPT_VERIFY_END_MARKER
+@@ -294,6 +297,11 @@
+          return false;
+     }
+ 
++    virtual bool DemoTemplateHash(uint256& out, const ScriptExecutionData& execdata) const
++    {
++        return false;
++    }
++
+     virtual ~BaseSignatureChecker() = default;
+ };
+ 
+--- a/src/script/interpreter.cpp
++++ b/src/script/interpreter.cpp
+@@ -454,7 +454,7 @@
+                 }
+             }
+ 
+-            if (opcode == OP_CAT ||
++            if ((opcode == OP_CAT && !(sigversion == SigVersion::TAPSCRIPT && (flags & SCRIPT_VERIFY_BTC_PQ_COVENANT_DEMO))) ||
+                 opcode == OP_SUBSTR ||
+                 opcode == OP_LEFT ||
+                 opcode == OP_RIGHT ||
+@@ -486,6 +486,29 @@
+                 //
+                 // Push value
+                 //
++                // Proposed BIP347 CAT and BIP446 TEMPLATEHASH, demo flag only.
++                case OP_CAT:
++                {
++                    if (sigversion != SigVersion::TAPSCRIPT || !(flags & SCRIPT_VERIFY_BTC_PQ_COVENANT_DEMO))
++                        return set_error(serror, SCRIPT_ERR_BAD_OPCODE);
++                    if (stack.size() < 2) return set_error(serror, SCRIPT_ERR_INVALID_STACK_OPERATION);
++                    if (stacktop(-2).size() + stacktop(-1).size() > MAX_SCRIPT_ELEMENT_SIZE)
++                        return set_error(serror, SCRIPT_ERR_PUSH_SIZE);
++                    const valtype tail = stacktop(-1);
++                    popstack(stack);
++                    stacktop(-1).insert(stacktop(-1).end(), tail.begin(), tail.end());
++                    break;
++                }
++                case static_cast<opcodetype>(0xce):
++                {
++                    if (sigversion != SigVersion::TAPSCRIPT || !(flags & SCRIPT_VERIFY_BTC_PQ_COVENANT_DEMO))
++                        return set_error(serror, SCRIPT_ERR_BAD_OPCODE);
++                    uint256 hash;
++                    if (!checker.DemoTemplateHash(hash, execdata))
++                        return set_error(serror, SCRIPT_ERR_UNKNOWN_ERROR);
++                    stack.emplace_back(hash.begin(), hash.end());
++                    break;
++                }
+                 case OP_1NEGATE:
+                 case OP_1:
+                 case OP_2:
+@@ -1843,7 +1866,8 @@
+                 return set_error(serror, SCRIPT_ERR_BAD_OPCODE);
+             }
+             // New opcodes will be listed here. May use a different sigversion to modify existing opcodes.
+-            if (IsOpSuccess(opcode)) {
++            if (IsOpSuccess(opcode) && !((flags & SCRIPT_VERIFY_BTC_PQ_COVENANT_DEMO) &&
++                (opcode == OP_CAT || opcode == static_cast<opcodetype>(0xce)))) {
+                 if (flags & SCRIPT_VERIFY_DISCOURAGE_OP_SUCCESS) {
+                     return set_error(serror, SCRIPT_ERR_DISCOURAGE_OP_SUCCESS);
+                 }
+@@ -1944,6 +1968,41 @@
+         } else {
+             return set_error(serror, SCRIPT_ERR_WITNESS_PROGRAM_WRONG_LENGTH);
+         }
++    } else if (witversion == 2 && program.size() == 32 && !is_p2sh &&
++               (flags & SCRIPT_VERIFY_BTC_PQ_COVENANT_DEMO)) {
++        // BIP360 v0.12.1 proposal model: root-only commitment, no key path.
++        if (stack.size() < 2) return set_error(serror, SCRIPT_ERR_WITNESS_PROGRAM_WITNESS_EMPTY);
++        if (!stack.back().empty() && stack.back()[0] == ANNEX_TAG) {
++            if (stack.size() == 2) return set_error(serror, SCRIPT_ERR_WITNESS_PROGRAM_WITNESS_EMPTY);
++            const valtype& annex = SpanPopBack(stack);
++            execdata.m_annex_hash = (HashWriter{} << annex).GetSHA256();
++            execdata.m_annex_present = true;
++        } else {
++            execdata.m_annex_present = false;
++        }
++        execdata.m_annex_init = true;
++        const valtype& control = SpanPopBack(stack);
++        const valtype& script = SpanPopBack(stack);
++        if (control.empty() || control.size() > 1 + 32 * 128 || (control.size() - 1) % 32 != 0 || !(control[0] & 1))
++            return set_error(serror, SCRIPT_ERR_TAPROOT_WRONG_CONTROL_SIZE);
++        execdata.m_tapleaf_hash = ComputeTapleafHash(control[0] & TAPROOT_LEAF_MASK, script);
++        execdata.m_tapleaf_hash_init = true;
++        uint256 root = execdata.m_tapleaf_hash;
++        for (size_t offset = 1; offset < control.size(); offset += 32)
++            root = ComputeTapbranchHash(root, std::span{control}.subspan(offset, 32));
++        if (!std::equal(root.begin(), root.end(), program.begin()))
++            return set_error(serror, SCRIPT_ERR_WITNESS_PROGRAM_MISMATCH);
++        // The draft deliberately reserves depth zero as an unconditional success.
++        if (control.size() == 1) return set_success(serror);
++        if ((control[0] & TAPROOT_LEAF_MASK) == TAPROOT_LEAF_TAPSCRIPT) {
++            exec_script = CScript(script.begin(), script.end());
++            execdata.m_validation_weight_left = ::GetSerializeSize(witness.stack) + VALIDATION_WEIGHT_OFFSET;
++            execdata.m_validation_weight_left_init = true;
++            return ExecuteWitnessScript(stack, exec_script, flags, SigVersion::TAPSCRIPT, checker, execdata, serror);
++        }
++        if (flags & SCRIPT_VERIFY_DISCOURAGE_UPGRADABLE_TAPROOT_VERSION)
++            return set_error(serror, SCRIPT_ERR_DISCOURAGE_UPGRADABLE_TAPROOT_VERSION);
++        return set_success(serror);
+     } else if (witversion == 1 && program.size() == WITNESS_V1_TAPROOT_SIZE && !is_p2sh) {
+         // BIP341 Taproot: 32-byte non-P2SH witness v1 program (which encodes a P2C-tweaked pubkey)
+         if (!(flags & SCRIPT_VERIFY_TAPROOT)) return set_success(serror);

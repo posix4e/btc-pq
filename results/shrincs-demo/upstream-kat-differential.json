@@ -1,0 +1,281 @@
+{
+  "parameters": "SHRINCS_B32",
+  "cpp_commit": "7643d9530c568f8671b21b9502e51bd9722b2e8d",
+  "c_commit": "345b0a64ce8d00c16c35952375dea6d13ec48c85",
+  "python_source_sha256": "71181ed5241426330349d9132e0b06612c0b506e3cc260d35cc0a5086b80427a",
+  "vectors_sha256": "e6615c9255f7bb4349c19be1ba93fd0e60aa7afa26e54db02f273813e1bb9edd",
+  "generator_source_sha256": "1089129e29c83afd3b1f2a749731e5e29f51135cecc86f32ca821a0de2677627",
+  "full_upstream_pass_generator": false,
+  "independent_security_audit": false,
+  "scope": "Separate C++ and C implementations plus a locally authored Python verifier; not an independent cryptographic audit.",
+  "generator_display_name": "L; compiled parameters are B32",
+  "cases": [
+    {
+      "count": 0,
+      "label": "SHRINCS-L stateless mlen=33",
+      "message_bytes": 33,
+      "signature_bytes": 3680,
+      "all_three_verified": true,
+      "python_work": {
+        "valid": true,
+        "mode": "recovery",
+        "hash_calls": 8336,
+        "compression_blocks": 8509,
+        "wots_attempts": 4,
+        "pors_auth_nodes": 109,
+        "pors_root_height": 17,
+        "xof_blocks": 3
+      }
+    },
+    {
+      "count": 1,
+      "label": "SHRINCS-L stateful q=1 mlen=33",
+      "message_bytes": 33,
+      "signature_bytes": 324,
+      "all_three_verified": true,
+      "python_work": {
+        "valid": true,
+        "mode": "compact",
+        "hash_calls": 2045,
+        "compression_blocks": 2053,
+        "wots_attempts": 1,
+        "pors_auth_nodes": 0,
+        "pors_root_height": 0,
+        "xof_blocks": 0
+      }
+    },
+    {
+      "count": 2,
+      "label": "SHRINCS-L stateful q=2 mlen=33",
+      "message_bytes": 33,
+      "signature_bytes": 340,
+      "all_three_verified": true,
+      "python_work": {
+        "valid": true,
+        "mode": "compact",
+        "hash_calls": 2046,
+        "compression_blocks": 2055,
+        "wots_attempts": 1,
+        "pors_auth_nodes": 0,
+        "pors_root_height": 0,
+        "xof_blocks": 0
+      }
+    },
+    {
+      "count": 3,
+      "label": "SHRINCS-L stateful q=3 mlen=33",
+      "message_bytes": 33,
+      "signature_bytes": 356,
+      "all_three_verified": true,
+      "python_work": {
+        "valid": true,
+        "mode": "compact",
+        "hash_calls": 2047,
+        "compression_blocks": 2057,
+        "wots_attempts": 1,
+        "pors_auth_nodes": 0,
+        "pors_root_height": 0,
+        "xof_blocks": 0
+      }
+    },
+    {
+      "count": 4,
+      "label": "SHRINCS-L stateful q=5 mlen=33",
+      "message_bytes": 33,
+      "signature_bytes": 388,
+      "all_three_verified": true,
+      "python_work": {
+        "valid": true,
+        "mode": "compact",
+        "hash_calls": 2049,
+        "compression_blocks": 2061,
+        "wots_attempts": 1,
+        "pors_auth_nodes": 0,
+        "pors_root_height": 0,
+        "xof_blocks": 0
+      }
+    },
+    {
+      "count": 5,
+      "label": "SHRINCS-L stateful q=10 mlen=33",
+      "message_bytes": 33,
+      "signature_bytes": 468,
+      "all_three_verified": true,
+      "python_work": {
+        "valid": true,
+        "mode": "compact",
+        "hash_calls": 2054,
+        "compression_blocks": 2071,
+        "wots_attempts": 1,
+        "pors_auth_nodes": 0,
+        "pors_root_height": 0,
+        "xof_blocks": 0
+      }
+    },
+    {
+      "count": 6,
+      "label": "SHRINCS-L stateful q=20 mlen=33",
+      "message_bytes": 33,
+      "signature_bytes": 628,
+      "all_three_verified": true,
+      "python_work": {
+        "valid": true,
+        "mode": "compact",
+        "hash_calls": 2064,
+        "compression_blocks": 2091,
+        "wots_attempts": 1,
+        "pors_auth_nodes": 0,
+        "pors_root_height": 0,
+        "xof_blocks": 0
+      }
+    },
+    {
+      "count": 7,
+      "label": "SHRINCS-L stateful q=50 mlen=33",
+      "message_bytes": 33,
+      "signature_bytes": 1108,
+      "all_three_verified": true,
+      "python_work": {
+        "valid": true,
+        "mode": "compact",
+        "hash_calls": 2094,
+        "compression_blocks": 2151,
+        "wots_attempts": 1,
+        "pors_auth_nodes": 0,
+        "pors_root_height": 0,
+        "xof_blocks": 0
+      }
+    },
+    {
+      "count": 8,
+      "label": "SHRINCS-L stateful q=100 mlen=33",
+      "message_bytes": 33,
+      "signature_bytes": 1908,
+      "all_three_verified": true,
+      "python_work": {
+        "valid": true,
+        "mode": "compact",
+        "hash_calls": 2144,
+        "compression_blocks": 2251,
+        "wots_attempts": 1,
+        "pors_auth_nodes": 0,
+        "pors_root_height": 0,
+        "xof_blocks": 0
+      }
+    },
+    {
+      "count": 9,
+      "label": "SHRINCS-L stateful q=52 mlen=33",
+      "message_bytes": 33,
+      "signature_bytes": 1140,
+      "all_three_verified": true,
+      "python_work": {
+        "valid": true,
+        "mode": "compact",
+        "hash_calls": 2096,
+        "compression_blocks": 2155,
+        "wots_attempts": 1,
+        "pors_auth_nodes": 0,
+        "pors_root_height": 0,
+        "xof_blocks": 0
+      }
+    },
+    {
+      "count": 10,
+      "label": "SHRINCS-L stateful q=105 mlen=33",
+      "message_bytes": 33,
+      "signature_bytes": 1988,
+      "all_three_verified": true,
+      "python_work": {
+        "valid": true,
+        "mode": "compact",
+        "hash_calls": 2149,
+        "compression_blocks": 2261,
+        "wots_attempts": 1,
+        "pors_auth_nodes": 0,
+        "pors_root_height": 0,
+        "xof_blocks": 0
+      }
+    },
+    {
+      "count": 11,
+      "label": "SHRINCS-L stateful q=208 mlen=33",
+      "message_bytes": 33,
+      "signature_bytes": 3636,
+      "all_three_verified": true,
+      "python_work": {
+        "valid": true,
+        "mode": "compact",
+        "hash_calls": 2252,
+        "compression_blocks": 2467,
+        "wots_attempts": 1,
+        "pors_auth_nodes": 0,
+        "pors_root_height": 0,
+        "xof_blocks": 0
+      }
+    },
+    {
+      "count": 12,
+      "label": "SHRINCS-L stateful q=209 mlen=33",
+      "message_bytes": 33,
+      "signature_bytes": 3652,
+      "all_three_verified": true,
+      "python_work": {
+        "valid": true,
+        "mode": "compact",
+        "hash_calls": 2253,
+        "compression_blocks": 2469,
+        "wots_attempts": 1,
+        "pors_auth_nodes": 0,
+        "pors_root_height": 0,
+        "xof_blocks": 0
+      }
+    },
+    {
+      "count": 13,
+      "label": "SHRINCS-L stateful q=210 mlen=33",
+      "message_bytes": 33,
+      "signature_bytes": 3668,
+      "all_three_verified": true,
+      "python_work": {
+        "valid": true,
+        "mode": "compact",
+        "hash_calls": 2254,
+        "compression_blocks": 2471,
+        "wots_attempts": 1,
+        "pors_auth_nodes": 0,
+        "pors_root_height": 0,
+        "xof_blocks": 0
+      }
+    },
+    {
+      "count": 14,
+      "label": "SHRINCS-L stateful q=211 mlen=33",
+      "message_bytes": 33,
+      "signature_bytes": 3668,
+      "all_three_verified": true,
+      "python_work": {
+        "valid": true,
+        "mode": "compact",
+        "hash_calls": 2256,
+        "compression_blocks": 2474,
+        "wots_attempts": 2,
+        "pors_auth_nodes": 0,
+        "pors_root_height": 0,
+        "xof_blocks": 0
+      }
+    }
+  ],
+  "negative_controls": 75,
+  "negative_control_types": [
+    "message",
+    "signature-root",
+    "public-key-root",
+    "truncate",
+    "append"
+  ],
+  "accepted_internal_randomness_mutations": [
+    0
+  ],
+  "all_expectations_met": true
+}

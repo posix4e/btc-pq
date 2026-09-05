@@ -9,6 +9,28 @@ transaction against unchanged Bitcoin Core, funds the exact locking script on an
 isolated regtest node, and measures the puzzle. **Regtest only, valueless coins,
 public data, no keys that hold funds.**
 
+For the proof-based alternative, see the [ZK feasibility check](docs/zk-feasibility.md):
+pinned verifier source dependencies, the distinction between checked hints and
+QSB's search, and a replay of the legacy OP_CAT constraint.
+
+For an executable alternative without QSB's rare-hash search, see the
+[covenant/P2MR demo and SHRINCS/CISA comparison](docs/covenant-demo.md).
+`btc-pq covenant-demo --build` runs 27 cases with a separate proposal Script
+verifier; `btc-pq covenant-demo --replay` checks the saved fixtures again.
+This models proposed consensus changes, not Bitcoin mainnet support.
+
+The follow-up [P2MR + native SHRINCS experiment](docs/shrincs-demo.md) uses the
+pinned upstream implementation for compact and seed-recovery signatures, with
+full transaction binding. Run `btc-pq shrincs-demo --build` and
+`btc-pq shrincs-demo --replay`; the first compact spend is 495 bytes.
+
+The [aggregation experiments](docs/aggregation-demo.md) execute both Schnorr
+CISA modes and generate real hash-based proofs of XMSS payment signatures.
+They measure the cost of aggregation and check that changing the payment
+invalidates its authorization. The [persistent signer](docs/shrincs-state.md)
+also exercises concurrent signing, process crashes, and seed restoration.
+Results and remaining work are tracked in [issue #3](https://github.com/posix4e/btc-pq/issues/3).
+
 ## The finding
 
 The confirmed mainnet spend

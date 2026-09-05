@@ -1,0 +1,17 @@
+{
+  "unit_tests": {
+    "command": "python -m unittest discover -s tests -v",
+    "tests": 38,
+    "passed": 38
+  },
+  "native_demo_cases": 27,
+  "native_replay_cases": 27,
+  "visualization_logic": {
+    "states_checked_against_native_fixtures": 14,
+    "all_matched": true,
+    "browser_rendering_verified": false,
+    "preview_limitation": "Browser URL policy blocked the local file preview; no browser workaround attempted."
+  },
+  "document_links_checked": true,
+  "git_diff_check_passed": true
+}

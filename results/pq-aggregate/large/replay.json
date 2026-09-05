@@ -1,0 +1,121 @@
+{
+  "leanvm_commit": "574521665891ad040580833d3cae62c9bd347c9b",
+  "scheme": "leanVM BLAKE2s XMSS",
+  "parameters": {
+    "signature_bytes": 1208,
+    "public_key_bytes": 32
+  },
+  "real_proofs_generated": true,
+  "native_bitcoin_consensus": false,
+  "shrincs_aggregation": false,
+  "scope": "Host-recomputed BIP341/342 payment claims; local transaction-level verification model",
+  "source_sha256": {
+    "native/pq-aggregate/Cargo.toml": "b1d4906b92f0eab66e80290f7afd516f136e16491b5ff5262a797d54194d9dba",
+    "native/pq-aggregate/Cargo.lock": "d92e7804c4a224692a2eb2a0f700563811599a663ced52656d9af500e65ca89f",
+    "native/pq-aggregate/src/main.rs": "796c4a5462542db6cf09a148a34b6e9147fc51d09ea90b275cafa634801544dc",
+    "btc_pq/pq_aggregate.py": "1e0f7ce129d6c18e9b9dcd4bd4b95a7b7e870b9260d3aa572e3cc5f914217ad2"
+  },
+  "binary_sha256": "9a975b13af0b2af5f52a0abb75f4ab5632aa5f19af6903215e9abc7fa66f1088",
+  "measurements": [
+    {
+      "cold_proving_seconds": 17.674593417,
+      "inputs": 512,
+      "proof_bytes": 330224,
+      "proof_with_claims_bytes": 369152,
+      "raw_signature_bytes": 618496,
+      "signing_seconds": 4.022210375,
+      "valid": true,
+      "verify_seconds": 0.784991125,
+      "transaction_without_authorization_bytes": 21047,
+      "proof_sha256": "3d46197dc0dd5b915e4114a5b4fab80063d5d7c66f181529b19ff8428f502233"
+    }
+  ],
+  "cases": [
+    {
+      "inputs": 512,
+      "mutation": "none",
+      "expected": true,
+      "valid": true,
+      "verify_seconds": 0.804550958
+    },
+    {
+      "inputs": 512,
+      "mutation": "recipient",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.740193916
+    },
+    {
+      "inputs": 512,
+      "mutation": "amount",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.748558084
+    },
+    {
+      "inputs": 512,
+      "mutation": "sequence",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.739405709
+    },
+    {
+      "inputs": 512,
+      "mutation": "version",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.743354208
+    },
+    {
+      "inputs": 512,
+      "mutation": "locktime",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.766754625
+    },
+    {
+      "inputs": 512,
+      "mutation": "spent_amount",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.808928875
+    },
+    {
+      "inputs": 512,
+      "mutation": "outpoint",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 1.197279334
+    },
+    {
+      "inputs": 512,
+      "mutation": "input_order",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.803664
+    },
+    {
+      "inputs": 512,
+      "mutation": "annex",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.734514208
+    },
+    {
+      "inputs": 512,
+      "mutation": "wrong_key",
+      "expected": false,
+      "valid": false,
+      "reason": "transaction/authorization structure"
+    },
+    {
+      "inputs": 512,
+      "mutation": "proof",
+      "expected": false,
+      "valid": false,
+      "verify_seconds": 0.826837917
+    }
+  ],
+  "all_expectations_met": true,
+  "replayed_existing_proofs": true
+}

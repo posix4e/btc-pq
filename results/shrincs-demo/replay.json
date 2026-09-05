@@ -1,0 +1,806 @@
+{
+  "all_expectations_met": true,
+  "cases": [
+    {
+      "name": "compact-q1-valid",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 95.791,
+            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      }
+    },
+    {
+      "name": "compact-q1-changed-recipient",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 68.708,
+            "message_digest": "4b6b9a04751db8c56384f7aa9a103dca805eb4a96c0b764d0d835fc8e0e23314"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "compact-q1-changed-amount",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 43.083,
+            "message_digest": "cc8301eccb9545fd8b9af253747347f4a57fdf70bd131e85086a8f6835074cf2"
+          }
+        ],
+        "fee_sats": 1001,
+        "valid": false
+      }
+    },
+    {
+      "name": "compact-q1-changed-sequence",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 38.792,
+            "message_digest": "44640b60a8eeaeaeab6c6157c0333d8e40164a292ac58f77e43c20a45367fcaf"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "compact-q1-changed-locktime",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 42.125,
+            "message_digest": "17e125d955f3ded2808a82af66d2ae585cfa0223e69b7ecd01f16e6db47ab13f"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "compact-q1-changed-version",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 46.833,
+            "message_digest": "af1abf72b78524376a891ca1cdcd9ff75150ebdddaf7cd24866acc0887e0b76c"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "compact-q1-changed-outpoint",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 164.5,
+            "message_digest": "6f512cfacaa1bd4fe339ff2452c361f4ed6a20f3249f1c956ee07f643d78524e"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "compact-q1-changed-signature",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 87.958,
+            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "compact-q1-changed-truncated",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 4.833,
+            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "compact-q1-changed-appended",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 5.458,
+            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "compact-q1-changed-chunk_count",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script number overflowed or is non-minimally encoded",
+            "script_microseconds": 33.458,
+            "message_digest": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "compact-q1-changed-merkle_proof",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Witness program hash mismatch",
+            "script_microseconds": 1.833,
+            "message_digest": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "compact-q1-added-annex",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 47.041,
+            "message_digest": "444d9a8002dc9bc8a75b9efbb62fc586fb581f4cba88145933eba858e01d33bf"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "compact-q1-changed-funding",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 34.666,
+            "message_digest": "fdc7f4823d7dc2921df50b1caa0bff49c74f001e1e8cbada51ef182acd2304c4"
+          }
+        ],
+        "fee_sats": 1001,
+        "valid": false
+      }
+    },
+    {
+      "name": "compact-q2-valid",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 84.625,
+            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      }
+    },
+    {
+      "name": "compact-q17-valid",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 86.833,
+            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      }
+    },
+    {
+      "name": "recovery-valid",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 344.375,
+            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      }
+    },
+    {
+      "name": "recovery-changed-recipient",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 14.834,
+            "message_digest": "4b6b9a04751db8c56384f7aa9a103dca805eb4a96c0b764d0d835fc8e0e23314"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "recovery-changed-amount",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 14.208,
+            "message_digest": "cc8301eccb9545fd8b9af253747347f4a57fdf70bd131e85086a8f6835074cf2"
+          }
+        ],
+        "fee_sats": 1001,
+        "valid": false
+      }
+    },
+    {
+      "name": "recovery-changed-sequence",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 22.416,
+            "message_digest": "44640b60a8eeaeaeab6c6157c0333d8e40164a292ac58f77e43c20a45367fcaf"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "recovery-changed-locktime",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 42.292,
+            "message_digest": "17e125d955f3ded2808a82af66d2ae585cfa0223e69b7ecd01f16e6db47ab13f"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "recovery-changed-version",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 40.666,
+            "message_digest": "af1abf72b78524376a891ca1cdcd9ff75150ebdddaf7cd24866acc0887e0b76c"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "recovery-changed-outpoint",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 22.375,
+            "message_digest": "6f512cfacaa1bd4fe339ff2452c361f4ed6a20f3249f1c956ee07f643d78524e"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "recovery-changed-signature",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 596.792,
+            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "recovery-changed-truncated",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 8.167,
+            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "recovery-changed-appended",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 9.583,
+            "message_digest": "837615b2d0e2fd3d08f1a1aa6d1c0bb4348c48dfda40ec8ebf5df1879303fc5d"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "recovery-changed-chunk_count",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script number overflowed or is non-minimally encoded",
+            "script_microseconds": 122,
+            "message_digest": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "recovery-changed-merkle_proof",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Witness program hash mismatch",
+            "script_microseconds": 5.834,
+            "message_digest": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "recovery-added-annex",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 37.25,
+            "message_digest": "444d9a8002dc9bc8a75b9efbb62fc586fb581f4cba88145933eba858e01d33bf"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "recovery-changed-funding",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 21.334,
+            "message_digest": "fdc7f4823d7dc2921df50b1caa0bff49c74f001e1e8cbada51ef182acd2304c4"
+          }
+        ],
+        "fee_sats": 1001,
+        "valid": false
+      }
+    },
+    {
+      "name": "no-key-path",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Witness program was passed an empty witness",
+            "script_microseconds": 10.417,
+            "message_digest": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "stock-p2mr-unenforced",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      }
+    },
+    {
+      "name": "noncanonical-chunk-split",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Push value size limit exceeded",
+            "script_microseconds": 7.75,
+            "message_digest": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "two-inputs-valid",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 111.666,
+            "message_digest": "daaa4fe6a2df014a5f7d8a53683ba160c7751eb1656fb6755312357d4ee6a2a0"
+          },
+          {
+            "index": 1,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 135.125,
+            "message_digest": "d233ec8912ec0032a30f78f80dc71ec6f69cbece47a1410254456f95bee661e6"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": true
+      }
+    },
+    {
+      "name": "two-inputs-missing-second-signature",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 151.75,
+            "message_digest": "daaa4fe6a2df014a5f7d8a53683ba160c7751eb1656fb6755312357d4ee6a2a0"
+          },
+          {
+            "index": 1,
+            "valid": false,
+            "error": "Operation not valid with the current stack size",
+            "script_microseconds": 2.792,
+            "message_digest": null
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "two-inputs-copied-first-signature",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error",
+            "script_microseconds": 174.292,
+            "message_digest": "daaa4fe6a2df014a5f7d8a53683ba160c7751eb1656fb6755312357d4ee6a2a0"
+          },
+          {
+            "index": 1,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 445.167,
+            "message_digest": "d233ec8912ec0032a30f78f80dc71ec6f69cbece47a1410254456f95bee661e6"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    },
+    {
+      "name": "two-inputs-reordered",
+      "result": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "consensus_modified": true,
+        "proposal_model": "BIP360v0.12.1+local-SHRINCS-B32-opcode",
+        "flags": 6426133,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 64.542,
+            "message_digest": "7566182efdf253bb1c058c69786cd9a7fc90cc81c9da6824cc27b21ffc822da7"
+          },
+          {
+            "index": 1,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element",
+            "script_microseconds": 9.041,
+            "message_digest": "a1729df0cb783650585fc1037f76c741d7b6f74aa939ab03f9d882c9c64d7719"
+          }
+        ],
+        "fee_sats": 1000,
+        "valid": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+# Preserve unified-diff context markers and exact upstream vector bytes.
+native/*-core.patch whitespace=-blank-at-eol
+results/shrincs-demo/*.rsp whitespace=-blank-at-eof

@@ -1,0 +1,70 @@
+--- a/src/script/interpreter.h
++++ b/src/script/interpreter.h
+@@ -147,6 +147,7 @@
+ 
+     // Local proposal demo; never enabled by network consensus flags.
+     SCRIPT_VERIFY_BTC_PQ_COVENANT_DEMO,
++    SCRIPT_VERIFY_BTC_PQ_SHRINCS_DEMO,
+ 
+     // Constants to point to the highest flag in use. Add new flags above this line.
+     //
+@@ -302,6 +303,11 @@
+         return false;
+     }
+ 
++    virtual bool DemoCheckShrincs(std::span<const unsigned char> signature, std::span<const unsigned char> public_key, ScriptExecutionData& execdata) const
++    {
++        return false;
++    }
++
+     virtual ~BaseSignatureChecker() = default;
+ };
+ 
+--- a/src/script/interpreter.cpp
++++ b/src/script/interpreter.cpp
+@@ -507,6 +507,35 @@
+                     if (!checker.DemoTemplateHash(hash, execdata))
+                         return set_error(serror, SCRIPT_ERR_UNKNOWN_ERROR);
+                     stack.emplace_back(hash.begin(), hash.end());
++                    break;
++                }
++                // Local opcode 0xcf, not a proposed or allocated CHECKSHRINCS opcode.
++                // Stack: canonical 520-byte signature chunks, count, 32-byte key.
++                case static_cast<opcodetype>(0xcf):
++                {
++                    if (sigversion != SigVersion::TAPSCRIPT || !(flags & SCRIPT_VERIFY_BTC_PQ_SHRINCS_DEMO))
++                        return set_error(serror, SCRIPT_ERR_BAD_OPCODE);
++                    if (stack.size() < 3) return set_error(serror, SCRIPT_ERR_INVALID_STACK_OPERATION);
++                    const valtype pk = stacktop(-1);
++                    if (pk.size() != 32) return set_error(serror, SCRIPT_ERR_PUBKEYTYPE);
++                    const int64_t count = CScriptNum(stacktop(-2), true).getint();
++                    if (count < 1 || count > 8 || stack.size() < static_cast<size_t>(count + 2))
++                        return set_error(serror, SCRIPT_ERR_INVALID_STACK_OPERATION);
++                    const size_t begin = stack.size() - count - 2;
++                    valtype signature;
++                    for (size_t j = 0; j < static_cast<size_t>(count); ++j) {
++                        const auto& chunk = stack[begin + j];
++                        if (chunk.empty() || chunk.size() > 520 || (j + 1 < static_cast<size_t>(count) && chunk.size() != 520))
++                            return set_error(serror, SCRIPT_ERR_PUSH_SIZE);
++                        signature.insert(signature.end(), chunk.begin(), chunk.end());
++                    }
++                    // Placeholder local budget debit; production costing is not specified.
++                    execdata.m_validation_weight_left -= 50;
++                    if (execdata.m_validation_weight_left < 0)
++                        return set_error(serror, SCRIPT_ERR_TAPSCRIPT_VALIDATION_WEIGHT);
++                    const bool valid = checker.DemoCheckShrincs(signature, pk, execdata);
++                    stack.resize(begin);
++                    stack.push_back(valid ? vchTrue : vchFalse);
+                     break;
+                 }
+                 case OP_1NEGATE:
+@@ -1867,7 +1896,8 @@
+             }
+             // New opcodes will be listed here. May use a different sigversion to modify existing opcodes.
+             if (IsOpSuccess(opcode) && !((flags & SCRIPT_VERIFY_BTC_PQ_COVENANT_DEMO) &&
+-                (opcode == OP_CAT || opcode == static_cast<opcodetype>(0xce)))) {
++                (opcode == OP_CAT || opcode == static_cast<opcodetype>(0xce))) &&
++                !((flags & SCRIPT_VERIFY_BTC_PQ_SHRINCS_DEMO) && opcode == static_cast<opcodetype>(0xcf))) {
+                 if (flags & SCRIPT_VERIFY_DISCOURAGE_OP_SUCCESS) {
+                     return set_error(serror, SCRIPT_ERR_DISCOURAGE_OP_SUCCESS);
+                 }

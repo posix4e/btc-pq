@@ -1,0 +1,50 @@
+{
+  "date": "2026-09-05",
+  "unit_tests": 55,
+  "passed": 55,
+  "skipped": 0,
+  "command": "python -m unittest discover -s tests -v",
+  "native_script_cases": 64,
+  "cisa_python_cases": 66,
+  "pq_proof_payment_cases": 48,
+  "shrincs_vectors": 375,
+  "shrincs_differential_implementations": 3,
+  "shrincs_negative_controls": 1875,
+  "mainnet_activation": false,
+  "production_wallet": false,
+  "independent_security_audit": false,
+  "artifacts": [
+    {
+      "path": "results/covenant-demo/report.json",
+      "sha256": "e88d45d96c6bb7245f01c5a7e0f1cd3772f985930189c7b64d4d3ce09a5e3230",
+      "cases": 27
+    },
+    {
+      "path": "results/shrincs-demo/report.json",
+      "sha256": "b25437310bdca8b59ece5df54ce928eef759bc731d10cda2d122a68a395cc8a5",
+      "cases": 37
+    },
+    {
+      "path": "results/cisa-demo/report.json",
+      "sha256": "c2067596c5d472a89d4292da9490e0cf03a0f174d9e5203bed6c61b895bedab4",
+      "cases": 66
+    },
+    {
+      "path": "results/pq-aggregate/report.json",
+      "sha256": "ce2d66e01c8e8ce4119d94f964257009c8a414449e66a58066032d8661049cde",
+      "cases": 36
+    },
+    {
+      "path": "results/pq-aggregate/large/report.json",
+      "sha256": "b8d920021999abc1eb28316c5a59b94d2f5fe3c072c6524c98722c079449a252",
+      "cases": 12
+    },
+    {
+      "path": "results/shrincs-demo/upstream-kat-full-differential.json",
+      "sha256": "abec9b907d3c19a7e4acf4ff36992ea116804aaf89a208b04f91ab3ba2835f5c",
+      "cases": 375
+    }
+  ],
+  "git_staged_diff_check_passed": true,
+  "pq_proof_replay_cases": 48
+}

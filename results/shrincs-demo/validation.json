@@ -1,0 +1,22 @@
+{
+  "unit_tests": {
+    "command": "python -m unittest discover -s tests -v",
+    "tests": 55,
+    "passed": 55
+  },
+  "native_transaction_cases": 37,
+  "native_transaction_replay_cases": 37,
+  "upstream_generated_vector_sample": 15,
+  "changed_message_vector_controls": 15,
+  "full_upstream_suite_run": false,
+  "independent_crypto_implementation_checked": true,
+  "build_source_and_binary_fingerprints_checked": true,
+  "document_links_checked": true,
+  "git_diff_check_passed": true,
+  "full_upstream_pass_generator_completed": true,
+  "full_upstream_pass_vectors": 375,
+  "implementation_diversity": "pinned C++ and C plus locally authored pure Python; not an independent security audit",
+  "full_vector_negative_controls": 1875,
+  "independent_security_audit": false,
+  "persistent_state_tests": 5
+}
