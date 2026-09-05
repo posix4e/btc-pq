@@ -1,0 +1,28 @@
+{
+  "job": {
+    "schema": 1,
+    "workspace_id": "7ca7211c0af18aa0a51d7e25652ec5ffbbe45336dc184651c0d77127d434ae50",
+    "stage": "pin",
+    "pinning_proof": null,
+    "enumeration": "two-disabled-sequences-v1"
+  },
+  "workspace_id": "7ca7211c0af18aa0a51d7e25652ec5ffbbe45336dc184651c0d77127d434ae50",
+  "worker": 0,
+  "workers": 1,
+  "first_counter": 0,
+  "stop_counter": 4611686018427387904,
+  "next_counter": 20000,
+  "candidates": 20000,
+  "key_trials": 40000,
+  "der_passes": 0,
+  "wall_seconds": 0.40426095901057124,
+  "hit": null,
+  "hits": [],
+  "status": "paused",
+  "last_backend": "native",
+  "last_run": {
+    "candidates": 10000,
+    "wall_seconds": 0.2688985000131652,
+    "backend": "native"
+  }
+}

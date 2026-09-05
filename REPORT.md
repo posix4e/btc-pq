@@ -193,3 +193,56 @@ Even a pinning hit would not have produced a regtest spend: the digest rounds re
 ```
 
 All 17 unit tests (11 pre-existing plus 6 new) pass. `published_pipeline_validated` is true; `qsb_hash_to_der_end_to_end_demonstrated` and `secure_candidate_demonstrated` remain false.
+
+## Phase 4 — fresh instances, resumable search, and assembly support
+
+Phase 4 generates all 300 HORS preimages and replaces the published commitments
+while preserving the SHA-256 construction, public fixed signatures, dummy
+tables, two rounds, 9,923 script bytes, and 201 counted opcodes. The saved fresh
+script has SHA-256 `7734156f3aef7f6ac0b8bd742647102de8256809609d34e8e48a8f548741e1a7`.
+Its material and seed are public regtest data. [Instance](results/phase4/instance.json).
+
+Preparation took 1.138 s and produced a natively verified funding transaction,
+the linked funding parent, an unsigned spend template, and 102 setup blocks.
+Both spend inputs refer to this funding transaction; the fee input spends a
+separate `OP_TRUE` output, removing dependence on the temporary wallet after
+preparation. A separate invocation restored the complete setup chain and
+verified the funding again. No fresh spend was replayed.
+[Manifest](results/phase4/manifest.json), [replay](results/phase4/replay.json).
+
+Two native search invocations each committed 10,000 candidates. The second
+resumed at counter 10,000 and saved counter 20,000 as the next candidate:
+40,000 key trials, zero DER passes, and 0.404 s of cumulative batch wall time.
+This includes subprocess and driver overhead within batches, excludes build
+and startup cross-checks, and is a short workflow check rather than a sustained
+throughput benchmark. The checkpoint is paused and retains no hit.
+[Checkpoint](results/phase4/search/060bbf2ba3ea08ea94639f53676e8e919b0e33c414d0e4fb48d2a8d3a6ce93dc/worker-0.json).
+
+The counter spans 62 bits across both input sequences with their relative
+locktime disable bits set; absolute locktime remains zero. Digest searches
+enumerate distinct nine-position subsets in lexicographic order. Each stage
+supports fixed, disjoint worker partitions and atomic checkpoints. An
+uncommitted batch can repeat after interruption; recorded completed ranges
+are retained. A new pinning proof creates separate digest jobs.
+[Implementation](btc_pq/phase4.py).
+
+Assembly reconstructs the published transaction byte for byte from its known
+proof material, and unchanged Core accepts that reconstructed transaction.
+Tests also exercise exact per-round `FindAndDelete` script codes, successful
+screening of all three published puzzle digests, stale proof and incorrect
+preimage rejection, subset enumeration against `itertools.combinations`,
+resume after interruption, worker partitioning, and crossing the former
+2^31-candidate boundary. [Tests](tests/test_phase4.py).
+
+All 31 unit tests pass, including 14 Phase 4 tests, and all 9 pinned vendor files
+pass their hash checks. Two concurrent native worker processes each completed
+16 candidates in disjoint ranges and saved separate checkpoints. Changing the
+saved transaction template caused workspace loading to reject the altered
+artifact. These checks used the local Core 31.1 build.
+
+Fresh full-predicate search completion remains outstanding. Assembly support
+and successful searches using known published vectors do not constitute a
+fresh-instance spend. Native digest searches currently use Python to generate
+sighashes and native batches for recovery and screening; GPU integration and
+the complete fresh lifecycle are subsequent measurements.
+[Implementation plan](https://github.com/posix4e/btc-pq/issues/1).

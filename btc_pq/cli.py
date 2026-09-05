@@ -75,7 +75,50 @@ def main(argv=None):
     p.add_argument('--no-native', action='store_true', help='skip the native libsecp256k1 search loop')
     p.add_argument('--replay', action='store_true', help='replay existing phase3 fixtures without searching')
 
+    p = sub.add_parser('phase4', help='fresh QSB instances, resumable full-predicate search, assembly, and replay')
+    p.add_argument('action', choices=['prepare', 'search', 'assemble', 'replay'])
+    p.add_argument('--outdir', default=str(ROOT/'results/phase4'))
+    p.add_argument('--bitcoind', default='bitcoind')
+    p.add_argument('--seed', help='32-byte hexadecimal seed for reproducible regtest material (prepare)')
+    p.add_argument('--stage', choices=['pin', 'round1', 'round2'], default='pin')
+    p.add_argument('--backend', choices=['native', 'python'], default='native')
+    p.add_argument('--max-candidates', type=int, default=100_000)
+    p.add_argument('--max-seconds', type=float, default=10)
+    p.add_argument('--worker-id', type=int, default=0)
+    p.add_argument('--workers', type=int, default=1)
+    p.add_argument('--pin', help='pinning hit JSON or checkpoint (digest search and assembly)')
+    p.add_argument('--round1', help='round 1 hit JSON or checkpoint (assembly)')
+    p.add_argument('--round2', help='round 2 hit JSON or checkpoint (assembly)')
+    p.add_argument('--next-hit', action='store_true', help='continue pinning after the selected hit')
+
     args = parser.parse_args(argv)
+
+    if args.command == 'phase4':
+        from . import phase4
+        try:
+            if args.action == 'prepare':
+                result = phase4.prepare(args.outdir, args.bitcoind,
+                                        bytes.fromhex(args.seed) if args.seed else None)
+                print(f"phase4: prepared {result['instance_sha256']} -> {Path(args.outdir)/'manifest.json'}")
+            elif args.action == 'search':
+                result = phase4.search(args.outdir, args.stage, args.max_candidates, args.max_seconds,
+                                       args.backend, args.worker_id, args.workers, args.pin, args.next_hit)
+                print(f"phase4 {args.stage}: {result['status']}; candidates={result['candidates']} "
+                      f"next={result['next_counter']} -> {result['checkpoint']}")
+                if result['hit']:
+                    print(f"validated hit: {Path(result['checkpoint']).parent}/hit-{phase4.fingerprint(result['hit'])}.json")
+            elif args.action == 'assemble':
+                if not all((args.pin, args.round1, args.round2)):
+                    raise ValueError('assembly requires --pin, --round1, and --round2')
+                result = phase4.assemble(args.outdir, args.pin, args.round1, args.round2, args.bitcoind)
+                print(f"phase4: accepted {result['transaction']['txid']} -> {Path(args.outdir)/'assembly.json'}")
+            else:
+                result = phase4.replay(args.outdir, args.bitcoind)
+                print(f"phase4 replay: {result['setup_blocks_replayed']} setup blocks; "
+                      f"spend replayed={result['spend_replayed']} -> {Path(args.outdir)/'replay.json'}")
+        except (ValueError, RuntimeError, OSError) as error:
+            parser.exit(1, f'phase4: {error}\n')
+        return
 
     if args.command == 'phase3':
         from . import phase3
