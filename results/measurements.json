@@ -1,0 +1,195 @@
+{
+  "environment": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
+    "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "processor": "arm"
+  },
+  "measurement_kind": "Local CPU/Python API throughput only",
+  "hashes": [
+    {
+      "algorithm": "sha256",
+      "iterations": 100000,
+      "payload_bytes": 20,
+      "seconds": [
+        0.03078141697915271,
+        0.034665249986574054,
+        0.04155391699168831
+      ],
+      "median_cpu_hashes_per_second": 2884733.2714672554,
+      "native_bitcoin_script_opcode": true
+    },
+    {
+      "algorithm": "sha256d",
+      "iterations": 100000,
+      "payload_bytes": 20,
+      "seconds": [
+        0.05987179098883644,
+        0.053078875003848225,
+        0.05039787496207282
+      ],
+      "median_cpu_hashes_per_second": 1883988.6865113473,
+      "native_bitcoin_script_opcode": true
+    },
+    {
+      "algorithm": "ripemd160",
+      "iterations": 100000,
+      "payload_bytes": 20,
+      "seconds": [
+        0.050656416977290064,
+        0.05172808299539611,
+        0.05175808403873816
+      ],
+      "median_cpu_hashes_per_second": 1933185.8868402329,
+      "native_bitcoin_script_opcode": true
+    },
+    {
+      "algorithm": "hash160",
+      "iterations": 100000,
+      "payload_bytes": 20,
+      "seconds": [
+        0.07812358299270272,
+        0.07850470801349729,
+        0.07912970799952745
+      ],
+      "median_cpu_hashes_per_second": 1273808.954015943,
+      "native_bitcoin_script_opcode": true
+    },
+    {
+      "algorithm": "blake2s",
+      "iterations": 100000,
+      "payload_bytes": 20,
+      "seconds": [
+        0.023282666981685907,
+        0.0241302500362508,
+        0.023441167024429888
+      ],
+      "median_cpu_hashes_per_second": 4265999.209671691,
+      "native_bitcoin_script_opcode": false
+    },
+    {
+      "algorithm": "sha3_256",
+      "iterations": 100000,
+      "payload_bytes": 20,
+      "seconds": [
+        0.04004583298228681,
+        0.039901374955661595,
+        0.04059245903044939
+      ],
+      "median_cpu_hashes_per_second": 2497138.717135246,
+      "native_bitcoin_script_opcode": false
+    }
+  ],
+  "hash_warning": "Small-input Python/hashlib call throughput is not a native/GPU circuit benchmark and does not predict QSB end-to-end performance.",
+  "polyglot": {
+    "trials": 100000,
+    "wall_seconds": 0.05827070795930922,
+    "cpu_trials_per_second": 1716128.111397421,
+    "predicate": "Full RIPEMD160 -> strict DER -> ECDSA recoverability. No truncated target.",
+    "input_bytes": 20,
+    "syntactic_der_hits": 0,
+    "usable_hits": [],
+    "secrets": "All trial preimages are deterministic PUBLIC TEST DATA; unusable as signing secrets.",
+    "expected_syntactic_hits": 1.0581948728730084e-09,
+    "syntactic_work_bits": 46.42538799564135,
+    "paper_rounded_setup_hashes_180": 12666373951979520,
+    "syntactic_expected_setup_hashes_180": 1.701009942632763e+16,
+    "optimistic_extrapolated_cpu_years_180": 314.0893274616418,
+    "extrapolation": "From this Python CPU search loop, not measured full setup. Recoverability can only add work. Not a GPU estimate.",
+    "spending_puzzle_eliminated": false,
+    "full_polyglot_transaction_demonstrated": false
+  },
+  "fallback_models": [
+    {
+      "name": "QSB published dimensions",
+      "n_per_round": 150,
+      "signed_per_round": [
+        8,
+        7
+      ],
+      "bonus_per_round": [
+        1,
+        2
+      ],
+      "calculated_opcodes": 201,
+      "signed_subset_space_bits": 80.35499844352506,
+      "dummy_and_hors_table_bytes": 9300,
+      "secret_polyglots_to_generate": 0,
+      "syntactic_setup_hashes": 0,
+      "mean_der_solutions_per_round": [
+        1.7549108883795255,
+        1.7549108883795255
+      ],
+      "optimistic_pinned_attempts_independent_poisson": 1.4618666075644382
+    },
+    {
+      "name": "polyglot model n=90",
+      "n_per_round": 90,
+      "signed_per_round": [
+        10,
+        10
+      ],
+      "bonus_per_round": [
+        0,
+        0
+      ],
+      "calculated_opcodes": 201,
+      "signed_subset_space_bits": 84.75863015906667,
+      "dummy_and_hors_table_bytes": 3780,
+      "secret_polyglots_to_generate": 180,
+      "syntactic_setup_hashes": 1.701009942632763e+16,
+      "mean_der_solutions_per_round": [
+        0.1210316144758236,
+        0.1210316144758236
+      ],
+      "optimistic_pinned_attempts_independent_poisson": 76.95478366094635
+    },
+    {
+      "name": "polyglot model n=110",
+      "n_per_round": 110,
+      "signed_per_round": [
+        10,
+        10
+      ],
+      "bonus_per_round": [
+        0,
+        0
+      ],
+      "calculated_opcodes": 201,
+      "signed_subset_space_bits": 90.82916090885234,
+      "dummy_and_hors_table_bytes": 4620,
+      "secret_polyglots_to_generate": 220,
+      "syntactic_setup_hashes": 2.0790121521067104e+16,
+      "mean_der_solutions_per_round": [
+        0.9922126259452724,
+        0.9922126259452724
+      ],
+      "optimistic_pinned_attempts_independent_poisson": 2.525579596237686
+    },
+    {
+      "name": "polyglot model n=120",
+      "n_per_round": 120,
+      "signed_per_round": [
+        10,
+        10
+      ],
+      "bonus_per_round": [
+        0,
+        0
+      ],
+      "calculated_opcodes": 201,
+      "signed_subset_space_bits": 93.44393164840868,
+      "dummy_and_hors_table_bytes": 5040,
+      "secret_polyglots_to_generate": 240,
+      "syntactic_setup_hashes": 2.268013256843684e+16,
+      "mean_der_solutions_per_round": [
+        2.4556527920423155,
+        2.4556527920423155
+      ],
+      "optimistic_pinned_attempts_independent_poisson": 1.1965321482611633
+    }
+  ],
+  "model_scope": "Conditional arithmetic, not compiled or validated polyglot transactions. Assumes the two-opcode saving transfers to each signed selection; 21 fixed/round-overhead ops inferred from the published script. Table bytes exclude every other script element.",
+  "probability_scope": "Independent random outputs and one SHA256/recovered-key candidate per subset; strict DER only. Ignores recoverability, multi-key grinding, correlated subsets, and mining implementation. Optimistic comparative model, not a security proof or measured speedup.",
+  "security": "Signed subset-space bits are not security bits. Author-reported QSB security estimates and Binohash collision estimates are different claims; this harness proves neither."
+}

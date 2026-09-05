@@ -1,0 +1,42 @@
+{
+  "repository": "https://github.com/avihu28/Quantum-Safe-Bitcoin-Transactions",
+  "commit": "2c9172051d5c150ef0a994ca6b988a08a3ef9e85",
+  "files": {
+    "LICENSE": {
+      "sha256": "8d2562b24636fb569997da918899eed12e95b573eef1207bf60be6bf7bd836ff",
+      "url": "https://raw.githubusercontent.com/avihu28/Quantum-Safe-Bitcoin-Transactions/2c9172051d5c150ef0a994ca6b988a08a3ef9e85/LICENSE"
+    },
+    "README.md": {
+      "sha256": "77c12d82ce2a280c723387f29938172b76b8ea579b1915a54feca34aeabebc7f",
+      "url": "https://raw.githubusercontent.com/avihu28/Quantum-Safe-Bitcoin-Transactions/2c9172051d5c150ef0a994ca6b988a08a3ef9e85/README.md"
+    },
+    "paper/QSB.tex": {
+      "sha256": "10e57297cc4fdb9f08e721bd7b7634a4bac778cd5a17ad7c4f87cc7a98cad083",
+      "url": "https://raw.githubusercontent.com/avihu28/Quantum-Safe-Bitcoin-Transactions/2c9172051d5c150ef0a994ca6b988a08a3ef9e85/paper/QSB.tex"
+    },
+    "v16/README.md": {
+      "sha256": "492cb8d7160221e3efd7988fd21b86835ead8bf379b7e300cbf1c784fadad68c",
+      "url": "https://raw.githubusercontent.com/avihu28/Quantum-Safe-Bitcoin-Transactions/2c9172051d5c150ef0a994ca6b988a08a3ef9e85/v16/README.md"
+    },
+    "v16/pipeline/secp256k1.py": {
+      "sha256": "b2605de4260fd7d347780f4f70aa21353f624299abb5b5453035ce33d04c72f8",
+      "url": "https://raw.githubusercontent.com/avihu28/Quantum-Safe-Bitcoin-Transactions/2c9172051d5c150ef0a994ca6b988a08a3ef9e85/v16/pipeline/secp256k1.py"
+    },
+    "transactions/qsb_funding_signed.hex": {
+      "sha256": "eab5b7fb105317b29b880ba00504bf03d4b27c4468c4436590cd13e20e649f17",
+      "url": "https://raw.githubusercontent.com/avihu28/Quantum-Safe-Bitcoin-Transactions/2c9172051d5c150ef0a994ca6b988a08a3ef9e85/transactions/qsb_funding_signed.hex"
+    },
+    "transactions/qsb_raw_signed.hex": {
+      "sha256": "186065b43855fc883bdae16ab623a51c85e01083952ffe9a26a79d4f694f0958",
+      "url": "https://raw.githubusercontent.com/avihu28/Quantum-Safe-Bitcoin-Transactions/2c9172051d5c150ef0a994ca6b988a08a3ef9e85/transactions/qsb_raw_signed.hex"
+    },
+    "transactions/qsb_raw_tx.hex": {
+      "sha256": "be205ba9f1dec38ab6291faf3e5dcc08ee2da56a303cb48130322078fd3d13e3",
+      "url": "https://raw.githubusercontent.com/avihu28/Quantum-Safe-Bitcoin-Transactions/2c9172051d5c150ef0a994ca6b988a08a3ef9e85/transactions/qsb_raw_tx.hex"
+    },
+    "v16/bundle/qsb_digest_search.cu": {
+      "sha256": "3478073aec800c82e62a36f689e1251825fb75d7ccf82e7e5cdb314a93c2296c",
+      "url": "https://raw.githubusercontent.com/avihu28/Quantum-Safe-Bitcoin-Transactions/2c9172051d5c150ef0a994ca6b988a08a3ef9e85/v16/bundle/qsb_digest_search.cu"
+    }
+  }
+}

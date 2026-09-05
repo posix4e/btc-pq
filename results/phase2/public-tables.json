@@ -1,0 +1,341 @@
+{
+  "scope": "PUBLIC REGTEST DATA; never use for coins with value",
+  "entries": [
+    {
+      "index": 0,
+      "preimage_hex": "af90a1836cc918b1c8c80e2b69655b4c956f375d16686be1d8ca99d2445599ea",
+      "commitment_hex": "2c24ca985054ccafe48528a76bbb3f45c780bd68",
+      "dummy_signature_hex": "300602010202010103",
+      "dummy_public_key_hex": "02953dddbd7091ad10be8b436061a8ac6745250beb4b3a9fc33580ecdc356361fc"
+    },
+    {
+      "index": 1,
+      "preimage_hex": "559aca54aaddbc0c89a2200daefb5a6c56e0ecc7f1007263f6bece86f07608bd",
+      "commitment_hex": "4c47097402a0311dea241a4fa5228fd181c6fa51",
+      "dummy_signature_hex": "300602010202010203",
+      "dummy_public_key_hex": "025d053203b5d92e8379a63d51b236d9b806b82e72640623b14abe337b29e56fdd"
+    },
+    {
+      "index": 2,
+      "preimage_hex": "a132c20c77b94694a889ec06e421dc835fec0acf2da117c18066d9fc4acd5d6a",
+      "commitment_hex": "ebd703e799d69b3814fa2e44377582e0f40d247a",
+      "dummy_signature_hex": "300602010202010303",
+      "dummy_public_key_hex": "02f7d15b051936b05639cc7cf7ab72115b9e7ce92f709a44d46d64d52a855977d4"
+    },
+    {
+      "index": 3,
+      "preimage_hex": "0dff83a9bee0e2b5348d3442b62e0583b6a5285b4c3dddd3ac03640370407b53",
+      "commitment_hex": "0d0f6dd33f4078d282fa4dfa74619530cf7fa314",
+      "dummy_signature_hex": "300602010202010403",
+      "dummy_public_key_hex": "023ab19e62ec1ccc7afe4b027cd2904b0e2b41e92359744e4f2fe7ef2c4db1ce7a"
+    },
+    {
+      "index": 4,
+      "preimage_hex": "0b2a9eb46da82f37d0ee3c50966362126fffede4c81f4cd0fbed11a561853d37",
+      "commitment_hex": "08ca045dbf3d006f992883b1f602b96667fe526f",
+      "dummy_signature_hex": "300602010202010503",
+      "dummy_public_key_hex": "026396f2aaeea0869c5e3d4637086241c0b1cd55f5d5aa13bae9a8791af830ae02"
+    },
+    {
+      "index": 5,
+      "preimage_hex": "ef33459c51317a0e51559d18813730584d702f83b9231b025be6cdbd25d891d5",
+      "commitment_hex": "7d45cc54e46479530c498927d016870fc21e98b5",
+      "dummy_signature_hex": "300602010202010603",
+      "dummy_public_key_hex": "03f36e746ef1f3f001e7787de0f47e810fbab08771816a79039f2d7913aa5c8170"
+    },
+    {
+      "index": 6,
+      "preimage_hex": "415a2b17965ea58932ced73eca8926bc6762c1d7f5690f626fb5b10629a15653",
+      "commitment_hex": "2f41fea42cd4dcfdfe473883729cb7596d06148d",
+      "dummy_signature_hex": "300602010202010703",
+      "dummy_public_key_hex": "021130ef61e823349395b69c0d0de4f365f9d4325fa079dbcbbb388db566652a72"
+    },
+    {
+      "index": 7,
+      "preimage_hex": "cfcee839b11ca2cb91ea60d7c7554b0ed55bc712c6da981e9d2c2824bec34c87",
+      "commitment_hex": "ceb444d9db4a8e865930579657329ad0cbe2aee2",
+      "dummy_signature_hex": "300602010202010803",
+      "dummy_public_key_hex": "03eb50de246029cba787738b2f830b111bc9ccc54446b8a200375a1059e3e9c1ec"
+    },
+    {
+      "index": 8,
+      "preimage_hex": "ee882238beaddb4c887a8948bc112dbf3774c08c699facf03530b849d6705acc",
+      "commitment_hex": "9530b925c816cc81d597f62de84149be9c2a86b7",
+      "dummy_signature_hex": "300602010202010903",
+      "dummy_public_key_hex": "026a42f05fbf067fa5d2e922e9c73c449ce440758cfc4f9d72b6d1111941ee4f57"
+    },
+    {
+      "index": 9,
+      "preimage_hex": "614fd2c870f35909bade90a2b548c1bab934d797a0f177c7ef27d17d3090c3e0",
+      "commitment_hex": "0193768a5cf129eeda2defa5e9df0fe53f46fa50",
+      "dummy_signature_hex": "300602010202010a03",
+      "dummy_public_key_hex": "03cd64deab06ab11fc16c8584573cb1eaa96af64a7840e1fcda138db4f053e47e7"
+    },
+    {
+      "index": 10,
+      "preimage_hex": "6a1a620715987c2dc551778a029460b9f5ee03568798f86e3a3d9d7a53d05e3c",
+      "commitment_hex": "783a860a399868f1b1135aa115c1ec5ef908d7ef",
+      "dummy_signature_hex": "300602010202010b03",
+      "dummy_public_key_hex": "025ac012ec9fae2ef2e9be8c30cf5ca966b909ea18eb7d95538c297719e7807f82"
+    },
+    {
+      "index": 11,
+      "preimage_hex": "cdb841d9788f8aa85bd1d51d526bc78ca6bb79d32db9338a25ba0f9c53e3a1be",
+      "commitment_hex": "0e5d76fe47c8f2f0083c34daa65dc3b184d9d5b9",
+      "dummy_signature_hex": "300602010202010c03",
+      "dummy_public_key_hex": "02012a3355edcafc7425987808787694076173c4928ccd01047a8a72884e636646"
+    },
+    {
+      "index": 12,
+      "preimage_hex": "8cb5ffd1fd0d3e69a4182c5700b18c198fb15c987aea760591cfb153a69e9198",
+      "commitment_hex": "fffdd990496d99266e97feb5c3c0bfd311825d96",
+      "dummy_signature_hex": "300602010202010d03",
+      "dummy_public_key_hex": "0257ef665f776981f0504d3baef837271f1d0a98ef7703f23caaaf9d39f52155e0"
+    },
+    {
+      "index": 13,
+      "preimage_hex": "b7e04bdc80388434a8fe43b8b7e8171d3194efc2e7631f956915ea98ae6aac79",
+      "commitment_hex": "f79a96af0fd248222eba7ade36111deb9373b549",
+      "dummy_signature_hex": "300602010202010e03",
+      "dummy_public_key_hex": "02bcfba54a6f2988bdc1d9fe4037eaaa2704693c02476edb96b60f55b3104577b2"
+    },
+    {
+      "index": 14,
+      "preimage_hex": "1589986007f7b50782423022c73f429fcfb70b9e10b97cb68ead90cfc2a10d5c",
+      "commitment_hex": "e8faec0ede10093d984eeb9643304c06daf5a794",
+      "dummy_signature_hex": "300602010202010f03",
+      "dummy_public_key_hex": "038ccbb5884541c2d6cfa5bf2c730092e739259878d742b609338993c7d4d18b12"
+    },
+    {
+      "index": 15,
+      "preimage_hex": "811bb876eef4294b77ccc7e7c80507ed94cfd6ba0881bc369d52c71dba2f5e85",
+      "commitment_hex": "4af54fd25f0a8692c1d4baf44e0c03d524ac3952",
+      "dummy_signature_hex": "300602010202011003",
+      "dummy_public_key_hex": "03a38ee4384d805907a5bac158f9dfcc73c3d67fc0af2fa856d72c957beeaea0ee"
+    },
+    {
+      "index": 16,
+      "preimage_hex": "175108d3c066eeb638278261508373f7bc2be17d76f080de7aa5ebdc74c8facf",
+      "commitment_hex": "b332aeb502ca2d30d22de7edfd3960c024584bfc",
+      "dummy_signature_hex": "300602010202011103",
+      "dummy_public_key_hex": "037ca298f81facd52c64d6a3bc50cec50147060b4194672f693c014aa8432be38a"
+    },
+    {
+      "index": 17,
+      "preimage_hex": "642658ae4b5a1afd5a1536203de7dfa311a86c66ecaed8cb49ddaf6dc31ef3ae",
+      "commitment_hex": "b5b4e9c9bee339e44d4165278d541a2660a997cb",
+      "dummy_signature_hex": "300602010202011203",
+      "dummy_public_key_hex": "0347317fbdadfbf145ab14a1009e09b5ba7c9296eaefb5612878be5587f9401b67"
+    },
+    {
+      "index": 18,
+      "preimage_hex": "ccfdef9af49a3fb286b64c41a45352783d504c9969d37aa335778947e9154262",
+      "commitment_hex": "535be15590d47254a26df9be3e78213bdbdfdf1a",
+      "dummy_signature_hex": "300602010202011303",
+      "dummy_public_key_hex": "032c0b8ebe7a6ce976d5fe436eb567ff2d7a20673d28d237d71fc386468e993e67"
+    },
+    {
+      "index": 19,
+      "preimage_hex": "03da8a3e743b17d87ddcf1db4f1537b37df41352dd1b12a3a9b4dfa4e893f54e",
+      "commitment_hex": "b7f1c9232faed5af7720d397ad7b4b61680a7abe",
+      "dummy_signature_hex": "300602010202011403",
+      "dummy_public_key_hex": "025fea5a2b91e7bda113507d179c529dd0eba14daa6c4d0a7dc632214435242ca1"
+    },
+    {
+      "index": 20,
+      "preimage_hex": "52dca1215282b29f83dc569d0f2e2831031b9021e206990a6e1e181e4ee9abb8",
+      "commitment_hex": "0ca63d15f189adab7fe57899be39f7fd5de0c913",
+      "dummy_signature_hex": "300602010202011503",
+      "dummy_public_key_hex": "029f398a97b8b1668c1e94274c238c6c74f471dfb4840d73331c525c5e446e7584"
+    },
+    {
+      "index": 21,
+      "preimage_hex": "70f6ff04e5f132d02cbf1c7312409bfa942ff7e6c0eae9461a35fa7c0bceea08",
+      "commitment_hex": "3bf4cf9bf658809d0344eb2e129e9e6f5a9ed520",
+      "dummy_signature_hex": "300602010202011603",
+      "dummy_public_key_hex": "021e40a2e747c15a241f525a5cb4128ccf3252dc1ae19f661271db8a734677e9db"
+    },
+    {
+      "index": 22,
+      "preimage_hex": "f481175f83ff68b798dac6d2e8cbe19363b5b58ff0507b9112677a3f5f3e0730",
+      "commitment_hex": "3a6a1dd5a70356937831829b9ea421f5ad01ce90",
+      "dummy_signature_hex": "300602010202011703",
+      "dummy_public_key_hex": "02daef171a3cad70c1c33983ff2168e0ced4f3d409d4782b01cf9be63770072034"
+    },
+    {
+      "index": 23,
+      "preimage_hex": "a8f2fcfe7a63a6f91ee61301b1dd57ad04fc1f05e15e0cc98b5e5890b8f92580",
+      "commitment_hex": "64d10715803f243dca0c9183d669c83d6be95be2",
+      "dummy_signature_hex": "300602010202011803",
+      "dummy_public_key_hex": "024a313beb1fd4996fa3664530cddd6e7a6356828eaf2de40bb002b73763df0024"
+    },
+    {
+      "index": 24,
+      "preimage_hex": "d26682592f787d4a431ca5999244a50ac5643902141bcf451b1d3920721675d2",
+      "commitment_hex": "02c0d29c5fe5a40f691de346a5665a70ee1b711d",
+      "dummy_signature_hex": "300602010202011903",
+      "dummy_public_key_hex": "029c89a1de88e98f9a9d2b789d796593b934541965e41e3af7091d49236b30704a"
+    },
+    {
+      "index": 25,
+      "preimage_hex": "1eaa3f145c2b9be0e79e4fe8a876ffc473fa6f1fc3fbda79c4d2e7767218d5de",
+      "commitment_hex": "466c18ce0ed0b15d2ab1c1989a191320cbe25353",
+      "dummy_signature_hex": "300602010202011a03",
+      "dummy_public_key_hex": "02bc2aaaea5c6f6ff2ebadf5383f8222fe5bf15329394c48ab072057a581b463ee"
+    },
+    {
+      "index": 26,
+      "preimage_hex": "dd1fa477c043a35902fe5a36adeeccdebfebb71a646462230fbf173c1b1ff15d",
+      "commitment_hex": "06e217a082e3bd72bb451650307ecdf977487b5b",
+      "dummy_signature_hex": "300602010202011b03",
+      "dummy_public_key_hex": "02ac3086b5af8b053f8c7e6d2f730b5536e808826c4b97b259579a25d5337075c6"
+    },
+    {
+      "index": 27,
+      "preimage_hex": "a1bb0f19ea458576130f0fdaedef342c0a4196b0a7297e18af548e740df6e2cc",
+      "commitment_hex": "52e9d3c4ef3ccc4634cba65e76ec293d017fc73a",
+      "dummy_signature_hex": "300602010202011c03",
+      "dummy_public_key_hex": "03180f09028dcc84346bc89af52163f85fe42b4e34c81abc2bb38c55ff4f0fca4f"
+    },
+    {
+      "index": 28,
+      "preimage_hex": "7b112e25315e21bd75fe9cd49eb8c743d7d81a5c7908d7eeb4b4e849af5fb29c",
+      "commitment_hex": "53419239a37d72e06e033943241767aa945c765c",
+      "dummy_signature_hex": "300602010202011d03",
+      "dummy_public_key_hex": "03fde6b1f75c98b84ffb0610b48411b81126e70e7dcd3709dc615ad9d8cd7f908e"
+    },
+    {
+      "index": 29,
+      "preimage_hex": "6caa1e260fc157b4f1ce5d26ce8afeb2e725758850958980fd99d577986e0fe1",
+      "commitment_hex": "22d2c37998bd36484369caec4715271d83aea028",
+      "dummy_signature_hex": "300602010202011e03",
+      "dummy_public_key_hex": "02eea4a63c76fce1fe5db6b16e5c1aff804285d21f745ea84c2bd15e1f622a13f7"
+    },
+    {
+      "index": 30,
+      "preimage_hex": "d633db435baf9d7420a44e2440e2a9b7cca6e01662f7431254b32d4715930711",
+      "commitment_hex": "5d8db2612f2f940c3751ebd57746e40d8fa44993",
+      "dummy_signature_hex": "300602010202011f03",
+      "dummy_public_key_hex": "038aaf3ebf917fb718e77654c8d65fcb739083201dee5feaa3fd0ae05f55474385"
+    },
+    {
+      "index": 31,
+      "preimage_hex": "b3700e88058555618dc265e2b9253986ea8d37e3f12d250ff6ac6c1bff6f30d2",
+      "commitment_hex": "ea7e4e46a8bfbcd0ab63e0b30bd70fa39e485853",
+      "dummy_signature_hex": "300602010202012003",
+      "dummy_public_key_hex": "03b695587ba00687b93e930fd71dfc446d103f03074b2ff34986d7bd837ebe6deb"
+    },
+    {
+      "index": 32,
+      "preimage_hex": "101ba0f5e669d79c986e32c5d526a0fceebd3868a74c5bb177f2c13b7827a4dd",
+      "commitment_hex": "4bb90e6b5402a91c0a68bc7ad71e0540221c94ca",
+      "dummy_signature_hex": "300602010202012103",
+      "dummy_public_key_hex": "02d6d6d5ac8fce04dd14227d2cdc2d849103249f5b328f154967db767e0f32fd9f"
+    },
+    {
+      "index": 33,
+      "preimage_hex": "b306c5e7bf87a96106d5f828590e2ce314901d6c4bf1fe7d7ddb51a9a4e1b19a",
+      "commitment_hex": "25a96650145dc1c487bd5b5af80c99f30fdc9d8a",
+      "dummy_signature_hex": "300602010202012203",
+      "dummy_public_key_hex": "02378b4ec8952f97bb415d06f133c5463882cf8bcfb1125aa4124ea43ebd8605d5"
+    },
+    {
+      "index": 34,
+      "preimage_hex": "8d0876c58dde48179989bbf078e27f84e9dba92bd5e5e0ebbe2c2dd557902a9d",
+      "commitment_hex": "e6e516d3b5c4eefae74a26cb4314cdbc1a642dc0",
+      "dummy_signature_hex": "300602010202012303",
+      "dummy_public_key_hex": "0201471236d65f822ce8b88551c98bc61eb3241c9e7d27018c5c30f8bbe5cd3890"
+    },
+    {
+      "index": 35,
+      "preimage_hex": "1edafb5b4767f4a1d63c67d69e80f0a93a2a79a14017d82469d4531269b44094",
+      "commitment_hex": "be9231082fa76d4d4a45e584a707368ea5cfd9cd",
+      "dummy_signature_hex": "300602010202012403",
+      "dummy_public_key_hex": "02ae1ea4294f2da8ea3151985e455b52b40e08893ced5a427a99252ddb947244de"
+    },
+    {
+      "index": 36,
+      "preimage_hex": "af120a75286ff1434629d4a417e9593c943c3befc79bccdc25a842de151eafc7",
+      "commitment_hex": "1200d46d326a1e85b0e6779d318a97e49b9a8a2d",
+      "dummy_signature_hex": "300602010202012503",
+      "dummy_public_key_hex": "023e7b070feaee4af408f3481a8fd3bccbcce4795e8cf0dc15c4bba38f4477385a"
+    },
+    {
+      "index": 37,
+      "preimage_hex": "d99503ab257f87299bcf7a4e53cc90cfad00bf690c61cc3c900f825e389de4dd",
+      "commitment_hex": "6d74f2306f816fa3c3feda83b22f40c6ca754ec5",
+      "dummy_signature_hex": "300602010202012603",
+      "dummy_public_key_hex": "02495f818ab72bddfd57c4ee233fe6050b1d5dc8bd71c411cdc86785083e498c93"
+    },
+    {
+      "index": 38,
+      "preimage_hex": "fddfb9528ba37e3a64c41c840e1a51cac258d454d5879ef61620dbbb5fe4d4c9",
+      "commitment_hex": "52379a8791bed24dfaa99cdd0c43ed2e405c4b0c",
+      "dummy_signature_hex": "300602010202012703",
+      "dummy_public_key_hex": "02270d1df8273e2cbf7ff1dbf7a2a4607a7a19609d42ac7398ac430eaa242da931"
+    },
+    {
+      "index": 39,
+      "preimage_hex": "d1728bd3dac1d2d1aba3836091d9e722cdd742d6a1b90d921ee990db9b0788da",
+      "commitment_hex": "427167c5f7e83f1849a4c81ca6a6002aea748d11",
+      "dummy_signature_hex": "300602010202012803",
+      "dummy_public_key_hex": "0323a90122e621aeadbc6aa178fb57c894285af16f33e5d449e6b50a957cb0773b"
+    },
+    {
+      "index": 40,
+      "preimage_hex": "b4ff5110de1bbca024007305fed1d4fd1712f5ebcf38c2705d71ce128ec78bae",
+      "commitment_hex": "04b3b0ffbfc66ec7404224936e7fca0fef260092",
+      "dummy_signature_hex": "300602010202012903",
+      "dummy_public_key_hex": "0293e0453ba0f2fa377c66694b58e167358ed795c97c12931074038c3605b930de"
+    },
+    {
+      "index": 41,
+      "preimage_hex": "b81d637b3a7d6dd2f595dbf2f095fd10cdf57771fcbdf935bb8cb5c36a72656e",
+      "commitment_hex": "aef3aeb816bee8161f7bb309a2b72e2ccb30a3b0",
+      "dummy_signature_hex": "300602010202012a03",
+      "dummy_public_key_hex": "03237175db53b210b5922d9741df74d1b6f69db2650aa8c3986d903a3366082293"
+    },
+    {
+      "index": 42,
+      "preimage_hex": "5b5e4774a1fc581934c80d70bbec252318524f3375ddd0b8ec7403c6ecb4be8d",
+      "commitment_hex": "eca9efffb35f9b3ba30de86d6cb7cdc5488440c4",
+      "dummy_signature_hex": "300602010202012b03",
+      "dummy_public_key_hex": "031f3d2a45e5b338a4b20db6d5578c13e970e9b55a561bcd8295377792d3e0a501"
+    },
+    {
+      "index": 43,
+      "preimage_hex": "ba39e6774046e380ce145725ad1b35ea35d2fcb77f4bc7cf2e2d79c1b005d3a7",
+      "commitment_hex": "79ecc0b897d2426da382bbc78765d1a0b4990804",
+      "dummy_signature_hex": "300602010202012c03",
+      "dummy_public_key_hex": "0396d43aadc28f120dfd80132cfe243141809fa2dc944c9c8ce9f99ab0545fc71a"
+    },
+    {
+      "index": 44,
+      "preimage_hex": "4e0a78695455883a4b15361ecf3ee5e591dca5a775de64831f4941defc0dbf35",
+      "commitment_hex": "7e593cb06a189678eacec6c4406b234f7e32a305",
+      "dummy_signature_hex": "300602010202012d03",
+      "dummy_public_key_hex": "027b1e10c0732dce1d6055c985b037b698973ac76ab4f099181aa14c3d1eb53beb"
+    },
+    {
+      "index": 45,
+      "preimage_hex": "cba6d16ce59b7df305235d02b2ad41eef7f75d6261dca569f3dac767ff9ca766",
+      "commitment_hex": "a6ab572f7f6473abe56f5f6d5f999d46156252bb",
+      "dummy_signature_hex": "300602010202012e03",
+      "dummy_public_key_hex": "03e35175d32eb51c0668e7e3620a76c2e5d5e3c899270d60fb87f0ffda60c718fa"
+    },
+    {
+      "index": 46,
+      "preimage_hex": "31ac8bd16fc00ff3d7c637d7d3c4832bf072e1667da9af00e2d77cf6012cbef1",
+      "commitment_hex": "d85fb60c757ed331ca0908339a643c75767c8aab",
+      "dummy_signature_hex": "300602010202012f03",
+      "dummy_public_key_hex": "03066245f2584bcb73111716c8b3939e9d761b71b444d36fcfb57e3507bb6ac5ad"
+    },
+    {
+      "index": 47,
+      "preimage_hex": "96f9185c5e1fb50bdaf42e8df07629c6251ed7ae1db324ce06644041e49ab981",
+      "commitment_hex": "7cddbee6eb1809ab984f7b650fa2a8da9cc80ec8",
+      "dummy_signature_hex": "300602010202013003",
+      "dummy_public_key_hex": "03dd36ac719b8dd40957e3b1a03294e071579274e3756a547aea79a15da6e2608f"
+    }
+  ]
+}

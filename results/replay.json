@@ -1,0 +1,378 @@
+{
+  "core_version": 310100,
+  "setup_blocks_replayed": 102,
+  "cases": [
+    {
+      "family": "direct",
+      "name": "honest_diagnostic",
+      "expected_acceptance": true,
+      "reproduced": true
+    },
+    {
+      "family": "direct",
+      "name": "redirect_with_stale_key",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "direct",
+      "name": "redirect_with_recovered_key",
+      "expected_acceptance": true,
+      "reproduced": true
+    },
+    {
+      "family": "direct",
+      "name": "amount_with_stale_key",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "direct",
+      "name": "amount_with_recovered_key",
+      "expected_acceptance": true,
+      "reproduced": true
+    },
+    {
+      "family": "direct",
+      "name": "input_with_stale_key",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "direct",
+      "name": "input_with_recovered_key",
+      "expected_acceptance": true,
+      "reproduced": true
+    },
+    {
+      "family": "direct",
+      "name": "recovery_branch_1",
+      "expected_acceptance": true,
+      "reproduced": true
+    },
+    {
+      "family": "direct",
+      "name": "recovery_branch_2",
+      "expected_acceptance": true,
+      "reproduced": true
+    },
+    {
+      "family": "direct",
+      "name": "recovery_branch_3",
+      "expected_acceptance": true,
+      "reproduced": true
+    },
+    {
+      "family": "direct",
+      "name": "uncompressed",
+      "expected_acceptance": true,
+      "reproduced": true
+    },
+    {
+      "family": "direct",
+      "name": "hybrid",
+      "expected_acceptance": true,
+      "reproduced": true
+    },
+    {
+      "family": "direct",
+      "name": "sighash_substitution_2",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "direct",
+      "name": "sighash_substitution_3",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "direct",
+      "name": "sighash_substitution_129",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "direct",
+      "name": "unexpected_witness",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "direct",
+      "name": "invalid_key_serialization",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "lamport",
+      "name": "honest_diagnostic",
+      "expected_acceptance": true,
+      "reproduced": true
+    },
+    {
+      "family": "lamport",
+      "name": "redirect_with_stale_key",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "lamport",
+      "name": "redirect_with_recovered_key",
+      "expected_acceptance": true,
+      "reproduced": true
+    },
+    {
+      "family": "lamport",
+      "name": "amount_with_stale_key",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "lamport",
+      "name": "amount_with_recovered_key",
+      "expected_acceptance": true,
+      "reproduced": true
+    },
+    {
+      "family": "lamport",
+      "name": "input_with_stale_key",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "lamport",
+      "name": "input_with_recovered_key",
+      "expected_acceptance": true,
+      "reproduced": true
+    },
+    {
+      "family": "lamport",
+      "name": "recovery_branch_1",
+      "expected_acceptance": true,
+      "reproduced": true
+    },
+    {
+      "family": "lamport",
+      "name": "recovery_branch_2",
+      "expected_acceptance": true,
+      "reproduced": true
+    },
+    {
+      "family": "lamport",
+      "name": "recovery_branch_3",
+      "expected_acceptance": true,
+      "reproduced": true
+    },
+    {
+      "family": "lamport",
+      "name": "uncompressed",
+      "expected_acceptance": true,
+      "reproduced": true
+    },
+    {
+      "family": "lamport",
+      "name": "hybrid",
+      "expected_acceptance": true,
+      "reproduced": true
+    },
+    {
+      "family": "lamport",
+      "name": "sighash_substitution_2",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "lamport",
+      "name": "sighash_substitution_3",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "lamport",
+      "name": "sighash_substitution_129",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "lamport",
+      "name": "unexpected_witness",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "lamport",
+      "name": "invalid_key_serialization",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "lamport",
+      "name": "wrong_preimage",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "lamport",
+      "name": "message_secret_mismatch",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "winternitz",
+      "name": "honest_diagnostic",
+      "expected_acceptance": true,
+      "reproduced": true
+    },
+    {
+      "family": "winternitz",
+      "name": "redirect_with_stale_key",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "winternitz",
+      "name": "redirect_with_recovered_key",
+      "expected_acceptance": true,
+      "reproduced": true
+    },
+    {
+      "family": "winternitz",
+      "name": "amount_with_stale_key",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "winternitz",
+      "name": "amount_with_recovered_key",
+      "expected_acceptance": true,
+      "reproduced": true
+    },
+    {
+      "family": "winternitz",
+      "name": "input_with_stale_key",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "winternitz",
+      "name": "input_with_recovered_key",
+      "expected_acceptance": true,
+      "reproduced": true
+    },
+    {
+      "family": "winternitz",
+      "name": "recovery_branch_1",
+      "expected_acceptance": true,
+      "reproduced": true
+    },
+    {
+      "family": "winternitz",
+      "name": "recovery_branch_2",
+      "expected_acceptance": true,
+      "reproduced": true
+    },
+    {
+      "family": "winternitz",
+      "name": "recovery_branch_3",
+      "expected_acceptance": true,
+      "reproduced": true
+    },
+    {
+      "family": "winternitz",
+      "name": "uncompressed",
+      "expected_acceptance": true,
+      "reproduced": true
+    },
+    {
+      "family": "winternitz",
+      "name": "hybrid",
+      "expected_acceptance": true,
+      "reproduced": true
+    },
+    {
+      "family": "winternitz",
+      "name": "sighash_substitution_2",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "winternitz",
+      "name": "sighash_substitution_3",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "winternitz",
+      "name": "sighash_substitution_129",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "winternitz",
+      "name": "unexpected_witness",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "winternitz",
+      "name": "invalid_key_serialization",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "winternitz",
+      "name": "wrong_preimage",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "winternitz",
+      "name": "message_secret_mismatch",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "whole_key",
+      "name": "recover_after_funding",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "whole_key",
+      "name": "committed_key_after_funding",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "lamport_full",
+      "name": "consensus_limit",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "winternitz_full",
+      "name": "consensus_limit",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "limits",
+      "name": "op_cat_reconstruction",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "limits",
+      "name": "521_byte_element",
+      "expected_acceptance": false,
+      "reproduced": true
+    },
+    {
+      "family": "limits",
+      "name": "1001_stack_elements",
+      "expected_acceptance": false,
+      "reproduced": true
+    }
+  ]
+}

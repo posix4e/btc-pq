@@ -1,0 +1,957 @@
+{
+  "schema_version": 1,
+  "scope": "isolated_regtest_public_test_data_only",
+  "experiment": "signature_size_lifecycle_surrogate",
+  "full_strength_demonstration": false,
+  "qsb_hash_to_der_end_to_end_demonstrated": false,
+  "reduced_lifecycle_demonstrated": true,
+  "secure_candidate_demonstrated": false,
+  "parameters": {
+    "puzzle": "signature-size-surrogate",
+    "reduced": true,
+    "digest_rounds": 1,
+    "published_digest_rounds": 2,
+    "table_entries_per_round": 48,
+    "signed_selections": 5,
+    "bonus_selections": 0,
+    "subset_space": 1712304,
+    "subset_space_bits": 20.70750742781426,
+    "published_table_entries_per_round": 150,
+    "published_signed_selections": [
+      8,
+      7
+    ],
+    "published_bonus_selections": [
+      1,
+      2
+    ],
+    "published_puzzle_work_approx_bits": 46.4,
+    "surrogate_exact_signature_bytes": 69,
+    "surrogate_fixed_nonce_s_der_bytes": 30,
+    "nominal_fixed_nonce_search_work_bits": 17,
+    "nominal_work_is_probability_model": true,
+    "nominal_work_scope": "Fixed public nonce k=1, unnormalized s; not an adversarial lower bound. Script does not fix the puzzle signature nonce or sighash byte.",
+    "puzzle_changes": [
+      "RIPEMD160-to-DER replaced by OP_SIZE plus CHECKSIGVERIFY on the transaction-bound key."
+    ],
+    "fixed_signature_hex": "3025022079be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f8179802010101",
+    "fixed_signature_sighash": "ALL",
+    "surrogate_puzzle_sighash": "SINGLE bug at input index 1 with one output",
+    "single_bug_digest_hex": "0100000000000000000000000000000000000000000000000000000000000000",
+    "candidate_key_branch": "R=G; compressed key",
+    "public_nonce": 1,
+    "low_s_normalization": false,
+    "search_max_candidates_per_phase": 10000000,
+    "search_max_seconds_per_lifecycle": 300
+  },
+  "limitations": [
+    "All HORS preimages and test nonce material are public; no secret-key security is tested.",
+    "Only one digest round is compiled; no full-strength or quantum-security claim.",
+    "Native consensus and block acceptance are measured; relay policy acceptance is not measured.",
+    "This is not the QSB hash-to-signature predicate. Its fixed-nonce search rate and target do not establish unavoidable work for a transaction modification."
+  ],
+  "environment": {
+    "python": "3.14.7",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "processor": "arm64"
+  },
+  "consensus_changes": [],
+  "relay_policy_changes": [],
+  "script": {
+    "bytes": 1773,
+    "static_non_push_opcodes": 135,
+    "max_push_bytes": 40,
+    "checksig_count": 3,
+    "checkmultisig_count": 1,
+    "counted_opcodes": 141,
+    "counted_opcodes_note": "Adds N for the executed N-of-N CHECKMULTISIGVERIFY."
+  },
+  "setup": {
+    "wall_seconds": 0.7215170410345308,
+    "candidates": 48,
+    "candidate_unit": "public table entries",
+    "candidates_per_second": 66.52649524559571
+  },
+  "lifecycles": [
+    {
+      "name": "honest",
+      "attempts": [
+        {
+          "pinning_search": {
+            "wall_seconds": 0.12601137498859316,
+            "candidates": 76559,
+            "candidate_unit": "transaction sequence variants",
+            "candidates_per_second": 607556.2623368747,
+            "start_counter": 0,
+            "winning_counter": 76558,
+            "sequence": 2147560206,
+            "digest_hex": "00fffa01806c6ca2c1c079b685294733f6d3b0543d9840a0aa2993531520856e",
+            "proof_hex": "3042022079be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798021e05fe7f93935d3e3f86497ad6b8cc092c4fabc267bf5f55d66caceadf7a9303"
+          },
+          "digest_subset_search": {
+            "wall_seconds": 0.0755534169729799,
+            "candidates": 23760,
+            "candidate_unit": "distinct lexicographic subsets",
+            "candidates_per_second": 314479.48950472043,
+            "found": true,
+            "selected_indices": [
+              0,
+              2,
+              14,
+              29,
+              46
+            ],
+            "digest_hex": "00ffe55578fdaaf88704f249b2a59457ca3d572893a456c75ee4330186828c39",
+            "proof_hex": "3042022079be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798021e1aaa8702550778fb0db64d5a6ba835c2a8d76c5ba938a11bccfe797d73c803",
+            "script_code_hex": "78ad7c8201458878ad7509300602010202013003147cddbee6eb1809ab984f7b650fa2a8da9cc80ec814d85fb60c757ed331ca0908339a643c75767c8aab09300602010202012e0314a6ab572f7f6473abe56f5f6d5f999d46156252bb09300602010202012d03147e593cb06a189678eacec6c4406b234f7e32a30509300602010202012c031479ecc0b897d2426da382bbc78765d1a0b499080409300602010202012b0314eca9efffb35f9b3ba30de86d6cb7cdc5488440c409300602010202012a0314aef3aeb816bee8161f7bb309a2b72e2ccb30a3b0093006020102020129031404b3b0ffbfc66ec7404224936e7fca0fef2600920930060201020201280314427167c5f7e83f1849a4c81ca6a6002aea748d11093006020102020127031452379a8791bed24dfaa99cdd0c43ed2e405c4b0c09300602010202012603146d74f2306f816fa3c3feda83b22f40c6ca754ec509300602010202012503141200d46d326a1e85b0e6779d318a97e49b9a8a2d0930060201020201240314be9231082fa76d4d4a45e584a707368ea5cfd9cd0930060201020201230314e6e516d3b5c4eefae74a26cb4314cdbc1a642dc0093006020102020122031425a96650145dc1c487bd5b5af80c99f30fdc9d8a09300602010202012103144bb90e6b5402a91c0a68bc7ad71e0540221c94ca0930060201020201200314ea7e4e46a8bfbcd0ab63e0b30bd70fa39e48585309300602010202011f03145d8db2612f2f940c3751ebd57746e40d8fa449931422d2c37998bd36484369caec4715271d83aea02809300602010202011d031453419239a37d72e06e033943241767aa945c765c09300602010202011c031452e9d3c4ef3ccc4634cba65e76ec293d017fc73a09300602010202011b031406e217a082e3bd72bb451650307ecdf977487b5b09300602010202011a0314466c18ce0ed0b15d2ab1c1989a191320cbe25353093006020102020119031402c0d29c5fe5a40f691de346a5665a70ee1b711d093006020102020118031464d10715803f243dca0c9183d669c83d6be95be209300602010202011703143a6a1dd5a70356937831829b9ea421f5ad01ce9009300602010202011603143bf4cf9bf658809d0344eb2e129e9e6f5a9ed52009300602010202011503140ca63d15f189adab7fe57899be39f7fd5de0c9130930060201020201140314b7f1c9232faed5af7720d397ad7b4b61680a7abe0930060201020201130314535be15590d47254a26df9be3e78213bdbdfdf1a0930060201020201120314b5b4e9c9bee339e44d4165278d541a2660a997cb0930060201020201110314b332aeb502ca2d30d22de7edfd3960c024584bfc09300602010202011003144af54fd25f0a8692c1d4baf44e0c03d524ac395214e8faec0ede10093d984eeb9643304c06daf5a79409300602010202010e0314f79a96af0fd248222eba7ade36111deb9373b54909300602010202010d0314fffdd990496d99266e97feb5c3c0bfd311825d9609300602010202010c03140e5d76fe47c8f2f0083c34daa65dc3b184d9d5b909300602010202010b0314783a860a399868f1b1135aa115c1ec5ef908d7ef09300602010202010a03140193768a5cf129eeda2defa5e9df0fe53f46fa5009300602010202010903149530b925c816cc81d597f62de84149be9c2a86b70930060201020201080314ceb444d9db4a8e865930579657329ad0cbe2aee209300602010202010703142f41fea42cd4dcfdfe473883729cb7596d06148d09300602010202010603147d45cc54e46479530c498927d016870fc21e98b5093006020102020105031408ca045dbf3d006f992883b1f602b96667fe526f09300602010202010403140d0f6dd33f4078d282fa4dfa74619530cf7fa31414ebd703e799d69b3814fa2e44377582e0f40d247a09300602010202010203144c47097402a0311dea241a4fa5228fd181c6fa51142c24ca985054ccafe48528a76bbb3f45c780bd684f6b01607a76000130a569766ca069766b76937651937901627aa98851937901617a76000130a569766ca069766b76937652937901637aa98852937901627a76000130a569766ca069766b76937653937901647aa98853937901637a76000130a569766ca069766b76937654937901657aa98854937901647a76000130a569766ca069766b76937655937901667aa9885593796c756b6b6b6b6b006c6c6c6c6c016d7a016d7a7c8201458878ad567c01697a016a7a016b7a016c7a016d7a56af51"
+          }
+        }
+      ],
+      "assembly": {
+        "wall_seconds": 0.017659082950558513,
+        "candidates": null,
+        "candidate_unit": null,
+        "candidates_per_second": null
+      },
+      "selected_indices": [
+        0,
+        2,
+        14,
+        29,
+        46
+      ],
+      "pin_key_hex": "026004063b1f1d16cfcaac5b29c229555a7d9a7ba66ce8f5388e7f4a71dd4209f7",
+      "digest_key_hex": "03d5f0e0c4ec6ed911c1d5e98e5d0064089a0c17a39a41b453ebd0dc6af3a76f69",
+      "transaction": {
+        "txid": "7e5105e86fdfa6a693eb7fd812feeb55e13ee0e0a305b69d6789689a1f413196",
+        "bytes": 654,
+        "stripped_bytes": 654,
+        "weight": 2616,
+        "vsize": 654,
+        "input_script_bytes": [
+          0,
+          550
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "sequence": 2147560206,
+      "output_value_sats": 1980000,
+      "native_verification": {
+        "wall_seconds": 0.003702000016346574,
+        "candidates": null,
+        "candidate_unit": null,
+        "candidates_per_second": null
+      },
+      "block_acceptance": {
+        "wall_seconds": 0.0012304160045459867,
+        "candidates": null,
+        "candidate_unit": null,
+        "candidates_per_second": null
+      }
+    },
+    {
+      "name": "changed-amount-fresh-search",
+      "attempts": [
+        {
+          "pinning_search": {
+            "wall_seconds": 0.18864033394493163,
+            "candidates": 114275,
+            "candidate_unit": "transaction sequence variants",
+            "candidates_per_second": 605782.4305663042,
+            "start_counter": 0,
+            "winning_counter": 114274,
+            "sequence": 2147597922,
+            "digest_hex": "00ff81f613eef6f9e48fbe4cdd311e1cbf3fbe7dde50c22e40b91747d2d8fc03",
+            "proof_hex": "3042022079be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798021e7e09ec1109061b7041b322cee1e340c0418221af3dd1bf46e8b82d2703fe03"
+          },
+          "digest_subset_search": {
+            "wall_seconds": 0.04046179202850908,
+            "candidates": 12634,
+            "candidate_unit": "distinct lexicographic subsets",
+            "candidates_per_second": 312245.1914907322,
+            "found": true,
+            "selected_indices": [
+              0,
+              1,
+              22,
+              25,
+              32
+            ],
+            "digest_hex": "00ffee25adb8f9550161fe8a9a1f4a064255f37fd995408171850fc05cecfb15",
+            "proof_hex": "3042022079be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798021e11da524706aafe9e017565e0b5f9bdaa0c80266abf7e8e7af03fa31304ec03",
+            "script_code_hex": "78ad7c8201458878ad7509300602010202013003147cddbee6eb1809ab984f7b650fa2a8da9cc80ec809300602010202012f0314d85fb60c757ed331ca0908339a643c75767c8aab09300602010202012e0314a6ab572f7f6473abe56f5f6d5f999d46156252bb09300602010202012d03147e593cb06a189678eacec6c4406b234f7e32a30509300602010202012c031479ecc0b897d2426da382bbc78765d1a0b499080409300602010202012b0314eca9efffb35f9b3ba30de86d6cb7cdc5488440c409300602010202012a0314aef3aeb816bee8161f7bb309a2b72e2ccb30a3b0093006020102020129031404b3b0ffbfc66ec7404224936e7fca0fef2600920930060201020201280314427167c5f7e83f1849a4c81ca6a6002aea748d11093006020102020127031452379a8791bed24dfaa99cdd0c43ed2e405c4b0c09300602010202012603146d74f2306f816fa3c3feda83b22f40c6ca754ec509300602010202012503141200d46d326a1e85b0e6779d318a97e49b9a8a2d0930060201020201240314be9231082fa76d4d4a45e584a707368ea5cfd9cd0930060201020201230314e6e516d3b5c4eefae74a26cb4314cdbc1a642dc0093006020102020122031425a96650145dc1c487bd5b5af80c99f30fdc9d8a144bb90e6b5402a91c0a68bc7ad71e0540221c94ca0930060201020201200314ea7e4e46a8bfbcd0ab63e0b30bd70fa39e48585309300602010202011f03145d8db2612f2f940c3751ebd57746e40d8fa4499309300602010202011e031422d2c37998bd36484369caec4715271d83aea02809300602010202011d031453419239a37d72e06e033943241767aa945c765c09300602010202011c031452e9d3c4ef3ccc4634cba65e76ec293d017fc73a09300602010202011b031406e217a082e3bd72bb451650307ecdf977487b5b14466c18ce0ed0b15d2ab1c1989a191320cbe25353093006020102020119031402c0d29c5fe5a40f691de346a5665a70ee1b711d093006020102020118031464d10715803f243dca0c9183d669c83d6be95be2143a6a1dd5a70356937831829b9ea421f5ad01ce9009300602010202011603143bf4cf9bf658809d0344eb2e129e9e6f5a9ed52009300602010202011503140ca63d15f189adab7fe57899be39f7fd5de0c9130930060201020201140314b7f1c9232faed5af7720d397ad7b4b61680a7abe0930060201020201130314535be15590d47254a26df9be3e78213bdbdfdf1a0930060201020201120314b5b4e9c9bee339e44d4165278d541a2660a997cb0930060201020201110314b332aeb502ca2d30d22de7edfd3960c024584bfc09300602010202011003144af54fd25f0a8692c1d4baf44e0c03d524ac395209300602010202010f0314e8faec0ede10093d984eeb9643304c06daf5a79409300602010202010e0314f79a96af0fd248222eba7ade36111deb9373b54909300602010202010d0314fffdd990496d99266e97feb5c3c0bfd311825d9609300602010202010c03140e5d76fe47c8f2f0083c34daa65dc3b184d9d5b909300602010202010b0314783a860a399868f1b1135aa115c1ec5ef908d7ef09300602010202010a03140193768a5cf129eeda2defa5e9df0fe53f46fa5009300602010202010903149530b925c816cc81d597f62de84149be9c2a86b70930060201020201080314ceb444d9db4a8e865930579657329ad0cbe2aee209300602010202010703142f41fea42cd4dcfdfe473883729cb7596d06148d09300602010202010603147d45cc54e46479530c498927d016870fc21e98b5093006020102020105031408ca045dbf3d006f992883b1f602b96667fe526f09300602010202010403140d0f6dd33f4078d282fa4dfa74619530cf7fa3140930060201020201030314ebd703e799d69b3814fa2e44377582e0f40d247a144c47097402a0311dea241a4fa5228fd181c6fa51142c24ca985054ccafe48528a76bbb3f45c780bd684f6b01607a76000130a569766ca069766b76937651937901627aa98851937901617a76000130a569766ca069766b76937652937901637aa98852937901627a76000130a569766ca069766b76937653937901647aa98853937901637a76000130a569766ca069766b76937654937901657aa98854937901647a76000130a569766ca069766b76937655937901667aa9885593796c756b6b6b6b6b006c6c6c6c6c016d7a016d7a7c8201458878ad567c01697a016a7a016b7a016c7a016d7a56af51"
+          }
+        }
+      ],
+      "assembly": {
+        "wall_seconds": 0.017669166962150484,
+        "candidates": null,
+        "candidate_unit": null,
+        "candidates_per_second": null
+      },
+      "selected_indices": [
+        0,
+        1,
+        22,
+        25,
+        32
+      ],
+      "pin_key_hex": "03af8927cf76a62f500382988cb79923346810a2a6d0a4951dfa29221f88fe4d0d",
+      "digest_key_hex": "021b270208e7cc05ec2b7f88bcf829c86c9e3a5ed474d5c10c6c7dc5de8616177a",
+      "transaction": {
+        "txid": "a7cb1b517ebbdd719c1dcf2ef091e6c783206ba7cc8da53b70e01cecdf8c28b5",
+        "bytes": 655,
+        "stripped_bytes": 655,
+        "weight": 2620,
+        "vsize": 655,
+        "input_script_bytes": [
+          0,
+          551
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "sequence": 2147597922,
+      "output_value_sats": 1979999,
+      "native_verification": {
+        "wall_seconds": 0.003749958996195346,
+        "candidates": null,
+        "candidate_unit": null,
+        "candidates_per_second": null
+      },
+      "block_acceptance": {
+        "wall_seconds": 0.0010015410371124744,
+        "candidates": null,
+        "candidate_unit": null,
+        "candidates_per_second": null
+      }
+    }
+  ],
+  "cases": [
+    {
+      "name": "honest",
+      "file": "honest.hex",
+      "transaction": {
+        "txid": "7e5105e86fdfa6a693eb7fd812feeb55e13ee0e0a305b69d6789689a1f413196",
+        "bytes": 654,
+        "stripped_bytes": 654,
+        "weight": 2616,
+        "vsize": 654,
+        "input_script_bytes": [
+          0,
+          550
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "expected_acceptance": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          },
+          {
+            "index": 1,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 20000,
+        "valid": true
+      },
+      "native_verification": {
+        "wall_seconds": 0.003702000016346574,
+        "candidates": null,
+        "candidate_unit": null,
+        "candidates_per_second": null
+      },
+      "block_accepted": true,
+      "blockhash": "27d64f159ebab14abe938d6c96ace7859b75f34ad056c11beea2d724c7d4db97",
+      "block_acceptance": {
+        "wall_seconds": 0.0012304160045459867,
+        "candidates": null,
+        "candidate_unit": null,
+        "candidates_per_second": null
+      },
+      "block_file": "blocks/honest.hex"
+    },
+    {
+      "name": "changed-amount-stale-witness",
+      "file": "changed-amount-stale-witness.hex",
+      "transaction": {
+        "txid": "22756c0b2e5b8b35a88877ff8b67a5f7efdc1ef75416f00c9ffd1fd13d6b13a4",
+        "bytes": 654,
+        "stripped_bytes": 654,
+        "weight": 2616,
+        "vsize": 654,
+        "input_script_bytes": [
+          0,
+          550
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "expected_acceptance": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          },
+          {
+            "index": 1,
+            "valid": false,
+            "error": "Script failed an OP_CHECKSIGVERIFY operation"
+          }
+        ],
+        "fee_sats": 20001,
+        "valid": false
+      },
+      "native_verification": {
+        "wall_seconds": 0.0029135409859009087,
+        "candidates": null,
+        "candidate_unit": null,
+        "candidates_per_second": null
+      },
+      "block_accepted": false,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script failed an OP_CHECKSIGVERIFY operation), input 1 of 22756c0b2e5b8b35a88877ff8b67a5f7efdc1ef75416f00c9ffd1fd13d6b13a4 (wtxid 22756c0b2e5b8b35a88877ff8b67a5f7efdc1ef75416f00c9ffd1fd13d6b13a4), spending 8454aa5c9e1d0749e2ad81071deca416ffd7b9e4f5ad42760623a33e115e0281:1"
+      },
+      "block_acceptance": {
+        "wall_seconds": 0.0006133330170996487,
+        "candidates": null,
+        "candidate_unit": null,
+        "candidates_per_second": null
+      }
+    },
+    {
+      "name": "changed-amount-recovered-keys-stale-proofs",
+      "file": "changed-amount-recovered-keys-stale-proofs.hex",
+      "transaction": {
+        "txid": "9bae0e49cc1dd647e94df7fc6ce1cdbb4529e3efffce88201be10de357f811b6",
+        "bytes": 654,
+        "stripped_bytes": 654,
+        "weight": 2616,
+        "vsize": 654,
+        "input_script_bytes": [
+          0,
+          550
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "expected_acceptance": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          },
+          {
+            "index": 1,
+            "valid": false,
+            "error": "Script failed an OP_CHECKSIGVERIFY operation"
+          }
+        ],
+        "fee_sats": 20001,
+        "valid": false
+      },
+      "native_verification": {
+        "wall_seconds": 0.002895499987062067,
+        "candidates": null,
+        "candidate_unit": null,
+        "candidates_per_second": null
+      },
+      "block_accepted": false,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script failed an OP_CHECKSIGVERIFY operation), input 1 of 9bae0e49cc1dd647e94df7fc6ce1cdbb4529e3efffce88201be10de357f811b6 (wtxid 9bae0e49cc1dd647e94df7fc6ce1cdbb4529e3efffce88201be10de357f811b6), spending 8454aa5c9e1d0749e2ad81071deca416ffd7b9e4f5ad42760623a33e115e0281:1"
+      },
+      "block_acceptance": {
+        "wall_seconds": 0.0005168330390006304,
+        "candidates": null,
+        "candidate_unit": null,
+        "candidates_per_second": null
+      }
+    },
+    {
+      "name": "fixed-signature-reused-as-puzzle-proof",
+      "file": "fixed-signature-reused-as-puzzle-proof.hex",
+      "transaction": {
+        "txid": "c937578d9a068b780b523114c04224364cd33a88d53cab5e164b80d3a7692a2c",
+        "bytes": 625,
+        "stripped_bytes": 625,
+        "weight": 2500,
+        "vsize": 625,
+        "input_script_bytes": [
+          0,
+          521
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "expected_acceptance": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          },
+          {
+            "index": 1,
+            "valid": false,
+            "error": "Script failed an OP_EQUALVERIFY operation"
+          }
+        ],
+        "fee_sats": 20000,
+        "valid": false
+      },
+      "native_verification": {
+        "wall_seconds": 0.0029104999848641455,
+        "candidates": null,
+        "candidate_unit": null,
+        "candidates_per_second": null
+      },
+      "block_accepted": false,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script failed an OP_EQUALVERIFY operation), input 1 of c937578d9a068b780b523114c04224364cd33a88d53cab5e164b80d3a7692a2c (wtxid c937578d9a068b780b523114c04224364cd33a88d53cab5e164b80d3a7692a2c), spending 8454aa5c9e1d0749e2ad81071deca416ffd7b9e4f5ad42760623a33e115e0281:1"
+      },
+      "block_acceptance": {
+        "wall_seconds": 0.002039249986410141,
+        "candidates": null,
+        "candidate_unit": null,
+        "candidates_per_second": null
+      }
+    },
+    {
+      "name": "wrong-hors-preimage",
+      "file": "wrong-hors-preimage.hex",
+      "transaction": {
+        "txid": "9f20d05867fe375433b2baed0d262e57e624fd159a50c4ce8ed5bed6bee90c4c",
+        "bytes": 654,
+        "stripped_bytes": 654,
+        "weight": 2616,
+        "vsize": 654,
+        "input_script_bytes": [
+          0,
+          550
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "expected_acceptance": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          },
+          {
+            "index": 1,
+            "valid": false,
+            "error": "Script failed an OP_EQUALVERIFY operation"
+          }
+        ],
+        "fee_sats": 20000,
+        "valid": false
+      },
+      "native_verification": {
+        "wall_seconds": 0.0056657500099390745,
+        "candidates": null,
+        "candidate_unit": null,
+        "candidates_per_second": null
+      },
+      "block_accepted": false,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script failed an OP_EQUALVERIFY operation), input 1 of 9f20d05867fe375433b2baed0d262e57e624fd159a50c4ce8ed5bed6bee90c4c (wtxid 9f20d05867fe375433b2baed0d262e57e624fd159a50c4ce8ed5bed6bee90c4c), spending 8454aa5c9e1d0749e2ad81071deca416ffd7b9e4f5ad42760623a33e115e0281:1"
+      },
+      "block_acceptance": {
+        "wall_seconds": 0.007734084036201239,
+        "candidates": null,
+        "candidate_unit": null,
+        "candidates_per_second": null
+      }
+    },
+    {
+      "name": "changed-subset-correct-preimages-stale-digest-key",
+      "file": "changed-subset-correct-preimages-stale-digest-key.hex",
+      "transaction": {
+        "txid": "61c12334ef5fb0f2961cca027bbf94e95b6d1b97002a7424fea98de4e0b64c48",
+        "bytes": 652,
+        "stripped_bytes": 652,
+        "weight": 2608,
+        "vsize": 652,
+        "input_script_bytes": [
+          0,
+          548
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "expected_acceptance": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          },
+          {
+            "index": 1,
+            "valid": false,
+            "error": "Script failed an OP_CHECKMULTISIGVERIFY operation"
+          }
+        ],
+        "fee_sats": 20000,
+        "valid": false
+      },
+      "native_verification": {
+        "wall_seconds": 0.002783958043437451,
+        "candidates": null,
+        "candidate_unit": null,
+        "candidates_per_second": null
+      },
+      "block_accepted": false,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script failed an OP_CHECKMULTISIGVERIFY operation), input 1 of 61c12334ef5fb0f2961cca027bbf94e95b6d1b97002a7424fea98de4e0b64c48 (wtxid 61c12334ef5fb0f2961cca027bbf94e95b6d1b97002a7424fea98de4e0b64c48), spending 8454aa5c9e1d0749e2ad81071deca416ffd7b9e4f5ad42760623a33e115e0281:1"
+      },
+      "block_acceptance": {
+        "wall_seconds": 0.0006078750011511147,
+        "candidates": null,
+        "candidate_unit": null,
+        "candidates_per_second": null
+      }
+    },
+    {
+      "name": "duplicate-subset-index",
+      "file": "duplicate-subset-index.hex",
+      "transaction": {
+        "txid": "aca359cd76fa6b5e40f78024d6d0fa8b495dbe0f9937dd3e97f17ad4f6fb64be",
+        "bytes": 652,
+        "stripped_bytes": 652,
+        "weight": 2608,
+        "vsize": 652,
+        "input_script_bytes": [
+          0,
+          548
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "expected_acceptance": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          },
+          {
+            "index": 1,
+            "valid": false,
+            "error": "Script failed an OP_VERIFY operation"
+          }
+        ],
+        "fee_sats": 20000,
+        "valid": false
+      },
+      "native_verification": {
+        "wall_seconds": 0.0023973750066943467,
+        "candidates": null,
+        "candidate_unit": null,
+        "candidates_per_second": null
+      },
+      "block_accepted": false,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 1 of aca359cd76fa6b5e40f78024d6d0fa8b495dbe0f9937dd3e97f17ad4f6fb64be (wtxid aca359cd76fa6b5e40f78024d6d0fa8b495dbe0f9937dd3e97f17ad4f6fb64be), spending 8454aa5c9e1d0749e2ad81071deca416ffd7b9e4f5ad42760623a33e115e0281:1"
+      },
+      "block_acceptance": {
+        "wall_seconds": 0.0004872080171480775,
+        "candidates": null,
+        "candidate_unit": null,
+        "candidates_per_second": null
+      }
+    },
+    {
+      "name": "changed-amount-fresh-search",
+      "file": "changed-amount-fresh-search.hex",
+      "transaction": {
+        "txid": "a7cb1b517ebbdd719c1dcf2ef091e6c783206ba7cc8da53b70e01cecdf8c28b5",
+        "bytes": 655,
+        "stripped_bytes": 655,
+        "weight": 2620,
+        "vsize": 655,
+        "input_script_bytes": [
+          0,
+          551
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "expected_acceptance": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          },
+          {
+            "index": 1,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 20001,
+        "valid": true
+      },
+      "native_verification": {
+        "wall_seconds": 0.003749958996195346,
+        "candidates": null,
+        "candidate_unit": null,
+        "candidates_per_second": null
+      },
+      "block_accepted": true,
+      "blockhash": "1f53985daf56ad53446f88f5eb39bfe310d57b61875b4007253c4087f804dc95",
+      "block_acceptance": {
+        "wall_seconds": 0.0010015410371124744,
+        "candidates": null,
+        "candidate_unit": null,
+        "candidates_per_second": null
+      },
+      "block_file": "blocks/changed-amount-fresh-search.hex"
+    }
+  ],
+  "setup_blocks": [
+    "blocks/setup-001.hex",
+    "blocks/setup-002.hex",
+    "blocks/setup-003.hex",
+    "blocks/setup-004.hex",
+    "blocks/setup-005.hex",
+    "blocks/setup-006.hex",
+    "blocks/setup-007.hex",
+    "blocks/setup-008.hex",
+    "blocks/setup-009.hex",
+    "blocks/setup-010.hex",
+    "blocks/setup-011.hex",
+    "blocks/setup-012.hex",
+    "blocks/setup-013.hex",
+    "blocks/setup-014.hex",
+    "blocks/setup-015.hex",
+    "blocks/setup-016.hex",
+    "blocks/setup-017.hex",
+    "blocks/setup-018.hex",
+    "blocks/setup-019.hex",
+    "blocks/setup-020.hex",
+    "blocks/setup-021.hex",
+    "blocks/setup-022.hex",
+    "blocks/setup-023.hex",
+    "blocks/setup-024.hex",
+    "blocks/setup-025.hex",
+    "blocks/setup-026.hex",
+    "blocks/setup-027.hex",
+    "blocks/setup-028.hex",
+    "blocks/setup-029.hex",
+    "blocks/setup-030.hex",
+    "blocks/setup-031.hex",
+    "blocks/setup-032.hex",
+    "blocks/setup-033.hex",
+    "blocks/setup-034.hex",
+    "blocks/setup-035.hex",
+    "blocks/setup-036.hex",
+    "blocks/setup-037.hex",
+    "blocks/setup-038.hex",
+    "blocks/setup-039.hex",
+    "blocks/setup-040.hex",
+    "blocks/setup-041.hex",
+    "blocks/setup-042.hex",
+    "blocks/setup-043.hex",
+    "blocks/setup-044.hex",
+    "blocks/setup-045.hex",
+    "blocks/setup-046.hex",
+    "blocks/setup-047.hex",
+    "blocks/setup-048.hex",
+    "blocks/setup-049.hex",
+    "blocks/setup-050.hex",
+    "blocks/setup-051.hex",
+    "blocks/setup-052.hex",
+    "blocks/setup-053.hex",
+    "blocks/setup-054.hex",
+    "blocks/setup-055.hex",
+    "blocks/setup-056.hex",
+    "blocks/setup-057.hex",
+    "blocks/setup-058.hex",
+    "blocks/setup-059.hex",
+    "blocks/setup-060.hex",
+    "blocks/setup-061.hex",
+    "blocks/setup-062.hex",
+    "blocks/setup-063.hex",
+    "blocks/setup-064.hex",
+    "blocks/setup-065.hex",
+    "blocks/setup-066.hex",
+    "blocks/setup-067.hex",
+    "blocks/setup-068.hex",
+    "blocks/setup-069.hex",
+    "blocks/setup-070.hex",
+    "blocks/setup-071.hex",
+    "blocks/setup-072.hex",
+    "blocks/setup-073.hex",
+    "blocks/setup-074.hex",
+    "blocks/setup-075.hex",
+    "blocks/setup-076.hex",
+    "blocks/setup-077.hex",
+    "blocks/setup-078.hex",
+    "blocks/setup-079.hex",
+    "blocks/setup-080.hex",
+    "blocks/setup-081.hex",
+    "blocks/setup-082.hex",
+    "blocks/setup-083.hex",
+    "blocks/setup-084.hex",
+    "blocks/setup-085.hex",
+    "blocks/setup-086.hex",
+    "blocks/setup-087.hex",
+    "blocks/setup-088.hex",
+    "blocks/setup-089.hex",
+    "blocks/setup-090.hex",
+    "blocks/setup-091.hex",
+    "blocks/setup-092.hex",
+    "blocks/setup-093.hex",
+    "blocks/setup-094.hex",
+    "blocks/setup-095.hex",
+    "blocks/setup-096.hex",
+    "blocks/setup-097.hex",
+    "blocks/setup-098.hex",
+    "blocks/setup-099.hex",
+    "blocks/setup-100.hex",
+    "blocks/setup-101.hex",
+    "blocks/setup-102.hex"
+  ],
+  "provenance": {
+    "pinned_reference_commit": "2c9172051d5c150ef0a994ca6b988a08a3ef9e85",
+    "source_sha256": {
+      "btc_pq/phase2.py": "79c41314ad3bc1906796d904027c2a662a07f65882baca8fdb34deb2e40cfa23",
+      "btc_pq/cli.py": "b93ea22242b7ca16d5cfc02cd5b4a5c1aa45679f7caba319df5dd3cf91c73488",
+      "btc_pq/bitcoin.py": "f2d05b8201675ba767b9f5b4528237d1417242bed34ee66af107ac220b852808",
+      "btc_pq/core.py": "00c9d36762520bfc65951ba2a488749a4f794db5e9a2be53019b3d626cf331f6",
+      "vendor/qsb/paper/QSB.tex": "10e57297cc4fdb9f08e721bd7b7634a4bac778cd5a17ad7c4f87cc7a98cad083",
+      ".cache/native-build/btc-pq-verify": "2f3a4bf5e413dd439cda4dc13bf1f946b766f012c1f9cd515a967cd0cfc95faa"
+    },
+    "fixed_difficulty_reference": "vendor/qsb/paper/QSB.tex: Fixed puzzle difficulty; no knob to tune",
+    "surrogate_is_hash_to_signature": false
+  },
+  "core_version": 310100,
+  "node_isolation": {
+    "chain": "regtest",
+    "networkactive": false,
+    "listen": false,
+    "temporary_datadir": true
+  },
+  "funding": {
+    "wall_seconds": 0.552239291020669,
+    "candidates": null,
+    "candidate_unit": null,
+    "candidates_per_second": null,
+    "transaction": {
+      "txid": "8454aa5c9e1d0749e2ad81071deca416ffd7b9e4f5ad42760623a33e115e0281",
+      "bytes": 1985,
+      "stripped_bytes": 1876,
+      "weight": 7613,
+      "vsize": 1904,
+      "input_script_bytes": [
+        0
+      ],
+      "output_script_bytes": [
+        1,
+        1773,
+        22
+      ]
+    },
+    "native": {
+      "core_version": "31.1",
+      "scope": "linked_prevout_script_verification",
+      "flags": 134677,
+      "inputs": [
+        {
+          "index": 0,
+          "valid": true,
+          "error": "No error"
+        }
+      ],
+      "fee_sats": 10000,
+      "valid": true
+    },
+    "blockhash": "1a491151d64ebe7cb79a2443fc3295c9768d532f8cffc22129c329a084ba6562",
+    "file": "funding.hex",
+    "timing_scope": "101 maturity blocks, wallet signing, native verification, funding block"
+  },
+  "base_tip": "1a491151d64ebe7cb79a2443fc3295c9768d532f8cffc22129c329a084ba6562",
+  "regtest_deployments": {
+    "hash": "1a491151d64ebe7cb79a2443fc3295c9768d532f8cffc22129c329a084ba6562",
+    "height": 102,
+    "script_flags": [
+      "CHECKLOCKTIMEVERIFY",
+      "CHECKSEQUENCEVERIFY",
+      "DERSIG",
+      "NULLDUMMY",
+      "P2SH",
+      "TAPROOT",
+      "WITNESS"
+    ],
+    "deployments": {
+      "bip34": {
+        "type": "buried",
+        "active": true,
+        "height": 1
+      },
+      "bip66": {
+        "type": "buried",
+        "active": true,
+        "height": 1
+      },
+      "bip65": {
+        "type": "buried",
+        "active": true,
+        "height": 1
+      },
+      "csv": {
+        "type": "buried",
+        "active": true,
+        "height": 1
+      },
+      "segwit": {
+        "type": "buried",
+        "active": true,
+        "height": 0
+      },
+      "testdummy": {
+        "type": "bip9",
+        "active": false,
+        "bip9": {
+          "start_time": 0,
+          "timeout": 9223372036854775807,
+          "min_activation_height": 0,
+          "status": "defined",
+          "since": 0,
+          "status_next": "defined"
+        }
+      },
+      "taproot": {
+        "type": "bip9",
+        "height": 0,
+        "active": true,
+        "bip9": {
+          "start_time": -1,
+          "timeout": 9223372036854775807,
+          "min_activation_height": 0,
+          "status": "active",
+          "since": 0,
+          "status_next": "active"
+        }
+      }
+    }
+  },
+  "total_wall_seconds": 3.174050541012548,
+  "replay": {
+    "core_version": 310100,
+    "setup_blocks_replayed": 102,
+    "cases": [
+      {
+        "name": "honest",
+        "native_valid": true,
+        "block_accepted": true,
+        "reproduced": true
+      },
+      {
+        "name": "changed-amount-stale-witness",
+        "native_valid": false,
+        "block_accepted": false,
+        "reproduced": true
+      },
+      {
+        "name": "changed-amount-recovered-keys-stale-proofs",
+        "native_valid": false,
+        "block_accepted": false,
+        "reproduced": true
+      },
+      {
+        "name": "fixed-signature-reused-as-puzzle-proof",
+        "native_valid": false,
+        "block_accepted": false,
+        "reproduced": true
+      },
+      {
+        "name": "wrong-hors-preimage",
+        "native_valid": false,
+        "block_accepted": false,
+        "reproduced": true
+      },
+      {
+        "name": "changed-subset-correct-preimages-stale-digest-key",
+        "native_valid": false,
+        "block_accepted": false,
+        "reproduced": true
+      },
+      {
+        "name": "duplicate-subset-index",
+        "native_valid": false,
+        "block_accepted": false,
+        "reproduced": true
+      },
+      {
+        "name": "changed-amount-fresh-search",
+        "native_valid": true,
+        "block_accepted": true,
+        "reproduced": true
+      }
+    ],
+    "wall_seconds": 0.664860040997155
+  },
+  "status": "complete_surrogate_lifecycle",
+  "reproduction_command": ".venv/bin/python -m btc_pq.cli phase2 --puzzle signature-size-surrogate --entries 48 --selections 5 --signature-bytes 69 --outdir results/phase2-rerun"
+}

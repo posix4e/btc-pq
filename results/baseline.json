@@ -1,0 +1,189 @@
+{
+  "pinned_reference": {
+    "commit": "2c9172051d5c150ef0a994ca6b988a08a3ef9e85",
+    "checked_files": 9
+  },
+  "mainnet_tx": {
+    "txid": "305a24ffea912b9cf428f29ebf952321c96dab5bab284fc0d0801562f5abab07",
+    "bytes": 1403,
+    "stripped_bytes": 1293,
+    "weight": 5282,
+    "vsize": 1321,
+    "input_script_bytes": [
+      0,
+      1168
+    ],
+    "output_script_bytes": [
+      22
+    ]
+  },
+  "funding_outputs": [
+    {
+      "txid": "43d8d42e3c2b986cd3791eae6ee09775eab2b16b78705305ded2e7b45a23c8b4",
+      "vout": 1,
+      "value_sats": 39179,
+      "script": {
+        "bytes": 22,
+        "static_non_push_opcodes": 0,
+        "max_push_bytes": 20,
+        "checksig_count": 0,
+        "checkmultisig_count": 0
+      },
+      "transaction": {
+        "txid": "43d8d42e3c2b986cd3791eae6ee09775eab2b16b78705305ded2e7b45a23c8b4",
+        "bytes": 10125,
+        "stripped_bytes": 10016,
+        "weight": 40173,
+        "vsize": 10044,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          9923,
+          22
+        ]
+      }
+    },
+    {
+      "txid": "43d8d42e3c2b986cd3791eae6ee09775eab2b16b78705305ded2e7b45a23c8b4",
+      "vout": 0,
+      "value_sats": 10000,
+      "script": {
+        "bytes": 9923,
+        "static_non_push_opcodes": 181,
+        "max_push_bytes": 56,
+        "checksig_count": 4,
+        "checkmultisig_count": 2
+      },
+      "transaction": {
+        "txid": "43d8d42e3c2b986cd3791eae6ee09775eab2b16b78705305ded2e7b45a23c8b4",
+        "bytes": 10125,
+        "stripped_bytes": 10016,
+        "weight": 40173,
+        "vsize": 10044,
+        "input_script_bytes": [
+          0
+        ],
+        "output_script_bytes": [
+          9923,
+          22
+        ]
+      }
+    }
+  ],
+  "core_verification": {
+    "core_version": "31.1",
+    "scope": "linked_prevout_script_verification",
+    "flags": 134677,
+    "inputs": [
+      {
+        "index": 0,
+        "valid": true,
+        "error": "No error"
+      },
+      {
+        "index": 1,
+        "valid": true,
+        "error": "No error"
+      }
+    ],
+    "fee_sats": 5179,
+    "valid": true
+  },
+  "verification_wall_seconds": 0.021801666007377207,
+  "measured_work": "CPU native verification including subprocess startup; no GPU/grinding measurement",
+  "inclusion_verified": true,
+  "block_height": 964199,
+  "chain_trust": "Explorer supplies chain anchoring; Merkle inclusion and header PoW checked locally. No full mainnet chain replay.",
+  "local_mainnet_block_replay": false,
+  "attacks": [
+    {
+      "name": "output_redirection",
+      "verification": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element"
+          },
+          {
+            "index": 1,
+            "valid": false,
+            "error": "Script failed an OP_CHECKSIGVERIFY operation"
+          }
+        ],
+        "fee_sats": 5179,
+        "valid": false
+      }
+    },
+    {
+      "name": "amount_decrease",
+      "verification": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element"
+          },
+          {
+            "index": 1,
+            "valid": false,
+            "error": "Script failed an OP_CHECKSIGVERIFY operation"
+          }
+        ],
+        "fee_sats": 5180,
+        "valid": false
+      }
+    },
+    {
+      "name": "sequence_change",
+      "verification": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element"
+          },
+          {
+            "index": 1,
+            "valid": false,
+            "error": "Script failed an OP_CHECKSIGVERIFY operation"
+          }
+        ],
+        "fee_sats": 5179,
+        "valid": false
+      }
+    },
+    {
+      "name": "unexpected_witness",
+      "verification": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Witness program hash mismatch"
+          },
+          {
+            "index": 1,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 5179,
+        "valid": false
+      }
+    }
+  ]
+}

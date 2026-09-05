@@ -1,0 +1,170 @@
+[
+  {
+    "index": 0,
+    "preimage_hex": "dd1f2978d9fa6c5bdfdfe038fdec2d3a436efb7433e1190106f1e217cfa2f833",
+    "commitment_hex": "8ce8a23dad86cb19dea06211e376aaf4df8523ea",
+    "dummy_hex": "300602010202010103",
+    "dummy_key_hex": "02953dddbd7091ad10be8b436061a8ac6745250beb4b3a9fc33580ecdc356361fc"
+  },
+  {
+    "index": 1,
+    "preimage_hex": "388a44661ee34b9e624e4a8e3c8fbf2e4b8c40ea75a4261d97e3dacfe0aad751",
+    "commitment_hex": "266e4a6c81ad10a2b06f57cc350b9f7a8e43dad3",
+    "dummy_hex": "300602010202010203",
+    "dummy_key_hex": "025d053203b5d92e8379a63d51b236d9b806b82e72640623b14abe337b29e56fdd"
+  },
+  {
+    "index": 2,
+    "preimage_hex": "cef109ddf1ae4870a6e5fcd9e5cf12b51495422deea442df8542d19e064e3d42",
+    "commitment_hex": "074f32c91df41a585718903d56a98de06f9a15aa",
+    "dummy_hex": "300602010202010303",
+    "dummy_key_hex": "02f7d15b051936b05639cc7cf7ab72115b9e7ce92f709a44d46d64d52a855977d4"
+  },
+  {
+    "index": 3,
+    "preimage_hex": "7c65096d1dd52932191631d2e67eb5fc51d170ba1951b9ca70eb989ce863198a",
+    "commitment_hex": "4272be61825dbf3f46110c4ba8d7e5990fa0dc5a",
+    "dummy_hex": "300602010202010403",
+    "dummy_key_hex": "023ab19e62ec1ccc7afe4b027cd2904b0e2b41e92359744e4f2fe7ef2c4db1ce7a"
+  },
+  {
+    "index": 4,
+    "preimage_hex": "7ce176718b45ec3a09e975f9471d12fb0557248481ce9711aa6c722d6bbdc1a8",
+    "commitment_hex": "5ec2831792af35dd8a4ab59c0050e883b7b102ec",
+    "dummy_hex": "300602010202010503",
+    "dummy_key_hex": "026396f2aaeea0869c5e3d4637086241c0b1cd55f5d5aa13bae9a8791af830ae02"
+  },
+  {
+    "index": 5,
+    "preimage_hex": "d0cfafb2a5038b6a4e7719556dd1438f0e0f6a40aaff61d614a68436f191fcd3",
+    "commitment_hex": "4891030f1552ad142fd8aec9706f2594a3754f50",
+    "dummy_hex": "300602010202010603",
+    "dummy_key_hex": "03f36e746ef1f3f001e7787de0f47e810fbab08771816a79039f2d7913aa5c8170"
+  },
+  {
+    "index": 6,
+    "preimage_hex": "1aa3728181b3b948ec97f35b1ad3d7eddf707fabc36dfb9bf33e8bd4d625cad3",
+    "commitment_hex": "341064763aaeaafe15220362e2e9614eaf4c3b17",
+    "dummy_hex": "300602010202010703",
+    "dummy_key_hex": "021130ef61e823349395b69c0d0de4f365f9d4325fa079dbcbbb388db566652a72"
+  },
+  {
+    "index": 7,
+    "preimage_hex": "27399f52849ee050f0eca07f5aa5d7a9a07363f5585b5ecae4dc3ac32a1f1844",
+    "commitment_hex": "5979965c6c3aca94e0436c25f81ba4a30f9a3e04",
+    "dummy_hex": "300602010202010803",
+    "dummy_key_hex": "03eb50de246029cba787738b2f830b111bc9ccc54446b8a200375a1059e3e9c1ec"
+  },
+  {
+    "index": 8,
+    "preimage_hex": "d6bfb19b182c43546bec26862c8a79dabf34c74b337e859afe51b181844bfd1b",
+    "commitment_hex": "e41121201e71f70897911ebc8c523adb1937ec3f",
+    "dummy_hex": "300602010202010903",
+    "dummy_key_hex": "026a42f05fbf067fa5d2e922e9c73c449ce440758cfc4f9d72b6d1111941ee4f57"
+  },
+  {
+    "index": 9,
+    "preimage_hex": "1750d51b450e8fb40544b0ccadd7a810a28e7666cddc5735045b334635c68665",
+    "commitment_hex": "ea5fc4dac0a77e22c3b4d93799141539f8dda121",
+    "dummy_hex": "300602010202010a03",
+    "dummy_key_hex": "03cd64deab06ab11fc16c8584573cb1eaa96af64a7840e1fcda138db4f053e47e7"
+  },
+  {
+    "index": 10,
+    "preimage_hex": "1832e375d75581809185d37c30b12be9acd3ee9fd8cd78d71d1953da88ae634c",
+    "commitment_hex": "77c314ab6d487ddaa2d6f1f8feed3d066319036b",
+    "dummy_hex": "300602010202010b03",
+    "dummy_key_hex": "025ac012ec9fae2ef2e9be8c30cf5ca966b909ea18eb7d95538c297719e7807f82"
+  },
+  {
+    "index": 11,
+    "preimage_hex": "f689fd63192a367fae607c6ae454cb86f678b80e8b3368ee53cb7b8265d65c36",
+    "commitment_hex": "bef1eb529de665028f5386d1d5875ee469fb517e",
+    "dummy_hex": "300602010202010c03",
+    "dummy_key_hex": "02012a3355edcafc7425987808787694076173c4928ccd01047a8a72884e636646"
+  },
+  {
+    "index": 12,
+    "preimage_hex": "5f4d6f3714b4c17fbe36c6cfe8e0b7652d2867be865979e88a228ed834538b9e",
+    "commitment_hex": "e40627ae1512379ee4a0849571c765f4f4e929f4",
+    "dummy_hex": "300602010202010d03",
+    "dummy_key_hex": "0257ef665f776981f0504d3baef837271f1d0a98ef7703f23caaaf9d39f52155e0"
+  },
+  {
+    "index": 13,
+    "preimage_hex": "958eda385c8874244e4cb66d51685658bd4337ec8bd639ed508f2dbbaab3c2b4",
+    "commitment_hex": "9f2c5954ae303150d09ae6fb81691bd5b8c0fd6a",
+    "dummy_hex": "300602010202010e03",
+    "dummy_key_hex": "02bcfba54a6f2988bdc1d9fe4037eaaa2704693c02476edb96b60f55b3104577b2"
+  },
+  {
+    "index": 14,
+    "preimage_hex": "06a856b73cce0675a177c4c08618731ca6149fd3bb8ffc11edf9a02ea0191928",
+    "commitment_hex": "525be2e421ba848f2ddcd753cf0f8c5e3ef36a40",
+    "dummy_hex": "300602010202010f03",
+    "dummy_key_hex": "038ccbb5884541c2d6cfa5bf2c730092e739259878d742b609338993c7d4d18b12"
+  },
+  {
+    "index": 15,
+    "preimage_hex": "54dcf73cceb43c3116e047d0dee5caca7d0b270f305bde5ccd6edc825188fa29",
+    "commitment_hex": "53ad074728af69bac1962a8dd72485a98a5eac5b",
+    "dummy_hex": "300602010202011003",
+    "dummy_key_hex": "03a38ee4384d805907a5bac158f9dfcc73c3d67fc0af2fa856d72c957beeaea0ee"
+  },
+  {
+    "index": 16,
+    "preimage_hex": "0107e22fe686d8e72142924a1dc62304a21be46e26d99bc74a7fb9f5d26a56f1",
+    "commitment_hex": "0ec575aa1179dd3fec2abef7954f9221a1ce8188",
+    "dummy_hex": "300602010202011103",
+    "dummy_key_hex": "037ca298f81facd52c64d6a3bc50cec50147060b4194672f693c014aa8432be38a"
+  },
+  {
+    "index": 17,
+    "preimage_hex": "97b84fbf13153838299e3b4f052d5e422a83474f4df8ecfcad1a7120dd3e46a9",
+    "commitment_hex": "49d96bc4b8e4d231b558c2e3f7bc03daa973daf5",
+    "dummy_hex": "300602010202011203",
+    "dummy_key_hex": "0347317fbdadfbf145ab14a1009e09b5ba7c9296eaefb5612878be5587f9401b67"
+  },
+  {
+    "index": 18,
+    "preimage_hex": "ac87148659fcfe0c52815a4ba77ef3e76bd16474c8fc87ef314972f08bdd1f99",
+    "commitment_hex": "6d9f4587bbf1e11ac1be3cf17f99cdb4b83b9b33",
+    "dummy_hex": "300602010202011303",
+    "dummy_key_hex": "032c0b8ebe7a6ce976d5fe436eb567ff2d7a20673d28d237d71fc386468e993e67"
+  },
+  {
+    "index": 19,
+    "preimage_hex": "46b4e2b6a3dbe8a043191a30aafcb17f4c1e406dda4fd811754948a859bc5c4d",
+    "commitment_hex": "ffe38f5c22f74616c537a0d9befe3866ec765919",
+    "dummy_hex": "300602010202011403",
+    "dummy_key_hex": "025fea5a2b91e7bda113507d179c529dd0eba14daa6c4d0a7dc632214435242ca1"
+  },
+  {
+    "index": 20,
+    "preimage_hex": "eae1cb45736c0cf18eafd6a2cd42cd6dbec4e5e68031e0a2c55baf90bc7a429d",
+    "commitment_hex": "1d6c71645b285995e38ae9af9427bec89f46183c",
+    "dummy_hex": "300602010202011503",
+    "dummy_key_hex": "029f398a97b8b1668c1e94274c238c6c74f471dfb4840d73331c525c5e446e7584"
+  },
+  {
+    "index": 21,
+    "preimage_hex": "2918dd197fb308a2c0c61271a5729abc524bbe46d68c24f904447c33de8783f3",
+    "commitment_hex": "64071f5d1d43fc2fd97270dbc488b3125c629d57",
+    "dummy_hex": "300602010202011603",
+    "dummy_key_hex": "021e40a2e747c15a241f525a5cb4128ccf3252dc1ae19f661271db8a734677e9db"
+  },
+  {
+    "index": 22,
+    "preimage_hex": "66f40c9b5b55cb68dcb24980715c8406b67abd7ab90c207a01cd5dd344fa4fdd",
+    "commitment_hex": "375319faae8736ced629c16f643dfca1d4bc619f",
+    "dummy_hex": "300602010202011703",
+    "dummy_key_hex": "02daef171a3cad70c1c33983ff2168e0ced4f3d409d4782b01cf9be63770072034"
+  },
+  {
+    "index": 23,
+    "preimage_hex": "78a356b04fc73485bcbc9b70bb63e4c9aa8770b3e61c2f99cededfef12086331",
+    "commitment_hex": "a8bc9aa8994bad9c34342b3958b60a771fa1ac57",
+    "dummy_hex": "300602010202011803",
+    "dummy_key_hex": "024a313beb1fd4996fa3664530cddd6e7a6356828eaf2de40bb002b73763df0024"
+  }
+]

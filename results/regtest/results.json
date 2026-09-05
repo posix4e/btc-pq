@@ -1,0 +1,2860 @@
+{
+  "scope": "counterexamples_and_feasibility_limits_only",
+  "secure_candidate_demonstrated": false,
+  "fixed_signature": "300602010202010101",
+  "fixed_sighash": "SIGHASH_ALL",
+  "setup_compile_cpu_wall_seconds": 0.0007682919967919588,
+  "compiler_limits": [
+    {
+      "name": "lamport_full_264_bits",
+      "bytes": 19021,
+      "static_non_push_opcodes": 1587,
+      "max_push_bytes": 32,
+      "checksig_count": 1,
+      "checkmultisig_count": 0,
+      "within_script_size": false,
+      "within_opcode_count": false,
+      "message_key_binding": false
+    },
+    {
+      "name": "wots_base4_full_132_digits_plus_checksum",
+      "bytes": 9360,
+      "static_non_push_opcodes": 4139,
+      "max_push_bytes": 32,
+      "checksig_count": 1,
+      "checkmultisig_count": 0,
+      "within_script_size": true,
+      "within_opcode_count": false,
+      "message_key_binding": false
+    },
+    {
+      "name": "lamport_diagnostic_8_bits",
+      "bytes": 589,
+      "static_non_push_opcodes": 51,
+      "max_push_bytes": 32,
+      "checksig_count": 1,
+      "checkmultisig_count": 0,
+      "within_script_size": true,
+      "within_opcode_count": true,
+      "message_key_binding": false
+    },
+    {
+      "name": "wots_diagnostic_2_digits_plus_checksum",
+      "bytes": 302,
+      "static_non_push_opcodes": 137,
+      "max_push_bytes": 32,
+      "checksig_count": 1,
+      "checkmultisig_count": 0,
+      "within_script_size": true,
+      "within_opcode_count": true,
+      "message_key_binding": false
+    }
+  ],
+  "cases": [
+    {
+      "family": "direct",
+      "name": "honest_diagnostic",
+      "expected_acceptance": true,
+      "block_accepted": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "80ef68bad2f649ee9e240c39495a79c79cd1162206aa768665c592000dd7ff45",
+        "bytes": 95,
+        "stripped_bytes": 95,
+        "weight": 380,
+        "vsize": 95,
+        "input_script_bytes": [
+          34
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "direct--honest_diagnostic.hex",
+      "block_validation_wall_seconds": 0.0007865839870646596,
+      "detail": {
+        "recovery_cpu_wall_seconds": 0.019429624953772873,
+        "ots_sign_cpu_wall_seconds": 6.67001586407423e-07,
+        "key": "031ff46ddae688dcaaeaf59445eb58d3c8d624bd6c31d49cf9f671220248bf0c20",
+        "authorization_hex": ""
+      },
+      "blockhash": "463de3dd7f387fa85c407351c833305bf3521cd8bc5275bdb598187e9862b7ad",
+      "block_file": "blocks/direct--honest_diagnostic.hex"
+    },
+    {
+      "family": "direct",
+      "name": "redirect_with_stale_key",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "ac7edb608350113cb2cd7a9c93326ecb1294704c2de85745569056b873f0f702",
+        "bytes": 95,
+        "stripped_bytes": 95,
+        "weight": 380,
+        "vsize": 95,
+        "input_script_bytes": [
+          34
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "direct--redirect_with_stale_key.hex",
+      "block_validation_wall_seconds": 0.0007403750205412507,
+      "detail": null,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of ac7edb608350113cb2cd7a9c93326ecb1294704c2de85745569056b873f0f702 (wtxid ac7edb608350113cb2cd7a9c93326ecb1294704c2de85745569056b873f0f702), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:0"
+      }
+    },
+    {
+      "family": "direct",
+      "name": "redirect_with_recovered_key",
+      "expected_acceptance": true,
+      "block_accepted": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "3034b4166d96419193ac701e515e268d1381719569ff361b404fc34c2642644f",
+        "bytes": 95,
+        "stripped_bytes": 95,
+        "weight": 380,
+        "vsize": 95,
+        "input_script_bytes": [
+          34
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "direct--redirect_with_recovered_key.hex",
+      "block_validation_wall_seconds": 0.0006872499943710864,
+      "detail": "Identical authorization bytes reused for a different transaction and recovered key.",
+      "blockhash": "1964e019c0988bf9588a8c951c897cbb7c5350c72ff9dcd07800a8cd2846e41f",
+      "block_file": "blocks/direct--redirect_with_recovered_key.hex"
+    },
+    {
+      "family": "direct",
+      "name": "amount_with_stale_key",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element"
+          }
+        ],
+        "fee_sats": 10001,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "dc37d9c552aef4822fb83bd4bdc3cb0078e5af94bbac6a6ac2311d4af4457fde",
+        "bytes": 95,
+        "stripped_bytes": 95,
+        "weight": 380,
+        "vsize": 95,
+        "input_script_bytes": [
+          34
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "direct--amount_with_stale_key.hex",
+      "block_validation_wall_seconds": 0.0004972079768776894,
+      "detail": null,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of dc37d9c552aef4822fb83bd4bdc3cb0078e5af94bbac6a6ac2311d4af4457fde (wtxid dc37d9c552aef4822fb83bd4bdc3cb0078e5af94bbac6a6ac2311d4af4457fde), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:0"
+      }
+    },
+    {
+      "family": "direct",
+      "name": "amount_with_recovered_key",
+      "expected_acceptance": true,
+      "block_accepted": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 10001,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "051e62d729ac3e6d9e84762b00cde0fad58370f4f6c028234f9a2e3ea3f6c940",
+        "bytes": 95,
+        "stripped_bytes": 95,
+        "weight": 380,
+        "vsize": 95,
+        "input_script_bytes": [
+          34
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "direct--amount_with_recovered_key.hex",
+      "block_validation_wall_seconds": 0.0010265419841744006,
+      "detail": "Identical authorization bytes reused for a different transaction and recovered key.",
+      "blockhash": "01f8b4529a2e7a7d8ed62aa29c514acfc4fdc7de2c724f3a173c07ec046eca42",
+      "block_file": "blocks/direct--amount_with_recovered_key.hex"
+    },
+    {
+      "family": "direct",
+      "name": "input_with_stale_key",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "bbc27014b3e549bdeebf517792faac8554607d93da700bbc17e39a641336cf18",
+        "bytes": 95,
+        "stripped_bytes": 95,
+        "weight": 380,
+        "vsize": 95,
+        "input_script_bytes": [
+          34
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "direct--input_with_stale_key.hex",
+      "block_validation_wall_seconds": 0.0006484999903477728,
+      "detail": null,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of bbc27014b3e549bdeebf517792faac8554607d93da700bbc17e39a641336cf18 (wtxid bbc27014b3e549bdeebf517792faac8554607d93da700bbc17e39a641336cf18), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:1"
+      }
+    },
+    {
+      "family": "direct",
+      "name": "input_with_recovered_key",
+      "expected_acceptance": true,
+      "block_accepted": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "b1f688f0367e1a01e93f1d1b46555423483503d998cd2f17c92bdf41b0fe9fff",
+        "bytes": 95,
+        "stripped_bytes": 95,
+        "weight": 380,
+        "vsize": 95,
+        "input_script_bytes": [
+          34
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "direct--input_with_recovered_key.hex",
+      "block_validation_wall_seconds": 0.0006929999799467623,
+      "detail": "Identical authorization bytes reused for a different transaction and recovered key.",
+      "blockhash": "7763f6bd6dfb388f1c1607f96df4f72f0a30f8fcb488192226c6d252f68da696",
+      "block_file": "blocks/direct--input_with_recovered_key.hex"
+    },
+    {
+      "family": "direct",
+      "name": "recovery_branch_1",
+      "expected_acceptance": true,
+      "block_accepted": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "f26c9cd47d7ae1955220ce06d40835a0170b4f78a5f83450b34a8de06b21cc85",
+        "bytes": 95,
+        "stripped_bytes": 95,
+        "weight": 380,
+        "vsize": 95,
+        "input_script_bytes": [
+          34
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "direct--recovery_branch_1.hex",
+      "block_validation_wall_seconds": 0.0006822079885751009,
+      "detail": {
+        "key": "02068923187aaca19da31feb0aa0afcbe4b4e04f9780cbf19a2d92edc66c4ae520",
+        "same_authorization": true
+      },
+      "blockhash": "1597596a55c2db96975c4bc7ab30f63b10d1daa54a4ea6dfacbac6ebbdcc2442",
+      "block_file": "blocks/direct--recovery_branch_1.hex"
+    },
+    {
+      "family": "direct",
+      "name": "recovery_branch_2",
+      "expected_acceptance": true,
+      "block_accepted": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "38fe08d87c777dc42ab6090d1f90112df3f1e22cceadf1765c189abf79fd792b",
+        "bytes": 95,
+        "stripped_bytes": 95,
+        "weight": 380,
+        "vsize": 95,
+        "input_script_bytes": [
+          34
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "direct--recovery_branch_2.hex",
+      "block_validation_wall_seconds": 0.0006174169830046594,
+      "detail": {
+        "key": "0312e7f6e3350c655fed06490e700f0a5bd377b36e12789d9cdd34223a78130c8d",
+        "same_authorization": true
+      },
+      "blockhash": "4b33c4417a706fc8b716221ce49f3339a2416b8d893e334fd3d592ed9021b64d",
+      "block_file": "blocks/direct--recovery_branch_2.hex"
+    },
+    {
+      "family": "direct",
+      "name": "recovery_branch_3",
+      "expected_acceptance": true,
+      "block_accepted": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "0416a048f1eaa6b67d67a8b4579ed09215397fcc41b9a0acd81e4f4a9e47d2b5",
+        "bytes": 95,
+        "stripped_bytes": 95,
+        "weight": 380,
+        "vsize": 95,
+        "input_script_bytes": [
+          34
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "direct--recovery_branch_3.hex",
+      "block_validation_wall_seconds": 0.0006846670294180512,
+      "detail": {
+        "key": "0248c5017df67088bb2f7914cbbe12709de9b24fb2b3e2d8bae8d252ccdadcfc85",
+        "same_authorization": true
+      },
+      "blockhash": "72c67cbc423335f0a6a47b1f8b6c99eab2df03e85b6384f66bb72533eb58a129",
+      "block_file": "blocks/direct--recovery_branch_3.hex"
+    },
+    {
+      "family": "direct",
+      "name": "uncompressed",
+      "expected_acceptance": true,
+      "block_accepted": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "d01439056480a59b5e7f00aba9697d7d388d65850f8ecef085b95317d9243eaa",
+        "bytes": 127,
+        "stripped_bytes": 127,
+        "weight": 508,
+        "vsize": 127,
+        "input_script_bytes": [
+          66
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "direct--uncompressed.hex",
+      "block_validation_wall_seconds": 0.0006228749989531934,
+      "detail": "Consensus legacy encoding; may be rejected by relay policy.",
+      "blockhash": "4285b4601fbe72050190657c736619166ba820b96a828c58f6083b2a5e81384b",
+      "block_file": "blocks/direct--uncompressed.hex"
+    },
+    {
+      "family": "direct",
+      "name": "hybrid",
+      "expected_acceptance": true,
+      "block_accepted": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "63ccb5e4b4ce4f973ac252b0097103729fb648778ba0ec69ec890d32e442c405",
+        "bytes": 127,
+        "stripped_bytes": 127,
+        "weight": 508,
+        "vsize": 127,
+        "input_script_bytes": [
+          66
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "direct--hybrid.hex",
+      "block_validation_wall_seconds": 0.0006404169835150242,
+      "detail": "Consensus legacy encoding; may be rejected by relay policy.",
+      "blockhash": "1bdd79ee64ce0bff6a64ce62f1f0f68f25d98ad7a37e3733ca6561b1760279e8",
+      "block_file": "blocks/direct--hybrid.hex"
+    },
+    {
+      "family": "direct",
+      "name": "sighash_substitution_2",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "a61b0c076ff643206349058f78c585dd2afe78522037799f540eb2396d672233",
+        "bytes": 95,
+        "stripped_bytes": 95,
+        "weight": 380,
+        "vsize": 95,
+        "input_script_bytes": [
+          34
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "direct--sighash_substitution_2.hex",
+      "block_validation_wall_seconds": 0.0005015840288251638,
+      "detail": "Recover under a different sighash while Script retains its fixed ALL signature.",
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of a61b0c076ff643206349058f78c585dd2afe78522037799f540eb2396d672233 (wtxid a61b0c076ff643206349058f78c585dd2afe78522037799f540eb2396d672233), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:0"
+      }
+    },
+    {
+      "family": "direct",
+      "name": "sighash_substitution_3",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "641f642a76cd60783745bdf69411382ff6a7c5e4da9712a4230fc801a782bbcd",
+        "bytes": 95,
+        "stripped_bytes": 95,
+        "weight": 380,
+        "vsize": 95,
+        "input_script_bytes": [
+          34
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "direct--sighash_substitution_3.hex",
+      "block_validation_wall_seconds": 0.0005162089946679771,
+      "detail": "Recover under a different sighash while Script retains its fixed ALL signature.",
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 641f642a76cd60783745bdf69411382ff6a7c5e4da9712a4230fc801a782bbcd (wtxid 641f642a76cd60783745bdf69411382ff6a7c5e4da9712a4230fc801a782bbcd), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:0"
+      }
+    },
+    {
+      "family": "direct",
+      "name": "sighash_substitution_129",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "8799deef68794cce56f526dae78949d88dd6ac437276bc3e463949c1918029d3",
+        "bytes": 95,
+        "stripped_bytes": 95,
+        "weight": 380,
+        "vsize": 95,
+        "input_script_bytes": [
+          34
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "direct--sighash_substitution_129.hex",
+      "block_validation_wall_seconds": 0.0004658750258386135,
+      "detail": "Recover under a different sighash while Script retains its fixed ALL signature.",
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 8799deef68794cce56f526dae78949d88dd6ac437276bc3e463949c1918029d3 (wtxid 8799deef68794cce56f526dae78949d88dd6ac437276bc3e463949c1918029d3), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:0"
+      }
+    },
+    {
+      "family": "direct",
+      "name": "unexpected_witness",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Witness provided for non-witness script"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "80ef68bad2f649ee9e240c39495a79c79cd1162206aa768665c592000dd7ff45",
+        "bytes": 112,
+        "stripped_bytes": 95,
+        "weight": 397,
+        "vsize": 100,
+        "input_script_bytes": [
+          34
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "direct--unexpected_witness.hex",
+      "block_validation_wall_seconds": 0.00039895798545330763,
+      "detail": null,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Witness provided for non-witness script), input 0 of 80ef68bad2f649ee9e240c39495a79c79cd1162206aa768665c592000dd7ff45 (wtxid 2c8867d57a0fc542960955a63a529b0ed20424c76be719d19087d4d7f6616ba5), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:0"
+      }
+    },
+    {
+      "family": "direct",
+      "name": "invalid_key_serialization",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "119b690402f92a1b128fd8365bd092d7232412b34408542cba8e92c1851ca41e",
+        "bytes": 95,
+        "stripped_bytes": 95,
+        "weight": 380,
+        "vsize": 95,
+        "input_script_bytes": [
+          34
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "direct--invalid_key_serialization.hex",
+      "block_validation_wall_seconds": 0.00037162500666454434,
+      "detail": null,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 119b690402f92a1b128fd8365bd092d7232412b34408542cba8e92c1851ca41e (wtxid 119b690402f92a1b128fd8365bd092d7232412b34408542cba8e92c1851ca41e), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:0"
+      }
+    },
+    {
+      "family": "lamport",
+      "name": "honest_diagnostic",
+      "expected_acceptance": true,
+      "block_accepted": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "d78064c11d83ad6235034f57f48558ba7ed9a277bc232b55fe0850a82d7e29fd",
+        "bytes": 369,
+        "stripped_bytes": 369,
+        "weight": 1476,
+        "vsize": 369,
+        "input_script_bytes": [
+          306
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "lamport--honest_diagnostic.hex",
+      "block_validation_wall_seconds": 0.0006345839938148856,
+      "detail": {
+        "recovery_cpu_wall_seconds": 0.01839612500043586,
+        "ots_sign_cpu_wall_seconds": 5.749997217208147e-05,
+        "key": "02475ddb92f0ef39eeda85ceda47a3c6eafd245fa258753b8491f00133ab8e7a38",
+        "authorization_hex": "207470db156a9fcaa3e02b20f158f14fdd309d1d7d840e274efae76f74aa0e4e900020fbdb20d38a9574267532429d0c36f9b6ec4684c113a0846c4715e390765df3020020daebb906a48b8dcc55414ea7f6331ad37407a394b3aa2236e384b192edcc2b4a0020ef3ea6e819d81bd836a0a1c580b7bfb82d9e594fdd22de5c4ba22f026f1443985120a582fa1c40dae4e171ba255feaec90d015fbb4a5953280fa24bfa64862a481535120413c8ce5a3fee0aa2cdb2275d9c9540840ec570b5d564210716158197571fae751206a9774b257c2ba0fbbf496c9b0bbb8e8c70309f80148ac2be074b5c89c6ebcf200206c0f8880ca87fb5977f2af35b37958a29f9e93caef731d9b2bfc5933fe865f3700"
+      },
+      "blockhash": "28e3e35ff797c7433e1acd7d2a6e78c711f6406d8fae72264fe125ef6a18e95b",
+      "block_file": "blocks/lamport--honest_diagnostic.hex"
+    },
+    {
+      "family": "lamport",
+      "name": "redirect_with_stale_key",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "15578e6c94a7289f238c1eecdfafefca7aa7b449855a4f12530d3dd4eace7816",
+        "bytes": 369,
+        "stripped_bytes": 369,
+        "weight": 1476,
+        "vsize": 369,
+        "input_script_bytes": [
+          306
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "lamport--redirect_with_stale_key.hex",
+      "block_validation_wall_seconds": 0.0003904170007444918,
+      "detail": null,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 15578e6c94a7289f238c1eecdfafefca7aa7b449855a4f12530d3dd4eace7816 (wtxid 15578e6c94a7289f238c1eecdfafefca7aa7b449855a4f12530d3dd4eace7816), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:2"
+      }
+    },
+    {
+      "family": "lamport",
+      "name": "redirect_with_recovered_key",
+      "expected_acceptance": true,
+      "block_accepted": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "b5d91c85dcd1d86357b0943a7b3ccf096e97e3e788a2c90475da0f40e7375e8c",
+        "bytes": 369,
+        "stripped_bytes": 369,
+        "weight": 1476,
+        "vsize": 369,
+        "input_script_bytes": [
+          306
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "lamport--redirect_with_recovered_key.hex",
+      "block_validation_wall_seconds": 0.000714500027243048,
+      "detail": "Identical authorization bytes reused for a different transaction and recovered key.",
+      "blockhash": "1a65338a57fcd592960ed571f7282d0f24a56fdfd8a8d9cd410f77165e6b1e14",
+      "block_file": "blocks/lamport--redirect_with_recovered_key.hex"
+    },
+    {
+      "family": "lamport",
+      "name": "amount_with_stale_key",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element"
+          }
+        ],
+        "fee_sats": 10001,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "a69659fd868f8dee8f83ec9d2a335bc65607f8d3daf16e4b3b296bb91744b37d",
+        "bytes": 369,
+        "stripped_bytes": 369,
+        "weight": 1476,
+        "vsize": 369,
+        "input_script_bytes": [
+          306
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "lamport--amount_with_stale_key.hex",
+      "block_validation_wall_seconds": 0.0006421669968403876,
+      "detail": null,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of a69659fd868f8dee8f83ec9d2a335bc65607f8d3daf16e4b3b296bb91744b37d (wtxid a69659fd868f8dee8f83ec9d2a335bc65607f8d3daf16e4b3b296bb91744b37d), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:2"
+      }
+    },
+    {
+      "family": "lamport",
+      "name": "amount_with_recovered_key",
+      "expected_acceptance": true,
+      "block_accepted": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 10001,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "d562a769ea687e5275985fe7b9c107f8a0e82a9d09eed172e445b725a1fca877",
+        "bytes": 369,
+        "stripped_bytes": 369,
+        "weight": 1476,
+        "vsize": 369,
+        "input_script_bytes": [
+          306
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "lamport--amount_with_recovered_key.hex",
+      "block_validation_wall_seconds": 0.0007118330104276538,
+      "detail": "Identical authorization bytes reused for a different transaction and recovered key.",
+      "blockhash": "051df6c82ab6620048e566487ecc77a17da3baa07b8485cc7617773dcc5c8feb",
+      "block_file": "blocks/lamport--amount_with_recovered_key.hex"
+    },
+    {
+      "family": "lamport",
+      "name": "input_with_stale_key",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "c2322b998ef1206151240a1b2217e94c65f87f8670aab1527130e77573389296",
+        "bytes": 369,
+        "stripped_bytes": 369,
+        "weight": 1476,
+        "vsize": 369,
+        "input_script_bytes": [
+          306
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "lamport--input_with_stale_key.hex",
+      "block_validation_wall_seconds": 0.0004057499463669956,
+      "detail": null,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of c2322b998ef1206151240a1b2217e94c65f87f8670aab1527130e77573389296 (wtxid c2322b998ef1206151240a1b2217e94c65f87f8670aab1527130e77573389296), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:3"
+      }
+    },
+    {
+      "family": "lamport",
+      "name": "input_with_recovered_key",
+      "expected_acceptance": true,
+      "block_accepted": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "c5b4f7b65266a6df5122ba8546f0cf37fbdc4906ce0b7218d7e6d4f0abcf99c3",
+        "bytes": 369,
+        "stripped_bytes": 369,
+        "weight": 1476,
+        "vsize": 369,
+        "input_script_bytes": [
+          306
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "lamport--input_with_recovered_key.hex",
+      "block_validation_wall_seconds": 0.0005614580004476011,
+      "detail": "Identical authorization bytes reused for a different transaction and recovered key.",
+      "blockhash": "3a528fd1c3045d80ef35274d897963a26e8551b08351f74a9d576e495c8e87a0",
+      "block_file": "blocks/lamport--input_with_recovered_key.hex"
+    },
+    {
+      "family": "lamport",
+      "name": "recovery_branch_1",
+      "expected_acceptance": true,
+      "block_accepted": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "85cb2bbe33bd1fdd688e3ffa03102dc05d9405258520c554c9cb12c6f4fbed03",
+        "bytes": 369,
+        "stripped_bytes": 369,
+        "weight": 1476,
+        "vsize": 369,
+        "input_script_bytes": [
+          306
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "lamport--recovery_branch_1.hex",
+      "block_validation_wall_seconds": 0.0005757909966632724,
+      "detail": {
+        "key": "026ce3a59c80e7932c95014aad677443033dc7441bfd2bb21f266b0a9e8cbb0b5b",
+        "same_authorization": true
+      },
+      "blockhash": "1f60b1d9d82975c9b12ee8ec0ebf9e99f1d8bbf6796e6f6cd9fe3c7b9bf66b5b",
+      "block_file": "blocks/lamport--recovery_branch_1.hex"
+    },
+    {
+      "family": "lamport",
+      "name": "recovery_branch_2",
+      "expected_acceptance": true,
+      "block_accepted": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "54cc63ba9065069f7c7acebd17dc0ecdf064f9912e8fcd7feef070cfb5b17cfc",
+        "bytes": 369,
+        "stripped_bytes": 369,
+        "weight": 1476,
+        "vsize": 369,
+        "input_script_bytes": [
+          306
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "lamport--recovery_branch_2.hex",
+      "block_validation_wall_seconds": 0.0008386250119656324,
+      "detail": {
+        "key": "0296e8ddd684a6cf0f1648b9af84d7ed8f5299c0fe1371238579158eca16679dec",
+        "same_authorization": true
+      },
+      "blockhash": "08302b92442230d7c37c0a6ffdbeae80be86decbb35d0bf3648009e9b72e549b",
+      "block_file": "blocks/lamport--recovery_branch_2.hex"
+    },
+    {
+      "family": "lamport",
+      "name": "recovery_branch_3",
+      "expected_acceptance": true,
+      "block_accepted": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "2da32bce43788ba9e2728770c7b139c330267fed0acdb283701a2cb3b7857014",
+        "bytes": 369,
+        "stripped_bytes": 369,
+        "weight": 1476,
+        "vsize": 369,
+        "input_script_bytes": [
+          306
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "lamport--recovery_branch_3.hex",
+      "block_validation_wall_seconds": 0.0005797500489279628,
+      "detail": {
+        "key": "03b8466aabc8b101cfea33675657f6b6839d52524716edc7627ab73671bb2fea1e",
+        "same_authorization": true
+      },
+      "blockhash": "40675c6b95fdadc6b3e28bb6016d91978c6f578e2dc4214b1b8c31464f37ff85",
+      "block_file": "blocks/lamport--recovery_branch_3.hex"
+    },
+    {
+      "family": "lamport",
+      "name": "uncompressed",
+      "expected_acceptance": true,
+      "block_accepted": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "3160e807d9dfb578bcc483ee6b0a8e158fbf4991dbf9f427b769a5e59e728df6",
+        "bytes": 401,
+        "stripped_bytes": 401,
+        "weight": 1604,
+        "vsize": 401,
+        "input_script_bytes": [
+          338
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "lamport--uncompressed.hex",
+      "block_validation_wall_seconds": 0.0005738330073654652,
+      "detail": "Consensus legacy encoding; may be rejected by relay policy.",
+      "blockhash": "2e43057c13dd0a3bf6150164c835e6176bf62307465796a52b21d9e8ce3ab3f2",
+      "block_file": "blocks/lamport--uncompressed.hex"
+    },
+    {
+      "family": "lamport",
+      "name": "hybrid",
+      "expected_acceptance": true,
+      "block_accepted": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "09b46a2ad24e3992eb828fe7f0fb559fa54b839830bac66c53264d6df4eccc8a",
+        "bytes": 401,
+        "stripped_bytes": 401,
+        "weight": 1604,
+        "vsize": 401,
+        "input_script_bytes": [
+          338
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "lamport--hybrid.hex",
+      "block_validation_wall_seconds": 0.0005100000416859984,
+      "detail": "Consensus legacy encoding; may be rejected by relay policy.",
+      "blockhash": "1584352dbb8f0dcde7033c7bf6ed94a54a4448c534f8b46759da4ec7458dbbb5",
+      "block_file": "blocks/lamport--hybrid.hex"
+    },
+    {
+      "family": "lamport",
+      "name": "sighash_substitution_2",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "dafee44070ddc632b3e86ca7d226c4895b711f56a92da91d108d2ac685de0ea6",
+        "bytes": 369,
+        "stripped_bytes": 369,
+        "weight": 1476,
+        "vsize": 369,
+        "input_script_bytes": [
+          306
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "lamport--sighash_substitution_2.hex",
+      "block_validation_wall_seconds": 0.00046204199315980077,
+      "detail": "Recover under a different sighash while Script retains its fixed ALL signature.",
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of dafee44070ddc632b3e86ca7d226c4895b711f56a92da91d108d2ac685de0ea6 (wtxid dafee44070ddc632b3e86ca7d226c4895b711f56a92da91d108d2ac685de0ea6), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:2"
+      }
+    },
+    {
+      "family": "lamport",
+      "name": "sighash_substitution_3",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "d79cdd2ca90edc2965c15c861f75c5f6253898fe958dd2431ab6830fbbac0f76",
+        "bytes": 369,
+        "stripped_bytes": 369,
+        "weight": 1476,
+        "vsize": 369,
+        "input_script_bytes": [
+          306
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "lamport--sighash_substitution_3.hex",
+      "block_validation_wall_seconds": 0.0005154589889571071,
+      "detail": "Recover under a different sighash while Script retains its fixed ALL signature.",
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of d79cdd2ca90edc2965c15c861f75c5f6253898fe958dd2431ab6830fbbac0f76 (wtxid d79cdd2ca90edc2965c15c861f75c5f6253898fe958dd2431ab6830fbbac0f76), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:2"
+      }
+    },
+    {
+      "family": "lamport",
+      "name": "sighash_substitution_129",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "078fedc9101fc3ba17aa84787d6957395f00127c80204b2f7fbd25ea2f5c61ed",
+        "bytes": 369,
+        "stripped_bytes": 369,
+        "weight": 1476,
+        "vsize": 369,
+        "input_script_bytes": [
+          306
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "lamport--sighash_substitution_129.hex",
+      "block_validation_wall_seconds": 0.0004255829844623804,
+      "detail": "Recover under a different sighash while Script retains its fixed ALL signature.",
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 078fedc9101fc3ba17aa84787d6957395f00127c80204b2f7fbd25ea2f5c61ed (wtxid 078fedc9101fc3ba17aa84787d6957395f00127c80204b2f7fbd25ea2f5c61ed), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:2"
+      }
+    },
+    {
+      "family": "lamport",
+      "name": "unexpected_witness",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Witness provided for non-witness script"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "d78064c11d83ad6235034f57f48558ba7ed9a277bc232b55fe0850a82d7e29fd",
+        "bytes": 386,
+        "stripped_bytes": 369,
+        "weight": 1493,
+        "vsize": 374,
+        "input_script_bytes": [
+          306
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "lamport--unexpected_witness.hex",
+      "block_validation_wall_seconds": 0.00037212501047179103,
+      "detail": null,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Witness provided for non-witness script), input 0 of d78064c11d83ad6235034f57f48558ba7ed9a277bc232b55fe0850a82d7e29fd (wtxid f989cd541f2b5d1c291aee4cc8c588a60bd648ff28d9f398f68718c2370d02cd), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:2"
+      }
+    },
+    {
+      "family": "lamport",
+      "name": "invalid_key_serialization",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "6d0933b6d27bfad357f9b635a5a5cb75f9fbc481bb47a50851199748ff6fdfe0",
+        "bytes": 369,
+        "stripped_bytes": 369,
+        "weight": 1476,
+        "vsize": 369,
+        "input_script_bytes": [
+          306
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "lamport--invalid_key_serialization.hex",
+      "block_validation_wall_seconds": 0.00031937501626089215,
+      "detail": null,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 6d0933b6d27bfad357f9b635a5a5cb75f9fbc481bb47a50851199748ff6fdfe0 (wtxid 6d0933b6d27bfad357f9b635a5a5cb75f9fbc481bb47a50851199748ff6fdfe0), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:2"
+      }
+    },
+    {
+      "family": "lamport",
+      "name": "wrong_preimage",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script failed an OP_EQUALVERIFY operation"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "03762a502129b1291aeefe41690895e22cbd239ea6a0386c73da7a7ae981f456",
+        "bytes": 369,
+        "stripped_bytes": 369,
+        "weight": 1476,
+        "vsize": 369,
+        "input_script_bytes": [
+          306
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "lamport--wrong_preimage.hex",
+      "block_validation_wall_seconds": 0.0003630410064943135,
+      "detail": null,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script failed an OP_EQUALVERIFY operation), input 0 of 03762a502129b1291aeefe41690895e22cbd239ea6a0386c73da7a7ae981f456 (wtxid 03762a502129b1291aeefe41690895e22cbd239ea6a0386c73da7a7ae981f456), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:2"
+      }
+    },
+    {
+      "family": "lamport",
+      "name": "message_secret_mismatch",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script failed an OP_EQUALVERIFY operation"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "f5d8322730c0f964b40fd93d83886219f7a7e61810366a64ffe26c83143a2056",
+        "bytes": 369,
+        "stripped_bytes": 369,
+        "weight": 1476,
+        "vsize": 369,
+        "input_script_bytes": [
+          306
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "lamport--message_secret_mismatch.hex",
+      "block_validation_wall_seconds": 0.0003406250034458935,
+      "detail": null,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script failed an OP_EQUALVERIFY operation), input 0 of f5d8322730c0f964b40fd93d83886219f7a7e61810366a64ffe26c83143a2056 (wtxid f5d8322730c0f964b40fd93d83886219f7a7e61810366a64ffe26c83143a2056), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:2"
+      }
+    },
+    {
+      "family": "winternitz",
+      "name": "honest_diagnostic",
+      "expected_acceptance": true,
+      "block_accepted": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "8729ff92fa03b3f3a7610e9fccab69d35110d85d59d30b1125bdb490f0fafa05",
+        "bytes": 231,
+        "stripped_bytes": 231,
+        "weight": 924,
+        "vsize": 231,
+        "input_script_bytes": [
+          170
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "winternitz--honest_diagnostic.hex",
+      "block_validation_wall_seconds": 0.0007063749944791198,
+      "detail": {
+        "recovery_cpu_wall_seconds": 0.018435834033880383,
+        "ots_sign_cpu_wall_seconds": 3.0916009563952684e-05,
+        "key": "035aae75cecb50883cd8339901b12c8c45e6ca824bad5bd3f08afe3576f1952bf3",
+        "authorization_hex": "203c41a74c61fa635d76f92e3d9fed66ff3a37853ebaa16efacec900867ae51f3653202412d1b61bcc38961289066b1d5c3c7e36dd9a293ac99a7b6fb5bedbd45a344d0020291ee6be7552a1b16ddd09ec371bdb82feac53a4a620e981f7ff5616820a47b65320b2cfcc3d7416663edca2f36f47d30a91805d0b8b8608a863ded20a89c39feb0900"
+      },
+      "blockhash": "1f5f12775d132054865bc3346d8cb450b267e106443ef0cd0e902218ab0fb458",
+      "block_file": "blocks/winternitz--honest_diagnostic.hex"
+    },
+    {
+      "family": "winternitz",
+      "name": "redirect_with_stale_key",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "e3761ef8f4bde88451f823075a729510a2d6bc2a752d446a04b2becc3eaa643e",
+        "bytes": 231,
+        "stripped_bytes": 231,
+        "weight": 924,
+        "vsize": 231,
+        "input_script_bytes": [
+          170
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "winternitz--redirect_with_stale_key.hex",
+      "block_validation_wall_seconds": 0.0005598749849013984,
+      "detail": null,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of e3761ef8f4bde88451f823075a729510a2d6bc2a752d446a04b2becc3eaa643e (wtxid e3761ef8f4bde88451f823075a729510a2d6bc2a752d446a04b2becc3eaa643e), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:4"
+      }
+    },
+    {
+      "family": "winternitz",
+      "name": "redirect_with_recovered_key",
+      "expected_acceptance": true,
+      "block_accepted": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "b02fc2566f74a5cf187a90418041fb01f9d7beb94c4b49e381bed8580000d64f",
+        "bytes": 231,
+        "stripped_bytes": 231,
+        "weight": 924,
+        "vsize": 231,
+        "input_script_bytes": [
+          170
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "winternitz--redirect_with_recovered_key.hex",
+      "block_validation_wall_seconds": 0.0006071659736335278,
+      "detail": "Identical authorization bytes reused for a different transaction and recovered key.",
+      "blockhash": "0d0bee8100ce2cce454789947f7567ad6052357ab0ecb636cec59b45fa9429a8",
+      "block_file": "blocks/winternitz--redirect_with_recovered_key.hex"
+    },
+    {
+      "family": "winternitz",
+      "name": "amount_with_stale_key",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element"
+          }
+        ],
+        "fee_sats": 10001,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "cf97eee5fb47ebe82e880dbbf9b7dcee63677757425ac5cb3319fdb4d57271c1",
+        "bytes": 231,
+        "stripped_bytes": 231,
+        "weight": 924,
+        "vsize": 231,
+        "input_script_bytes": [
+          170
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "winternitz--amount_with_stale_key.hex",
+      "block_validation_wall_seconds": 0.00043175002792850137,
+      "detail": null,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of cf97eee5fb47ebe82e880dbbf9b7dcee63677757425ac5cb3319fdb4d57271c1 (wtxid cf97eee5fb47ebe82e880dbbf9b7dcee63677757425ac5cb3319fdb4d57271c1), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:4"
+      }
+    },
+    {
+      "family": "winternitz",
+      "name": "amount_with_recovered_key",
+      "expected_acceptance": true,
+      "block_accepted": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 10001,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "c6473c1a31292cb76d69881300cf37c053b11cfa7b3e35bee0a2c0949fa34195",
+        "bytes": 231,
+        "stripped_bytes": 231,
+        "weight": 924,
+        "vsize": 231,
+        "input_script_bytes": [
+          170
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "winternitz--amount_with_recovered_key.hex",
+      "block_validation_wall_seconds": 0.0005683749914169312,
+      "detail": "Identical authorization bytes reused for a different transaction and recovered key.",
+      "blockhash": "2117ee9fad70b4fc8512415bdbe8fc617221600f0820ca3a4fc51d7427e69693",
+      "block_file": "blocks/winternitz--amount_with_recovered_key.hex"
+    },
+    {
+      "family": "winternitz",
+      "name": "input_with_stale_key",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "21c2287590a1de1669c3e889aba053344a39b0136d3af6c98a1f08e3ee9eef79",
+        "bytes": 231,
+        "stripped_bytes": 231,
+        "weight": 924,
+        "vsize": 231,
+        "input_script_bytes": [
+          170
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "winternitz--input_with_stale_key.hex",
+      "block_validation_wall_seconds": 0.0007983749965205789,
+      "detail": null,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 21c2287590a1de1669c3e889aba053344a39b0136d3af6c98a1f08e3ee9eef79 (wtxid 21c2287590a1de1669c3e889aba053344a39b0136d3af6c98a1f08e3ee9eef79), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:5"
+      }
+    },
+    {
+      "family": "winternitz",
+      "name": "input_with_recovered_key",
+      "expected_acceptance": true,
+      "block_accepted": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "4dfdd80247341271e4bfd3ea54b5ab4e96a2c56ff74d84099028c9a8231e80d5",
+        "bytes": 231,
+        "stripped_bytes": 231,
+        "weight": 924,
+        "vsize": 231,
+        "input_script_bytes": [
+          170
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "winternitz--input_with_recovered_key.hex",
+      "block_validation_wall_seconds": 0.0006100420141592622,
+      "detail": "Identical authorization bytes reused for a different transaction and recovered key.",
+      "blockhash": "14b1b43324817b2a6f4273202de63acddccb631481f70def27959671308ee257",
+      "block_file": "blocks/winternitz--input_with_recovered_key.hex"
+    },
+    {
+      "family": "winternitz",
+      "name": "recovery_branch_1",
+      "expected_acceptance": true,
+      "block_accepted": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "f1a6056f4e397e618d8f61ddf0471c50d7cc319b93310e1fdf89b0f56796505e",
+        "bytes": 231,
+        "stripped_bytes": 231,
+        "weight": 924,
+        "vsize": 231,
+        "input_script_bytes": [
+          170
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "winternitz--recovery_branch_1.hex",
+      "block_validation_wall_seconds": 0.0005773340235464275,
+      "detail": {
+        "key": "03c71d2f6c5a60acc6d654508ae3a9d01d04bcfb406e49ab02bc140516a812f371",
+        "same_authorization": true
+      },
+      "blockhash": "1d28b062521e9aaab337956d02d965cd352924d4a42953f83feb5062cec626d6",
+      "block_file": "blocks/winternitz--recovery_branch_1.hex"
+    },
+    {
+      "family": "winternitz",
+      "name": "recovery_branch_2",
+      "expected_acceptance": true,
+      "block_accepted": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "b44818194bfc94ed753f9fe437e9969d53867de8a84e2d5e732f63f5791920e3",
+        "bytes": 231,
+        "stripped_bytes": 231,
+        "weight": 924,
+        "vsize": 231,
+        "input_script_bytes": [
+          170
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "winternitz--recovery_branch_2.hex",
+      "block_validation_wall_seconds": 0.0005681249895133078,
+      "detail": {
+        "key": "03d0de4a14b5aa23166fdae4d361a078a843c9fe933afb0dd4a9ec5f300bf160ad",
+        "same_authorization": true
+      },
+      "blockhash": "31e73a3fef0279a2183fda2d7e5a5137de46325b2ec33fc9bb50d443b981da2b",
+      "block_file": "blocks/winternitz--recovery_branch_2.hex"
+    },
+    {
+      "family": "winternitz",
+      "name": "recovery_branch_3",
+      "expected_acceptance": true,
+      "block_accepted": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "18a43316e5a75a9aaaa56903230398107be1ef5e659fc8a09b4716875e55dacb",
+        "bytes": 231,
+        "stripped_bytes": 231,
+        "weight": 924,
+        "vsize": 231,
+        "input_script_bytes": [
+          170
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "winternitz--recovery_branch_3.hex",
+      "block_validation_wall_seconds": 0.0009042500169016421,
+      "detail": {
+        "key": "03e481a95cb3d2df2e9d0d35f9be792b7db527a7edde98aa9ef4e4a32a4ae86501",
+        "same_authorization": true
+      },
+      "blockhash": "0348857963125a71c752342a376b2765d478027bc22349f52cc306b018380998",
+      "block_file": "blocks/winternitz--recovery_branch_3.hex"
+    },
+    {
+      "family": "winternitz",
+      "name": "uncompressed",
+      "expected_acceptance": true,
+      "block_accepted": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "62219516ed65f5be6f7d3d5d5b5c1b2b3d67038b82dbb5fc4f3339570d6044aa",
+        "bytes": 263,
+        "stripped_bytes": 263,
+        "weight": 1052,
+        "vsize": 263,
+        "input_script_bytes": [
+          202
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "winternitz--uncompressed.hex",
+      "block_validation_wall_seconds": 0.0005029159947298467,
+      "detail": "Consensus legacy encoding; may be rejected by relay policy.",
+      "blockhash": "58502d72e7b57c6c4b9981d4032d6fbc8299318d1249f29aa8d064345ad0746d",
+      "block_file": "blocks/winternitz--uncompressed.hex"
+    },
+    {
+      "family": "winternitz",
+      "name": "hybrid",
+      "expected_acceptance": true,
+      "block_accepted": true,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": true,
+            "error": "No error"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": true
+      },
+      "transaction": {
+        "txid": "f1c45c68463a33ec34231363d1e5f6fbf0417f283d774af32200cd3e9832eea3",
+        "bytes": 263,
+        "stripped_bytes": 263,
+        "weight": 1052,
+        "vsize": 263,
+        "input_script_bytes": [
+          202
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "winternitz--hybrid.hex",
+      "block_validation_wall_seconds": 0.0005452499608509243,
+      "detail": "Consensus legacy encoding; may be rejected by relay policy.",
+      "blockhash": "5a139f812f96994914fbe7b017151383af0d2796013d2517f073f9604313ef03",
+      "block_file": "blocks/winternitz--hybrid.hex"
+    },
+    {
+      "family": "winternitz",
+      "name": "sighash_substitution_2",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "368f3dae3b3b65b0cdcd82880b1f3ba63f5ff4384c68249ef319ff1631bf41d8",
+        "bytes": 231,
+        "stripped_bytes": 231,
+        "weight": 924,
+        "vsize": 231,
+        "input_script_bytes": [
+          170
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "winternitz--sighash_substitution_2.hex",
+      "block_validation_wall_seconds": 0.0004419999895617366,
+      "detail": "Recover under a different sighash while Script retains its fixed ALL signature.",
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 368f3dae3b3b65b0cdcd82880b1f3ba63f5ff4384c68249ef319ff1631bf41d8 (wtxid 368f3dae3b3b65b0cdcd82880b1f3ba63f5ff4384c68249ef319ff1631bf41d8), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:4"
+      }
+    },
+    {
+      "family": "winternitz",
+      "name": "sighash_substitution_3",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "2a6c28cceeee5edc2b1f9b1da7769e8755e5a8970d3fb818e401cb064a36ba1d",
+        "bytes": 231,
+        "stripped_bytes": 231,
+        "weight": 924,
+        "vsize": 231,
+        "input_script_bytes": [
+          170
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "winternitz--sighash_substitution_3.hex",
+      "block_validation_wall_seconds": 0.0003643750096671283,
+      "detail": "Recover under a different sighash while Script retains its fixed ALL signature.",
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 2a6c28cceeee5edc2b1f9b1da7769e8755e5a8970d3fb818e401cb064a36ba1d (wtxid 2a6c28cceeee5edc2b1f9b1da7769e8755e5a8970d3fb818e401cb064a36ba1d), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:4"
+      }
+    },
+    {
+      "family": "winternitz",
+      "name": "sighash_substitution_129",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "eccd3d0bb49d19a36925a0d790b3bbcd71d14f796ec72692673c0b427714f2f8",
+        "bytes": 231,
+        "stripped_bytes": 231,
+        "weight": 924,
+        "vsize": 231,
+        "input_script_bytes": [
+          170
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "winternitz--sighash_substitution_129.hex",
+      "block_validation_wall_seconds": 0.0006264999974519014,
+      "detail": "Recover under a different sighash while Script retains its fixed ALL signature.",
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of eccd3d0bb49d19a36925a0d790b3bbcd71d14f796ec72692673c0b427714f2f8 (wtxid eccd3d0bb49d19a36925a0d790b3bbcd71d14f796ec72692673c0b427714f2f8), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:4"
+      }
+    },
+    {
+      "family": "winternitz",
+      "name": "unexpected_witness",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Witness provided for non-witness script"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "8729ff92fa03b3f3a7610e9fccab69d35110d85d59d30b1125bdb490f0fafa05",
+        "bytes": 248,
+        "stripped_bytes": 231,
+        "weight": 941,
+        "vsize": 236,
+        "input_script_bytes": [
+          170
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "winternitz--unexpected_witness.hex",
+      "block_validation_wall_seconds": 0.000528041971847415,
+      "detail": null,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Witness provided for non-witness script), input 0 of 8729ff92fa03b3f3a7610e9fccab69d35110d85d59d30b1125bdb490f0fafa05 (wtxid 02a7542b350e6837d716da2f267ba081425e9c4cefed1c7154f5f95b95da2862), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:4"
+      }
+    },
+    {
+      "family": "winternitz",
+      "name": "invalid_key_serialization",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "e3d646ba95c28b65aec982631dcb5d487aa29bf51ba7402087234877c1986921",
+        "bytes": 231,
+        "stripped_bytes": 231,
+        "weight": 924,
+        "vsize": 231,
+        "input_script_bytes": [
+          170
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "winternitz--invalid_key_serialization.hex",
+      "block_validation_wall_seconds": 0.0007223339634947479,
+      "detail": null,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of e3d646ba95c28b65aec982631dcb5d487aa29bf51ba7402087234877c1986921 (wtxid e3d646ba95c28b65aec982631dcb5d487aa29bf51ba7402087234877c1986921), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:4"
+      }
+    },
+    {
+      "family": "winternitz",
+      "name": "wrong_preimage",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script failed an OP_EQUALVERIFY operation"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "c6bf278a286dad888d77b6a0bb701486bcf688867dba69ef40dea0b81c09f335",
+        "bytes": 231,
+        "stripped_bytes": 231,
+        "weight": 924,
+        "vsize": 231,
+        "input_script_bytes": [
+          170
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "winternitz--wrong_preimage.hex",
+      "block_validation_wall_seconds": 0.0005595000111497939,
+      "detail": null,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script failed an OP_EQUALVERIFY operation), input 0 of c6bf278a286dad888d77b6a0bb701486bcf688867dba69ef40dea0b81c09f335 (wtxid c6bf278a286dad888d77b6a0bb701486bcf688867dba69ef40dea0b81c09f335), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:4"
+      }
+    },
+    {
+      "family": "winternitz",
+      "name": "message_secret_mismatch",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script failed an OP_EQUALVERIFY operation"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "3062fbcb3968f9bfaec70493c02b9e3d69ad205a4249f8fc3c44f5520e230e15",
+        "bytes": 231,
+        "stripped_bytes": 231,
+        "weight": 924,
+        "vsize": 231,
+        "input_script_bytes": [
+          170
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "winternitz--message_secret_mismatch.hex",
+      "block_validation_wall_seconds": 0.0006280840025283396,
+      "detail": null,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script failed an OP_EQUALVERIFY operation), input 0 of 3062fbcb3968f9bfaec70493c02b9e3d69ad205a4249f8fc3c44f5520e230e15 (wtxid 3062fbcb3968f9bfaec70493c02b9e3d69ad205a4249f8fc3c44f5520e230e15), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:4"
+      }
+    },
+    {
+      "family": "whole_key",
+      "name": "recover_after_funding",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script failed an OP_EQUALVERIFY operation"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "762b217e010877ef74cc66884d67ce569f1f724b2abe8e102aae87cfe1f95344",
+        "bytes": 95,
+        "stripped_bytes": 95,
+        "weight": 380,
+        "vsize": 95,
+        "input_script_bytes": [
+          34
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "whole_key--recover_after_funding.hex",
+      "block_validation_wall_seconds": 0.0005579999997280538,
+      "detail": "Actual recovered key does not match the pre-funded exact-byte commitment.",
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script failed an OP_EQUALVERIFY operation), input 0 of 762b217e010877ef74cc66884d67ce569f1f724b2abe8e102aae87cfe1f95344 (wtxid 762b217e010877ef74cc66884d67ce569f1f724b2abe8e102aae87cfe1f95344), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:6"
+      }
+    },
+    {
+      "family": "whole_key",
+      "name": "committed_key_after_funding",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script evaluated without error but finished with a false/empty top stack element"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "22e1076825bbeb476684dc5b81c3888805e3072b3ae9659cc3824d935f8d0fac",
+        "bytes": 95,
+        "stripped_bytes": 95,
+        "weight": 380,
+        "vsize": 95,
+        "input_script_bytes": [
+          34
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "whole_key--committed_key_after_funding.hex",
+      "block_validation_wall_seconds": 0.00046320795081555843,
+      "detail": "The committed bytes pass authentication but fail the fixed signature.",
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 22e1076825bbeb476684dc5b81c3888805e3072b3ae9659cc3824d935f8d0fac (wtxid 22e1076825bbeb476684dc5b81c3888805e3072b3ae9659cc3824d935f8d0fac), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:6"
+      }
+    },
+    {
+      "family": "lamport_full",
+      "name": "consensus_limit",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Script is too big"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "ad7d3e5b23799db878b3a589869f47c613e88736f93662dcaeba91efdeb30dc5",
+        "bytes": 9073,
+        "stripped_bytes": 9073,
+        "weight": 36292,
+        "vsize": 9073,
+        "input_script_bytes": [
+          9010
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "lamport_full--consensus_limit.hex",
+      "block_validation_wall_seconds": 0.0006292500183917582,
+      "detail": null,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: bad-txns-inputs-missingorspent, CheckTxInputs: inputs missing/spent in transaction ad7d3e5b23799db878b3a589869f47c613e88736f93662dcaeba91efdeb30dc5"
+      }
+    },
+    {
+      "family": "winternitz_full",
+      "name": "consensus_limit",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Operation limit exceeded"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "b3355eef5516879a800cf55ed5007d164fe865a86458b8b3bc092969fbb57702",
+        "bytes": 4755,
+        "stripped_bytes": 4755,
+        "weight": 19020,
+        "vsize": 4755,
+        "input_script_bytes": [
+          4692
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "winternitz_full--consensus_limit.hex",
+      "block_validation_wall_seconds": 0.0006069169612601399,
+      "detail": null,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Operation limit exceeded), input 0 of b3355eef5516879a800cf55ed5007d164fe865a86458b8b3bc092969fbb57702 (wtxid b3355eef5516879a800cf55ed5007d164fe865a86458b8b3bc092969fbb57702), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:10"
+      }
+    },
+    {
+      "family": "limits",
+      "name": "op_cat_reconstruction",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Attempted to use a disabled opcode"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "f315b1ee3a656bc5779db192d9e88af2b86a18f12d8a4e78b30b62d82147182c",
+        "bytes": 65,
+        "stripped_bytes": 65,
+        "weight": 260,
+        "vsize": 65,
+        "input_script_bytes": [
+          4
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "limits--op_cat_reconstruction.hex",
+      "block_validation_wall_seconds": 0.00040791695937514305,
+      "detail": null,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Attempted to use a disabled opcode), input 0 of f315b1ee3a656bc5779db192d9e88af2b86a18f12d8a4e78b30b62d82147182c (wtxid f315b1ee3a656bc5779db192d9e88af2b86a18f12d8a4e78b30b62d82147182c), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:12"
+      }
+    },
+    {
+      "family": "limits",
+      "name": "521_byte_element",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Push value size limit exceeded"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "7b43dab2c4e38288fc9f4b1a7ebee274aaeb53a8ee3368719453b0631c6e71c0",
+        "bytes": 587,
+        "stripped_bytes": 587,
+        "weight": 2348,
+        "vsize": 587,
+        "input_script_bytes": [
+          524
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "limits--521_byte_element.hex",
+      "block_validation_wall_seconds": 0.0004409580142237246,
+      "detail": null,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Push value size limit exceeded), input 0 of 7b43dab2c4e38288fc9f4b1a7ebee274aaeb53a8ee3368719453b0631c6e71c0 (wtxid 7b43dab2c4e38288fc9f4b1a7ebee274aaeb53a8ee3368719453b0631c6e71c0), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:14"
+      }
+    },
+    {
+      "family": "limits",
+      "name": "1001_stack_elements",
+      "expected_acceptance": false,
+      "block_accepted": false,
+      "native": {
+        "core_version": "31.1",
+        "scope": "linked_prevout_script_verification",
+        "flags": 134677,
+        "inputs": [
+          {
+            "index": 0,
+            "valid": false,
+            "error": "Stack size limit exceeded"
+          }
+        ],
+        "fee_sats": 10000,
+        "valid": false
+      },
+      "transaction": {
+        "txid": "5a50867b52bd22a95fcbbad7fbcb3393e491572b32151da84f7b037d423edc79",
+        "bytes": 1064,
+        "stripped_bytes": 1064,
+        "weight": 4256,
+        "vsize": 1064,
+        "input_script_bytes": [
+          1001
+        ],
+        "output_script_bytes": [
+          1
+        ]
+      },
+      "file": "limits--1001_stack_elements.hex",
+      "block_validation_wall_seconds": 0.0004290419747121632,
+      "detail": null,
+      "block_rejection": {
+        "code": -25,
+        "message": "TestBlockValidity failed: block-script-verify-flag-failed (Stack size limit exceeded), input 0 of 5a50867b52bd22a95fcbbad7fbcb3393e491572b32151da84f7b037d423edc79 (wtxid 5a50867b52bd22a95fcbbad7fbcb3393e491572b32151da84f7b037d423edc79), spending 50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060:16"
+      }
+    }
+  ],
+  "reduced_instances": "Lamport signs the last 8 key bits; WOTS signs the last 2 base-4 digits with checksum. Attack diagnostics only.",
+  "consensus_changes": [],
+  "relay_policy_changes": [],
+  "block_method": "generateblock submits to Core; accepted blocks saved and invalidated to test mutually exclusive spends",
+  "core_version": 310100,
+  "funding": {
+    "txid": "50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060",
+    "bytes": 59049,
+    "stripped_bytes": 58940,
+    "weight": 235869,
+    "vsize": 58968,
+    "input_script_bytes": [
+      0
+    ],
+    "output_script_bytes": [
+      13,
+      13,
+      589,
+      589,
+      302,
+      302,
+      49,
+      49,
+      19021,
+      19021,
+      9360,
+      9360,
+      3,
+      3,
+      2,
+      2,
+      1,
+      1,
+      22
+    ],
+    "output_indices": {
+      "direct": 0,
+      "lamport": 2,
+      "winternitz": 4,
+      "whole_key": 6,
+      "lamport_full": 8,
+      "winternitz_full": 10,
+      "disabled_cat": 12,
+      "oversized_element": 14,
+      "stack_limit": 16
+    },
+    "blockhash": "00e3e96fbfb6d7f384e20da0d09439381fba5bb193078557270937b5dbba08ba",
+    "script_metrics": {
+      "direct": {
+        "bytes": 13,
+        "static_non_push_opcodes": 3,
+        "max_push_bytes": 9,
+        "checksig_count": 1,
+        "checkmultisig_count": 0
+      },
+      "lamport": {
+        "bytes": 589,
+        "static_non_push_opcodes": 51,
+        "max_push_bytes": 32,
+        "checksig_count": 1,
+        "checkmultisig_count": 0
+      },
+      "winternitz": {
+        "bytes": 302,
+        "static_non_push_opcodes": 137,
+        "max_push_bytes": 32,
+        "checksig_count": 1,
+        "checkmultisig_count": 0
+      },
+      "whole_key": {
+        "bytes": 49,
+        "static_non_push_opcodes": 6,
+        "max_push_bytes": 32,
+        "checksig_count": 1,
+        "checkmultisig_count": 0
+      },
+      "lamport_full": {
+        "bytes": 19021,
+        "static_non_push_opcodes": 1587,
+        "max_push_bytes": 32,
+        "checksig_count": 1,
+        "checkmultisig_count": 0
+      },
+      "winternitz_full": {
+        "bytes": 9360,
+        "static_non_push_opcodes": 4139,
+        "max_push_bytes": 32,
+        "checksig_count": 1,
+        "checkmultisig_count": 0
+      },
+      "disabled_cat": {
+        "bytes": 3,
+        "static_non_push_opcodes": 2,
+        "max_push_bytes": 0,
+        "checksig_count": 0,
+        "checkmultisig_count": 0
+      },
+      "oversized_element": {
+        "bytes": 2,
+        "static_non_push_opcodes": 1,
+        "max_push_bytes": 0,
+        "checksig_count": 0,
+        "checkmultisig_count": 0
+      },
+      "stack_limit": {
+        "bytes": 1,
+        "static_non_push_opcodes": 0,
+        "max_push_bytes": 0,
+        "checksig_count": 0,
+        "checkmultisig_count": 0
+      }
+    }
+  },
+  "setup_blocks": [
+    "blocks/setup-001.hex",
+    "blocks/setup-002.hex",
+    "blocks/setup-003.hex",
+    "blocks/setup-004.hex",
+    "blocks/setup-005.hex",
+    "blocks/setup-006.hex",
+    "blocks/setup-007.hex",
+    "blocks/setup-008.hex",
+    "blocks/setup-009.hex",
+    "blocks/setup-010.hex",
+    "blocks/setup-011.hex",
+    "blocks/setup-012.hex",
+    "blocks/setup-013.hex",
+    "blocks/setup-014.hex",
+    "blocks/setup-015.hex",
+    "blocks/setup-016.hex",
+    "blocks/setup-017.hex",
+    "blocks/setup-018.hex",
+    "blocks/setup-019.hex",
+    "blocks/setup-020.hex",
+    "blocks/setup-021.hex",
+    "blocks/setup-022.hex",
+    "blocks/setup-023.hex",
+    "blocks/setup-024.hex",
+    "blocks/setup-025.hex",
+    "blocks/setup-026.hex",
+    "blocks/setup-027.hex",
+    "blocks/setup-028.hex",
+    "blocks/setup-029.hex",
+    "blocks/setup-030.hex",
+    "blocks/setup-031.hex",
+    "blocks/setup-032.hex",
+    "blocks/setup-033.hex",
+    "blocks/setup-034.hex",
+    "blocks/setup-035.hex",
+    "blocks/setup-036.hex",
+    "blocks/setup-037.hex",
+    "blocks/setup-038.hex",
+    "blocks/setup-039.hex",
+    "blocks/setup-040.hex",
+    "blocks/setup-041.hex",
+    "blocks/setup-042.hex",
+    "blocks/setup-043.hex",
+    "blocks/setup-044.hex",
+    "blocks/setup-045.hex",
+    "blocks/setup-046.hex",
+    "blocks/setup-047.hex",
+    "blocks/setup-048.hex",
+    "blocks/setup-049.hex",
+    "blocks/setup-050.hex",
+    "blocks/setup-051.hex",
+    "blocks/setup-052.hex",
+    "blocks/setup-053.hex",
+    "blocks/setup-054.hex",
+    "blocks/setup-055.hex",
+    "blocks/setup-056.hex",
+    "blocks/setup-057.hex",
+    "blocks/setup-058.hex",
+    "blocks/setup-059.hex",
+    "blocks/setup-060.hex",
+    "blocks/setup-061.hex",
+    "blocks/setup-062.hex",
+    "blocks/setup-063.hex",
+    "blocks/setup-064.hex",
+    "blocks/setup-065.hex",
+    "blocks/setup-066.hex",
+    "blocks/setup-067.hex",
+    "blocks/setup-068.hex",
+    "blocks/setup-069.hex",
+    "blocks/setup-070.hex",
+    "blocks/setup-071.hex",
+    "blocks/setup-072.hex",
+    "blocks/setup-073.hex",
+    "blocks/setup-074.hex",
+    "blocks/setup-075.hex",
+    "blocks/setup-076.hex",
+    "blocks/setup-077.hex",
+    "blocks/setup-078.hex",
+    "blocks/setup-079.hex",
+    "blocks/setup-080.hex",
+    "blocks/setup-081.hex",
+    "blocks/setup-082.hex",
+    "blocks/setup-083.hex",
+    "blocks/setup-084.hex",
+    "blocks/setup-085.hex",
+    "blocks/setup-086.hex",
+    "blocks/setup-087.hex",
+    "blocks/setup-088.hex",
+    "blocks/setup-089.hex",
+    "blocks/setup-090.hex",
+    "blocks/setup-091.hex",
+    "blocks/setup-092.hex",
+    "blocks/setup-093.hex",
+    "blocks/setup-094.hex",
+    "blocks/setup-095.hex",
+    "blocks/setup-096.hex",
+    "blocks/setup-097.hex",
+    "blocks/setup-098.hex",
+    "blocks/setup-099.hex",
+    "blocks/setup-100.hex",
+    "blocks/setup-101.hex",
+    "blocks/setup-102.hex"
+  ],
+  "base_tip": "00e3e96fbfb6d7f384e20da0d09439381fba5bb193078557270937b5dbba08ba",
+  "regtest_deployments": {
+    "hash": "00e3e96fbfb6d7f384e20da0d09439381fba5bb193078557270937b5dbba08ba",
+    "height": 102,
+    "script_flags": [
+      "CHECKLOCKTIMEVERIFY",
+      "CHECKSEQUENCEVERIFY",
+      "DERSIG",
+      "NULLDUMMY",
+      "P2SH",
+      "TAPROOT",
+      "WITNESS"
+    ],
+    "deployments": {
+      "bip34": {
+        "type": "buried",
+        "active": true,
+        "height": 1
+      },
+      "bip66": {
+        "type": "buried",
+        "active": true,
+        "height": 1
+      },
+      "bip65": {
+        "type": "buried",
+        "active": true,
+        "height": 1
+      },
+      "csv": {
+        "type": "buried",
+        "active": true,
+        "height": 1
+      },
+      "segwit": {
+        "type": "buried",
+        "active": true,
+        "height": 0
+      },
+      "testdummy": {
+        "type": "bip9",
+        "active": false,
+        "bip9": {
+          "start_time": 0,
+          "timeout": 9223372036854775807,
+          "min_activation_height": 0,
+          "status": "defined",
+          "since": 0,
+          "status_next": "defined"
+        }
+      },
+      "taproot": {
+        "type": "bip9",
+        "height": 0,
+        "active": true,
+        "bip9": {
+          "start_time": -1,
+          "timeout": 9223372036854775807,
+          "min_activation_height": 0,
+          "status": "active",
+          "since": 0,
+          "status_next": "active"
+        }
+      }
+    }
+  },
+  "whole_key_dependency_trace": {
+    "iterations": [
+      {
+        "step": 0,
+        "funding_txid": "50e46e87f0eb07d1e63df0e2fb86b76d0571570e42a94277a9f9a1fabb343060",
+        "recovered_key": "02dd121b3f14ce5a2cf638c7e35f7e77a424fd7f120eb33b037ed70b13d8d40c2c",
+        "matches_commitment": false
+      },
+      {
+        "step": 1,
+        "funding_txid": "a6a9b0979b557b7c28e3f39518a4a3f6154ab06a898d48554019278982e87602",
+        "recovered_key": "030efa2c00390215d0ca44cf5e02fdfa1c530204ab44ac2cbbfc39c384dd1ca3e5",
+        "matches_commitment": false
+      },
+      {
+        "step": 2,
+        "funding_txid": "0d8f05dd1469cd2a3dcf1417a26be0542ae4922a7ac67a44cd1dbb9258b5b76d",
+        "recovered_key": "03a4be348748d63db9f9d4ade4c8ca2bb60cb1976b50739df156e1862b3b5a78bb",
+        "matches_commitment": false
+      },
+      {
+        "step": 3,
+        "funding_txid": "6e88b47587675390172ecc9fbddfdd635101ae50b3f7920583f6647b4d93b9e9",
+        "recovered_key": "020f86381769d9d766e45e643351b16a8e9ee5d69a1c7f0a56beb57d6eecd7a5c6",
+        "matches_commitment": false
+      },
+      {
+        "step": 4,
+        "funding_txid": "f85f54a4c84a1dffdeb5dd26a60ce411270c314b1bb2e5ec91df53ae9c1fb56b",
+        "recovered_key": "02c3cb556581b3f0ad36c12166f0a31ef7fee2e4c3c6694925be76fefb22e1d89d",
+        "matches_commitment": false
+      },
+      {
+        "step": 5,
+        "funding_txid": "c1d09fc8c0ae62d97c93dc6aee45ec3e8714ed8776ffa023995229fab44dde11",
+        "recovered_key": "03e3859c7875b9ed1ccb59daab7228907197669a49e6594b85d58389d9c6639256",
+        "matches_commitment": false
+      },
+      {
+        "step": 6,
+        "funding_txid": "090ca6708f87075c644e5f5fc144943ff7f2a40bf8480770a565674f11aaefb7",
+        "recovered_key": "036e89a2ee2689036a74bb1a748b840200837f54f0c28df4a97f77ea72d20ba834",
+        "matches_commitment": false
+      },
+      {
+        "step": 7,
+        "funding_txid": "4497f4d103f78b63c00616f905976d7c8988891440577e6e207bdb093aac855c",
+        "recovered_key": "03f9bd9c28beb060382a289f52369380e96811fdaf1816f98a48d9f94a3fd9e062",
+        "matches_commitment": false
+      }
+    ],
+    "solved": false,
+    "scope": "Unsigned hypothetical funding revisions illustrate the dependency; not a convergence bound or impossibility proof."
+  }
+}

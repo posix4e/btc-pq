@@ -1,0 +1,300 @@
+{
+  "consensus_modified": true,
+  "qsb_exact_reproduction": false,
+  "setup_blocks_per_node": 102,
+  "cases": [
+    {
+      "name": "b4-honest",
+      "toy_accepted": true,
+      "stock_accepted": false,
+      "reproduced": true,
+      "stock_submitblock_rejection": "block-script-verify-flag-failed (Attempted to use a disabled opcode)"
+    },
+    {
+      "name": "b4-changed-amount-stale-witness",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b4-changed-amount-recovered-keys-stale-proof-keys",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b4-wrong-hors-preimage",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b4-changed-subset-stale-key",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b4-duplicate-index",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b4-frozen-reuse-1",
+      "toy_accepted": true,
+      "stock_accepted": false,
+      "reproduced": true,
+      "stock_submitblock_rejection": "block-script-verify-flag-failed (Attempted to use a disabled opcode)"
+    },
+    {
+      "name": "b4-frozen-reuse-2",
+      "toy_accepted": true,
+      "stock_accepted": false,
+      "reproduced": true,
+      "stock_submitblock_rejection": "block-script-verify-flag-failed (Attempted to use a disabled opcode)"
+    },
+    {
+      "name": "b4-frozen-reuse-3",
+      "toy_accepted": true,
+      "stock_accepted": false,
+      "reproduced": true,
+      "stock_submitblock_rejection": "block-script-verify-flag-failed (Attempted to use a disabled opcode)"
+    },
+    {
+      "name": "b6-honest",
+      "toy_accepted": true,
+      "stock_accepted": false,
+      "reproduced": true,
+      "stock_submitblock_rejection": "block-script-verify-flag-failed (Attempted to use a disabled opcode)"
+    },
+    {
+      "name": "b6-changed-amount-stale-witness",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b6-changed-amount-recovered-keys-stale-proof-keys",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b6-wrong-hors-preimage",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b6-changed-subset-stale-key",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b6-duplicate-index",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b6-frozen-reuse-1",
+      "toy_accepted": true,
+      "stock_accepted": false,
+      "reproduced": true,
+      "stock_submitblock_rejection": "block-script-verify-flag-failed (Attempted to use a disabled opcode)"
+    },
+    {
+      "name": "b6-frozen-reuse-2",
+      "toy_accepted": true,
+      "stock_accepted": false,
+      "reproduced": true,
+      "stock_submitblock_rejection": "block-script-verify-flag-failed (Attempted to use a disabled opcode)"
+    },
+    {
+      "name": "b6-frozen-reuse-3",
+      "toy_accepted": true,
+      "stock_accepted": false,
+      "reproduced": true,
+      "stock_submitblock_rejection": "block-script-verify-flag-failed (Attempted to use a disabled opcode)"
+    },
+    {
+      "name": "b8-honest",
+      "toy_accepted": true,
+      "stock_accepted": false,
+      "reproduced": true,
+      "stock_submitblock_rejection": "block-script-verify-flag-failed (Attempted to use a disabled opcode)"
+    },
+    {
+      "name": "b8-changed-amount-stale-witness",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b8-changed-amount-recovered-keys-stale-proof-keys",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b8-wrong-hors-preimage",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b8-changed-subset-stale-key",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b8-duplicate-index",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b8-authorized-modified",
+      "toy_accepted": true,
+      "stock_accepted": false,
+      "reproduced": true,
+      "stock_submitblock_rejection": "block-script-verify-flag-failed (Attempted to use a disabled opcode)"
+    },
+    {
+      "name": "b12-honest",
+      "toy_accepted": true,
+      "stock_accepted": false,
+      "reproduced": true,
+      "stock_submitblock_rejection": "block-script-verify-flag-failed (Attempted to use a disabled opcode)"
+    },
+    {
+      "name": "b12-changed-amount-stale-witness",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b12-changed-amount-recovered-keys-stale-proof-keys",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b12-wrong-hors-preimage",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b12-changed-subset-stale-key",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b12-duplicate-index",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b12-authorized-modified",
+      "toy_accepted": true,
+      "stock_accepted": false,
+      "reproduced": true,
+      "stock_submitblock_rejection": "block-script-verify-flag-failed (Attempted to use a disabled opcode)"
+    },
+    {
+      "name": "b16-honest",
+      "toy_accepted": true,
+      "stock_accepted": false,
+      "reproduced": true,
+      "stock_submitblock_rejection": "block-script-verify-flag-failed (Attempted to use a disabled opcode)"
+    },
+    {
+      "name": "b16-changed-amount-stale-witness",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b16-changed-amount-recovered-keys-stale-proof-keys",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b16-wrong-hors-preimage",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b16-changed-subset-stale-key",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b16-duplicate-index",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b16-authorized-modified",
+      "toy_accepted": true,
+      "stock_accepted": false,
+      "reproduced": true,
+      "stock_submitblock_rejection": "block-script-verify-flag-failed (Attempted to use a disabled opcode)"
+    },
+    {
+      "name": "b20-honest",
+      "toy_accepted": true,
+      "stock_accepted": false,
+      "reproduced": true,
+      "stock_submitblock_rejection": "block-script-verify-flag-failed (Attempted to use a disabled opcode)"
+    },
+    {
+      "name": "b20-changed-amount-stale-witness",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b20-changed-amount-recovered-keys-stale-proof-keys",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b20-wrong-hors-preimage",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b20-changed-subset-stale-key",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b20-duplicate-index",
+      "toy_accepted": false,
+      "stock_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "b20-authorized-modified",
+      "toy_accepted": true,
+      "stock_accepted": false,
+      "reproduced": true,
+      "stock_submitblock_rejection": "block-script-verify-flag-failed (Attempted to use a disabled opcode)"
+    }
+  ],
+  "wall_seconds": 1.239022457972169
+}

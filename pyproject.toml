@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "btc-pq-research"
+version = "0.1.0"
+description = "Evidence-first Bitcoin Script transaction-binding research"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+btc-pq = "btc_pq.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["btc_pq*"]

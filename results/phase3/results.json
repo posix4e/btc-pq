@@ -1,0 +1,454 @@
+{
+  "schema_version": 1,
+  "scope": "isolated_regtest_public_test_data_only",
+  "experiment": "qsb_published_construction_exact_pinning_search",
+  "published_pipeline_validated": true,
+  "pinning_hit_found": false,
+  "regtest_spend_demonstrated": false,
+  "qsb_hash_to_der_end_to_end_demonstrated": false,
+  "secure_candidate_demonstrated": false,
+  "full_strength_demonstration": false,
+  "deployed_puzzle": {
+    "hash": "SHA256",
+    "opcode": "0xa8",
+    "sites": "pinning and both digest rounds",
+    "evidence": "validated re-execution of the published spend plus baseline Core 31.1 native verification",
+    "syntactic_work_bits": 45.42585923361415
+  },
+  "paper_text_puzzle": {
+    "hash": "RIPEMD160",
+    "syntactic_work_bits": 46.42538799564135,
+    "note": "The pinned paper text adopts RIPEMD-160 throughout; the deployed script uses SHA256."
+  },
+  "limitations": [
+    "The search covers only the pinning predicate; even a pinning hit could not be assembled into a regtest spend without the undisclosed HORS preimages and two further ~2^45.4 digest-round searches.",
+    "Candidate rates measure this CPU/implementation only; the expected-time rows are probability arithmetic, not measurements of a completed setup.",
+    "Native consensus and block acceptance are measured for funding only; no spend exists to relay or mine."
+  ],
+  "environment": {
+    "python": "3.14.7",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "processor": "arm64"
+  },
+  "consensus_changes": [],
+  "relay_policy_changes": [],
+  "searches": [
+    {
+      "wall_seconds": 125.29091600002721,
+      "candidates": 14336,
+      "candidate_unit": "transaction sequence variants",
+      "candidates_per_second": 114.42170316638827,
+      "key_trials": 28672,
+      "key_trials_per_second": 228.84340633277654,
+      "first_counter": 0,
+      "next_counter": 14336,
+      "found": false,
+      "der_passes": 0,
+      "der_pass_events": [],
+      "budget_exhausted": true,
+      "sequence_space_exhausted": false,
+      "implementation": "python: vendored pure-Python secp256k1 (vendor/qsb/v16/pipeline/secp256k1.py); P=u1*G per digest, Q=P+C_b per branch; hashlib SHA256; strict-DER port of Core IsValidSignatureEncoding plus r,s>0"
+    },
+    {
+      "candidates": 9999360,
+      "wall_seconds": 120.003458042,
+      "candidate_unit": "transaction sequence variants",
+      "candidates_per_second": 83325.59880483047,
+      "key_trials": 19998720,
+      "key_trials_per_second": 166651.19760966094,
+      "first_counter": 14336,
+      "next_counter": 10013696,
+      "found": false,
+      "der_passes": 0,
+      "budget_exhausted": true,
+      "sequence_space_exhausted": false,
+      "implementation": "native: btc-pq-phase3-search (libsecp256k1 from the unchanged Core 31.1 tree); same algorithm",
+      "vectors_checked": 64,
+      "vectors_mismatched": 0,
+      "synthetic_benchmark": {
+        "candidates": 200000,
+        "wall_seconds": 2.387440292,
+        "candidate_unit": "synthetic digest -> recovered keys -> SHA256 DER predicate",
+        "candidates_per_second": 83771.72852036293
+      },
+      "consensus_modified": false,
+      "der_pass_events": []
+    }
+  ],
+  "setup_blocks": [
+    "blocks/setup-001.hex",
+    "blocks/setup-002.hex",
+    "blocks/setup-003.hex",
+    "blocks/setup-004.hex",
+    "blocks/setup-005.hex",
+    "blocks/setup-006.hex",
+    "blocks/setup-007.hex",
+    "blocks/setup-008.hex",
+    "blocks/setup-009.hex",
+    "blocks/setup-010.hex",
+    "blocks/setup-011.hex",
+    "blocks/setup-012.hex",
+    "blocks/setup-013.hex",
+    "blocks/setup-014.hex",
+    "blocks/setup-015.hex",
+    "blocks/setup-016.hex",
+    "blocks/setup-017.hex",
+    "blocks/setup-018.hex",
+    "blocks/setup-019.hex",
+    "blocks/setup-020.hex",
+    "blocks/setup-021.hex",
+    "blocks/setup-022.hex",
+    "blocks/setup-023.hex",
+    "blocks/setup-024.hex",
+    "blocks/setup-025.hex",
+    "blocks/setup-026.hex",
+    "blocks/setup-027.hex",
+    "blocks/setup-028.hex",
+    "blocks/setup-029.hex",
+    "blocks/setup-030.hex",
+    "blocks/setup-031.hex",
+    "blocks/setup-032.hex",
+    "blocks/setup-033.hex",
+    "blocks/setup-034.hex",
+    "blocks/setup-035.hex",
+    "blocks/setup-036.hex",
+    "blocks/setup-037.hex",
+    "blocks/setup-038.hex",
+    "blocks/setup-039.hex",
+    "blocks/setup-040.hex",
+    "blocks/setup-041.hex",
+    "blocks/setup-042.hex",
+    "blocks/setup-043.hex",
+    "blocks/setup-044.hex",
+    "blocks/setup-045.hex",
+    "blocks/setup-046.hex",
+    "blocks/setup-047.hex",
+    "blocks/setup-048.hex",
+    "blocks/setup-049.hex",
+    "blocks/setup-050.hex",
+    "blocks/setup-051.hex",
+    "blocks/setup-052.hex",
+    "blocks/setup-053.hex",
+    "blocks/setup-054.hex",
+    "blocks/setup-055.hex",
+    "blocks/setup-056.hex",
+    "blocks/setup-057.hex",
+    "blocks/setup-058.hex",
+    "blocks/setup-059.hex",
+    "blocks/setup-060.hex",
+    "blocks/setup-061.hex",
+    "blocks/setup-062.hex",
+    "blocks/setup-063.hex",
+    "blocks/setup-064.hex",
+    "blocks/setup-065.hex",
+    "blocks/setup-066.hex",
+    "blocks/setup-067.hex",
+    "blocks/setup-068.hex",
+    "blocks/setup-069.hex",
+    "blocks/setup-070.hex",
+    "blocks/setup-071.hex",
+    "blocks/setup-072.hex",
+    "blocks/setup-073.hex",
+    "blocks/setup-074.hex",
+    "blocks/setup-075.hex",
+    "blocks/setup-076.hex",
+    "blocks/setup-077.hex",
+    "blocks/setup-078.hex",
+    "blocks/setup-079.hex",
+    "blocks/setup-080.hex",
+    "blocks/setup-081.hex",
+    "blocks/setup-082.hex",
+    "blocks/setup-083.hex",
+    "blocks/setup-084.hex",
+    "blocks/setup-085.hex",
+    "blocks/setup-086.hex",
+    "blocks/setup-087.hex",
+    "blocks/setup-088.hex",
+    "blocks/setup-089.hex",
+    "blocks/setup-090.hex",
+    "blocks/setup-091.hex",
+    "blocks/setup-092.hex",
+    "blocks/setup-093.hex",
+    "blocks/setup-094.hex",
+    "blocks/setup-095.hex",
+    "blocks/setup-096.hex",
+    "blocks/setup-097.hex",
+    "blocks/setup-098.hex",
+    "blocks/setup-099.hex",
+    "blocks/setup-100.hex",
+    "blocks/setup-101.hex",
+    "blocks/setup-102.hex"
+  ],
+  "published_validation": {
+    "spend_txid": "305a24ffea912b9cf428f29ebf952321c96dab5bab284fc0d0801562f5abab07",
+    "qsb_input_index": 1,
+    "funding_txid": "43d8d42e3c2b986cd3791eae6ee09775eab2b16b78705305ded2e7b45a23c8b4",
+    "funding_vout": 0,
+    "funding_value_sats": 10000,
+    "script": {
+      "bytes": 9923,
+      "static_non_push_opcodes": 181,
+      "max_push_bytes": 56,
+      "checksig_count": 4,
+      "checkmultisig_count": 2
+    },
+    "script_sha256": "d1cb69194e5e0720ff9eda420db67df6f2b54747ee9c90ff6b9450cffa51f56f",
+    "deployed_puzzle_hash": "SHA256",
+    "deployed_puzzle_opcode": "0xa8",
+    "paper_text_puzzle_hash": "RIPEMD160",
+    "ripemd160_key_nonce_hex": "6cad02e9a7a2b27605475a11b6dbdc78329dc2b8",
+    "ripemd160_key_nonce_strict_der": false,
+    "hors_equalverify_checks": 15,
+    "final_stack_depth": 569,
+    "pinning": {
+      "sig_nonce_hex": "3035022100cd5d30548bce1250c3c711be4b9a92d2716a8942d44d60954bfc8cd784658fa9021046a0e8dfe7826f5522c56def38a8f75e01",
+      "sighash_byte": 1,
+      "z_hex": "1a4ff1376ee605a8a5248e4ed87dea811eaf2a54a89b7bc7134c90c67843ae23",
+      "script_code_bytes": 9866,
+      "key_nonce_hex": "02d29877098cf377f3984877537a107f4efc448236f550a0f594eb3eb0e79c2879",
+      "key_nonce_recovery_branch": 0,
+      "key_puzzle_hex": "0301e1814a7c204a76c4147b102c3a134de15ff4f609e2e751ceebfcc00ad59508",
+      "sig_puzzle_hex": "301d020b136a32e061af495ec20443020e5f9b091a78bcb4d2756b58c06d0138",
+      "sig_puzzle_sighash_byte": 56,
+      "sig_puzzle_z_hex": "4d350dd901c3b071548c724686f17f22ad1416191d0a1fd0a3cbedbb4ca43640",
+      "sig_puzzle_strict_der": true,
+      "sig_puzzle_recovery_branch": 2
+    },
+    "digest_rounds": [
+      {
+        "round": 1,
+        "entries": 150,
+        "m": 10,
+        "n": 10,
+        "signed_selections": 8,
+        "bonus_selections": 1,
+        "script_code_bytes": 9776,
+        "subset_space": 82947113349100,
+        "subset_space_bits": 46.2372570082141,
+        "sig_nonce_hex": "303502201539bdca54159e70c1d9e68fdcaf904db236b632763dbacf81d8ee1f7c9c6af3021100b5dcc2e01b54b5cc19d65a8ccb70954e01",
+        "sig_nonce_z_hex": "bdd5606e81f552f3632cd4125cbc2557d72c3310f0183adfe159d7795ed19dca",
+        "sig_nonce_sighash_byte": 1,
+        "dummy_positions_multisig_order": [
+          139,
+          95,
+          74,
+          63,
+          50,
+          40,
+          30,
+          19,
+          11
+        ],
+        "hors_verified_positions": [
+          19,
+          30,
+          40,
+          50,
+          63,
+          74,
+          95,
+          139
+        ],
+        "bonus_positions": [
+          11
+        ],
+        "witness_index_pushes": [
+          12,
+          56,
+          77,
+          88,
+          101,
+          111,
+          121,
+          132,
+          140
+        ],
+        "auth_index_convention": "Earlier attempt indexed from the opposite table end: auth = 149 - position = witness_push - 2.",
+        "puzzle_signature_hex": "301d02087e5825e73edf35b3021144efa64235f362e70ccde623972e95671264",
+        "puzzle_z_hex": "055bc9c4976863ab4b5b7a31c7cb189b69c2cae800fe721f06c29357ecffff43",
+        "puzzle_key_hex": "02936c1fb78fb80d294554ddf53ba85de4a09eb4fc7355f57f1715e77f539c04a8"
+      },
+      {
+        "round": 2,
+        "entries": 150,
+        "m": 10,
+        "n": 10,
+        "signed_selections": 7,
+        "bonus_selections": 2,
+        "script_code_bytes": 9777,
+        "subset_space": 82947113349100,
+        "subset_space_bits": 46.2372570082141,
+        "sig_nonce_hex": "3034022039f0b8b2742c6b773f09d52ef1302a90258831ef7c26d7c5d3c256766148332902106a955d4cb904901b68d7eecdb5c0ecac01",
+        "sig_nonce_z_hex": "4b003ad06fce304536dd90b119055e9cddbafff632324127054053d6453ea780",
+        "sig_nonce_sighash_byte": 1,
+        "dummy_positions_multisig_order": [
+          144,
+          134,
+          124,
+          117,
+          113,
+          77,
+          70,
+          39,
+          8
+        ],
+        "hors_verified_positions": [
+          70,
+          77,
+          113,
+          117,
+          124,
+          134,
+          144
+        ],
+        "bonus_positions": [
+          8,
+          39
+        ],
+        "witness_index_pushes": [
+          7,
+          17,
+          27,
+          34,
+          38,
+          74,
+          81,
+          112,
+          143
+        ],
+        "auth_index_convention": "Earlier attempt indexed from the opposite table end: auth = 149 - position = witness_push - 2.",
+        "puzzle_signature_hex": "301d020167021877a8c3796744e45a952460b03945818d5d69b924072d7e4e93",
+        "puzzle_z_hex": "488ec16534fa6ba35f9b7e3621b66c98499bbe49e3cacec6c471de233b7ae6d2",
+        "puzzle_key_hex": "02eabe80543a5dce40dcbc2a0ed7340c7d2500afc86264bad10fd306e3fc02e170"
+      }
+    ]
+  },
+  "published_validation_wall_seconds": 0.4283249589498155,
+  "bounded_parameters": {
+    "search_variable": "input 1 nSequence (0x80000000|counter), nLockTime fixed at 0",
+    "input_count": 2,
+    "output_count": 1,
+    "sighash": "ALL with FindAndDelete(sig_nonce)",
+    "per_candidate_key_trials": 2,
+    "valid_recovery_branches": [
+      0,
+      1
+    ],
+    "max_candidates_per_implementation": 20000000,
+    "max_seconds_per_implementation": 120.0
+  },
+  "provenance": {
+    "pinned_reference_commit": "2c9172051d5c150ef0a994ca6b988a08a3ef9e85",
+    "source_sha256": {
+      "btc_pq/phase3.py": "462c57574b0645031491db8d3d31ef4dbfd6b50a6d8b8e9c08d8354e1a4349ad",
+      "btc_pq/cli.py": "d295b1287f940a0957c03d81d2853a1d0a85944b90ee026b17aaf1ea6146694a",
+      "btc_pq/bitcoin.py": "f2d05b8201675ba767b9f5b4528237d1417242bed34ee66af107ac220b852808",
+      "btc_pq/core.py": "287279c6e83817be2b7f3fdd4ea5c79553261c6a0af25c9fc3e68ae3a21ad766",
+      "vendor/qsb/paper/QSB.tex": "10e57297cc4fdb9f08e721bd7b7634a4bac778cd5a17ad7c4f87cc7a98cad083",
+      "native/phase3_search.cpp": "1e5433c078f7fa92c2edaaf942718affb99968c52255be55560e4593f1604eea",
+      ".cache/native-build/btc-pq-verify": "2f3a4bf5e413dd439cda4dc13bf1f946b766f012c1f9cd515a967cd0cfc95faa",
+      ".cache/native-build/btc-pq-phase3-search": "1c07d63d835ed87a156914787daea669f3c3e8b905faa23a82c97b00f032102b"
+    }
+  },
+  "core_version": 310100,
+  "node_isolation": {
+    "chain": "regtest",
+    "networkactive": false,
+    "listen": false,
+    "temporary_datadir": true
+  },
+  "funding": {
+    "wall_seconds": 0.6178909169975668,
+    "transaction": {
+      "txid": "d51fafb9b9354a0cda991a1ad9d28246da2fcb4633acca9eba821cd1ccd383ab",
+      "bytes": 10125,
+      "stripped_bytes": 10016,
+      "weight": 40173,
+      "vsize": 10044,
+      "input_script_bytes": [
+        0
+      ],
+      "output_script_bytes": [
+        9923,
+        22
+      ]
+    },
+    "native": {
+      "core_version": "31.1",
+      "scope": "linked_prevout_script_verification",
+      "flags": 134677,
+      "inputs": [
+        {
+          "index": 0,
+          "valid": true,
+          "error": "No error"
+        }
+      ],
+      "fee_sats": 10000,
+      "valid": true
+    },
+    "blockhash": "4fd41d972d04ac7876e6a6e9f61ff1d84f2ddbc24192429a98873ec28d08fc86",
+    "file": "funding.hex",
+    "funded_script_bytes": 9923,
+    "timing_scope": "101 maturity blocks, wallet signing, native verification, funding block"
+  },
+  "base_tip": "4fd41d972d04ac7876e6a6e9f61ff1d84f2ddbc24192429a98873ec28d08fc86",
+  "spend_template": {
+    "file": "spend-template.hex",
+    "transaction": {
+      "txid": "484c9ed5e6f271c481070825f12a750646f17e6addb086c6cdefa88e24543e24",
+      "bytes": 102,
+      "stripped_bytes": 102,
+      "weight": 408,
+      "vsize": 102,
+      "input_script_bytes": [
+        0,
+        0
+      ],
+      "output_script_bytes": [
+        1
+      ]
+    },
+    "fee_input": {
+      "txid": "089f7bae380441dab763663bc4551f3dc5942578f724930f3cdc40b227bcf447",
+      "vout": 0
+    },
+    "note": "Search template only: unsigned, never broadcast; sighash fields are fixed except input 1 nSequence."
+  },
+  "expected_time_model": {
+    "model": "probability arithmetic over the measured single-CPU rates; not a measurement of a completed search",
+    "per_key_trial_note": "Each candidate yields one SHA256 hash per valid recovery branch; the DER probability applies per key trial.",
+    "deployed_syntactic_work_bits": 45.42585923361415,
+    "paper_text_syntactic_work_bits": 46.42538799564135,
+    "rows": [
+      {
+        "implementation": "python",
+        "measured_key_trials_per_second": 228.84340633277654,
+        "expected_seconds_deployed": 206541727218.1349,
+        "expected_years_deployed": 6544.912389349472,
+        "expected_seconds_paper_text": 412948548017.4467,
+        "expected_years_paper_text": 13085.549852252601
+      },
+      {
+        "implementation": "native",
+        "measured_key_trials_per_second": 166651.19760966094,
+        "expected_seconds_deployed": 283620598.4979558,
+        "expected_years_deployed": 8.98739443107067,
+        "expected_seconds_paper_text": 567055945.1353643,
+        "expected_years_paper_text": 17.968918584916608
+      }
+    ]
+  },
+  "replay": {
+    "core_version": 310100,
+    "setup_blocks_replayed": 102,
+    "funding_native_valid": true,
+    "funded_script_matches_published": true,
+    "spend_cases": [],
+    "note": "No spend was assembled; the bounded search found no hit.",
+    "wall_seconds": 0.6384050829801708
+  },
+  "status": "bounded_search_exhausted_no_hit",
+  "reproduction_command": ".venv/bin/python -m btc_pq.cli phase3 --max-candidates 20000000 --max-seconds 120.0 --outdir results/phase3-rerun",
+  "total_wall_seconds": 252.5152337909676
+}

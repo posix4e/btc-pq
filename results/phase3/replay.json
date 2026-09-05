@@ -1,0 +1,8 @@
+{
+  "core_version": 310100,
+  "setup_blocks_replayed": 102,
+  "funding_native_valid": true,
+  "funded_script_matches_published": true,
+  "spend_cases": [],
+  "note": "No spend was assembled; the bounded search found no hit."
+}

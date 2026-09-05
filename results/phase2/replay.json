@@ -1,0 +1,54 @@
+{
+  "core_version": 310100,
+  "setup_blocks_replayed": 102,
+  "cases": [
+    {
+      "name": "honest",
+      "native_valid": true,
+      "block_accepted": true,
+      "reproduced": true
+    },
+    {
+      "name": "changed-amount-stale-witness",
+      "native_valid": false,
+      "block_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "changed-amount-recovered-keys-stale-proofs",
+      "native_valid": false,
+      "block_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "fixed-signature-reused-as-puzzle-proof",
+      "native_valid": false,
+      "block_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "wrong-hors-preimage",
+      "native_valid": false,
+      "block_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "changed-subset-correct-preimages-stale-digest-key",
+      "native_valid": false,
+      "block_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "duplicate-subset-index",
+      "native_valid": false,
+      "block_accepted": false,
+      "reproduced": true
+    },
+    {
+      "name": "changed-amount-fresh-search",
+      "native_valid": true,
+      "block_accepted": true,
+      "reproduced": true
+    }
+  ]
+}

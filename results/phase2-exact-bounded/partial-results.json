@@ -1,0 +1,322 @@
+{
+  "schema_version": 1,
+  "scope": "isolated_regtest_public_test_data_only",
+  "experiment": "qsb_hash_to_der_reduced_tables",
+  "full_strength_demonstration": false,
+  "qsb_hash_to_der_end_to_end_demonstrated": false,
+  "reduced_lifecycle_demonstrated": false,
+  "secure_candidate_demonstrated": false,
+  "parameters": {
+    "puzzle": "hash-to-der",
+    "reduced": true,
+    "digest_rounds": 1,
+    "published_digest_rounds": 2,
+    "table_entries_per_round": 48,
+    "signed_selections": 5,
+    "bonus_selections": 0,
+    "subset_space": 1712304,
+    "subset_space_bits": 20.70750742781426,
+    "published_table_entries_per_round": 150,
+    "published_signed_selections": [
+      8,
+      7
+    ],
+    "published_bonus_selections": [
+      1,
+      2
+    ],
+    "published_puzzle_work_approx_bits": 46.4,
+    "surrogate_exact_signature_bytes": null,
+    "surrogate_fixed_nonce_s_der_bytes": null,
+    "nominal_fixed_nonce_search_work_bits": null,
+    "nominal_work_is_probability_model": null,
+    "nominal_work_scope": null,
+    "puzzle_changes": [],
+    "fixed_signature_hex": "3025022079be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f8179802010101",
+    "fixed_signature_sighash": "ALL",
+    "surrogate_puzzle_sighash": null,
+    "single_bug_digest_hex": "0100000000000000000000000000000000000000000000000000000000000000",
+    "candidate_key_branch": "R=G; compressed key",
+    "public_nonce": 1,
+    "low_s_normalization": false,
+    "search_max_candidates_per_phase": 64,
+    "search_max_seconds_per_lifecycle": 10.0
+  },
+  "limitations": [
+    "All HORS preimages and test nonce material are public; no secret-key security is tested.",
+    "Only one digest round is compiled; no full-strength or quantum-security claim.",
+    "Native consensus and block acceptance are measured; relay policy acceptance is not measured."
+  ],
+  "environment": {
+    "python": "3.14.7",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "processor": "arm64"
+  },
+  "consensus_changes": [],
+  "relay_policy_changes": [],
+  "script": {
+    "bytes": 1769,
+    "static_non_push_opcodes": 133,
+    "max_push_bytes": 40,
+    "checksig_count": 3,
+    "checkmultisig_count": 1,
+    "counted_opcodes": 139,
+    "counted_opcodes_note": "Adds N for the executed N-of-N CHECKMULTISIGVERIFY."
+  },
+  "setup": {
+    "wall_seconds": 0.7587770000100136,
+    "candidates": 48,
+    "candidate_unit": "public table entries",
+    "candidates_per_second": 63.25969289971434
+  },
+  "lifecycles": [
+    {
+      "name": "honest",
+      "attempts": [
+        {
+          "pinning_search": {
+            "phase": "pinning_search",
+            "wall_seconds": 0.5508117499994114,
+            "candidates": 64,
+            "candidate_unit": "pinning_search",
+            "candidates_per_second": 116.19214731724294,
+            "found": false,
+            "budget_exhausted": true
+          }
+        }
+      ]
+    }
+  ],
+  "cases": [],
+  "setup_blocks": [
+    "blocks/setup-001.hex",
+    "blocks/setup-002.hex",
+    "blocks/setup-003.hex",
+    "blocks/setup-004.hex",
+    "blocks/setup-005.hex",
+    "blocks/setup-006.hex",
+    "blocks/setup-007.hex",
+    "blocks/setup-008.hex",
+    "blocks/setup-009.hex",
+    "blocks/setup-010.hex",
+    "blocks/setup-011.hex",
+    "blocks/setup-012.hex",
+    "blocks/setup-013.hex",
+    "blocks/setup-014.hex",
+    "blocks/setup-015.hex",
+    "blocks/setup-016.hex",
+    "blocks/setup-017.hex",
+    "blocks/setup-018.hex",
+    "blocks/setup-019.hex",
+    "blocks/setup-020.hex",
+    "blocks/setup-021.hex",
+    "blocks/setup-022.hex",
+    "blocks/setup-023.hex",
+    "blocks/setup-024.hex",
+    "blocks/setup-025.hex",
+    "blocks/setup-026.hex",
+    "blocks/setup-027.hex",
+    "blocks/setup-028.hex",
+    "blocks/setup-029.hex",
+    "blocks/setup-030.hex",
+    "blocks/setup-031.hex",
+    "blocks/setup-032.hex",
+    "blocks/setup-033.hex",
+    "blocks/setup-034.hex",
+    "blocks/setup-035.hex",
+    "blocks/setup-036.hex",
+    "blocks/setup-037.hex",
+    "blocks/setup-038.hex",
+    "blocks/setup-039.hex",
+    "blocks/setup-040.hex",
+    "blocks/setup-041.hex",
+    "blocks/setup-042.hex",
+    "blocks/setup-043.hex",
+    "blocks/setup-044.hex",
+    "blocks/setup-045.hex",
+    "blocks/setup-046.hex",
+    "blocks/setup-047.hex",
+    "blocks/setup-048.hex",
+    "blocks/setup-049.hex",
+    "blocks/setup-050.hex",
+    "blocks/setup-051.hex",
+    "blocks/setup-052.hex",
+    "blocks/setup-053.hex",
+    "blocks/setup-054.hex",
+    "blocks/setup-055.hex",
+    "blocks/setup-056.hex",
+    "blocks/setup-057.hex",
+    "blocks/setup-058.hex",
+    "blocks/setup-059.hex",
+    "blocks/setup-060.hex",
+    "blocks/setup-061.hex",
+    "blocks/setup-062.hex",
+    "blocks/setup-063.hex",
+    "blocks/setup-064.hex",
+    "blocks/setup-065.hex",
+    "blocks/setup-066.hex",
+    "blocks/setup-067.hex",
+    "blocks/setup-068.hex",
+    "blocks/setup-069.hex",
+    "blocks/setup-070.hex",
+    "blocks/setup-071.hex",
+    "blocks/setup-072.hex",
+    "blocks/setup-073.hex",
+    "blocks/setup-074.hex",
+    "blocks/setup-075.hex",
+    "blocks/setup-076.hex",
+    "blocks/setup-077.hex",
+    "blocks/setup-078.hex",
+    "blocks/setup-079.hex",
+    "blocks/setup-080.hex",
+    "blocks/setup-081.hex",
+    "blocks/setup-082.hex",
+    "blocks/setup-083.hex",
+    "blocks/setup-084.hex",
+    "blocks/setup-085.hex",
+    "blocks/setup-086.hex",
+    "blocks/setup-087.hex",
+    "blocks/setup-088.hex",
+    "blocks/setup-089.hex",
+    "blocks/setup-090.hex",
+    "blocks/setup-091.hex",
+    "blocks/setup-092.hex",
+    "blocks/setup-093.hex",
+    "blocks/setup-094.hex",
+    "blocks/setup-095.hex",
+    "blocks/setup-096.hex",
+    "blocks/setup-097.hex",
+    "blocks/setup-098.hex",
+    "blocks/setup-099.hex",
+    "blocks/setup-100.hex",
+    "blocks/setup-101.hex",
+    "blocks/setup-102.hex"
+  ],
+  "provenance": {
+    "pinned_reference_commit": "2c9172051d5c150ef0a994ca6b988a08a3ef9e85",
+    "source_sha256": {
+      "btc_pq/phase2.py": "79c41314ad3bc1906796d904027c2a662a07f65882baca8fdb34deb2e40cfa23",
+      "btc_pq/cli.py": "b93ea22242b7ca16d5cfc02cd5b4a5c1aa45679f7caba319df5dd3cf91c73488",
+      "btc_pq/bitcoin.py": "f2d05b8201675ba767b9f5b4528237d1417242bed34ee66af107ac220b852808",
+      "btc_pq/core.py": "00c9d36762520bfc65951ba2a488749a4f794db5e9a2be53019b3d626cf331f6",
+      "vendor/qsb/paper/QSB.tex": "10e57297cc4fdb9f08e721bd7b7634a4bac778cd5a17ad7c4f87cc7a98cad083",
+      ".cache/native-build/btc-pq-verify": "2f3a4bf5e413dd439cda4dc13bf1f946b766f012c1f9cd515a967cd0cfc95faa"
+    },
+    "fixed_difficulty_reference": "vendor/qsb/paper/QSB.tex: Fixed puzzle difficulty; no knob to tune",
+    "surrogate_is_hash_to_signature": null
+  },
+  "core_version": 310100,
+  "node_isolation": {
+    "chain": "regtest",
+    "networkactive": false,
+    "listen": false,
+    "temporary_datadir": true
+  },
+  "funding": {
+    "wall_seconds": 0.5650247089797631,
+    "candidates": null,
+    "candidate_unit": null,
+    "candidates_per_second": null,
+    "transaction": {
+      "txid": "089dadd7654efbb856747562d95fea563dfa22dc0b7878187cc99b7355532357",
+      "bytes": 1981,
+      "stripped_bytes": 1872,
+      "weight": 7597,
+      "vsize": 1900,
+      "input_script_bytes": [
+        0
+      ],
+      "output_script_bytes": [
+        1,
+        1769,
+        22
+      ]
+    },
+    "native": {
+      "core_version": "31.1",
+      "scope": "linked_prevout_script_verification",
+      "flags": 134677,
+      "inputs": [
+        {
+          "index": 0,
+          "valid": true,
+          "error": "No error"
+        }
+      ],
+      "fee_sats": 10000,
+      "valid": true
+    },
+    "blockhash": "3c1e11aa2e12d639be118cdef85ef5d8f123084a2c1c73c7d5cc9e39cc4d81ce",
+    "file": "funding.hex",
+    "timing_scope": "101 maturity blocks, wallet signing, native verification, funding block"
+  },
+  "base_tip": "3c1e11aa2e12d639be118cdef85ef5d8f123084a2c1c73c7d5cc9e39cc4d81ce",
+  "regtest_deployments": {
+    "hash": "3c1e11aa2e12d639be118cdef85ef5d8f123084a2c1c73c7d5cc9e39cc4d81ce",
+    "height": 102,
+    "script_flags": [
+      "CHECKLOCKTIMEVERIFY",
+      "CHECKSEQUENCEVERIFY",
+      "DERSIG",
+      "NULLDUMMY",
+      "P2SH",
+      "TAPROOT",
+      "WITNESS"
+    ],
+    "deployments": {
+      "bip34": {
+        "type": "buried",
+        "active": true,
+        "height": 1
+      },
+      "bip66": {
+        "type": "buried",
+        "active": true,
+        "height": 1
+      },
+      "bip65": {
+        "type": "buried",
+        "active": true,
+        "height": 1
+      },
+      "csv": {
+        "type": "buried",
+        "active": true,
+        "height": 1
+      },
+      "segwit": {
+        "type": "buried",
+        "active": true,
+        "height": 0
+      },
+      "testdummy": {
+        "type": "bip9",
+        "active": false,
+        "bip9": {
+          "start_time": 0,
+          "timeout": 9223372036854775807,
+          "min_activation_height": 0,
+          "status": "defined",
+          "since": 0,
+          "status_next": "defined"
+        }
+      },
+      "taproot": {
+        "type": "bip9",
+        "height": 0,
+        "active": true,
+        "bip9": {
+          "start_time": -1,
+          "timeout": 9223372036854775807,
+          "min_activation_height": 0,
+          "status": "active",
+          "since": 0,
+          "status_next": "active"
+        }
+      }
+    }
+  },
+  "failure": "phase2 search budget exhausted; no solution fabricated",
+  "status": "incomplete",
+  "total_wall_seconds": 2.4814936670009047
+}

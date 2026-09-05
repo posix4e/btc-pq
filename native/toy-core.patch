@@ -1,0 +1,88 @@
+--- a/src/script/interpreter.h
++++ b/src/script/interpreter.h
+@@ -145,6 +145,9 @@
+     // Making unknown public key versions (in BIP 342 scripts) non-standard
+     SCRIPT_VERIFY_DISCOURAGE_UPGRADABLE_PUBKEYTYPE,
+ 
++    // Experimental hard-fork flag. REGTEST ONLY; not a Bitcoin consensus rule.
++    SCRIPT_VERIFY_BTC_PQ_TOY,
++
+     // Constants to point to the highest flag in use. Add new flags above this line.
+     //
+     SCRIPT_VERIFY_END_MARKER
+--- a/src/script/interpreter.cpp
++++ b/src/script/interpreter.cpp
+@@ -4,6 +4,7 @@
+ // file COPYING or http://www.opensource.org/licenses/mit-license.php.
+ 
+ #include <script/interpreter.h>
++#include <script/btc_pq_toy.h>
+ 
+ #include <crypto/ripemd160.h>
+ #include <crypto/sha1.h>
+@@ -454,7 +455,7 @@
+                 }
+             }
+ 
+-            if (opcode == OP_CAT ||
++            if ((opcode == OP_CAT && (!(flags & SCRIPT_VERIFY_BTC_PQ_TOY) || sigversion != SigVersion::BASE)) ||
+                 opcode == OP_SUBSTR ||
+                 opcode == OP_LEFT ||
+                 opcode == OP_RIGHT ||
+@@ -1019,6 +1020,23 @@
+                 //
+                 // Crypto
+                 //
++                // Experimental opcode 0x7e: <compressed Q> <bits> -> <DER sig>.
++                // Stock Bitcoin disables this byte; this is NOT OP_CAT support.
++                case OP_CAT:
++                {
++                    if (!(flags & SCRIPT_VERIFY_BTC_PQ_TOY) || sigversion != SigVersion::BASE)
++                        return set_error(serror, SCRIPT_ERR_DISABLED_OPCODE);
++                    if (stack.size() < 2) return set_error(serror, SCRIPT_ERR_INVALID_STACK_OPERATION);
++                    const auto bits = CScriptNum(stacktop(-1), true).getint();
++                    valtype sig;
++                    if (bits < 1 || bits > 24 || !BtcPqToySignature(stacktop(-2), bits, sig))
++                        return set_error(serror, SCRIPT_ERR_VERIFY);
++                    popstack(stack);
++                    popstack(stack);
++                    stack.push_back(sig);
++                    break;
++                }
++
+                 case OP_RIPEMD160:
+                 case OP_SHA1:
+                 case OP_SHA256:
+@@ -2188,6 +2206,7 @@
+         FLAG_NAME(CONST_SCRIPTCODE),
+         FLAG_NAME(TAPROOT),
+         FLAG_NAME(DISCOURAGE_UPGRADABLE_PUBKEYTYPE),
++        FLAG_NAME(BTC_PQ_TOY),
+         FLAG_NAME(DISCOURAGE_OP_SUCCESS),
+         FLAG_NAME(DISCOURAGE_UPGRADABLE_TAPROOT_VERSION),
+     };
+--- a/src/validation.cpp
++++ b/src/validation.cpp
+@@ -2289,6 +2289,10 @@
+         flags |= SCRIPT_VERIFY_NULLDUMMY;
+     }
+ 
++    // Explicit experimental consensus: never enabled on another chain.
++    if (chainman.GetParams().GetChainType() == ChainType::REGTEST) {
++        flags |= SCRIPT_VERIFY_BTC_PQ_TOY;
++    }
+     return flags;
+ }
+ 
+--- a/src/init.cpp
++++ b/src/init.cpp
+@@ -938,6 +938,9 @@
+     // specified in default section of config file, but not overridden
+     // on the command line or in this chain's section of the config file.
+     ChainType chain = args.GetChainType();
++    if (chain != ChainType::REGTEST) {
++        return InitError(Untranslated("BTC-PQ TOY CONSENSUS BUILD: regtest only"));
++    }
+     if (chain == ChainType::SIGNET) {
+         LogInfo("Signet derived magic (message start): %s", HexStr(chainparams.MessageStart()));
+     }
